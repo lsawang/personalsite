@@ -1384,8 +1384,11 @@ class Component extends DCLogic {
   }
 
   onMouseMove(e) {
-    if (this._cursor) this._cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-    this.spawnTrail(e);
+   onMouseMove(e) {
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  if (this._cursor) this._cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+  this.spawnTrail(e);
     if (this._flake) {
       if (!this._footer || !this._footer.isConnected) this._footer = document.querySelector('footer');
       let dark = false;
