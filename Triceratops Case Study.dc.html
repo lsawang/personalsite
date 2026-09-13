@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #FCFCFB; }
+  * { box-sizing: border-box; }
+  a { color: #2F6B4A; }
+  a:hover { color: #12314A; }
+  img, video, iframe { max-width: 100%; }
+  .mono { font-family:'IBM Plex Mono',monospace; }
+  @media (max-width: 860px) {
+    [data-r="casenav"] { position: static !important; flex: 1 1 100% !important; min-width: 0 !important; padding-bottom: 0 !important; padding-right: clamp(20px,4.5vw,80px) !important; }
+    [data-r="casenav"] nav { display: none !important; }
+    [data-r="casenav"] > a { margin-bottom: 0 !important; }
+  }
+</style>
+</helmet>
+<div style="font-family:'Space Grotesk',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh;">
+  <div style="position:fixed; top:0; left:0; right:0; height:3px; background:rgba(18,49,74,0.07); z-index:70;">
+    <div style="height:100%; background:#2F6B4A; width:{{ progressWidth }}; transition:width 0.12s linear;"></div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; max-width:1480px; margin:0 auto; align-items:flex-start;">
+
+    <aside data-r="casenav" style="position:sticky; top:0; align-self:flex-start; flex:0 1 210px; min-width:150px; padding:clamp(28px,4vw,52px) 0 40px clamp(18px,3vw,40px); ">
+      <a href="Portfolio.dc.html" style="display:block; font-size:14.5px; color:#9AA4AE; text-decoration:none; margin-bottom:34px;" style-hover="color:#12314A;">← Home</a>
+      <nav style="display:flex; flex-direction:column; gap:15px;">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="9">
+          <a href="{{ n.href }}" onClick="{{ n.onClick }}" style="{{ n.style }}" style-hover="color:#12314A;">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+    </aside>
+
+    <main style="flex:1 1 min(100%, 520px); min-width:0; min-width:0; padding:clamp(28px,4vw,52px) clamp(20px,4.5vw,80px) clamp(80px,10vw,130px); max-width:1000px;">
+
+      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; margin-bottom:clamp(40px,5vw,60px);">
+        <div style="width:100%; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#EFEFEC; margin:0 0 clamp(26px,3.4vw,40px); box-shadow:0 22px 44px -26px #12314A44;">
+          <img src="assets/tri-hero-laptop3.png" alt="Triceratops website shown across three screens" style="display:block; width:100%; height:auto;" />
+        </div>
+        <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 18px; font-weight:700; display:inline-flex; align-items:center; gap:9px;"><span style="width:12px; height:12px; background:#2F6B4A; display:inline-block;"></span>Case Study 01 · In progress</p>
+        <h1 style="font-size:clamp(38px,5.6vw,70px); font-weight:600; letter-spacing:-0.035em; line-height:1.03; margin:0 0 22px;">Triceratops</h1>
+        <p style="font-size:clamp(19px,2.2vw,28px); line-height:1.35; letter-spacing:-0.015em; margin:0 0 20px; max-width:32ch;">Building a website for a client we know and love.</p>
+        <p style="font-size:17px; line-height:1.7; color:#3F5A70; margin:0; text-wrap:pretty;">Our team of 6 <strong style="font-weight:600; color:#12314A;">designed and developed</strong> the website for a UC Davis club that loves dinos, where we turned a Discord and Instagram-ran operation into something a first-year can <strong style="font-weight:600; color:#12314A;">find &amp; understand</strong> on their first visit.</p>
+      </section>
+
+      <div role="tablist" aria-label="Case study track" style="display:inline-flex; gap:4px; padding:4px; background:#F0F2EE; border:1.5px solid #E4E6E2; border-radius:100px; margin-bottom:clamp(40px,5vw,60px);">
+        <button role="tab" aria-selected="{{ designSelected }}" onClick="{{ showDesign }}" style="{{ designTabStyle }}">Design</button>
+        <button role="tab" aria-selected="{{ devSelected }}" onClick="{{ showDev }}" style="{{ devTabStyle }}">Development</button>
+      </div>
+
+      <sc-if value="{{ isDev }}" hint-placeholder-val="{{ false }}">
+        <section id="devtrack" data-screen-label="10 Development" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+          <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Development</p>
+          <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:30ch;">Work in progress</h2>
+          <div style="border:1.5px dashed #C9CFC7; border-radius:12px; padding:clamp(26px,3.6vw,44px); background:#F8F9F7;">
+            <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; max-width:52ch; text-wrap:pretty;">Coming soon...</p>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ isDesign }}" hint-placeholder-val="{{ true }}">
+
+      <section id="overview" data-screen-label="01 Overview" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Overview</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 26px; max-width:38ch;">Triceratops is a UC Davis club that crochets dinosaurs and hides them around campus to be found and collected.</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">Our client relies on Instagram for reach and Discord for everything else. This includes drop announcements, rules, flash sales, and trading. Previously, there was <strong style="font-weight:600; color:#12314A;">no website</strong>, so anyone outside the Discord had no way in.</p>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">I work with my team of six, my role consists of not only the design, research, and aesthetics of the site, but also the <strong style="font-weight:600; color:#12314A;">development and creation of it all.</strong></p>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,40px); text-wrap:pretty;"><em>This project is still an ongoing project with the club, as we are still iterating and developing the site.</em></p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:22px clamp(40px,7vw,80px); padding-top:24px; border-top:1px solid #E9E9E6;">
+          <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
+            <div>
+              <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0 0 8px;">{{ d.label }}</p>
+              <p style="font-size:14.5px; line-height:1.5; margin:0; font-weight:600;">{{ d.value }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:22px;">
+          <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0 0 10px;">The team</p>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px;">
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Jared Martinez</strong> <span style="color:#9AA4AE;">·</span> Team Lead</li>
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Leif Caratiquit</strong></li>
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Anqi Su</strong></li>
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Nathan Salas</strong></li>
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Lyanna Nguyen</strong></li>
+            <li style="font-size:14.5px; line-height:1.4; color:#3F5A70; background:#F4F5F3; border:1px solid #E4E6E2; border-radius:100px; padding:7px 14px; white-space:nowrap;"><strong style="font-weight:600; color:#12314A;">Lisa Wang</strong></li>
+          </ul>
+        </div>
+        <h3 style="font-size:19px; font-weight:600; letter-spacing:-0.014em; margin:clamp(30px,4vw,44px) 0 16px;">My contributions to this project</h3>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 22px; text-wrap:pretty;">Triceratops is a group project, so this section separates the team’s work from mine. My contributions included research synthesis, information architecture, the visual system, and creating the actual <strong style="font-weight:600; color:#12314A;">Rules page</strong>.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
+            <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">01</span>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Research</strong> &mdash; I ideated the cohorts we were targeting, interviewed potential candidates, created a SWOT analysis while researching competitors, and conducted usability tests.</p>
+          </div>
+          <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
+            <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">02</span>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Design</strong> &mdash; For this project, I was in charge of designing and creating the Rules page. With the design system, I drew low-fidelity sketches, developed them into mid-fi’s, and with feedback from user-testing, revised and enhanced the final versions of the hi-fi’s.</p>
+          </div>
+          <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
+            <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">03</span>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Components &amp; Assets</strong> &mdash; I created several components and assets for this project which were utilized in the making of the site.</p>
+          </div>
+          <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
+            <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">04</span>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Development</strong> &mdash; <em>Work in progress:</em> Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="problem" data-screen-label="02 Problem" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Problem</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:36ch;">Nobody could explain how to participate, including people who already had</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">Rules live in multiple, scattered Discord channels. The post-claim process is nowhere, and the Instagram-to-Discord handoff is invisible. Newcomers also had <strong style="font-weight:600; color:#12314A;">three common misconceptions</strong> of the club: you need to crochet, that meetings are mandatory, and that it costs money.</p>
+        <h3 style="font-size:19px; font-weight:600; margin:0 0 16px;">Why this matters</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+          <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px;">
+            <p style="font-size:17px; font-weight:600; margin:0 0 8px;">Access</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Word-of-mouth</strong> is the main source of information for new members, so anyone without friends on the inside remains outside.</p>
+          </div>
+          <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px;">
+            <p style="font-size:17px; font-weight:600; margin:0 0 8px;">Retention</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">The members need ways of <strong style="font-weight:600; color:#12314A;">involvement</strong> that go beyond drops, but such opportunities are hidden in Discord servers.</p>
+          </div>
+        </div>
+        <div style="border:1.5px solid #2F6B4A; border-radius:12px; padding:clamp(28px,4vw,52px); text-align:center; margin-top:clamp(30px,4vw,44px);">
+          <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0 0 18px;">Guiding question</p>
+          <p style="font-size:clamp(20px,2.5vw,28px); font-weight:600; letter-spacing:-0.018em; line-height:1.3; margin:0;">How might we make joining a dino hunt <span style="color:#2F6B4A;">obvious to someone who has never heard of the club?</span></p>
+        </div>
+      </section>
+
+      <section id="research" data-screen-label="03 Research" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Research</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:34ch;">Understanding the club from three perspectives</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">We ran interviews and three survey cohorts, sorting every participant by how close or far they already were to the club. The three different views of the same set of questions served to differentiate <strong style="font-weight:600; color:#12314A;">onboarding issues from member-related issues.</strong></p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:clamp(26px,3.4vw,40px);">
+          <sc-for list="{{ cohorts }}" as="c" hint-placeholder-count="3">
+            <div style="background:#F4F5F3; border-radius:12px; padding:20px 22px;">
+              <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">{{ c.title }}</p>
+              <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; text-wrap:pretty;">{{ c.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+
+        <h3 style="font-size:19px; font-weight:600; margin:0 0 16px;">Insights</h3>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:clamp(26px,3.4vw,40px);">
+          <sc-for list="{{ insights }}" as="i" hint-placeholder-count="4">
+            <div style="background:#F4F5F3; border-radius:12px; padding:20px 24px;">
+              <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">{{ i.title }}</p>
+              <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">{{ i.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+          <img src="assets/tri-affinity.png" alt="Affinity map with clustered themes" style="display:block; width:100%; aspect-ratio:3324/1326; object-fit:contain; object-position:center; background:#FFFFFF; padding:12px; box-sizing:border-box;" />
+        </div>
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:14px 0 clamp(26px,3.4vw,40px); text-align:center;">Affinity map</p>
+
+        <h3 style="font-size:19px; font-weight:600; margin:0 0 16px;">Who we designed for</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
+          <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px;">
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 10px;">Primary</p>
+            <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">Kenzie, first-year</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">Joined the club on Instagram, then the Discord, then nothing much. Wants to learn about how the hunts take place and how she can fit into the club.</p>
+          </div>
+          <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px;">
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 10px;">Secondary</p>
+            <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">Caleb, fourth-year</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">An active member who desires for drop scheduling, rules, and activities other than drop besides browsing through the channels.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ideation" data-screen-label="04 Ideation" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Ideation</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:34ch;">Skim first, depth underneath</h2>
+        <div style="display:grid; gap:16px; margin-bottom:26px;">
+          <figure style="margin:0; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+            <img src="assets/tri-ia.png" alt="Information architecture" style="display:block; width:100%; aspect-ratio:3260/1312; object-fit:contain; object-position:center; padding:14px; box-sizing:border-box;" />
+            <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; padding:11px 16px; border-top:1px solid #EDEFEB; background:#FAFBF9;">Information architecture</figcaption>
+          </figure>
+          <figure style="margin:0; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+            <img src="assets/tri-flows.png" alt="User flow diagram" style="display:block; width:100%; aspect-ratio:980/674; max-height:420px; object-fit:contain; object-position:center; padding:14px; box-sizing:border-box;" />
+            <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; padding:11px 16px; border-top:1px solid #EDEFEB; background:#FAFBF9;">User flows</figcaption>
+          </figure>
+        </div>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; text-wrap:pretty;">Someone should be able to skim what the club is and know how a drop works <strong style="font-weight:600; color:#12314A;">initially</strong>, then go deeper if they want. We mapped the site into four areas and drew flows for the two journeys that mattered: <strong style="font-weight:600; color:#12314A;">joining for the first time, and claiming a dino you just found.</strong></p>
+      </section>
+
+      <section id="system" data-screen-label="05 Design System" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Design System</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:34ch;">Because we build it too, the system had to be handoff-proof</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, "like a crayon box."</strong> Alongside that, we followed the client's own visual needs and wants for the site. We established the typography scales for both desktop and mobile platforms, a UI color palette complete with contrast ratios, radii, grids, and states for buttons.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; align-items:start;">
+          <div>
+            <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+              <img src="assets/tri-ds-type.png" alt="Typography scale" style="display:block; width:100%; height:300px; object-fit:contain; object-position:center; background:#FFFFFF; padding:12px; box-sizing:border-box;" />
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">Typography scale</p>
+          </div>
+          <div>
+            <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+              <img src="assets/tri-ds-color.png" alt="Color palette" style="display:block; width:100%; height:300px; object-fit:contain; object-position:center; background:#FFFFFF; padding:12px; box-sizing:border-box;" />
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">Color palette</p>
+          </div>
+          <div>
+            <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+              <img src="assets/tri-ds-buttons.png" alt="Desktop button components" style="display:block; width:100%; height:300px; object-fit:contain; object-position:center; background:#FFFFFF; padding:12px; box-sizing:border-box;" />
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">Button components</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="exploration" data-screen-label="06 Design Exploration" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Design Exploration</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:34ch;">I designed too much, had to remind myself that simpler is better</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">My first hi-fi design leaned on animations mostly: hover states on every card, pop-ups, and reveal animations. Put together, they made the page <strong style="font-weight:600; color:#12314A;">busy and caused too much friction</strong>. This was also said in the usability tests. This did not appeal to the club’s vision they wanted. <strong style="font-weight:600; color:#12314A;">Simpler held up better.</strong></p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
+          <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px; border:1.5px solid #E4E6E2;">
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A4A; margin:0 0 12px; font-weight:700;">&#10007; Rejected</p>
+            <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">Animation on everything</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">Hover effects, pop-ups, and animated reveals across the page. Fun in isolation, but stacked together they lowered the premium feel and pulled attention away from the content people came for.</p>
+          </div>
+          <div style="background:#F1F7F1; border-radius:12px; padding:22px 24px; border:1.5px solid #2F6B4A;">
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 12px; font-weight:700;">&#10003; Chosen</p>
+            <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">Animations where it made sense</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;">Kept the whimsy in illustration, color, and copy, and reserved motion for a few deliberate moments. There is such a thing as too much, and restraint is what made the site feel finished.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="testing" data-screen-label="07 Testing" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Testing</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:36ch;">Testers found the Rules page. They could not find the part they needed.</h2>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">The initial page I designed was <strong style="font-weight:600; color:#12314A;">intuitive for almost everyone.</strong> The labels and sections were good but the hierarchy wasn&rsquo;t. The page itself was <strong style="font-weight:600; color:#12314A;">too lengthy causing scrolling fatigue</strong> and the post-claim steps sat at the bottom. Some testers also stated that they thought the steps would&rsquo;ve been in the Getting Started page. Testers also noted that the <strong style="font-weight:600; color:#12314A;">visual background wasn&rsquo;t ideal</strong> and were not a fan of the gradient.</p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:clamp(26px,3.4vw,40px);">
+          <sc-for list="{{ changes }}" as="c" hint-placeholder-count="4">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:8px 24px; background:#F4F5F3; border-radius:12px; padding:18px 22px;">
+              <p style="font-size:16.5px; font-weight:600; margin:0;">{{ c.label }}</p>
+              <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; text-wrap:pretty;">{{ c.change }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:18px;">
+          <span style="font-size:14.5px; font-weight:600; color:{{ beforeColor }};">Before (Hi-fi V1)</span>
+          <button onClick="{{ toggleFidelity }}" aria-label="Toggle before and after" style="width:52px; height:28px; border-radius:100px; border:1.5px solid #C9CFC7; background:{{ knobTrack }}; padding:2px; cursor:pointer; display:inline-flex; align-items:center; justify-content:flex-start; transition:background 0.25s ease;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#FFFFFF; box-shadow:0 1px 3px #12314A44; display:block; transform:translateX({{ knobX }}); transition:transform 0.25s ease;"></span>
+          </button>
+          <span style="font-size:14.5px; font-weight:600; color:{{ afterColor }};">After (Hi-fi V2)</span>
+        </div>
+        <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0 0 12px;">Scroll the frame to see the full page</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; align-items:start; max-width:760px;">
+          <div>
+            <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow-y:auto; overflow-x:hidden; height:460px; background:#FFFFFF; max-width:330px;">
+              <img src="assets/tri-midfi-clean.png" alt="Mid-fi screens" style="display:block; width:100%; height:auto;" />
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">Mid-fi, for reference</p>
+          </div>
+          <div>
+            <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:12px; overflow-y:auto; overflow-x:hidden; height:460px; background:#FFFFFF; max-width:330px;">
+              <img src="assets/tri-hifi-v2.png" alt="Hi-fi V1 screens" style="display:block; width:100%; height:auto; opacity:{{ beforeOpacity }}; transition:opacity 0.3s ease;" />
+              <img src="assets/tri-hifi-v1.png" alt="Hi-fi V2 screens" style="position:absolute; top:0; left:0; display:block; width:100%; height:auto; opacity:{{ afterOpacity }}; transition:opacity 0.3s ease;" />
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">{{ fidelityCaption }}</p>
+          </div>
+        </div>
+        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:clamp(26px,3.4vw,36px) 0 0; text-wrap:pretty;">For my Hi-Fi V1, I created a solution for the scrolling-fatigue and length with pop up cards that opened up and overlayed when clicking the rectangle boxes. This was good length-wise, but my lead noted that it <strong style="font-weight:600; color:#12314A;">caused friction</strong> and suggested that it was better to have the rules seen <strong style="font-weight:600; color:#12314A;">initially and directly.</strong> My V1 also did not match the rest of the pages as well since we were playing around with themes, so I went ahead and followed our set design system afterwards.</p>
+      </section>
+
+      <section id="insights" data-screen-label="08 Insights" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <div style="background:#F4F5F3; border:1.5px solid #E4E6E2; border-radius:12px; padding:clamp(22px,3vw,32px);">
+          <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 14px;">Insights</p>
+          <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; text-wrap:pretty;">Receiving feedback from not only user-testing, but from a lead and the client itself was such an <strong style="font-weight:600; color:#12314A;">interesting yet positive experience.</strong> Perspectives from all 3 point-of-views led to learning new things every time, hearing feedback and suggestions that I would&rsquo;ve never noticed myself, and growing and changing little by little as a designer. I value every opportunity to improve as a designer and I also learned so much more about all the platforms I used during this project.</p>
+        </div>
+      </section>
+
+      <section id="solution" data-screen-label="09 Final Solution" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Final Solution</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 26px; max-width:34ch;">A public site that answers questions so the Discord doesn’t need to anymore.</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px;">
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+            <div style="background:#F4F5F3; border-radius:12px; padding:20px 22px;">
+              <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">{{ a.name }}</p>
+              <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; text-wrap:pretty;">{{ a.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:clamp(34px,4.4vw,52px) 0 0; padding-top:clamp(26px,3.4vw,38px); border-top:1px solid #E9E9E6;">To be continued&hellip;</p>
+      </section>
+
+
+      </sc-if>
+
+
+
+
+
+      <div style="padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+        <a href="Portfolio.dc.html" style="background:#12314A; color:#F4FAFD; padding:14px 22px; border:2px solid #12314A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">← Back to portfolio</a>
+        <a href="CycleFind Case Study.dc.html" style="background:#2F6B4A; color:#F1F7F1; padding:14px 22px; border:2px solid #2F6B4A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Next case study →</a>
+        <a href="mailto:lsawang@ucdavis.edu" style="border:2px solid #12314A; color:#12314A; padding:14px 22px; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Get in touch</a>
+      </div>
+
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { after: false, track: 'design', active: 'overview', pct: 0 };
+
+  componentDidMount() {
+    this.ids = ['overview','problem','research','ideation','system','exploration','testing','solution'];
+    this.onScroll = () => {
+      let cur = this.ids[0];
+      for (const id of this.ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) cur = id;
+      }
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+      if (cur !== this.state.active || Math.abs(pct - this.state.pct) > 0.2) {
+        this.setState({ active: cur, pct });
+      }
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  tabStyle(active) {
+    return {
+      background: active ? '#2F6B4A' : 'transparent',
+      color: active ? '#F1F7F1' : '#5C6B60',
+      border: 'none',
+      borderRadius: '100px',
+      padding: '11px 26px',
+      fontFamily: "'Space Grotesk', sans-serif",
+      fontSize: '14.5px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      transition: 'background 0.22s ease, color 0.22s ease',
+    };
+  }
+
+  jumpToSection(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
+    const go = () => {
+      const el = document.getElementById(id);
+      if (el) window.scrollTo({ top: el.offsetTop - 20 });
+    };
+    this.setState({ track: 'design' }, () => { go(); setTimeout(go, 0); });
+  }
+
+  renderVals() {
+    const after = this.state.after;
+    return {
+      toggleFidelity: () => this.setState((s) => ({ after: !s.after })),
+      isDesign: this.state.track !== 'dev',
+      isDev: this.state.track === 'dev',
+      designSelected: this.state.track !== 'dev',
+      devSelected: this.state.track === 'dev',
+      designTabStyle: this.tabStyle(this.state.track !== 'dev'),
+      devTabStyle: this.tabStyle(this.state.track === 'dev'),
+      showDesign: () => this.setState({ track: 'design' }),
+      showDev: () => this.setState({ track: 'dev' }),
+      beforeOpacity: after ? 0 : 1,
+      afterOpacity: after ? 1 : 0,
+      beforeColor: after ? '#9AA4AE' : '#12314A',
+      afterColor: after ? '#12314A' : '#9AA4AE',
+      knobX: after ? '22px' : '0px',
+      knobTrack: after ? '#2F6B4A' : '#E4E6E2',
+      fidelityCaption: after ? 'Hi-fi V2 (current)' : 'Hi-fi V1',
+      nav: [
+        ['overview', 'Overview'], ['problem', 'Problem'], ['research', 'Research'],
+        ['ideation', 'Ideation'], ['system', 'Design System'], ['exploration', 'Design Exploration'],
+        ['testing', 'Testing'], ['solution', 'Final Solution'],
+      ].map(([id, label]) => ({
+        href: '#' + id, label,
+        onClick: (e) => this.jumpToSection(e, id),
+        style: {
+          fontSize: '15px', textDecoration: 'none', transition: 'color 0.2s ease',
+          color: this.state.active === id ? '#12314A' : '#7C8894',
+          fontWeight: this.state.active === id ? 600 : 400,
+        },
+      })),
+      progressWidth: this.state.pct + '%',
+      details: [
+        { label: 'My Role', value: 'Designer + Developer' },
+        { label: 'Tools', value: 'Figma, FigJam, GitHub, VS Code' },
+        { label: 'Status', value: 'In progress' },
+      ],
+      areas: [
+        { name: 'Home', body: 'Main landing page, it includes the community, events, and heatmap.' },
+        { name: 'About Us', body: 'The people, mission, and values that the club upholds.' },
+        { name: 'Getting Started', body: 'Drop information, how to set up Discord notifications, giveaway information, and more.' },
+        { name: 'DinoDex', body: 'Dino types, horn colors, and past drops, everything about the dinos!' },
+        { name: 'Rules', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
+      ],
+      outcomes: [
+        { label: 'One front door', body: 'Getting Started answers what the club is and how to join, including the Discord setup so that nobody gets confused.' },
+        { label: 'Findable rules', body: 'Conduct, hunt rules, and post-claim steps restructured after testing so the next step is easy to reach.' },
+        { label: 'Brand continuity', body: 'The Instagram-first impression carries into the site, so the handoff stops feeling like a different club.' },
+      ],
+      cohorts: [
+        { title: 'Active Participant', body: 'Already hunts and is in the club.' },
+        { title: 'Interested Observer', body: 'Follows the Instagram and has either not joined a drop or barely stepped foot into the club.' },
+        { title: 'Unaware Candidate', body: 'Has no idea what the club is and is about.' },
+      ],
+      insights: [
+        { title: 'Rules are scattered', body: 'The strongest finding in the dataset: rules sit across multiple Discord channels, and the post-claim process is written down nowhere.' },
+        { title: 'Instagram is the first touchpoint', body: 'Most participants go on social media first, so that site follows on from the impression, not precedes it.' },
+        { title: 'Misconceptions block entry', body: 'You must crochet, meetings are required, it costs money. None are true, and none were addressed anywhere.' },
+        { title: 'Flexibility is the appeal', body: 'It\u2019s important to people that you can just drop in for the hunt. It\u2019s the lack of prior notice that annoys them, not the lack of planning.' },
+      ],
+      changes: [
+        { label: 'Post-claim steps were buried', change: 'Moved above the FAQ and gave it a section of their own.' },
+        { label: 'Scrolling fatigue', change: 'Sectioned the rules into pop-ups \u2192 later changed to boxes for less friction to get there.' },
+        { label: 'Rules vs. Getting Started', change: 'Moving the section clarified which page answers what, so users stopped guessing.' },
+        { label: 'Visual Background', change: 'After completing the design system, I changed the visuals and background to match the vision the testers and client wanted.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
