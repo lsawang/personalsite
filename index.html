@@ -56,14 +56,29 @@
     [data-r="include"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-r="include-media"] { max-width: 300px !important; margin: 0 auto !important; }
   }
-  @media (max-width: 560px) {
-    [data-r="pass"] > div:first-child { max-height: 250px !important; }
-    [data-r="pass"] > div { padding-left: 14px !important; padding-right: 14px !important; padding-top: 16px !important; padding-bottom: 16px !important; }
-    [data-r="pass"] p { font-size: 17px !important; }
-    [data-r="board"] { padding-left: 19.5% !important; padding-right: 19.5% !important; }
-    [data-r="dances"] { grid-template-columns: minmax(0,1fr) !important; }
-    [data-r="table"] { grid-template-columns: minmax(0,1.3fr) repeat(6, minmax(0,0.7fr)) !important; font-size: 10px !important; }
+@media (max-width: 560px) {
+  [data-r="pass"] > div:first-child { max-height: 250px !important; }
+  [data-r="pass"] > div { padding-left: 14px !important; padding-right: 14px !important; padding-top: 16px !important; padding-bottom: 16px !important; }
+  [data-r="pass"] p { font-size: 17px !important; }
+  [data-r="board"] { padding-left: 19.5% !important; padding-right: 19.5% !important; }
+  [data-r="dances"] { grid-template-columns: minmax(0,1fr) !important; }
+  [data-r="table"] { grid-template-columns: minmax(0,1.3fr) repeat(6, minmax(0,0.7fr)) !important; font-size: 10px !important; }
+
+  [data-r="stats"] > div {
+    display: grid;
+    grid-template-rows: 45px auto 32px;
+    align-content: start;
   }
+
+  [data-r="stats"] > div > p:first-child {
+    margin-bottom: 0 !important;
+    align-self: start;
+  }
+
+  [data-r="stats"] > div > p:nth-child(2) {
+    align-self: start;
+  }
+}
   @keyframes spinSlow { from { transform: rotate(12deg); } to { transform: rotate(372deg); } }
   @keyframes bobTag { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-7px) rotate(var(--r,0deg)); } }
   @keyframes floatChip { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-9px) rotate(var(--r,0deg)); } }
@@ -474,7 +489,7 @@
               <li>Consistent posts</li>
               <li>Cover &amp; performance stories</li>
             </ul>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(420px,1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 12px;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,420px),1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 12px;">
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
                 <img src="uploads/Screenshot 2026-09-11 at 6.25.15 PM.png" alt="Three-post grid layout, Fashion cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
               </div>
