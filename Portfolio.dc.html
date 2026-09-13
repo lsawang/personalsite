@@ -1491,15 +1491,10 @@ class Component extends DCLogic {
       navOpen: this.state.navOpen ? 'true' : 'false',
       navOpenFlag: this.state.navOpen ? '1' : '0',
       toggleNav: () => this.setState({ navOpen: !this.state.navOpen }),
-      openExternal: (e) => {
-        const url = e.currentTarget && e.currentTarget.getAttribute('href');
-        if (!url) return;
-        e.preventDefault();
-        const abs = /^https?:/.test(url) ? url : new URL(url, document.baseURI).href;
-        let w = null;
-        try { w = window.open(abs, '_blank', 'noopener,noreferrer'); } catch (err) { w = null; }
-        if (!w) { try { (window.top || window).location.href = abs; } catch (err) { window.location.href = abs; } }
-      },
+      // Links already carry target="_blank" rel="noopener noreferrer", so the
+      // browser's native new-tab behavior is all that's needed. Do nothing
+      // extra here — no fallback that could ever navigate the current tab.
+      openExternal: () => {},
       contentStats: [
         { label: 'Top TikTok video', n: '212.2K', u: 'Views' },
         { label: 'Boys II Planet series', n: '54.3K', u: 'Avg views per video' },
