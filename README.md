@@ -24,7 +24,7 @@ python3 -m http.server 8000
 2. Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
 3. `index.html` redirects to `Portfolio.dc.html`.
 
-Add a `.nojekyll` file at the repo root so Jekyll does not skip any folders.
+`.nojekyll` is already included — keep it, or GitHub Pages will skip `.image-slots.state.json` and every slot-based image will disappear.
 
 ## File map
 
@@ -36,6 +36,8 @@ Add a `.nojekyll` file at the repo root so Jekyll does not skip any folders.
 | `CycleFind Case Study.dc.html` | CycleFind case study |
 | `support.js` | Runtime that renders the `.dc.html` templates |
 | `image-slot.js` | `<image-slot>` web component (drag-and-drop image placeholders) |
+| `.image-slots.state.json` | **Required.** Holds the images dropped into every `<image-slot>` as base64 data URLs — experience logos, travel photos, Terrain Park carousel, EKHO/TikTok reel stills, CycleFind showcase. Without it those slots render empty. |
+| `.nojekyll` | Tells GitHub Pages to serve dotfiles and skip Jekyll processing |
 | `assets/` | Case study imagery, screen recordings, resume PDF |
 | `uploads/` | Photos, tool logos, social screenshots, poster PDFs |
 
@@ -130,7 +132,9 @@ Elements targeted by media queries carry `data-r="…"` hooks: `badge`, `burger`
 
 All imagery is the site owner's own work or personal photography, plus third-party product logos used as skill icons (Figma, CapCut, Photoshop, Illustrator, Canva, VS Code, Notion, Slack) — replace or credit those per their brand guidelines if that matters for your deployment. Videos in `assets/*.mp4` are screen recordings of the CycleFind prototype.
 
-`<image-slot>` elements are drop targets for images that have not been supplied yet; they persist a dropped image in localStorage. In a production rebuild, swap each one for a plain `<img>`.
+`<image-slot>` elements read their image from `.image-slots.state.json`, which stores each one as a base64 data URL keyed by slot id (`logo-include`, `travel-1`…`travel-8`, `wall-1`…`wall-13`, `ekho-clip-1`…`4`, `bp-clip-1`…`3`, `cf-final-map`, `tool-figma`). The file must sit next to the HTML and be served over HTTP — the component fetches it.
+
+In a production rebuild, decode those data URLs into real image files and swap each `<image-slot>` for a plain `<img>`. The sidecar is ~1 MB of inline base64, which is fine for a static prototype but not for a shipped site.
 
 ## Things to decide when porting
 
