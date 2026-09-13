@@ -129,6 +129,11 @@
   @keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   .skillchip { cursor:grab; user-select:none; touch-action:none; }
   .skillchip:active { cursor:grabbing; }
+  @media (hover: none) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
 </style>
 </helmet>
 <div onMouseMove="{{ onMouseMove }}" ref="{{ setTrailRef }}" style="font-family:'Space Grotesk',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh; overflow-x:hidden; position:relative; cursor:none;">
