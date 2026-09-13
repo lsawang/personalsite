@@ -20,6 +20,8 @@
   @keyframes sparkle { 0%,100% { opacity:0.25; transform:scale(0.7); } 50% { opacity:1; transform:scale(1.15); } }
   @keyframes glowPulse { 0%,100% { opacity:0.55; } 50% { opacity:1; } }
   .mono { font-family:'IBM Plex Mono',monospace; }
+  h1, h2, h3, h4 { text-wrap: pretty; }
+  p, li, figcaption, blockquote { text-wrap: pretty; }
   @media (max-width: 860px) {
     [data-r="casenav"] { position: static !important; flex: 1 1 100% !important; min-width: 0 !important; padding-bottom: 0 !important; padding-right: clamp(20px,4.5vw,80px) !important; }
     [data-r="casenav"] nav { display: none !important; }
@@ -54,7 +56,7 @@
         <div style="max-width:1000px;">
           <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 18px; font-weight:700; display:inline-flex; align-items:center; gap:9px;"><span style="width:12px; height:12px; background:#7A1E3A; display:inline-block;"></span>Case Study 02</p>
           <h1 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(38px,5.6vw,70px); font-weight:600; letter-spacing:-0.035em; line-height:1.03; margin:0 0 22px;">CycleFind</h1>
-          <p style="font-size:clamp(19px,2.2vw,28px); line-height:1.35; letter-spacing:-0.015em; margin:0 0 20px; max-width:30ch;">Finding menstrual products shouldn't be another source of stress.</p>
+          <p style="font-size:clamp(19px,2.2vw,28px); line-height:1.35; letter-spacing:-0.015em; margin:0 0 20px; max-width:48ch;">Finding menstrual products shouldn't be another source of stress.</p>
           <p style="font-size:17px; line-height:1.7; color:#3F5A70; margin:0; text-wrap:pretty;">Designing a menstrual equity app that connects people with nearby free and low-cost products, while giving them a reason to come back.</p>
         </div>
       </section>
@@ -73,7 +75,7 @@
 
       <section id="overview" ref="{{ setRef('overview') }}" data-screen-label="03 Overview" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Overview</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:34ch;">CycleFind helps people find menstrual products nearby, without making people feel insecure in their search.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch;">CycleFind helps people find menstrual products nearby, without making people feel insecure in their search.</h2>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3.4vw,48px);">
           <div>
             <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">CycleFind is a mobile app designed to <strong style="font-weight:600; color:#12314A;">help people locate free and low-cost menstrual products</strong> in their area. This app is designed for users who can browse anonymously, check whether products are currently available, track their cycle, and access menstrual health information all in <strong style="font-weight:600; color:#12314A;">a single app.</strong></p>
@@ -87,7 +89,7 @@
 
       <section id="problem" ref="{{ setRef('problem') }}" data-screen-label="04 The Problem" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">The Problem</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:30ch;">Period products are basic necessities. Access to them isn't always basic.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch;">Period products are basic necessities. Access to them isn't always basic.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Period poverty</strong> affects people who can't consistently afford menstrual products, but the problem isn't limited to cost. Even when free products are available through campuses, shelters, health centers, and community organizations, people still have to figure out where they are, whether they&rsquo;re actually in stock, and how to access them.</p>
         <blockquote style="margin:0 0 22px; background:#FBF4EC; border:1px solid #EDDFCF; border-left:3px solid #7A1E3A; border-radius:6px; padding:clamp(20px,2.6vw,28px) clamp(20px,2.6vw,30px);">
           <p style="font-family:'Space Grotesk',sans-serif; font-size:clamp(17px,2vw,21px); line-height:1.5; color:#12314A; margin:0 0 12px; text-wrap:pretty;">&ldquo;In the United States, <strong style="font-weight:700;">40% (or 2 in 5) of adults</strong> and <strong style="font-weight:700;">25% (or 1 in 4) of students/teenagers</strong> struggle to afford or access period products.&rdquo;</p>
@@ -104,7 +106,7 @@
 
       <section id="research" ref="{{ setRef('research') }}" data-screen-label="05 Research" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Research</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:30ch;">The resource isn't useful if people don't trust it.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch;">The resource isn't useful if people don't trust it.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">I started by researching who experiences period poverty, what prevents people from accessing existing resources, and what CycleFind would need to do differently from a normal Google search.</p>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">My <strong style="font-weight:600; color:#12314A;">primary audience</strong> became younger users roughly <strong style="font-weight:600; color:#12314A;">14-26</strong>, mostly high school and college students with <strong style="font-weight:600; color:#12314A;">limited income</strong>, this includes people with limited mobile data and/or housing insecurity.</p>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(22px,3vw,32px); text-wrap:pretty;">Four things kept coming up.</p>
@@ -138,13 +140,13 @@
 
         <div style="margin-top:clamp(22px,3vw,32px); padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6;">
           <p class="mono" style="font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 14px; font-weight:700;">The principle that came out of it</p>
-          <p style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.026em; font-size:clamp(22px,2.9vw,34px); line-height:1.15; margin:0; max-width:30ch;">Make asking for help feel like <span style="background:#F9CDD1; padding:0 8px 4px; border-radius:3px 14px 4px 12px/10px 4px 13px 5px; box-decoration-break:clone; -webkit-box-decoration-break:clone;">finding information</span>.</p>
+          <p style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.026em; font-size:clamp(22px,2.9vw,34px); line-height:1.15; margin:0; max-width:48ch;">Make asking for help feel like <span style="background:#F9CDD1; padding:0 8px 4px; border-radius:3px 14px 4px 12px/10px 4px 13px 5px; box-decoration-break:clone; -webkit-box-decoration-break:clone;">finding information</span>.</p>
         </div>
       </section>
 
       <section id="flows" ref="{{ setRef('flows') }}" data-screen-label="06 Defining the Experience" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Defining the Experience</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:30ch;">Finding products should feel like finding a coffee shop.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch;">Finding products should feel like finding a coffee shop.</h2>
         <div style="margin-top:clamp(34px,4.4vw,52px); margin-bottom:clamp(26px,3.4vw,40px);">
           <p class="mono" style="font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#7A1E3A; margin:0 0 12px; font-weight:700;">Flow 01: Finding a resource</p>
           <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 22px; text-wrap:pretty;">The <strong style="font-weight:600; color:#12314A;">primary flow</strong> needed to get someone from opening the app to finding a usable resource with <strong style="font-weight:600; color:#12314A;">as little friction as possible.</strong></p>
@@ -198,7 +200,7 @@
 
       <section id="wireframes" ref="{{ setRef('wireframes') }}" data-screen-label="07 From Structure to Screens" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">From Structure to Screens</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:30ch;">Before worrying about polish, I needed the app to make sense.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch; text-wrap:initial;">Before worrying about polish, I needed the app to<br/>make sense.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 30px; text-wrap:pretty;">I translated the flows into low-fidelity wireframes, focusing on <strong style="font-weight:600; color:#12314A;">navigation and hierarchy</strong> before styling. The main areas became:</p>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; margin-bottom:clamp(22px,3vw,32px);">
@@ -229,7 +231,7 @@
 
       <section id="visual" ref="{{ setRef('visual') }}" data-screen-label="08 Visual Direction" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Visual Direction</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(30px,4vw,44px); max-width:30ch;">Health-related didn't have to mean clinical.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(30px,4vw,44px); max-width:48ch;">Health-related didn't have to mean clinical.</h2>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-bottom:clamp(22px,3vw,32px);">
           <div>
@@ -269,7 +271,7 @@
 
       <section id="prototype" ref="{{ setRef('prototype') }}" data-screen-label="09 The First Prototype" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">The First Prototype</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:34ch;">The first version worked, but a few small choices created unnecessary friction.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:48ch;">The first version worked, but a few small choices created unnecessary friction.</h2>
 
         <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid #E9E9E6;">
           <sc-for list="{{ findings }}" as="f" hint-placeholder-count="3">
@@ -290,7 +292,7 @@
 
       <section id="testing" ref="{{ setRef('testing') }}" data-screen-label="10 Testing" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Testing With People Changed the Interface</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:34ch;">Round 1 showed me where people hesitated. Round 2 showed me whether I actually fixed it.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:48ch;">Round 1 showed me where people hesitated. Round 2 showed me whether I actually fixed it.</h2>
 
         <p class="mono" style="font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#7A1E3A; margin:0 0 16px; font-weight:700;">Where people hesitated</p>
         <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.6vw,30px); max-width:760px; margin:0 0 clamp(28px,4vw,44px); align-items:start;">
@@ -345,7 +347,7 @@
 
       <section id="showcase" ref="{{ setRef('showcase') }}" data-screen-label="11 Final Design" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0; border-top:1px solid #E9E9E6;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">Final Design</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:30ch;">CycleFind became more than the idea I started with.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 clamp(22px,3vw,32px); max-width:48ch;">CycleFind became more than the idea I started with.</h2>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:clamp(26px,3.4vw,44px); align-items:start;">
           <sc-for list="{{ showcase }}" as="s" hint-placeholder-count="4">
@@ -368,11 +370,11 @@
 
       <section id="outcome" ref="{{ setRef('outcome') }}" data-screen-label="12 Outcome & Learnings" style="scroll-margin-top:32px; padding:clamp(40px,5.5vw,72px) 0 0; border-top:1px solid #E9E9E6; max-width:1000px;">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">The Outcome</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:34ch;">The final prototype brought together three needs that initially felt separate: access, planning, and education.</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.024em; font-size:clamp(25px,3.2vw,36px); line-height:1.2; margin:0 0 28px; max-width:48ch;">The final prototype brought together three needs that initially felt separate: access, planning, and education.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Finding free and affordable menstrual products</strong> turned out to be something which also could serve as preparation for the user&rsquo;s next cycle and provide some insight into the user&rsquo;s menstrual condition. More importantly, the usability tests demonstrated that the new features didn&rsquo;t make the interface feel heavier. Users kept saying that the interface was still <strong style="font-weight:600; color:#12314A;">clear and coherent.</strong></p>
 
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">What I Learned</p>
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(21px,2.8vw,30px); line-height:1.25; margin:0 0 clamp(22px,3vw,32px); max-width:30ch;">Designing for dignity changed a lot of small decisions.</h3>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(21px,2.8vw,30px); line-height:1.25; margin:0 0 clamp(22px,3vw,32px); max-width:48ch;">Designing for dignity changed a lot of small decisions.</h3>
         <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(22px,3vw,36px); margin-bottom:clamp(26px,3.4vw,40px); max-width:920px;">
           <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="4">
             <div style="border-top:3px solid #7A1E3A; padding-top:16px;">
@@ -384,7 +386,7 @@
 
         <div style="padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6;">
           <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 16px; font-weight:700;">If I Continued CycleFind</p>
-          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(21px,2.8vw,30px); line-height:1.25; margin:0 0 clamp(22px,3vw,32px); max-width:30ch;">There are still a few questions I'd want to answer.</h3>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(21px,2.8vw,30px); line-height:1.25; margin:0 0 clamp(22px,3vw,32px); max-width:48ch;">There are still a few questions I'd want to answer.</h3>
           <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid #E9E9E6;">
             <sc-for list="{{ nextQuestions }}" as="q" hint-placeholder-count="3">
               <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:clamp(18px,3vw,44px); padding:24px 0; border-bottom:1px solid #E9E9E6;">
