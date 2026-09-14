@@ -304,11 +304,14 @@
       <section id="solution" data-screen-label="09 Final Solution" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Final Solution</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 26px; max-width:48ch;">A public site that answers questions so the Discord doesn’t need to anymore.</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px;">
-          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
-            <div style="background:#F4F5F3; border-radius:12px; padding:20px 22px;">
+        <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;">
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
+            <div style="background:#F4F5F3; border-radius:12px; overflow:hidden;">
+              <img src="{{ a.shot }}" alt="{{ a.name }} page hi-fi" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:top center; background:#FFFFFF; border-bottom:1px solid #E4E6E2;" />
+              <div style="padding:20px 22px;">
               <p style="font-size:16.5px; font-weight:600; margin:0 0 8px;">{{ a.name }}</p>
               <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; text-wrap:pretty;">{{ a.body }}</p>
+              </div>
             </div>
           </sc-for>
         </div>
@@ -419,11 +422,11 @@ class Component extends DCLogic {
         { label: 'Status', value: 'In progress' },
       ],
       areas: [
-        { name: 'Home', body: 'Main landing page, it includes the community, events, and heatmap.' },
-        { name: 'About Us', body: 'The people, mission, and values that the club upholds.' },
-        { name: 'Getting Started', body: 'Drop information, how to set up Discord notifications, giveaway information, and more.' },
-        { name: 'DinoDex', body: 'Dino types, horn colors, and past drops, everything about the dinos!' },
-        { name: 'Rules', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
+        { name: 'Home', shot: 'assets/tri-v1-home.png', body: 'Main landing page, it includes the community, events, and heatmap.' },
+        { name: 'About Us', shot: 'assets/tri-v1-about.png', body: 'The people, mission, and values that the club upholds.' },
+        { name: 'Getting Started', shot: 'assets/tri-v1-guide.png', body: 'Drop information, how to set up Discord notifications, giveaway information, and more.' },
+        { name: 'DinoDex', shot: 'assets/tri-v1-dinodex.png', body: 'Dino types, horn colors, and past drops, everything about the dinos!' },
+        { name: 'Rules', shot: 'assets/tri-v1-rules.png', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
       ],
       outcomes: [
         { label: 'One front door', body: 'Getting Started answers what the club is and how to join, including the Discord setup so that nobody gets confused.' },
