@@ -38,7 +38,8 @@
     [data-r="split"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-r="board"] { width: min(100%, 460px) !important; padding-left: 19.5% !important; padding-right: 19.5% !important; }
     [data-r="expwrap"] { justify-content: center !important; }
-    [data-r="table"] { grid-template-columns: minmax(0,1.6fr) repeat(6, minmax(0,0.6fr)) !important; font-size: 11px !important; }
+    [data-r="table"] { grid-template-columns: minmax(0,1.6fr) repeat(6, minmax(0,0.6fr)) !important; column-gap: 6px !important; font-size: 11px !important; }
+    [data-r="table5"] { grid-template-columns: minmax(0,1.6fr) repeat(5, minmax(0,0.72fr)) !important; column-gap: 6px !important; font-size: 11px !important; }
     [data-r="stories"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
     [data-r="about"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-r="aboutpics"] { display: contents !important; }
@@ -62,7 +63,8 @@
   [data-r="pass"] p { font-size: 17px !important; }
   [data-r="board"] { padding-left: 19.5% !important; padding-right: 19.5% !important; }
   [data-r="dances"] { grid-template-columns: minmax(0,1fr) !important; }
-  [data-r="table"] { grid-template-columns: minmax(0,1.3fr) repeat(6, minmax(0,0.7fr)) !important; font-size: 10px !important; }
+  [data-r="table"] { grid-template-columns: minmax(0,1.3fr) repeat(6, minmax(0,0.7fr)) !important; column-gap: 4px !important; font-size: 10px !important; }
+  [data-r="table5"] { grid-template-columns: minmax(0,1.3fr) repeat(5, minmax(0,0.86fr)) !important; column-gap: 4px !important; font-size: 10px !important; }
 
   [data-r="stats"] > div {
     display: grid;
@@ -551,7 +553,7 @@
 
             <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Best performing short-form content</p>
             <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden;">
-              <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
+              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
                 <span style="padding: 10px 12px;">Video</span>
                 <span style="padding: 10px 6px; text-align:right;">Views</span>
                 <span style="padding: 10px 6px; text-align:right;">Likes</span>
@@ -560,7 +562,7 @@
                 <span style="padding: 10px 12px 10px 6px; text-align:right;">Shares</span>
               </div>
               <sc-for list="{{ ekhoTop }}" as="r" hint-placeholder-count="4">
-                <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
+                <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
                   <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">
                     {{ r.label }}
                     <span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span>
@@ -607,7 +609,7 @@
             </div>
             <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Top 3 by views</p>
             <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden; margin: 0 0 28px;">
-              <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
+              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
                 <span style="padding: 10px 12px;">Video</span>
                 <span style="padding: 10px 6px; text-align:right;">Views</span>
                 <span style="padding: 10px 6px; text-align:right;">Likes</span>
@@ -616,7 +618,7 @@
                 <span style="padding: 10px 12px 10px 6px; text-align:right;">Shares</span>
               </div>
               <sc-for list="{{ bpTop }}" as="r" hint-placeholder-count="3">
-                <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
+                <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
                   <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">{{ r.label }}<span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span></span>
                   <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
                   <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
@@ -744,9 +746,9 @@
                     <span style="position:absolute; top:-11px; left:50%; width:64px; height:20px; margin-left:-32px; background:#DCEEF7; border-left:1px solid #C6E0EE; border-right:1px solid #C6E0EE; opacity:{{ g.tape }};"></span>
                     <sc-if value="{{ g.src }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" style="display:block; width:100%; height:auto; aspect-ratio:{{ g.ratio }}; object-fit:cover;" /></sc-if>
                     <sc-if value="{{ g.slotId }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ g.slotId }}" placeholder="{{ g.slotPlaceholder }}" shape="rect" style="display:block; width:100%; aspect-ratio:9/16;"></image-slot></sc-if>
-                    <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 0; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
-                      <span style="font-weight:700; color:#12314A;">{{ g.label }}</span>
-                      <span style="color:#A6AEB6; letter-spacing:0.1em;">{{ g.meta }}</span>
+                    <span style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap: 4px 10px; padding: 10px 2px 0; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
+                      <span style="font-weight:700; color:#12314A; min-width:0; overflow-wrap:break-word;">{{ g.label }}</span>
+                      <span style="color:#A6AEB6; letter-spacing:0.1em; flex:none;">{{ g.meta }}</span>
                     </span>
                   </a>
                 </div>
