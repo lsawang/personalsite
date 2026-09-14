@@ -44,11 +44,11 @@
       </nav>
     </aside>
 
-    <main style="flex:1 1 min(100%, 520px); min-width:0; min-width:0; padding:clamp(28px,4vw,52px) clamp(20px,4.5vw,80px) clamp(80px,10vw,130px); max-width:1000px;">
+    <main style="flex:1 1 min(100%, 520px); min-width:0; min-width:0; padding:clamp(28px,4vw,52px) clamp(20px,4.5vw,80px) clamp(80px,10vw,130px);">
 
-      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; margin-bottom:clamp(40px,5vw,60px);">
-        <div style="width:100%; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#EFEFEC; margin:0 0 clamp(26px,3.4vw,40px); box-shadow:0 22px 44px -26px #12314A44;">
-          <img src="assets/tri-hero-laptop3.png" alt="Triceratops website shown across three screens" style="display:block; width:100%; height:auto;" />
+      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(40px,5vw,60px);">
+        <div style="width:100%; max-width:1000px; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#EFEFEC; margin:0 0 clamp(26px,3.4vw,40px); box-shadow:0 22px 44px -26px #12314A44;">
+          <img src="assets/tri-hero-laptop3.png" alt="Triceratops website shown across three screens" style="display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#EFEFEC;" />
         </div>
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 18px; font-weight:700; display:inline-flex; align-items:center; gap:9px;"><span style="width:12px; height:12px; background:#2F6B4A; display:inline-block;"></span>Case Study 01 · In progress</p>
         <h1 style="font-size:clamp(38px,5.6vw,70px); font-weight:600; letter-spacing:-0.035em; line-height:1.03; margin:0 0 22px;">Triceratops</h1>
@@ -62,9 +62,9 @@
       </div>
 
       <sc-if value="{{ isDev }}" hint-placeholder-val="{{ false }}">
-        <section id="devtrack" data-screen-label="10 Development" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <section id="devtrack" data-screen-label="10 Development" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
           <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Development</p>
-          <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Work in progress</h2>
+          <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">In progress</h2>
           <div style="border:1.5px dashed #C9CFC7; border-radius:12px; padding:clamp(26px,3.6vw,44px); background:#F8F9F7;">
             <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; max-width:52ch; text-wrap:pretty;">Coming soon...</p>
           </div>
@@ -73,7 +73,7 @@
 
       <sc-if value="{{ isDesign }}" hint-placeholder-val="{{ true }}">
 
-      <section id="overview" data-screen-label="01 Overview" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="overview" data-screen-label="01 Overview" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Overview</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 26px; max-width:48ch;">Triceratops is a UC Davis club that crochets dinosaurs and hides them around campus to be found and collected.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 18px; text-wrap:pretty;">Our client relies on Instagram for reach and Discord for everything else. This includes drop announcements, rules, flash sales, and trading. Previously, there was <strong style="font-weight:600; color:#12314A;">no website</strong>, so anyone outside the Discord had no way in.</p>
@@ -104,26 +104,26 @@
         <div style="display:flex; flex-direction:column; gap:14px;">
           <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
             <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">01</span>
-            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Research</strong> &mdash; I ideated the cohorts we were targeting, interviewed potential candidates, created a SWOT analysis while researching competitors, and conducted usability tests.</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Research:</strong> I ideated the cohorts we were targeting, interviewed potential candidates, created a SWOT analysis while researching competitors, and conducted usability tests.</p>
           </div>
           <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
             <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">02</span>
-            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Design</strong> &mdash; I was in charge of designing and creating the Rules page. With the design system, I drew low-fidelity sketches, developed them into mid-fi’s, and with feedback from user-testing, revised and enhanced the final versions of the hi-fi’s.</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Design:</strong> I was in charge of designing and creating the Rules page. With the design system, I drew low-fidelity sketches, developed them into mid-fi’s, and with feedback from user-testing, revised and enhanced the final versions of the hi-fi’s.</p>
           </div>
           <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
             <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">03</span>
-            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Components &amp; Assets</strong> &mdash; I created several components and assets for this project which were utilized in the making of the site.</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Components &amp; Assets:</strong> I created several components and assets for this project which were utilized in the making of the site.</p>
           </div>
           <div style="display:flex; gap:16px; align-items:baseline; background:#F4F5F3; border-radius:12px; padding:20px 24px;">
             <span class="mono" style="font-size:11px; letter-spacing:0.14em; color:#2F6B4A; font-weight:700; flex:none;">04</span>
-            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Development</strong> &mdash; <em>Work in progress:</em> Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.</p>
+            <p style="font-size:14.5px; line-height:1.65; color:#3F5A70; margin:0; text-wrap:pretty;"><strong style="font-weight:600; color:#12314A;">Development:</strong> <em>In progress:</em> Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.</p>
           </div>
         </div>
       </section>
 
 
 
-      <section id="problem" data-screen-label="02 Problem" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="problem" data-screen-label="02 Problem" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Problem</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Nobody could explain how to participate, including people who already had</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 22px; text-wrap:pretty;">Rules live in multiple, scattered Discord channels. The post-claim process is nowhere, and the Instagram-to-Discord handoff is invisible.</p>
@@ -150,7 +150,7 @@
         </div>
       </section>
 
-      <section id="research" data-screen-label="03 Research" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="research" data-screen-label="03 Research" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Research</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Understanding the club from three perspectives</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">We ran interviews and three survey cohorts, sorting every participant by how close or far they already were to the club. The three different views of the same set of questions served to differentiate <strong style="font-weight:600; color:#12314A;">onboarding issues from member-related issues.</strong></p>
@@ -181,7 +181,7 @@
 
       </section>
 
-      <section id="ideation" data-screen-label="04 Ideation" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="ideation" data-screen-label="04 Ideation" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Ideation</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Skim first, depth underneath</h2>
         <div style="display:grid; gap:16px; margin-bottom:26px;">
@@ -197,7 +197,7 @@
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; text-wrap:pretty;">Someone should be able to skim what the club is and know how a drop works <strong style="font-weight:600; color:#12314A;">initially</strong>, then go deeper if they want. We mapped the site into four areas and drew flows for the two journeys that mattered: <strong style="font-weight:600; color:#12314A;">joining for the first time, and claiming a dino you just found.</strong></p>
       </section>
 
-      <section id="system" data-screen-label="05 Design System" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="system" data-screen-label="05 Design System" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Design System</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Because we build it too, the system had to be handoff-proof</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, "like a crayon box."</strong> We established the typography scales for both desktop and mobile platforms, a UI color palette complete with contrast ratios, radii, grids, and states for buttons.</p>
@@ -223,7 +223,7 @@
         </div>
       </section>
 
-      <section id="exploration" data-screen-label="06 Design Exploration" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="exploration" data-screen-label="06 Design Exploration" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Design Exploration</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">I designed too much, had to remind myself that simpler is better</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">My first hi-fi design leaned on animations mostly: hover states on every card, pop-ups, and reveal animations. Put together, they made the page <strong style="font-weight:600; color:#12314A;">busy and caused too much friction</strong>. This was also said in the usability tests. This did not appeal to the club’s vision they wanted. <strong style="font-weight:600; color:#12314A;">Simpler held up better.</strong></p>
@@ -242,7 +242,7 @@
       </section>
 
 
-      <section id="testing" data-screen-label="07 Testing" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="testing" data-screen-label="07 Testing" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Testing</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:48ch;">Testers found the Rules page. They could not find the part they needed.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 26px; text-wrap:pretty;">The initial page I designed was <strong style="font-weight:600; color:#12314A;">intuitive for almost everyone.</strong> The labels and sections were good but the hierarchy wasn&rsquo;t. The page itself was <strong style="font-weight:600; color:#12314A;">too lengthy causing scrolling fatigue</strong> and the post-claim steps sat at the bottom. Some testers also stated that they thought the steps would&rsquo;ve been in the Getting Started page. Testers also noted that the <strong style="font-weight:600; color:#12314A;">visual background wasn&rsquo;t ideal</strong> and were not a fan of the gradient.</p>
@@ -294,14 +294,14 @@
         </div>
       </section>
 
-      <section id="insights" data-screen-label="08 Insights" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="insights" data-screen-label="08 Insights" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <div style="background:#F4F5F3; border:1.5px solid #E4E6E2; border-radius:12px; padding:clamp(22px,3vw,32px);">
           <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 14px;">Insights</p>
           <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; text-wrap:pretty;">Receiving feedback from not only user-testing, but from a lead and the client itself was such an <strong style="font-weight:600; color:#12314A;">interesting yet positive experience.</strong> Perspectives from all 3 point-of-views led to learning new things every time, hearing feedback and suggestions that I would&rsquo;ve never noticed myself, and growing and changing little by little as a designer. I value every opportunity to improve as a designer and I also learned so much more about all the platforms I used during this project.</p>
         </div>
       </section>
 
-      <section id="solution" data-screen-label="09 Final Solution" style="scroll-margin-top:32px; margin-bottom:clamp(52px,6.5vw,88px);">
+      <section id="solution" data-screen-label="09 Final Solution" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Final Solution</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 26px; max-width:48ch;">A public site that answers questions so the Discord doesn’t need to anymore.</h2>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px;">
@@ -322,7 +322,7 @@
 
 
 
-<div style="padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+<div style="max-width:1000px; padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
   <a href="/" style="background:#12314A; color:#F4FAFD; padding:14px 22px; border:2px solid #12314A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">← Back to portfolio</a>
   <a href="CycleFind Case Study.dc.html" style="background:#2F6B4A; color:#F1F7F1; padding:14px 22px; border:2px solid #2F6B4A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Next case study →</a>
   <a href="mailto:lsawang@ucdavis.edu" style="border:2px solid #12314A; color:#12314A; padding:14px 22px; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Get in touch</a>
