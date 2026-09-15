@@ -38,11 +38,15 @@
 
     <aside data-r="casenav" style="position:sticky; top:0; align-self:flex-start; flex:0 1 210px; min-width:150px; padding:clamp(28px,4vw,52px) 0 40px clamp(18px,3vw,40px);">
       <a href="/" style="display:block; font-size:14.5px; color:#9AA4AE; text-decoration:none; margin-bottom:34px;" style-hover="color:#12314A;">&larr; Home</a>
-      <nav style="display:flex; flex-direction:column; gap:15px; align-items:flex-start;">
+      <div style="position:relative; padding-left:18px;">
+        <span style="position:absolute; left:0; top:4px; bottom:4px; width:2px; background:#E9E9E6;"></span>
+        <span style="position:absolute; left:0; top:4px; width:2px; height:{{ progressPct }}; max-height:calc(100% - 8px); background:#7A1E3A; transition:height 0.12s linear;"></span>
+        <nav style="display:flex; flex-direction:column; gap:15px; align-items:flex-start;">
         <sc-for list="{{ railItems }}" as="r" hint-placeholder-count="7">
           <button class="raillink" onClick="{{ r.onClick }}" style="{{ r.style }}" style-hover="color:#12314A;">{{ r.label }}</button>
         </sc-for>
       </nav>
+      </div>
     </aside>
 
     <main style="flex:1 1 min(100%, 520px); min-width:0; padding:clamp(28px,4vw,52px) clamp(20px,4.5vw,80px) clamp(80px,10vw,130px);">
@@ -71,10 +75,6 @@
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7A1E3A; margin:0 0 16px;">The Problem</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Period products are basic necessities. Access to them isn't always basic.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 24px; max-width:62ch;"><strong style="font-weight:600; color:#12314A;">Period poverty</strong> affects people who can't consistently afford menstrual products, but the problem isn't limited to cost. Even when free products are available through campuses, shelters, health centers, and community organizations, people still have to figure out where they are, whether they&rsquo;re actually in stock, and how to access them.</p>
-        <blockquote style="margin:0 0 24px; padding:0 0 0 clamp(18px,2.4vw,26px); border-left:3px solid #C2557A;">
-          <p style="font-size:clamp(17px,2vw,21px); line-height:1.5; color:#12314A; margin:0 0 10px; max-width:44ch;">&ldquo;In the United States, <strong style="font-weight:700;">40% (or 2 in 5) of adults</strong> and <strong style="font-weight:700;">25% (or 1 in 4) of students/teenagers</strong> struggle to afford or access period products.&rdquo;</p>
-          <cite class="mono" style="font-style:normal; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;"><a href="https://period.org/periodpoverty" target="_blank" rel="noopener" style="color:#7A1E3A; text-decoration:none;">period.org/periodpoverty</a></cite>
-        </blockquote>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(34px,4.4vw,50px); max-width:62ch;">My research pointed to another issue that was harder to design around: <strong style="font-weight:600; color:#12314A;">stigma</strong>. Someone looking for a pad shouldn't have to announce that they need financial help, create an account, or arrive somewhere only to discover that the products are gone or not there.</p>
         <blockquote style="margin:0; padding:0 0 0 clamp(20px,3vw,32px); border-left:3px solid #7A1E3A;">
           <p style="font-size:clamp(21px,2.7vw,31px); font-weight:600; letter-spacing:-0.02em; line-height:1.3; margin:0; max-width:36ch;">How might I make finding menstrual resources feel as <span style="color:#7A1E3A;">private, reliable, and ordinary as looking up any other place on a map?</span></p>
@@ -87,7 +87,7 @@
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:62ch;">My <strong style="font-weight:600; color:#12314A;">primary audience</strong> became younger users roughly <strong style="font-weight:600; color:#12314A;">14-26</strong>, mostly high school and college students with <strong style="font-weight:600; color:#12314A;">limited income</strong>, this includes people with limited mobile data and/or housing insecurity.</p>
 
         <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
-          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="4">
+          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="2">
             <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
               <span class="mono" style="font-size:12px; letter-spacing:0.14em; color:#7A1E3A; font-weight:700; padding-top:4px;">{{ t.n }}</span>
               <div>
@@ -111,39 +111,23 @@
         <figure style="margin:0 0 clamp(34px,4.4vw,50px);">
           <p style="font-size:17.5px; font-weight:600; margin:0 0 7px;">Flow 01: Finding a resource</p>
           <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0 0 16px; max-width:62ch;">The <strong style="font-weight:600; color:#12314A;">primary flow</strong> needed to get someone from opening the app to finding a usable resource with <strong style="font-weight:600; color:#12314A;">as little friction as possible.</strong></p>
-          <div style="display:flex; flex-wrap:wrap; gap:6px 12px; align-items:center; margin-bottom:16px;">
-            <sc-for list="{{ flow1 }}" as="s" hint-placeholder-count="8">
-              <span style="display:inline-flex; align-items:center; gap:12px;">
-                <span style="font-size:14px; font-weight:600; letter-spacing:-0.012em; color:#12314A;">{{ s.label }}</span>
-                <span class="mono" style="font-size:13px; color:#C2557A;">{{ s.sep }}</span>
-              </span>
-            </sc-for>
-          </div>
         </figure>
 
         <figure style="margin:0 0 clamp(34px,4.4vw,50px);">
           <p style="font-size:17.5px; font-weight:600; margin:0 0 7px;">Flow 02: Cycle tracking</p>
           <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0 0 16px; max-width:62ch;">The concept of cycle tracking helped build a bridge <strong style="font-weight:600; color:#12314A;">between planning and accessing</strong> the needed resources. My final prototype brought all of it into <strong style="font-weight:600; color:#12314A;">one place</strong>.</p>
-          <div style="display:flex; flex-wrap:wrap; gap:6px 12px; align-items:center; margin-bottom:16px;">
-            <sc-for list="{{ flow2 }}" as="s" hint-placeholder-count="6">
-              <span style="display:inline-flex; align-items:center; gap:12px;">
-                <span style="font-size:14px; font-weight:600; letter-spacing:-0.012em; color:#12314A;">{{ s.label }}</span>
-                <span class="mono" style="font-size:13px; color:#C2557A;">{{ s.sep }}</span>
-              </span>
-            </sc-for>
-          </div>
         </figure>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start;">
           <figure style="margin:0;">
             <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#3D3D3D;">
-              <img src="assets/cf-lofi-resource.png" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(190px,24vw,300px); object-fit:contain; background:#3D3D3D;" />
+              <img src="assets/cf-lofi-resource.png" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
             </div>
             <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Lo-fi: finding a resource</figcaption>
           </figure>
           <figure style="margin:0;">
             <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#3D3D3D;">
-              <img src="assets/cf-lofi-tracker.png" alt="Low-fidelity wireframes: tracker home, log entry, badge and learn" style="display:block; width:100%; height:clamp(190px,24vw,300px); object-fit:contain; background:#3D3D3D;" />
+              <img src="assets/cf-lofi-tracker.png" alt="Low-fidelity wireframes: tracker home, log entry, badge and learn" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
             </div>
             <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Lo-fi: cycle tracking</figcaption>
           </figure>
@@ -176,7 +160,6 @@
           </div>
         </div>
 
-        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0; max-width:62ch;">Instead of making the color palette more simplistic like traditional clinical apps, I leaned more towards red burgundy, maroon and dusty rose to give the interface a <strong style="font-weight:600; color:#12314A;">warm, recognizable identity</strong>, while creme and toast backgrounds kept resource information readable and better on the eyes.</p>
       </section>
 
       <section id="testing" data-screen-label="06 Testing" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
@@ -219,7 +202,7 @@
         </div>
 
         <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
-          <sc-for list="{{ findings }}" as="f" hint-placeholder-count="3">
+          <sc-for list="{{ findings }}" as="f" hint-placeholder-count="2">
             <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
               <span class="mono" style="font-size:12px; letter-spacing:0.14em; color:#7A1E3A; font-weight:700; padding-top:4px;">{{ f.n }}</span>
               <div>
@@ -260,7 +243,6 @@
       <section id="outcome" data-screen-label="08 Reflection" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7A1E3A; margin:0 0 16px;">Reflection</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.022em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Designing for dignity changed a lot of small decisions.</h2>
-        <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(30px,4vw,44px); max-width:62ch;"><strong style="font-weight:600; color:#12314A;">Finding free and affordable menstrual products</strong> turned out to be something which also could serve as preparation for the user&rsquo;s next cycle and provide some insight into the user&rsquo;s menstrual condition. More importantly, the usability tests demonstrated that the new features didn&rsquo;t make the interface feel heavier. Users kept saying that the interface was still <strong style="font-weight:600; color:#12314A;">clear and coherent.</strong></p>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0 clamp(24px,4vw,44px); border-top:1px solid #E9E9E6; padding-top:20px;">
           <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="3">
@@ -380,9 +362,7 @@ class Component extends DCLogic {
       ],
       takeaways: [
         { n: '01', title: 'Privacy matters', pre: '', bold: 'Stigma', post: ' can stop someone from looking for help even when resources exist, so anonymous browsing became a very important core feature rather than a setting.' },
-        { n: '02', title: 'Availability has to feel trustworthy', pre: 'A nearby resource doesn\u2019t mean much if the products are gone, so listings had to show if products were ', bold: 'stocked, low, or unavailable.', post: '' },
-        { n: '03', title: 'The experience needs to be quick', pre: 'Users may already be stressed especially if they\u2019re in an emergency situation. They shouldn\u2019t have to navigate a complicated interface or go through ', bold: 'unnecessary friction', post: ' to find a pad or tampon.' },
-        { n: '04', title: "A resource finder alone isn't enough", pre: 'If CycleFind only solved one emergency, there was little reason to open it again. Cycle tracking and Learn create ', bold: 'ongoing value.', post: '' },
+        { n: '02', title: "A resource finder alone isn't enough", pre: 'If CycleFind only solved one emergency, there was little reason to open it again. Cycle tracking and Learn create ', bold: 'ongoing value.', post: '' },
       ],
       flow1: ['Open app', 'Sign up', 'Browse anonymously', 'Location or ZIP', 'Nearby resources', 'Filter', 'Check availability', 'Directions'].map((label, i, a) => ({ label, sep: i === a.length - 1 ? '' : '\u2192' })),
       flow2: ['Home', 'Tracker', 'Log cycle', 'Products needed?', 'View resources', 'Learn content'].map((label, i, a) => ({ label, sep: i === a.length - 1 ? '' : '\u2192' })),
@@ -406,8 +386,7 @@ class Component extends DCLogic {
       components: ['Buttons', 'Map pins', 'Supply-status chips', 'Cards', 'Navigation', 'Cycle indicators', 'Article cards'].map((label) => ({ label })),
       findings: [
         { n: '01', title: "The important CTA wasn't the most noticeable one.", detail: 'Some participants didn\u2019t immediately notice \u201cLog today.\u201d Meanwhile, secondary actions drew too much attention.', change: 'I increased the visual prominence of the Log Today CTA and made everything else visually secondary.' },
-        { n: '02', title: 'Some of my wording made sense to me, but not to the user.', detail: '\u201cSelect a placement\u201d was called out as awkward or unclear.', change: 'I rewrote the label using more natural language.' },
-        { n: '03', title: "I was asking for information I didn't actually need.", detail: 'The profile-picture step created additional onboarding work without helping someone accomplish the main tasks and also got rid of the anonymity point.', change: 'I removed this step in the onboarding process.' },
+        { n: '02', title: "I was asking for information I didn't actually need.", detail: 'The profile-picture step created additional onboarding work without helping someone accomplish the main tasks and also got rid of the anonymity point.', change: 'I removed this step in the onboarding process.' },
       ],
       showcase: [
         { vid: 'assets/cf-map.mp4', slotId: 'cf-rec-map', img: 'assets/final-01-map.png', eyebrow: 'Map', body: 'Nearby locations show where products are available, and the availability helps prevent unnecessary trips.', placeholder: 'Screen recording: Map' },
