@@ -238,39 +238,37 @@
   <section id="experience" ref="{{ setRef('experience') }}" style="{{ revealStyle('experience') }} padding: clamp(32px,4vw,48px) clamp(20px,5vw,64px); max-width:1200px; margin: 0 auto; position:relative;">
     <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Experience</p>
     <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 24px; position:relative;">Every run that got me here.</h2>
-    <div style="display:flex; flex-direction:column; gap: 10px; position:relative; z-index:1; max-width:640px;">
-      <sc-for list="{{ experience }}" as="e" hint-placeholder-count="3">
+    <div style="display:flex; flex-direction:column; position:relative; z-index:1; border-top:1px solid #E9ECEF;">
+      <sc-for list="{{ experience }}" as="e" hint-placeholder-count="4">
         <sc-if value="{{ e.linked }}" hint-placeholder-val="{{ true }}">
-        <a href="#work" onClick="{{ openExperience }}" data-anchor="{{ e.anchor }}" style="display:flex; align-items:center; gap:16px; padding:16px 18px; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; text-decoration:none; color:inherit; transition:border-color 0.2s ease, transform 0.2s ease;" style-hover="border-color:#2C6FB5; transform:translateY(-1px);">
+        <a href="#work" onClick="{{ openExperience }}" data-anchor="{{ e.anchor }}" style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; text-decoration:none; color:inherit; transition:background 0.2s ease, padding-left 0.2s ease;" style-hover="background:#F7F9FA; padding-left:12px;">
           <sc-if value="{{ e.logoSrc }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:44px; height:44px; flex:none; display:block; border-radius:9px; object-fit:contain;" />
+            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
           </sc-if>
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
-            <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="9" style="width:44px; height:44px; flex:none; display:block;"></image-slot>
+            <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
           </sc-if>
-          <div style="min-width:0;">
-            <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16px; margin:0; line-height:1.25;">{{ e.org }}</h3>
-            <p style="font-size:13px; color:#2F7A94; margin:3px 0 0; font-weight:600;">{{ e.role }}</p>
-          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
+          <span style="color:#C7CDD3; font-size:15px; line-height:1;">/</span>
+          <p style="font-size:15.5px; color:#7C8894; margin:0; line-height:1.3;">{{ e.role }}</p>
           <sc-if value="{{ e.current }}" hint-placeholder-val="{{ false }}">
-            <span class="mono" style="margin-left:auto; display:inline-flex; align-items:center; gap:6px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:#1D5E4A; background:#DDF0E4; border:1px solid #A9D8BC; border-radius:100px; padding:3px 9px; white-space:nowrap;"><span style="width:6px; height:6px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Current</span>
+            <span class="mono" style="margin-left:auto; display:inline-flex; align-items:center; gap:6px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:#1D5E4A; white-space:nowrap;"><span style="width:6px; height:6px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Current</span>
           </sc-if>
         </a>
         </sc-if>
         <sc-if value="{{ e.static }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex; align-items:center; gap:16px; padding:16px 18px; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; color:inherit;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; color:inherit;">
           <sc-if value="{{ e.logoSrc }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:44px; height:44px; flex:none; display:block; border-radius:9px; object-fit:contain;" />
+            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
           </sc-if>
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
-            <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="9" style="width:44px; height:44px; flex:none; display:block;"></image-slot>
+            <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
           </sc-if>
-          <div style="min-width:0;">
-            <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16px; margin:0; line-height:1.25;">{{ e.org }}</h3>
-            <p style="font-size:13px; color:#2F7A94; margin:3px 0 0; font-weight:600;">{{ e.role }}</p>
-          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
+          <span style="color:#C7CDD3; font-size:15px; line-height:1;">/</span>
+          <p style="font-size:15.5px; color:#7C8894; margin:0; line-height:1.3;">{{ e.role }}</p>
           <sc-if value="{{ e.current }}" hint-placeholder-val="{{ false }}">
-            <span class="mono" style="margin-left:auto; display:inline-flex; align-items:center; gap:6px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:#1D5E4A; background:#DDF0E4; border:1px solid #A9D8BC; border-radius:100px; padding:3px 9px; white-space:nowrap;"><span style="width:6px; height:6px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Current</span>
+            <span class="mono" style="margin-left:auto; display:inline-flex; align-items:center; gap:6px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:#1D5E4A; white-space:nowrap;"><span style="width:6px; height:6px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Current</span>
           </sc-if>
         </div>
         </sc-if>
