@@ -799,6 +799,48 @@
       <p style="margin: 20px 0 0; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#12314A; font-weight:600; max-width:52ch;">4th year Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
       <p style="margin: 10px 0 0; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#5A6874;">Looking for UX Design &amp; Marketing internships or entry-level jobs</p>
     </div>
+  <section id="work" ref="{{ setRef('work') }}" style="{{ revealStyle('work') }} padding: clamp(24px,3.5vw,40px) 0 clamp(48px,7vw,72px); max-width:1120px; margin: 0 auto; position:relative;">
+    <div style="position:absolute; top:0; bottom:0; left:-50vw; right:-50vw; z-index:0; pointer-events:none; background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2234%22%20height%3D%2234%22%3E%3Ccircle%20cx%3D%222%22%20cy%3D%222%22%20r%3D%221.1%22%20fill%3D%22%232F7A94%22%20fill-opacity%3D%220.22%22%2F%3E%3C%2Fsvg%3E'); background-repeat:repeat; mask-image:radial-gradient(42% 70% at 50% 0%, #000 0%, transparent 78%); -webkit-mask-image:radial-gradient(42% 70% at 50% 0%, #000 0%, transparent 78%);"></div>
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>Selected Work</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 48px; max-width:44ch; position:relative;">What I'm doing when I'm <span style="white-space:nowrap;">not snowboarding.</span></h2>
+    <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap: clamp(32px,5vw,44px) clamp(24px,4vw,36px); align-items:stretch;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <div class="card" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="background:#FFFFFF; border:1px solid #E6E9EC; border-radius:18px; padding: 14px 14px 8px 22px; overflow:hidden; position:relative; color:inherit; display:flex; flex-direction:column; height:100%; box-sizing:border-box; cursor:pointer; box-shadow:0 1px 2px #12314A0F, 0 18px 44px -28px #12314A40; transition:transform 0.5s cubic-bezier(0.22,0.8,0.2,1), box-shadow 0.5s ease, border-color 0.5s ease;" style-hover="transform:scale(0.986); box-shadow:0 1px 2px #12314A14, 0 10px 24px -20px #12314A55; border-color:#CFDCE5; background:#F0EEEA;">
+          <span style="position:absolute; left:9px; top:22px; bottom:22px; width:1px; background:repeating-linear-gradient(180deg, #C6D2DB 0 4px, transparent 4px 10px); z-index:2;"></span>
+          <span style="position:absolute; left:-7px; top:calc(50% - 7px); width:14px; height:14px; border-radius:50%; background:#FCFCFB; box-shadow:inset -1px 0 0 #E6E9EC; z-index:2;"></span>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 4px 10px 14px;">
+            <span class="mono" style="display:inline-flex; align-items:center; gap: 7px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE;"><span style="width:6px; height:6px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Lift Ticket</span>
+            <span class="mono" style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#C0C7CE;">Season 25/26</span>
+          </div>
+          <div style="position:relative; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background-color:{{ p.bg }}; display:flex; align-items:center; justify-content:center; box-shadow:inset 0 0 0 1.5px #12314A2E;">
+            <span style="{{ p.veilStyle }}"></span>
+            <span style="{{ p.overlayStyle }}">{{ p.hoverLabel }}</span>
+            <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
+              <div class="cardimg" role="img" aria-label="{{ p.title }}" style="{{ p.imgStyle }}"></div>
+            </sc-if>
+            <sc-if value="{{ p.noImage }}" hint-placeholder-val="{{ true }}">
+              <span class="mono" style="font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A88;">Coming soon</span>
+            </sc-if>
+            <span class="mono" style="position:absolute; top:12px; right:12px; z-index:2; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#12314A; background:#FFFFFFE6; backdrop-filter:blur(4px); padding: 5px 10px; border-radius:4px; box-shadow:0 1px 3px #12314A22, inset 0 0 0 1px #12314A14;">№ {{ p.num }}</span>
+          </div>
+          <div style="padding: 22px 10px 18px; display:flex; flex-direction:column; gap: 10px; flex:1;">
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(20px,2.2vw,25px); line-height:1.14; margin: 0; color:#12314A;">{{ p.title }}</h3>
+            <p style="font-size:14.5px; line-height:1.62; color:#3F5A70; margin: 0; text-wrap:pretty;">{{ p.desc }}</p>
+            <div style="display:flex; flex-wrap:wrap; gap: 8px; margin-top: 4px;">
+              <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="2">
+                <span class="mono" style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; background:#EFF6FA; border:1px solid #DCEAF2; padding: 6px 12px; border-radius:100px;">{{ t }}</span>
+              </sc-for>
+            </div>
+            <sc-if value="{{ p.status }}" hint-placeholder-val="{{ false }}">
+              <p style="display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4; color:#3F5A70; margin:2px 0 0;"><span style="width:8px; height:8px; border-radius:50%; background:#2F6B4A; flex:none;"></span>{{ p.status }}</p>
+            </sc-if>
+            <span style="display:block; height:1px; margin: auto 0 2px; background:repeating-linear-gradient(90deg, #D9E2E8 0 5px, transparent 5px 11px);"></span>
+            <span class="cardcta mono" style="display:inline-flex; align-items:center; gap: 8px; margin-top: 4px; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#12314A; opacity:0.55; transition:opacity 0.4s ease;">View case study <span style="font-size:13px;">&rarr;</span></span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
     <div style="position:relative; z-index:1; max-width:760px; margin: 0 auto clamp(48px,7vw,64px);">
       <svg viewBox="180 80 840 130" style="display:block; width:100%; aspect-ratio:840/130; height:auto; overflow:visible; pointer-events:none; opacity:0.75;">
         <path d="M96 238 C 300 92, 900 92, 1104 238" fill="none" stroke="#2F7A94" stroke-width="4" stroke-dasharray="16 14" stroke-linecap="round"></path>
@@ -877,10 +919,6 @@
       </div>
     </div>
 
-    <div style="position:relative; z-index:1; display:flex; gap: 16px; flex-wrap:wrap; justify-content:center; margin-top: clamp(32px,5vw,48px);">
-      <button onClick="{{ goToWork }}" style="background:#12314A; color:#F4FAFD; padding: 16px 32px; border-radius:20px 4px 20px 4px; border:none; font-weight:600; font-size:16.5px; display:inline-block; transform:rotate(-1.5deg); transition:transform 0.25s ease; cursor:pointer;" style-hover="transform:rotate(0deg) translateY(-3px);">View my work →</button>
-      <a href="https://www.linkedin.com/in/lisa-wang100/" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="border:1.5px solid #12314A; color:#12314A; padding: 16px 32px; border-radius:4px 20px 4px 20px; text-decoration:none; font-weight:600; font-size:16.5px; display:inline-block; transform:rotate(1.5deg); transition:transform 0.25s ease, background 0.25s ease, color 0.25s ease;" style-hover="background:#12314A; color:#F4FAFD; transform:rotate(0deg) translateY(-3px);">LinkedIn</a>
-    </div>
 
     <div style="position:relative; margin-top: clamp(48px,7vw,64px);">
       <div data-r="tags" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,196px)); justify-content:center; gap: 20px; max-width:860px; margin: 0 auto; padding: 24px 0;">
@@ -906,49 +944,6 @@
   </section>
   </div>
 
-  <section id="work" ref="{{ setRef('work') }}" style="{{ revealStyle('work') }} padding: clamp(24px,3.5vw,40px) clamp(20px,5vw,64px) clamp(64px,9vw,96px); max-width:1600px; margin: 0 auto; position:relative; overflow:hidden;">
-    <div style="position:absolute; inset:0; z-index:0; pointer-events:none; background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2234%22%20height%3D%2234%22%3E%3Ccircle%20cx%3D%222%22%20cy%3D%222%22%20r%3D%221.1%22%20fill%3D%22%232F7A94%22%20fill-opacity%3D%220.22%22%2F%3E%3C%2Fsvg%3E'); background-repeat:repeat; mask-image:radial-gradient(120% 70% at 50% 0%, #000 0%, transparent 72%); -webkit-mask-image:radial-gradient(120% 70% at 50% 0%, #000 0%, transparent 72%);"></div>
-    <div style="position:absolute; top:-120px; right:-140px; width:520px; height:520px; z-index:0; pointer-events:none; background:radial-gradient(circle, #E3F2F9 0%, transparent 68%); opacity:0.75;"></div>
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>Selected Work</p>
-    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 48px; max-width:44ch; position:relative;">What I'm doing when I'm <span style="white-space:nowrap;">not snowboarding.</span></h2>
-    <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap: clamp(32px,5vw,44px) clamp(24px,4vw,36px); align-items:stretch;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
-        <div class="card" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="background:#FFFFFF; border:1px solid #E6E9EC; border-radius:18px; padding: 14px 14px 8px 22px; overflow:hidden; position:relative; color:inherit; display:flex; flex-direction:column; height:100%; box-sizing:border-box; cursor:pointer; box-shadow:0 1px 2px #12314A0F, 0 18px 44px -28px #12314A40; transition:transform 0.5s cubic-bezier(0.22,0.8,0.2,1), box-shadow 0.5s ease, border-color 0.5s ease;" style-hover="transform:scale(0.986); box-shadow:0 1px 2px #12314A14, 0 10px 24px -20px #12314A55; border-color:#CFDCE5; background:#F0EEEA;">
-          <span style="position:absolute; left:9px; top:22px; bottom:22px; width:1px; background:repeating-linear-gradient(180deg, #C6D2DB 0 4px, transparent 4px 10px); z-index:2;"></span>
-          <span style="position:absolute; left:-7px; top:calc(50% - 7px); width:14px; height:14px; border-radius:50%; background:#FCFCFB; box-shadow:inset -1px 0 0 #E6E9EC; z-index:2;"></span>
-          <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 4px 10px 14px;">
-            <span class="mono" style="display:inline-flex; align-items:center; gap: 7px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE;"><span style="width:6px; height:6px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Lift Ticket</span>
-            <span class="mono" style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#C0C7CE;">Season 25/26</span>
-          </div>
-          <div style="position:relative; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background-color:{{ p.bg }}; display:flex; align-items:center; justify-content:center; box-shadow:inset 0 0 0 1px #12314A14;">
-            <span style="{{ p.veilStyle }}"></span>
-            <span style="{{ p.overlayStyle }}">{{ p.hoverLabel }}</span>
-            <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
-              <div class="cardimg" role="img" aria-label="{{ p.title }}" style="{{ p.imgStyle }}"></div>
-            </sc-if>
-            <sc-if value="{{ p.noImage }}" hint-placeholder-val="{{ true }}">
-              <span class="mono" style="font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A88;">Coming soon</span>
-            </sc-if>
-            <span class="mono" style="position:absolute; top:12px; right:12px; z-index:2; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#12314A; background:#FFFFFFE6; backdrop-filter:blur(4px); padding: 5px 10px; border-radius:4px; box-shadow:0 1px 3px #12314A22, inset 0 0 0 1px #12314A14;">№ {{ p.num }}</span>
-          </div>
-          <div style="padding: 22px 10px 18px; display:flex; flex-direction:column; gap: 10px; flex:1;">
-            <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(20px,2.2vw,25px); line-height:1.14; margin: 0; color:#12314A;">{{ p.title }}</h3>
-            <p style="font-size:14.5px; line-height:1.62; color:#3F5A70; margin: 0; text-wrap:pretty;">{{ p.desc }}</p>
-            <div style="display:flex; flex-wrap:wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="2">
-                <span class="mono" style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; background:#EFF6FA; border:1px solid #DCEAF2; padding: 6px 12px; border-radius:100px;">{{ t }}</span>
-              </sc-for>
-            </div>
-            <sc-if value="{{ p.status }}" hint-placeholder-val="{{ false }}">
-              <p style="display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4; color:#3F5A70; margin:2px 0 0;"><span style="width:8px; height:8px; border-radius:50%; background:#2F6B4A; flex:none;"></span>{{ p.status }}</p>
-            </sc-if>
-            <span style="display:block; height:1px; margin: auto 0 2px; background:repeating-linear-gradient(90deg, #D9E2E8 0 5px, transparent 5px 11px);"></span>
-            <span class="cardcta mono" style="display:inline-flex; align-items:center; gap: 8px; margin-top: 4px; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#12314A; opacity:0.55; transition:opacity 0.4s ease;">View case study <span style="font-size:13px;">&rarr;</span></span>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
   <div style="position:relative; height:76px; margin-top: 32px; pointer-events:none;">
     <div style="position:absolute; left:-4%; right:-4%; top:8px; transform:rotate(-1.5deg);">
       <div style="height:3px; background:#12314A; opacity:0.55;"></div>
@@ -1519,10 +1514,15 @@ class Component extends DCLogic {
       navOpen: this.state.navOpen ? 'true' : 'false',
       navOpenFlag: this.state.navOpen ? '1' : '0',
       toggleNav: () => this.setState({ navOpen: !this.state.navOpen }),
-      // Links already carry target="_blank" rel="noopener noreferrer", so the
-      // browser's native new-tab behavior is all that's needed. Do nothing
-      // extra here — no fallback that could ever navigate the current tab.
-      openExternal: () => {},
+      openExternal: (e) => {
+        const url = e.currentTarget && e.currentTarget.getAttribute('href');
+        if (!url) return;
+        e.preventDefault();
+        const abs = /^https?:/.test(url) ? url : new URL(url, document.baseURI).href;
+        let w = null;
+        try { w = window.open(abs, '_blank', 'noopener,noreferrer'); } catch (err) { w = null; }
+        if (!w) { try { (window.top || window).location.href = abs; } catch (err) { window.location.href = abs; } }
+      },
       contentStats: [
         { label: 'Top TikTok video', n: '212.2K', u: 'Views' },
         { label: 'Boys II Planet series', n: '54.3K', u: 'Avg views per video' },
@@ -1722,7 +1722,7 @@ class Component extends DCLogic {
         status: 'In progress',
         hoverLabel: 'View Case Study',
         tags: ['UX Research', 'UX / UI', 'Mobile App'],
-        bg: '#F7F0E4',
+        bg: '#FFFFFF',
         offset: 16,
         href: 'Harmonize Case Study.dc.html',
         image: 'assets/harmonize-thumb.png',
