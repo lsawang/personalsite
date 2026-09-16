@@ -157,17 +157,28 @@
             <p style="font-size:17.5px; font-weight:600; margin:0 0 7px;">A system we could hand to ourselves</p>
             <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0 0 16px; max-width:62ch;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> We established the typography scales for both desktop and mobile platforms, a UI color palette complete with contrast ratios, radii, grids, and states for buttons. <strong style="font-weight:600; color:#12314A;">Documenting it up front meant six people could build in parallel without redrawing each other&rsquo;s work.</strong></p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
-              <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-                <img src="assets/tri-ds-type.png" alt="Typography scale" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="assets/tri-ds-type.png" alt="Typography scale" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 6px;">Typography</p>
+                <p style="font-size:14px; line-height:1.65; color:#3F5A70; margin:0;">Pulang, a single-weight marker face, for titles and headers; Nunito for subtitles, body, and buttons. Desktop and mobile each get their own scale, from a 64px title down to 16px body.</p>
               </div>
-              <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-                <img src="assets/tri-ds-color.png" alt="Color palette" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="assets/tri-ds-color.png" alt="Color palette" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 6px;">Color</p>
+                <p style="font-size:14px; line-height:1.65; color:#3F5A70; margin:0;">Off-white and near-black carry text and backgrounds. Green is the only CTA color. Yellow, butter, mint, periwinkle, and pink stay as card and border accents, so the crayon-box feel never competes with the primary action.</p>
               </div>
-              <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-                <img src="assets/tri-ds-buttons.png" alt="Desktop button components" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="assets/tri-ds-buttons.png" alt="Desktop button components" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 6px;">Components</p>
+                <p style="font-size:14px; line-height:1.65; color:#3F5A70; margin:0;">Buttons documented with default, hover, and disabled states at both platform sizes, plus radii and grid rules.</p>
               </div>
             </div>
-            <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Type, color, and button states</figcaption>
           </figure>
 
           <div>
@@ -370,7 +381,7 @@ class Component extends DCLogic {
       })),
       details: [
         { label: 'My Role', value: 'Designer + Developer' },
-        { label: 'Timeline', value: 'Ongoing' },
+        { label: 'Timeline', value: 'June-Nov' },
         { label: 'Team', value: '6 designers + developers' },
         { label: 'Tools', value: 'Figma, FigJam, GitHub, VS Code' },
       ],
