@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<style>
+  body { margin: 0; background: #FCFCFB; }
+  * { box-sizing: border-box; }
+  a { color: #2F6B4A; }
+  a:hover { color: #12314A; }
+  img, video, iframe { max-width: 100%; }
+  .mono { font-family:'Mulish',sans-serif; font-weight:700; }
+  h1, h2, h3, h4 { text-wrap: pretty; }
+  h1, h2 { font-family:'Playfair Display',serif; font-weight:700; }
+  p, li, figcaption, blockquote { text-wrap: pretty; }
+  @media (max-width: 860px) {
+    [data-r="casenav"] { position: static !important; flex: 1 1 100% !important; min-width: 0 !important; padding-bottom: 0 !important; padding-right: clamp(20px,4.5vw,80px) !important; }
+    [data-r="casenav"] nav { display: none !important; }
+    [data-r="casenav"] > a { margin-bottom: 0 !important; }
+    main { padding-left: clamp(20px,4.5vw,64px) !important; }
+  }
+</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh;">
+  <div style="position:fixed; top:0; left:0; right:0; height:3px; background:rgba(18,49,74,0.07); z-index:70;">
+    <div style="height:100%; background:#2F6B4A; width:{{ progressWidth }}; transition:width 0.12s linear;"></div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; max-width:1480px; margin:0 auto; align-items:flex-start;">
+
+    <aside data-r="casenav" style="position:sticky; top:0; align-self:flex-start; flex:0 1 330px; min-width:150px; padding:clamp(28px,4vw,52px) 0 40px clamp(20px,6vw,110px);">
+      <a href="/" style="display:block; font-size:14.5px; color:#9AA4AE; text-decoration:none; margin-bottom:34px;" style-hover="color:#12314A;">← Home</a>
+      <div style="position:relative; padding-left:18px;">
+        <span style="position:absolute; left:0; top:4px; bottom:4px; width:2px; background:#E9E9E6;"></span>
+        <span style="position:absolute; left:0; top:4px; width:2px; height:{{ progressWidth }}; max-height:calc(100% - 8px); background:#2F6B4A; transition:height 0.12s linear;"></span>
+        <nav style="display:flex; flex-direction:column; gap:15px;">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+          <a href="{{ n.href }}" onClick="{{ n.onClick }}" style="{{ n.style }}" style-hover="color:#12314A;">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+      </div>
+    </aside>
+
+    <main style="flex:1 1 min(100%, 520px); min-width:0; padding:clamp(28px,4vw,52px) clamp(20px,4.5vw,64px) clamp(80px,10vw,130px) 0;">
+
+      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(44px,5.5vw,68px);">
+        <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 20px; font-weight:700;">Case Study 01 · In progress</p>
+        <h1 style="font-size:clamp(38px,5.6vw,70px); font-weight:600; letter-spacing:-0.012em; line-height:1.03; margin:0 0 22px;">Triceratops</h1>
+        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(20px,2.3vw,29px); line-height:1.3; letter-spacing:-0.004em; margin:0 0 22px; max-width:44ch;">Building a website for a client we know and love.</p>
+        <p style="font-size:16px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(30px,4vw,42px); max-width:80ch;">Our team of 6 <strong style="font-weight:600; color:#12314A;">designed and developed</strong> the website for a UC Davis club that loves dinos, where we turned a Discord and Instagram-ran operation into something a first-year can <strong style="font-weight:600; color:#12314A;">find &amp; understand</strong> on their first visit.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:22px clamp(24px,4vw,44px); padding:22px 0; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; margin-bottom:clamp(30px,4vw,44px);">
+          <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
+            <div>
+              <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0 0 8px;">{{ d.label }}</p>
+              <p style="font-size:14.5px; line-height:1.5; margin:0; font-weight:600;">{{ d.value }}</p>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="width:100%; max-width:1000px; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#EFEFEC; box-shadow:0 22px 44px -26px #12314A44;">
+          <img src="/assets/tri-hero-graphic.png" alt="Triceratops website shown across desktop and mobile screens" style="display:block; width:100%; height:auto; aspect-ratio:1426/896; object-fit:cover; background:#EFEFEC;" />
+        </div>
+      </section>
+
+      <div role="tablist" aria-label="Case study track" style="display:inline-flex; gap:4px; padding:4px; background:#F0F2EE; border:1.5px solid #E4E6E2; border-radius:100px; margin-bottom:clamp(40px,5vw,60px);">
+        <button role="tab" aria-selected="{{ designSelected }}" onClick="{{ showDesign }}" style="{{ designTabStyle }}">Design</button>
+        <button role="tab" aria-selected="{{ devSelected }}" onClick="{{ showDev }}" style="{{ devTabStyle }}">Development</button>
+      </div>
+
+      <sc-if value="{{ isDev }}" hint-placeholder-val="{{ false }}">
+        <section id="devtrack" data-screen-label="10 Development" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+          <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Development</p>
+          <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:48ch;">In progress</h2>
+          <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; margin:0;">Coming soon...</p>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ isDesign }}" hint-placeholder-val="{{ true }}">
+
+      <section id="overview" data-screen-label="01 Overview" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Overview</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:46ch;">Triceratops is a UC Davis club that crochets dinosaurs and hides them around campus to be found and collected.</h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 26px; max-width:80ch;">They ran on Instagram and Discord with drop announcements, rules, flash sales, and trading. Previously, there was <strong style="font-weight:600; color:#12314A;">no website</strong>, so anyone outside the Discord had no way in.</p>
+
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(18px,2vw,22px); line-height:1.5; color:#12314A; margin:0; max-width:52ch; padding-left:clamp(16px,2.4vw,26px); border-left:3px solid #2F6B4A; font-weight:600;">We built a public site that answers the Discord&rsquo;s most-asked questions before someone has to ask them.</p>
+      </section>
+
+      <section id="problem" data-screen-label="02 Problem" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Problem</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:40ch;">How might we: make joining a dino hunt <span style="color:#2F6B4A;">obvious to someone who has never heard of the club?</span></h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Rules live in multiple, scattered Discord channels. The post-claim process is nowhere, and the Instagram-to-Discord handoff is invisible.</p>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(28px,3.6vw,40px); max-width:80ch;">Newcomers also arrived with <strong style="font-weight:600; color:#12314A;">three common misconceptions</strong>: you need to know how to crochet, meetings are mandatory, and it costs money to join.</p>
+
+        <figure style="margin:0;">
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#1E1F22;">
+            <img src="/assets/tri-discord-rules.png" alt="The club's rules channel in Discord" style="display:block; width:100%; height:auto;" />
+          </div>
+          <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">The rules &amp; general information were only in the Discord</figcaption>
+        </figure>
+      </section>
+
+      <section id="research" data-screen-label="03 Research" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Research</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Understanding the club from three perspectives</h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">Sorting participants by how close they already were to the club separated <strong style="font-weight:600; color:#12314A;">onboarding issues from member-related issues.</strong></p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0 clamp(24px,4vw,44px); border-top:1px solid #E9E9E6; padding-top:20px; margin-bottom:clamp(32px,4.2vw,48px);">
+          <sc-for list="{{ cohorts }}" as="c" hint-placeholder-count="3">
+            <div style="padding-bottom:16px;">
+              <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ c.title }}</p>
+              <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">{{ c.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
+          <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
+            <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
+              <span style="font-family:'Playfair Display',serif; font-size:19px; color:#2F6B4A; font-weight:500; padding-top:2px;">{{ i.n }}</span>
+              <div>
+                <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ i.title }}</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:78ch;">{{ i.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <figure style="margin:0;">
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+            <img src="/assets/tri-affinity.png" alt="Affinity map with clustered themes" style="display:block; width:100%; aspect-ratio:3324/1326; object-fit:contain; object-position:center; background:#FFFFFF; padding:12px; box-sizing:border-box;" />
+          </div>
+          <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Affinity map</figcaption>
+        </figure>
+      </section>
+
+      <section id="decisions" data-screen-label="04 Design Decisions" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Design Decisions</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 clamp(32px,4.2vw,46px); max-width:44ch;">Skim first, depth underneath</h2>
+
+        <div style="display:grid; gap:clamp(30px,4vw,44px);">
+          <figure style="margin:0;">
+            <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">One map, two journeys</p>
+            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 10px; max-width:80ch;">Someone should be able to skim what the club is and know how a drop works <strong style="font-weight:600; color:#12314A;">initially</strong>, then go deeper if they want. We mapped the site into four areas and made flows for the two journeys that mattered:</p>
+            <ul style="margin:0 0 18px; padding-left:20px; display:flex; flex-direction:column; gap:5px;">
+              <li style="font-size:15px; line-height:1.75; color:#3F5A70;">Joining for the first time</li>
+              <li style="font-size:15px; line-height:1.75; color:#3F5A70;">Claiming a dino you just found</li>
+            </ul>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;">
+              <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                <img src="/assets/tri-ia.png" alt="Information architecture" style="display:block; width:100%; height:240px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+              </div>
+              <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                <img src="/assets/tri-flows.png" alt="User flow diagram" style="display:block; width:100%; height:240px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+              </div>
+            </div>
+            <figcaption class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Information architecture &amp; user flows</figcaption>
+          </figure>
+
+          <figure style="margin:0;">
+            <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">A system we could hand to ourselves</p>
+            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> This helped us establish a solid design system quicker and easier.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="/assets/tri-ds-type.png" alt="Typography scale" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Typography</p>
+              </div>
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="/assets/tri-ds-color.png" alt="Color palette" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Color</p>
+              </div>
+              <div>
+                <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img src="/assets/tri-ds-buttons.png" alt="Desktop button components" style="display:block; width:100%; height:230px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                </div>
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0;">Components</p>
+              </div>
+            </div>
+          </figure>
+
+          <div>
+            <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Taking a step back</p>
+            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">My first hi-fi design leaned on animations mostly: hover states on every card, pop-ups, and reveal animations. Put together, they made the page busy and caused too much friction. <strong style="font-weight:600; color:#12314A;">I cut it back to hover states only so it gave the page a more &ldquo;premium-feel.&rdquo;</strong></p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
+              <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px; border:1.5px solid #E4E6E2;">
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A4A; margin:0 0 12px;">&#10007; Rejected</p>
+                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Animation on everything</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Hover effects, pop-ups, and animated reveals across the page. Fun in isolation, but stacked together they lowered the premium feel and pulled attention away from the content people came for.</p>
+              </div>
+              <div style="background:#F1F7F1; border-radius:12px; padding:22px 24px; border:1.5px solid #2F6B4A;">
+                <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 12px;">&#10003; Chosen</p>
+                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Animations where it made sense</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Kept the whimsy in illustration, color, and copy, and reserved motion for a few deliberate moments. There is such a thing as too much, and restraint is what made the site feel finished.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testing" data-screen-label="05 Testing" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Testing</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Testers found the Rules page. They could not find the part they needed.</h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">There were certain issues that caused friction or that were not the most user-friendly.</p>
+
+        <div style="display:flex; flex-direction:column; margin-bottom:clamp(32px,4.2vw,48px);">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px clamp(20px,3vw,34px); padding:0 0 10px; border-bottom:1px solid #E9E9E6;">
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0;">What testers hit</p>
+            <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:0;">What changed</p>
+          </div>
+          <sc-for list="{{ changes }}" as="c" hint-placeholder-count="4">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px clamp(20px,3vw,34px); padding:18px 0; border-bottom:1px solid #E9E9E6;">
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>{{ c.label }}</span></p>
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>{{ c.change }}</span></p>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:16px;">
+          <span style="font-size:14.5px; font-weight:600; color:{{ beforeColor }};">Before (Hi-fi V1)</span>
+          <button onClick="{{ toggleFidelity }}" aria-label="Toggle before and after" style="width:52px; height:28px; border-radius:100px; border:1.5px solid #C9CFC7; background:{{ knobTrack }}; padding:2px; cursor:pointer; display:inline-flex; align-items:center; justify-content:flex-start; transition:background 0.25s ease;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#FFFFFF; box-shadow:0 1px 3px #12314A44; display:block; transform:translateX({{ knobX }}); transition:transform 0.25s ease;"></span>
+          </button>
+          <span style="font-size:14.5px; font-weight:600; color:{{ afterColor }};">After (Hi-fi V2)</span>
+        </div>
+        <div style="max-width:1000px; margin-bottom:clamp(30px,4vw,44px);">
+          <div>
+            <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF; width:100%;">
+              <video src="/assets/tri-hifi-v1.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; opacity:{{ beforeOpacity }}; transition:opacity 0.3s ease;"></video>
+              <video src="/assets/tri-hifi-v2.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; top:0; left:0; display:block; width:100%; height:auto; opacity:{{ afterOpacity }}; transition:opacity 0.3s ease;"></video>
+            </div>
+            <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">{{ fidelityCaption }}</p>
+          </div>
+        </div>
+        <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">My biggest challenge was to showcase all the information in a way users could <strong style="font-weight:600; color:#12314A;">understand and read easier</strong>.</p>
+      </section>
+
+      <section id="solution" data-screen-label="06 Final Solution" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Final Solution</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 clamp(30px,4vw,42px); max-width:44ch;">A public site that answers questions so the Discord doesn&rsquo;t need to anymore.</h2>
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(17px,1.9vw,20px); line-height:1.55; color:#12314A; margin:0 0 clamp(26px,3.4vw,36px); max-width:76ch; font-weight:600;">The Rules page now surfaces post-claim steps first, and every page captures questions a newcomer would have to ask in Discord.</p>
+        <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,26px) clamp(16px,2.4vw,26px);">
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
+            <div>
+              <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; margin-bottom:14px;">
+                <video src="{{ a.clip }}" ref="{{ a.setRef }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:top center; background:#FFFFFF;"></video>
+                <sc-if value="{{ a.idle }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ a.onToggle }}" aria-label="Play {{ a.name }} walkthrough" style="position:absolute; inset:0; width:100%; height:100%; border:none; padding:0; background:rgba(18,49,74,0.14); cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:rgba(18,49,74,0.24);">
+                    <span style="width:52px; height:52px; border-radius:50%; background:#2F6B4A; color:#F1F7F1; display:flex; align-items:center; justify-content:center; font-size:17px; padding-left:4px; box-shadow:0 6px 18px -6px rgba(18,49,74,0.6);">&#9654;</span>
+                  </button>
+                </sc-if>
+                <sc-if value="{{ a.playing }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ a.onToggle }}" aria-label="Pause {{ a.name }} walkthrough" style="position:absolute; right:10px; bottom:10px; width:34px; height:34px; border-radius:50%; border:none; background:rgba(18,49,74,0.72); color:#F4FAFD; font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#12314A;">&#10074;&#10074;</button>
+                </sc-if>
+              </div>
+              <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 7px;">{{ a.name }}</p>
+              <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;">{{ a.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="reflection" data-screen-label="07 Outcome" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Reflection</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:700; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">The Rules page went from something that didn&rsquo;t exist anywhere in one place, to a structured page that answers the questions people were actually asking in our interviews.</h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(32px,4.2vw,48px); max-width:80ch;">Usability testing showed the changes worked. Testers found the post-claim steps faster in the second look and described the page as easier to get through.</p>
+
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-0.006em; margin:0 0 clamp(22px,2.8vw,30px);">What I took away</p>
+        <div style="display:flex; flex-direction:column; border-top:1px solid #E9E9E6;">
+          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="3">
+            <div style="display:grid; grid-template-columns:auto 1fr; gap:10px clamp(24px,4vw,54px); padding:clamp(24px,3vw,32px) 0; border-bottom:1px solid #E9E9E6;">
+              <span class="mono" style="font-size:11.5px; letter-spacing:0.14em; color:#2F6B4A; padding-top:6px;">{{ t.n }}</span>
+              <div>
+                <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:600; letter-spacing:-0.004em; margin:0 0 10px;">{{ t.title }}</p>
+                <p style="font-size:15px; line-height:1.8; color:#3F5A70; margin:0; max-width:80ch;">{{ t.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      </sc-if>
+
+      <div style="max-width:1000px; padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+        <a href="/" style="background:#12314A; color:#F4FAFD; padding:14px 22px; border:2px solid #12314A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">← Back to portfolio</a>
+        <a href="/cyclefind" style="background:#2F6B4A; color:#F1F7F1; padding:14px 22px; border:2px solid #2F6B4A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Next case study →</a>
+        <a href="mailto:lsawang@ucdavis.edu" style="border:2px solid #12314A; color:#12314A; padding:14px 22px; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Get in touch</a>
+      </div>
+
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { after: false, track: 'design', active: 'overview', pct: 0, playing: {} };
+
+  _areaEls = {};
+  _refCbs = {};
+  _toggleCbs = {};
+
+  _setAreaRef = (i) => {
+    if (!this._refCbs[i]) {
+      this._refCbs[i] = (el) => {
+        if (!el) return;
+        this._areaEls[i] = el;
+        if (el._wired) return;
+        el._wired = true;
+        el.muted = true; el.defaultMuted = true;
+        el.pause();
+      };
+    }
+    return this._refCbs[i];
+  };
+
+  _toggleArea = (i) => {
+    if (!this._toggleCbs[i]) this._toggleCbs[i] = this._makeToggle(i);
+    return this._toggleCbs[i];
+  };
+
+  _makeToggle = (i) => () => {
+    const el = this._areaEls[i];
+    const on = !this.state.playing[i];
+    if (el) {
+      if (on) { const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+      else el.pause();
+    }
+    this.setState(s => ({ playing: { ...s.playing, [i]: on } }));
+  };
+
+  componentDidMount() {
+    this.ids = ['overview','problem','research','decisions','testing','solution'];
+    this.onScroll = () => {
+      let cur = null;
+      for (const id of this.ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= 120 && r.bottom > 120) { cur = id; break; }
+        if (r.top <= 120 && r.bottom > 0) cur = id;
+      }
+      if (!cur) cur = this.ids[0];
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+      if (cur !== this.state.active || Math.abs(pct - this.state.pct) > 0.2) {
+        this.setState({ active: cur, pct });
+      }
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    window.addEventListener('load', this.onScroll);
+    requestAnimationFrame(this.onScroll);
+    this.settleTimers = [300, 800, 1500, 3000].map(ms => setTimeout(this.onScroll, ms));
+    // Media loading in changes every section's offset — recompute when it settles.
+    if (window.ResizeObserver) {
+      this.ro = new ResizeObserver(() => this.onScroll());
+      this.ro.observe(document.body);
+    }
+    this.mediaCleanup = [];
+    document.querySelectorAll('img, video').forEach((el) => {
+      const ev = el.tagName === 'VIDEO' ? 'loadedmetadata' : 'load';
+      el.addEventListener(ev, this.onScroll);
+      this.mediaCleanup.push(() => el.removeEventListener(ev, this.onScroll));
+    });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    (this.settleTimers || []).forEach(clearTimeout);
+    if (this.ro) this.ro.disconnect();
+    if (this.mediaCleanup) this.mediaCleanup.forEach(fn => fn());
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+    window.removeEventListener('load', this.onScroll);
+  }
+
+  _loopVideo = (el) => {
+    if (!el || el._wired) return;
+    el._wired = true;
+    el.muted = true; el.defaultMuted = true;
+    const go = () => { const p = el.play(); if (p && p.catch) p.catch(() => {}); };
+    el.addEventListener('canplay', go, { once: true });
+    go();
+  };
+
+  _autoScroll = (el) => {
+    if (!el || el._wired) return;
+    el._wired = true;
+    let dir = 1, last = 0, visible = false, paused = false;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 });
+    io.observe(el);
+    el.addEventListener('pointerenter', () => { paused = true; });
+    el.addEventListener('pointerleave', () => { paused = false; });
+    const step = (t) => {
+      if (last && visible && !paused) {
+        const dt = Math.min(48, t - last);
+        const max = el.scrollHeight - el.clientHeight;
+        if (max > 4) {
+          el.scrollTop += dir * dt * 0.026;
+          if (el.scrollTop >= max - 0.5) { el.scrollTop = max; dir = -1; }
+          else if (el.scrollTop <= 0.5) { el.scrollTop = 0; dir = 1; }
+        }
+      }
+      last = t;
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  tabStyle(active) {
+    return {
+      background: active ? '#2F6B4A' : 'transparent',
+      color: active ? '#F1F7F1' : '#5C6B60',
+      border: 'none',
+      borderRadius: '100px',
+      padding: '11px 26px',
+      fontFamily: "'Mulish', sans-serif",
+      fontSize: '14.5px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      transition: 'background 0.22s ease, color 0.22s ease',
+    };
+  }
+
+  jumpToSection(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+  }
+
+  renderVals() {
+    const after = this.state.after;
+    return {
+      isDesign: this.state.track === 'design',
+      isDev: this.state.track === 'dev',
+      designSelected: this.state.track === 'design',
+      devSelected: this.state.track === 'dev',
+      designTabStyle: this.tabStyle(this.state.track === 'design'),
+      devTabStyle: this.tabStyle(this.state.track === 'dev'),
+      showDesign: () => this.setState({ track: 'design' }),
+      showDev: () => this.setState({ track: 'dev' }),
+      toggleFidelity: () => this.setState(s => ({ after: !s.after })),
+      beforeOpacity: after ? 0 : 1,
+      afterOpacity: after ? 1 : 0,
+      beforeColor: after ? '#9AA4AE' : '#12314A',
+      afterColor: after ? '#12314A' : '#9AA4AE',
+      knobX: after ? '22px' : '0px',
+      knobTrack: after ? '#2F6B4A' : '#E4E6E2',
+      fidelityCaption: after ? 'Hi-fi V2 (current)' : 'Hi-fi V1',
+      progressWidth: this.state.pct + '%',
+      autoScroll: this._autoScroll,
+      loopVideo: this._loopVideo,
+      nav: [
+        ['overview', 'Overview'], ['problem', 'Problem'], ['research', 'Research'],
+        ['decisions', 'Design Decisions'], ['testing', 'Testing'],
+        ['solution', 'Final Solution'],
+      ].map(([id, label]) => ({
+        href: '#' + id, label,
+        onClick: (e) => this.jumpToSection(e, id),
+        style: {
+          fontSize: '15px', textDecoration: 'none', transition: 'color 0.2s ease',
+          color: this.state.active === id ? '#12314A' : '#7C8894',
+          fontWeight: this.state.active === id ? 600 : 400,
+        },
+      })),
+      details: [
+        { label: 'My Role', value: 'Designer + Developer' },
+        { label: 'Timeline', value: 'June-Nov' },
+        { label: 'Team', value: '6 designers + developers' },
+        { label: 'Tools', value: 'Figma, FigJam, GitHub, VS Code' },
+      ],
+      contributions: [
+        { n: '01', label: 'Research:', body: 'I ideated the cohorts we were targeting, interviewed potential candidates, created a SWOT analysis while researching competitors, and conducted usability tests.' },
+        { n: '02', label: 'Design:', body: 'I was in charge of designing and creating the Rules page.' },
+        { n: '03', label: 'Components & Assets:', body: 'I created several components and assets for this project which were utilized in the making of the site.' },
+        { n: '04', label: 'Development:', body: 'In progress: Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.' },
+      ],
+      takeaways: [
+        { n: '01', title: 'Rules pages are a design problem', body: 'It wasn\u2019t only about what the text said, it was about what someone could find in the first ten seconds without scrolling, and what they\u2019d feel comfortable skimming past because the hierarchy told them it was safe to skip.' },
+        { n: '02', title: 'Designing inside a team of 6', body: 'Working within a group project also meant syncing my section with the site\u2019s overall structure and visual system, which pushed me to make design decisions that fit the bigger picture instead of just my one page.' },
+        { n: '03', title: 'Insights', body: 'The task that put my mind to work the most was making sure all the information was not only seen initially, but digestible and skimmable without overwhelming the user with cognitive load.' },
+      ],
+      cohorts: [
+        { title: 'Active Participant', body: 'Already hunts and is in the club.' },
+        { title: 'Interested Observer', body: 'Follows the Instagram and has either not joined a drop or barely stepped foot into the club.' },
+        { title: 'Unaware Candidate', body: 'Has no idea what the club is and is about.' },
+      ],
+      insights: [
+        { n: '01', title: 'Rules are scattered', body: 'The strongest finding in the dataset: rules sit across multiple Discord channels, and the post-claim process is written down nowhere.' },
+        { n: '02', title: 'Misconceptions block entry', body: 'You must crochet, meetings are required, it costs money. None are true, and none were addressed anywhere.' },
+        { n: '03', title: 'Instagram is the first touchpoint', body: 'Most participants go on social media first, so the site follows on from the impression, not precedes it.' },
+      ],
+      changes: [
+        { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved above the FAQ and gave it a section of its own.' },
+        { label: 'A long page caused scrolling fatigue.', change: 'Sectioned the rules into pop-ups, then simplified further into boxes.' },
+        { label: 'Rules and Getting Started blurred together.', change: 'Moving the section clarified which page answers what.' },
+        { label: 'Hi-fi V1\u2019s animations and overlays caused friction.', change: 'Cut back to hover states only, on interactive elements.' },
+      ],
+      areas: [
+        { name: 'Home', clip: '/assets/tri-final-home.mp4', body: 'Main landing page, it includes the community, events, and heatmap.' },
+        { name: 'About Us', clip: '/assets/tri-final-dinodex.mp4', body: 'The people, mission, and values that the club upholds.' },
+        { name: 'Getting Started', clip: '/assets/tri-final-about.mp4', body: 'Drop information, how to set up Discord notifications, giveaway information, and more.' },
+        { name: 'DinoDex', clip: '/assets/tri-final-guide.mp4', body: 'Dino types, horn colors, and past drops, everything about the dinos!' },
+        { name: 'Rules', clip: '/assets/tri-final-rules.mp4', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
+      ].map((a, i) => ({
+        ...a,
+        setRef: this._setAreaRef(i),
+        onToggle: this._toggleArea(i),
+        playing: !!this.state.playing[i],
+        idle: !this.state.playing[i],
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>
