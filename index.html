@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 <script src="./image-slot.js"></script>
@@ -138,7 +138,8 @@
   .card:hover .cardcta { opacity: 1; }
   .dancecard:hover img { transform: scale(1.05); }
   .navlink { background:none; border:none; padding: 0; font:inherit; cursor:pointer; text-align:left; }
-  .mono { font-family:'IBM Plex Mono',monospace; }
+  .mono { font-family:'Mulish',sans-serif; font-weight:700; }
+  h1, h2 { font-family:'Playfair Display',serif; font-weight:700; }
   h1, h2, h3, h4 { text-wrap: pretty; }
   p, li, figcaption, blockquote { text-wrap: pretty; }
   .cardimg { transition:transform 0.6s cubic-bezier(0.2,0.7,0.2,1); }
@@ -153,7 +154,7 @@
 }
 </style>
 </helmet>
-<div onMouseMove="{{ onMouseMove }}" ref="{{ setTrailRef }}" style="font-family:'Space Grotesk',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh; overflow-x:hidden; position:relative; cursor:none;">
+<div onMouseMove="{{ onMouseMove }}" ref="{{ setTrailRef }}" style="font-family:'Mulish',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh; overflow-x:hidden; position:relative; cursor:none;">
 
   <div class="custom-cursor" ref="{{ setCursorRef }}" style="position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transition:transform 0.09s ease-out; will-change:transform;">
     <svg ref="{{ setFlakeRef }}" viewBox="0 0 24 24" style="position:absolute; top:0; left:0; display:block; width:28px; height:28px; margin: -14px; color:#12314A; opacity:{{ flakeOpacity }}; transform:scale({{ flakeScale }}); transition:color 0.3s ease, opacity 0.22s ease, transform 0.22s ease; filter:drop-shadow(0 1px 2px #12314A55);">
@@ -192,13 +193,13 @@
     <section style="padding: clamp(64px,9vw,96px) clamp(20px,5vw,64px); max-width:900px; margin: 0 auto;">
       <button onClick="{{ goBack }}" style="background:#12314A; color:#F4FAFD; border:none; padding: 12px 24px; border-radius:100px; font-weight:700; font-size:14px; cursor:pointer; margin-bottom: 40px; transform:rotate(-2deg); transition:transform 0.2s ease;" style-hover="transform:rotate(0deg) translateY(-2px);">← Back</button>
       <span style="display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; background:#12314A; color:#F4FAFD; padding: 4px 12px; border-radius:100px; transform:rotate(-2deg); margin-bottom: 16px;">{{ activeProject.tags.0 }}</span>
-      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(32px,5vw,52px); margin: 0 0 32px;">{{ activeProject.title }}</h1>
+      <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(32px,5vw,52px); margin: 0 0 32px;">{{ activeProject.title }}</h1>
       <div style="aspect-ratio:4/3; border-radius:20px; background:{{ activeProject.bg }}; background-image:repeating-linear-gradient(135deg, #FFFFFF55 0px, #FFFFFF55 10px, transparent 10px, transparent 20px); display:flex; align-items:center; justify-content:center; margin-bottom: 32px; overflow:hidden;">
         <sc-if value="{{ activeProject.hasImage }}" hint-placeholder-val="{{ false }}">
           <div role="img" aria-label="{{ activeProject.title }}" style="{{ activeProject.imgStyle }}"></div>
         </sc-if>
         <sc-if value="{{ activeProject.noImage }}" hint-placeholder-val="{{ true }}">
-          <span style="font-family:monospace; font-size:13px; color:#12314A;">project screenshot</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#12314A;">project screenshot</span>
         </sc-if>
       </div>
       <p style="font-size:18px; line-height:1.7; color:#3F5A70; max-width:65ch;">{{ activeProject.desc }}</p>
@@ -209,17 +210,17 @@
     <div style="background:#FCFCFB;">
     <section data-r="about" style="padding: clamp(56px,7vw,72px) clamp(20px,5vw,64px) clamp(24px,3vw,32px); max-width:1140px; margin: 0 auto; display:grid; grid-template-columns:1fr minmax(230px,320px); gap: clamp(48px,7vw,64px); align-items:start;">
       <div style="max-width:62ch;">
-        <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>About Me</p>
-        <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.025em; font-size:clamp(32px,5vw,52px); line-height:1.1; margin: 0 0 32px; max-width:32ch;">I&rsquo;m always at a constant phase of learning and growing.</h1>
+        <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>About Me</p>
+        <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.01em; font-size:clamp(32px,5vw,52px); line-height:1.1; margin: 0 0 32px; max-width:32ch;">I&rsquo;m always at a constant phase of learning and growing.</h1>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 20px;">My name is <strong style="font-weight:600; color:#12314A;">Lisa Wang</strong> and I am a <strong style="font-weight:600; color:#12314A;">product designer and marketer</strong> attending the University of California, Davis. I&rsquo;m a 4th year undergraduate with a bachelor&rsquo;s in <strong style="font-weight:600; color:#12314A;">Communication &amp; Design</strong>. I focus on building <strong style="font-weight:600; color:#12314A;">meaningful, usable products</strong> with intention behind every step I make, bridging user experience and brand marketing that actually land.</p>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 40px;">I primarily work with clients and projects that challenge me to create <strong style="font-weight:600; color:#12314A;">real-world solutions</strong> as that&rsquo;s something I&rsquo;ve been doing since an early age.</p>
 
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(20px,2.2vw,25px); line-height:1.25; margin: 0 0 20px; max-width:40ch;">Started in entrepreneurship, later discovered my passion.</h2>
+        <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(20px,2.2vw,25px); line-height:1.25; margin: 0 0 20px; max-width:40ch;">Started in entrepreneurship, later discovered my passion.</h2>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 20px;">Since the age of 14, I was introduced to entrepreneurship where I spent 3 years learning about all the aspects of starting a business. While integrated in this course, I found my deep interest in <strong style="font-weight:600; color:#12314A;">marketing and social media</strong>. I love putting my mind to work and developing ideas to help a brand gain trust and connection with consumers.</p>
         <p style="font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 40px;">Building off of marketing, I later developed a passion for <strong style="font-weight:600; color:#12314A;">product and UX design</strong>, which has grown me into the critical thinker I am today. I was fascinated by how these two fields overlap as I work with products while shaping the marketing that the audience receives.</p>
 
         <div style="padding-top: 24px; border-top:1px solid #E4DED4;">
-          <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 8px;">Based in</p>
+          <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 8px;">Based in</p>
           <p style="font-size:14.5px; line-height:1.55; margin: 0; color:#12314A;">San Francisco &amp; Davis, CA</p>
         </div>
       </div>
@@ -236,8 +237,8 @@
   <div style="max-width:1200px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px); height:40px; display:flex; justify-content:center; align-items:center;"><span style="width:1px; height:100%; background:linear-gradient(180deg, transparent, #2F7A9433 30%, #2F7A9433 70%, transparent);"></span></div>
 
   <section id="experience" ref="{{ setRef('experience') }}" style="{{ revealStyle('experience') }} padding: clamp(32px,4vw,48px) clamp(20px,5vw,64px); max-width:1200px; margin: 0 auto; position:relative;">
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Experience</p>
-    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 24px; position:relative;">Every run that got me here.</h2>
+    <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Experience</p>
+    <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); margin: 0 0 24px; position:relative;">Every run that got me here.</h2>
     <div style="display:flex; flex-direction:column; position:relative; z-index:1; border-top:1px solid #E9ECEF;">
       <sc-for list="{{ experience }}" as="e" hint-placeholder-count="4">
         <sc-if value="{{ e.linked }}" hint-placeholder-val="{{ true }}">
@@ -248,7 +249,7 @@
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
             <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
           </sc-if>
-          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
+          <h3 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.005em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
           <span style="color:#C7CDD3; font-size:15px; line-height:1;">/</span>
           <p style="font-size:15.5px; color:#7C8894; margin:0; line-height:1.3;">{{ e.role }}</p>
           <sc-if value="{{ e.current }}" hint-placeholder-val="{{ false }}">
@@ -264,7 +265,7 @@
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
             <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
           </sc-if>
-          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.014em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
+          <h3 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.005em; font-size:16.5px; margin:0; line-height:1.3; white-space:nowrap;">{{ e.org }}</h3>
           <span style="color:#C7CDD3; font-size:15px; line-height:1;">/</span>
           <p style="font-size:15.5px; color:#7C8894; margin:0; line-height:1.3;">{{ e.role }}</p>
           <sc-if value="{{ e.current }}" hint-placeholder-val="{{ false }}">
@@ -280,57 +281,57 @@
 
     <section id="skills" data-r="split" style="position:relative; padding: 0 clamp(20px,5vw,64px) clamp(64px,9vw,96px); max-width:1200px; margin: 0 auto; display:grid; grid-template-columns:minmax(180px,260px) minmax(0,1fr); gap: clamp(48px,7vw,64px); align-items:start;">
       <div style="position:relative; z-index:1;">
-        <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Skills</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); line-height:1.12; margin: 0;">What I carry up the mountain.</h2>
+        <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Skills</p>
+        <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); line-height:1.12; margin: 0;">What I carry up the mountain.</h2>
       </div>
       <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap: clamp(24px,4vw,32px); align-items:center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/figma-icon.webp" alt="Figma" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Figma</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Figma</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Capcut-icon.png" alt="CapCut" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">CapCut</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">CapCut</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/adobe-photoshop-logo.png" alt="Photoshop" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Photoshop</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Photoshop</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Adobe_Illustrator_CC_icon.svg.webp" alt="Illustrator" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Illustrator</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Illustrator</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Canva_logo.svg.webp" alt="Canva" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Canva</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Canva</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Visual_Studio_Code_1.35_icon.svg.webp" alt="Visual Studio Code" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Visual Studio Code</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Visual Studio Code</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Notion_app_logo.png" alt="Notion" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Notion</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Notion</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
             <img src="uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Slack</span>
+          <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Slack</span>
         </div>
       </div>
     </section>
@@ -341,8 +342,8 @@
           <span style="position:absolute; left:{{ k.left }}; top:-30px; width:{{ k.size }}; height:{{ k.size }}; opacity:0.4; background:{{ k.icon }} no-repeat center/contain; animation:flakeDrift {{ k.dur }}s linear infinite; animation-delay:{{ k.delay }}s;"></span>
         </sc-for>
       </div>
-      <p style="position:relative; z-index:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Terrain Park</p>
-      <h2 style="position:relative; z-index:1; font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); line-height:1.15; margin: 0 0 16px; max-width:34ch;">Fun fact: I&rsquo;m an adrenaline <span style="white-space:nowrap;">junkie :)</span></h2>
+      <p style="position:relative; z-index:1; font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Terrain Park</p>
+      <h2 style="position:relative; z-index:1; font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); line-height:1.15; margin: 0 0 16px; max-width:34ch;">Fun fact: I&rsquo;m an adrenaline <span style="white-space:nowrap;">junkie :)</span></h2>
       <p style="position:relative; z-index:1; font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 8px; max-width:52ch;">I&rsquo;m always out and about! Call me for anything activity-related and I&rsquo;m there!</p>
     </section>
     <div style="max-width:1200px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) clamp(64px,9vw,96px);">
@@ -374,22 +375,22 @@
           <span style="position:absolute; top:{{ pl.top }}; left:-80px; width:{{ pl.size }}; height:{{ pl.size }}; opacity:0.42; background:{{ pl.icon }} no-repeat center/contain; animation:planeCross {{ pl.dur }}s linear infinite; animation-delay:{{ pl.delay }}s;"></span>
         </sc-for>
       </div>
-      <p style="position:relative; z-index:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Passport</p>
-      <h2 style="position:relative; z-index:1; font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 16px; max-width:34ch;">Where I&rsquo;ve traveled to!</h2>
+      <p style="position:relative; z-index:1; font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Passport</p>
+      <h2 style="position:relative; z-index:1; font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); margin: 0 0 16px; max-width:34ch;">Where I&rsquo;ve traveled to!</h2>
       <p style="position:relative; z-index:1; font-size:16.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 40px; max-width:56ch;">A glimpse of all the places I&rsquo;ve been, always taking any opportunity to get away and live life to the fullest!</p>
       <div data-r="travels" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap: 20px;">
         <sc-for list="{{ travels }}" as="t" hint-placeholder-count="6">
           <figure class="passcard" style="margin: 0; display:flex; flex-direction:column; height:100%; background:#FFFFFF; border:1px solid #E6E9EC; border-radius:16px; overflow:hidden; box-shadow:0 1px 2px #12314A0D, 0 16px 38px -26px #12314A40;">
             <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 12px 16px;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE;">Boarding pass</span>
+              <span style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE;">Boarding pass</span>
               <span style="font-size:12px; color:#2C6FB5; line-height:1;">&#9992;</span>
             </div>
             <div style="border-top:1px dashed #D9D2C6; overflow:hidden;">
               <image-slot id="{{ t.id }}" placeholder="{{ t.placeholder }}" shape="rect" style="width:100%; aspect-ratio:4/3; display:block;"></image-slot>
             </div>
             <figcaption style="display:flex; align-items:baseline; justify-content:space-between; gap: 12px; padding: 12px 16px; border-top:1px dashed #D9D2C6;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A;">{{ t.place }}</span>
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C0C7CE;">Seat A</span>
+              <span style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A;">{{ t.place }}</span>
+              <span style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C0C7CE;">Seat A</span>
             </figcaption>
           </figure>
         </sc-for>
@@ -410,9 +411,9 @@
           <span style="position:absolute; left:{{ n.left }}; bottom:-40px; width:{{ n.size }}; height:{{ n.size }}; opacity:0.4; background:{{ n.icon }} no-repeat center/contain; animation:noteFloat {{ n.dur }}s linear infinite; animation-delay:{{ n.delay }}s;"></span>
         </sc-for>
       </div>
-      <p style="position:relative; z-index:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Dance</p>
+      <p style="position:relative; z-index:1; font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; font-weight:700; margin: 0 0 16px; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2F7A94; transform:rotate(45deg); display:inline-block;"></span>Dance</p>
       <div style="position:relative; z-index:1; display:flex; align-items:flex-end; gap: 20px; margin: 0 0 16px; flex-wrap:wrap;">
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0; max-width:34ch;">After the last run, I dance.</h2>
+        <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); margin: 0; max-width:34ch;">After the last run, I dance.</h2>
         <div style="display:flex; align-items:flex-end; gap: 4px; height:36px; padding-bottom: 6px;">
           <span class="eqbar" style="height:14px; animation-delay:-0.9s;"></span>
           <span class="eqbar" style="height:26px; animation-delay:-0.2s;"></span>
@@ -429,8 +430,8 @@
         <sc-for list="{{ dances }}" as="d" hint-placeholder-count="6">
           <div class="dancecard" style="margin: 0; display:flex; flex-direction:column; background:#12314A; border:1px solid #12314A; border-radius:14px; overflow:hidden; box-shadow:0 1px 2px #12314A14, 0 20px 44px -28px #12314A66;">
             <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 12px 16px;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#7FD3E8;">Resort #{{ d.no }}</span>
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#EAF5FB66;">{{ d.len }}</span>
+              <span style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#7FD3E8;">Resort #{{ d.no }}</span>
+              <span style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#EAF5FB66;">{{ d.len }}</span>
             </div>
             <div style="position:relative; overflow:hidden; margin: 0 10px; border-radius:8px;">
               <span style="position:absolute; left:0; top:0; bottom:0; width:7px; z-index:2; background:repeating-linear-gradient(180deg, #12314A 0 6px, transparent 6px 14px); pointer-events:none;"></span>
@@ -443,8 +444,8 @@
               </button></sc-if>
             </div>
             <figcaption style="display:flex; align-items:baseline; justify-content:space-between; gap: 12px; padding: 14px 16px 16px;">
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.012em; font-size:16.5px; color:#F4FAFD;">{{ d.title }}</span>
-              <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#EAF5FB66; text-decoration:none;" style-hover="color:#7FD3E8;">{{ d.style }} &#8599;</a>
+              <span style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.012em; font-size:16.5px; color:#F4FAFD;">{{ d.title }}</span>
+              <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#EAF5FB66; text-decoration:none;" style-hover="color:#7FD3E8;">{{ d.style }} &#8599;</a>
             </figcaption>
           </div>
         </sc-for>
@@ -456,19 +457,19 @@
   <sc-if value="{{ isContentView }}" hint-placeholder-val="{{ false }}">
     <div style="position:relative; background:#FCFCFB; background-image:radial-gradient(circle at 12% 6%, #E3F2F9 0%, transparent 34%), radial-gradient(circle at 88% 34%, #F4E7EC 0%, transparent 30%), radial-gradient(circle at 30% 78%, #EAF3E9 0%, transparent 32%), radial-gradient(#E4E8EB 1px, transparent 1px); background-size:auto, auto, auto, 30px 30px; background-attachment:fixed, fixed, fixed, scroll;">
       <section style="padding: clamp(64px,9vw,96px) clamp(20px,5vw,64px) clamp(28px,4vw,40px); max-width:1320px; margin: 0 auto;">
-        <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Content</p>
-        <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(32px,5vw,52px); margin: 0 0 20px; max-width:34ch;">Social content, campaigns, and what the numbers said.</h1>
+        <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Content</p>
+        <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(32px,5vw,52px); margin: 0 0 20px; max-width:34ch;">Social content, campaigns, and what the numbers said.</h1>
         <p style="font-size:17px; line-height:1.7; color:#3F5A70; max-width:58ch; margin: 0;">Content planning, short-form video content, and campaign work for dance, community, and startups.</p>
       </section>
 
       <section style="padding: 0 clamp(20px,5vw,64px) clamp(32px,5vw,48px); max-width:1320px; margin: 0 auto;">
-        <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Top metrics</p>
+        <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Top metrics</p>
         <div data-r="stats" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap: 1px; background:#E6E9EC; border:1px solid #E6E9EC; border-radius:14px; overflow:hidden;">
           <sc-for list="{{ contentStats }}" as="s" hint-placeholder-count="4">
             <div style="background:#FFFFFF; padding: clamp(18px,2.6vw,26px) clamp(16px,2vw,22px);">
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; margin: 0 0 12px; line-height:1.5;">{{ s.label }}</p>
-              <p ref="{{ countUp }}" style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,3.8vw,38px); line-height:1; margin: 0 0 6px; color:#12314A;">{{ s.n }}</p>
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">{{ s.u }}</p>
+              <p style="font-family:'Mulish',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; margin: 0 0 12px; line-height:1.5;">{{ s.label }}</p>
+              <p ref="{{ countUp }}" style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,3.8vw,38px); line-height:1; margin: 0 0 6px; color:#12314A;">{{ s.n }}</p>
+              <p style="font-family:'Mulish',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">{{ s.u }}</p>
             </div>
           </sc-for>
         </div>
@@ -479,13 +480,13 @@
         <div style="border-top:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
             <image-slot id="logo-ekho" placeholder="EKHO logo" shape="rounded" radius="8" style="flex:none; width:44px; height:44px; display:block; border:1px solid #E6E9EC; background:#FFFFFF;"></image-slot>
-            <h2 id="content-ekho" style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">EKHO Dance</h2>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Dance &amp; Social Media Director</p>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Instagram · TikTok</p>
+            <h2 id="content-ekho" style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">EKHO Dance</h2>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Dance &amp; Social Media Director</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Instagram · TikTok</p>
           </div>
           <p style="font-size:15px; line-height:1.7; color:#3F5A70; margin: -10px 0 24px; max-width:72ch; text-wrap:pretty;">A UC Davis K-pop dance team that specializes in K-pop dance covers, live performances, and collaborations with other teams/organizations.</p>
           <div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Consistent cover postings</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Consistent cover postings</p>
             <ul style="margin: 0 0 22px; padding-left: 18px; color:#3F5A70; font-size:14.5px; line-height:1.75;">
               <li>Maintained 3-grid layout</li>
               <li>Consistent posts</li>
@@ -514,19 +515,19 @@
               </div>
             </div>
             <div style="background:#F4FAFD; border:1px solid #DCEEF7; border-radius:12px; padding: clamp(16px,2vw,20px); margin: 0 0 28px;">
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0 0 10px;">Insights</p>
+              <p style="font-family:'Mulish',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0 0 10px;">Insights</p>
               <ul style="margin: 0; padding-left: 18px; color:#3F5A70; font-size:14.5px; line-height:1.8;">
                 <li>Posts <strong style="font-weight:600; color:#12314A;">performed better</strong> when we covered popular groups and when the song had been released recently. Covers posted close to a song's release were still <strong style="font-weight:600; color:#12314A;">relevant</strong> and gained more <strong style="font-weight:600; color:#12314A;">attention and engagement.</strong></li>
                 <li>Consistent posting also mattered <strong style="font-weight:600; color:#12314A;">for steady views and likes</strong>, and for not being shadowbanned on platforms.</li>
               </ul>
             </div>
 
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Fall &amp; Winter promotional reel campaigns</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Fall &amp; Winter promotional reel campaigns</p>
             <ul style="margin: 0 0 16px; padding-left: 18px; color:#3F5A70; font-size:14.5px; line-height:1.75;">
               <li>Promotional reels for <strong style="font-weight:600; color:#12314A;">recruitment</strong> for our Fall and Winter/Spring seasons.</li>
             </ul>
             <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden; margin: 0 0 28px;">
-              <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.2fr) repeat(6, minmax(0,0.7fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
+              <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.2fr) repeat(6, minmax(0,0.7fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
                 <span style="padding: 10px 12px;">Video</span>
                 <span style="padding: 10px 6px; text-align:right;">Views</span>
                 <span style="padding: 10px 6px; text-align:right;">Likes</span>
@@ -537,20 +538,20 @@
               </div>
               <sc-for list="{{ ekhoCampaign }}" as="r" hint-placeholder-count="2">
                 <div data-r="table" style="display:grid; grid-template-columns:minmax(0,2.2fr) repeat(6, minmax(0,0.7fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
-                  <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">{{ r.label }}<span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span></span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
-                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.reposts }}</span>
+                  <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">{{ r.label }}<span style="display:block; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span></span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
+                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.reposts }}</span>
                 </div>
               </sc-for>
             </div>
 
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Best performing short-form content</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Best performing short-form content</p>
             <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden;">
-              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
+              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
                 <span style="padding: 10px 12px;">Video</span>
                 <span style="padding: 10px 6px; text-align:right;">Views</span>
                 <span style="padding: 10px 6px; text-align:right;">Likes</span>
@@ -562,13 +563,13 @@
                 <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
                   <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">
                     {{ r.label }}
-                    <span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span>
+                    <span style="display:block; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span>
                   </span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
-                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
+                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
                 </div>
               </sc-for>
             </div>
@@ -581,30 +582,30 @@
                 </a>
               </sc-for>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 14px 0 0;">Click any cover to open the post &#8599;</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 14px 0 0;">Click any cover to open the post &#8599;</p>
           </div>
         </div>
 
         <div style="border-top:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
             <img src="assets/tiktok-icon.png" alt="TikTok" style="flex:none; width:44px; height:44px; display:block; border-radius:9px;" />
-            <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A;">Personal TikTok</h2>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Content creation</p>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Boys II Planet · ~9 videos</p>
+            <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A;">Personal TikTok</h2>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Content creation</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Boys II Planet · ~9 videos</p>
           </div>
           <div>
             <p style="font-size:14.5px; line-height:1.75; color:#3F5A70; margin: 0 0 20px; max-width:62ch;">Posted through the <strong style="font-weight:600; color:#12314A;">Boys II Planet promotional period</strong> while episodes were live and released weekly, which let my account reach the show's <strong style="font-weight:600; color:#12314A;">audience and gain traction</strong> during that window.</p>
             <div style="background:#F4FAFD; border:1px solid #DCEEF7; border-radius:12px; padding: clamp(16px,2vw,20px); margin: 0 0 28px;">
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0 0 10px;">Insights</p>
+              <p style="font-family:'Mulish',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0 0 10px;">Insights</p>
               <ul style="margin: 0; padding-left: 18px; color:#3F5A70; font-size:14.5px; line-height:1.8;">
                 <li><strong style="font-weight:600; color:#12314A;">Contradicting opinions</strong> or debate-topics/keywords gained <strong style="font-weight:600; color:#12314A;">more attention</strong> and drove <strong style="font-weight:600; color:#12314A;">engagement</strong> in comments and shares.</li>
                 <li><strong style="font-weight:600; color:#12314A;">Ranking and prediction-style content</strong> earned <strong style="font-weight:600; color:#12314A;">higher save rates</strong> than view rates, meaning people treated those videos as something to look back on.</li>
                 <li>Posting on the show's weekly schedule <strong style="font-weight:600; color:#12314A;">sustained visibility and engagement</strong> across the <strong style="font-weight:600; color:#12314A;">whole period</strong> rather than relying on single viral spikes.</li>
               </ul>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Top 3 by views</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 0 0 12px;">Top 3 by views</p>
             <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden; margin: 0 0 28px;">
-              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
+              <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table background:#F7FAFC; border-bottom:1px solid #E6E9EC; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; font-weight:700;">
                 <span style="padding: 10px 12px;">Video</span>
                 <span style="padding: 10px 6px; text-align:right;">Views</span>
                 <span style="padding: 10px 6px; text-align:right;">Likes</span>
@@ -614,12 +615,12 @@
               </div>
               <sc-for list="{{ bpTop }}" as="r" hint-placeholder-count="3">
                 <div data-r="table5" style="display:grid; grid-template-columns:minmax(0,2.3fr) repeat(5, minmax(0,0.78fr));" data-r="table border-top:1px solid #F0F3F5; align-items:center;">
-                  <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">{{ r.label }}<span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span></span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
-                  <span style="padding: 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
-                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
+                  <span style="padding: 12px; font-size:13px; color:#12314A; line-height:1.35;">{{ r.label }}<span style="display:block; font-family:'Mulish',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin-top: 4px;">{{ r.platform }}</span></span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#12314A;">{{ r.views }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.likes }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.comments }}</span>
+                  <span style="padding: 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.saves }}</span>
+                  <span style="padding: 12px 12px 12px 6px; text-align:right; font-family:'Mulish',sans-serif; font-size:12.5px; color:#3F5A70;">{{ r.shares }}</span>
                 </div>
               </sc-for>
             </div>
@@ -632,13 +633,13 @@
                 </a>
               </sc-for>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 14px 0 0;">Click any cover to open the video &#8599;</p>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 28px 0 12px;">Averages per video</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 14px 0 0;">Click any cover to open the video &#8599;</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 28px 0 12px;">Averages per video</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(96px,1fr)); gap: 1px; background:#E6E9EC; border:1px solid #E6E9EC; border-radius:12px; overflow:hidden;">
               <sc-for list="{{ bpAvg }}" as="a" hint-placeholder-count="5">
                 <div style="background:#FFFFFF; padding: 14px 12px;">
-                  <p style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; line-height:1; margin: 0 0 7px; color:#12314A;">{{ a.n }}</p>
-                  <p style="font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; margin: 0;">{{ a.label }}</p>
+                  <p style="font-family:'Mulish',sans-serif; font-weight:600; font-size:20px; line-height:1; margin: 0 0 7px; color:#12314A;">{{ a.n }}</p>
+                  <p style="font-family:'Mulish',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; margin: 0;">{{ a.label }}</p>
                 </div>
               </sc-for>
             </div>
@@ -648,9 +649,9 @@
         <div style="border-top:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
             <image-slot id="logo-foundverse" placeholder="Foundverse logo" shape="rounded" radius="8" style="flex:none; width:44px; height:44px; display:block; border:1px solid #E6E9EC; background:#FFFFFF;"></image-slot>
-            <h2 id="content-foundverse" style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">Foundverse</h2>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Marketing &amp; UX/UI Intern</p>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Campaign planning</p>
+            <h2 id="content-foundverse" style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">Foundverse</h2>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Marketing &amp; UX/UI Intern</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Campaign planning</p>
           </div>
           <p style="font-size:15px; line-height:1.7; color:#3F5A70; margin: -10px 0 24px; max-width:72ch; text-wrap:pretty;">Foundverse is a startup garage for teenagers in Tokyo, where 14 to 17 year olds spend 8 weeks learning to think like a founder, building one real thing with AI.</p>
           <div>
@@ -658,16 +659,16 @@
             <div style="display:grid; grid-template-columns:minmax(0,1fr); gap: clamp(16px,2.4vw,28px); align-items:start; max-width:760px;">
               <a href="assets/content-calendar.png" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="display:block; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px; text-decoration:none;">
                 <img src="assets/content-calendar.png" alt="July content calendar" style="display:block; width:100%; height:auto; border-radius:6px;" />
-                <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;"><span style="font-weight:700; color:#12314A;">July content calendar</span><span style="color:#A6AEB6;">Foundverse</span></span>
+                <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;"><span style="font-weight:700; color:#12314A;">July content calendar</span><span style="color:#A6AEB6;">Foundverse</span></span>
               </a>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 28px 0 12px;">July Content Ideation</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#12314A; margin: 28px 0 12px;">July Content Ideation</p>
             <div data-carousel="1" style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; overflow:hidden; max-width:760px; position:relative;">
               <div class="noscroll" data-carousel-track="1" style="display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; -webkit-overflow-scrolling:touch;">
                 <sc-for list="{{ fvPlan }}" as="p" hint-placeholder-count="8">
                   <div style="flex:0 0 100%; scroll-snap-align:center; padding: clamp(22px,3vw,30px) clamp(46px,5vw,58px); min-height:230px; box-sizing:border-box;">
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0 0 10px;">{{ p.kicker }}</p>
-                    <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.01em; font-size:clamp(18px,2vw,21px); line-height:1.2; margin: 0 0 12px; color:#12314A;">{{ p.title }}</h3>
+                    <p style="font-family:'Mulish',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0 0 10px;">{{ p.kicker }}</p>
+                    <h3 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.01em; font-size:clamp(18px,2vw,21px); line-height:1.2; margin: 0 0 12px; color:#12314A;">{{ p.title }}</h3>
                     <ul style="margin: 0; padding-left: 18px; color:#3F5A70; font-size:14px; line-height:1.75;">
                       <sc-for list="{{ p.points }}" as="pt" hint-placeholder-count="3">
                         <li>{{ pt }}</li>
@@ -679,16 +680,16 @@
               <button onClick="{{ carouselPrev }}" aria-label="Previous concept" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:16px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#F4FAFD; border-color:#12314A;">&#8592;</button>
               <button onClick="{{ carouselNext }}" aria-label="Next concept" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:16px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#F4FAFD; border-color:#12314A;">&#8594;</button>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 12px 0 0;">Concepts pitched for the July calendar</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 12px 0 0;">Concepts pitched for the July calendar</p>
           </div>
         </div>
 
         <div style="border-top:1px solid #E6E9EC; border-bottom:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
             <image-slot id="logo-include" placeholder="#include logo" shape="rounded" radius="8" style="flex:none; width:44px; height:44px; display:block; border:1px solid #E6E9EC; background:#FFFFFF;"></image-slot>
-            <h2 id="content-include" style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">#include</h2>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Social Media &amp; Graphics Lead</p>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#3F5A70; margin: 0; display:inline-flex; align-items:center; gap: 7px;"><span style="width:8px; height:8px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Active Role</p>
+            <h2 id="content-include" style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">#include</h2>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Social Media &amp; Graphics Lead</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#3F5A70; margin: 0; display:inline-flex; align-items:center; gap: 7px;"><span style="width:8px; height:8px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Active Role</p>
           </div>
           <p style="font-size:15px; line-height:1.7; color:#3F5A70; margin: -10px 0 24px; max-width:72ch; text-wrap:pretty;">A UC Davis community of web developers and designers dedicated to fostering collaboration, growth and the creation of creative digital solutions.</p>
           <div data-r="include" style="display:grid; grid-template-columns:minmax(0,380px) minmax(0,1fr); gap: clamp(20px,3vw,32px); align-items:start;">
@@ -698,7 +699,7 @@
                 <li>Recruitment colors and type reused across the season's posts</li>
                 <li>Last slide carries the application call to action</li>
               </ul>
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 20px 0 0;">More To Come...</p>
+              <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 20px 0 0;">More To Come...</p>
             </div>
             <div data-carousel="1" data-r="include-media" style="order:1; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px;">
               <div style="position:relative;">
@@ -710,7 +711,7 @@
                 <button onClick="{{ carouselPrev }}" aria-label="Previous slide" style="position:absolute; top:50%; left:8px; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8592;</button>
                 <button onClick="{{ carouselNext }}" aria-label="Next slide" style="position:absolute; top:50%; right:8px; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8594;</button>
               </div>
-              <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;"><span style="font-weight:700; color:#12314A;">FAQ carousel</span><span style="color:#A6AEB6;">#include</span></span>
+              <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;"><span style="font-weight:700; color:#12314A;">FAQ carousel</span><span style="color:#A6AEB6;">#include</span></span>
             </div>
           </div>
         </div>
@@ -722,8 +723,8 @@
   <sc-if value="{{ isGraphicsView }}" hint-placeholder-val="{{ false }}">
     <div style="position:relative; background:#FAF7F2; background-image:radial-gradient(circle at 10% 4%, #E3F2F980 0%, transparent 30%), radial-gradient(circle at 90% 30%, #A9D3E826 0%, transparent 26%), repeating-linear-gradient(90deg, #DED9CF26 0 1px, transparent 1px 64px), repeating-linear-gradient(180deg, #DED9CF26 0 1px, transparent 1px 64px); background-attachment:fixed, fixed, scroll, scroll;">
       <section style="padding: clamp(64px,9vw,96px) clamp(20px,5vw,64px) clamp(32px,5vw,48px); max-width:1200px; margin: 0 auto;">
-        <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Pinboard</p>
-        <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(32px,5vw,52px); margin: 0 0 20px; max-width:30ch;">Posters, designs, and side projects.</h1>
+        <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Pinboard</p>
+        <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(32px,5vw,52px); margin: 0 0 20px; max-width:30ch;">Posters, designs, and side projects.</h1>
         <p style="font-size:17px; line-height:1.7; color:#3F5A70; max-width:56ch; margin: 0 0 28px;">Graphics and poster work I do independently + for campaigns, events, and projects. Always love a good, stimulating challenge!</p>
       </section>
 
@@ -731,8 +732,8 @@
         <sc-for list="{{ bands }}" as="b" hint-placeholder-count="4">
           <div style="padding-bottom: clamp(24px,3.5vw,40px);">
             <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px; flex-wrap:wrap; padding: 0 4px 14px;">
-              <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(23px,3vw,32px); line-height:1.1; margin: 0; color:#12314A; transform:rotate(-0.8deg);">{{ b.title }}</h2>
-              <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0;">{{ b.note }}</p>
+              <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.1; margin: 0; color:#12314A; transform:rotate(-0.8deg);">{{ b.title }}</h2>
+              <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0;">{{ b.note }}</p>
             </div>
             <div data-r="band" style="position:relative; height:{{ b.h }}; border-top:1px solid #EAE6DE; border-bottom:1px solid #EAE6DE; background-image:radial-gradient(#DED9CF 1px, transparent 1px); background-size:26px 26px;">
               <sc-for list="{{ b.items }}" as="g" hint-placeholder-count="2">
@@ -741,7 +742,7 @@
                     <span style="position:absolute; top:-11px; left:50%; width:64px; height:20px; margin-left:-32px; background:#DCEEF7; border-left:1px solid #C6E0EE; border-right:1px solid #C6E0EE; opacity:{{ g.tape }};"></span>
                     <sc-if value="{{ g.src }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" style="display:block; width:100%; height:auto; aspect-ratio:{{ g.ratio }}; object-fit:cover;" /></sc-if>
                     <sc-if value="{{ g.slotId }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ g.slotId }}" placeholder="{{ g.slotPlaceholder }}" shape="rect" style="display:block; width:100%; aspect-ratio:9/16;"></image-slot></sc-if>
-                    <span style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap: 4px 10px; padding: 10px 2px 0; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
+                    <span style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap: 4px 10px; padding: 10px 2px 0; font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
                       <span style="font-weight:700; color:#12314A; min-width:0; overflow-wrap:break-word;">{{ g.label }}</span>
                       <span style="color:#A6AEB6; letter-spacing:0.1em; flex:none;">{{ g.meta }}</span>
                     </span>
@@ -761,7 +762,7 @@
                       <button onClick="{{ carouselPrev }}" aria-label="Previous slide" style="position:absolute; top:50%; left:6px; transform:translateY(-50%); width:28px; height:28px; border-radius:50%; border:1px solid #12314A33; background:#FFFDF9E6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8592;</button>
                       <button onClick="{{ carouselNext }}" aria-label="Next slide" style="position:absolute; top:50%; right:6px; transform:translateY(-50%); width:28px; height:28px; border-radius:50%; border:1px solid #12314A33; background:#FFFDF9E6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8594;</button>
                     </div>
-                    <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 0; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
+                    <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 0; font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;">
                       <span style="font-weight:700; color:#12314A;">{{ b.carousel.label }}</span>
                       <span style="color:#A6AEB6; letter-spacing:0.1em;">{{ b.carousel.meta }}</span>
                     </span>
@@ -795,15 +796,15 @@
     </div>
 
     <div style="position:relative; z-index:1; max-width:1120px; margin: 0 auto clamp(32px,5vw,48px);">
-      <h1 data-r="heroname" style="font-family:'Space Grotesk',sans-serif; font-size:clamp(40px,6.2vw,74px); font-weight:600; letter-spacing:-0.038em; line-height:1.02; margin: 0 0 20px;">Lisa Wang</h1>
+      <h1 data-r="heroname" style="font-family:'Mulish',sans-serif; font-size:clamp(40px,6.2vw,74px); font-weight:600; letter-spacing:-0.038em; line-height:1.02; margin: 0 0 20px;">Lisa Wang</h1>
       <p style="font-size:clamp(18px,2vw,26px); line-height:1.44; letter-spacing:-0.012em; margin: 0; max-width:44ch;">Product designer &amp; marketer focused on building <strong style="font-weight:700; color:#2C6FB5;">meaningful, usable products</strong> that create <strong style="font-weight:700; color:#2C6FB5;">connection</strong>, build <strong style="font-weight:700; color:#2C6FB5;">trust</strong>, and help users and clients <strong style="font-weight:700; color:#2C6FB5;">reach their goals</strong>.</p>
       <p style="margin: 20px 0 0; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#12314A; font-weight:600; max-width:52ch;">4th year Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
       <p style="margin: 10px 0 0; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#5A6874;">Looking for UX Design &amp; Marketing internships or entry-level jobs</p>
     </div>
   <section id="work" ref="{{ setRef('work') }}" style="{{ revealStyle('work') }} padding: clamp(24px,3.5vw,40px) 0 clamp(48px,7vw,72px); max-width:1120px; margin: 0 auto; position:relative;">
     <div style="position:absolute; top:0; bottom:0; left:-50vw; right:-50vw; z-index:0; pointer-events:none; background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2234%22%20height%3D%2234%22%3E%3Ccircle%20cx%3D%222%22%20cy%3D%222%22%20r%3D%221.1%22%20fill%3D%22%232F7A94%22%20fill-opacity%3D%220.22%22%2F%3E%3C%2Fsvg%3E'); background-repeat:repeat; mask-image:radial-gradient(42% 70% at 50% 0%, #000 0%, transparent 78%); -webkit-mask-image:radial-gradient(42% 70% at 50% 0%, #000 0%, transparent 78%);"></div>
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>Selected Work</p>
-    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(28px,4vw,42px); margin: 0 0 48px; max-width:44ch; position:relative;">What I'm doing when I'm <span style="white-space:nowrap;">not snowboarding.</span></h2>
+    <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; position:relative; display:inline-flex; align-items:center; gap: 8px;"><span style="width:12px; height:12px; background:#2C6FB5; display:inline-block;"></span>Selected Work</p>
+    <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); margin: 0 0 48px; max-width:44ch; position:relative;">What I'm doing when I'm <span style="white-space:nowrap;">not snowboarding.</span></h2>
     <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap: clamp(32px,5vw,44px) clamp(24px,4vw,36px); align-items:stretch;">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
         <div class="card" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="background:#FFFFFF; border:1px solid #E6E9EC; border-radius:18px; padding: 14px 14px 8px 22px; overflow:hidden; position:relative; color:inherit; display:flex; flex-direction:column; height:100%; box-sizing:border-box; cursor:pointer; box-shadow:0 1px 2px #12314A0F, 0 18px 44px -28px #12314A40; transition:transform 0.5s cubic-bezier(0.22,0.8,0.2,1), box-shadow 0.5s ease, border-color 0.5s ease;" style-hover="transform:scale(0.986); box-shadow:0 1px 2px #12314A14, 0 10px 24px -20px #12314A55; border-color:#CFDCE5; background:#F0EEEA;">
@@ -825,7 +826,7 @@
             <span class="mono" style="position:absolute; top:12px; right:12px; z-index:2; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#12314A; background:#FFFFFFE6; backdrop-filter:blur(4px); padding: 5px 10px; border-radius:4px; box-shadow:0 1px 3px #12314A22, inset 0 0 0 1px #12314A14;">№ {{ p.num }}</span>
           </div>
           <div style="padding: 22px 10px 18px; display:flex; flex-direction:column; gap: 10px; flex:1;">
-            <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; font-size:clamp(20px,2.2vw,25px); line-height:1.14; margin: 0; color:#12314A;">{{ p.title }}</h3>
+            <h3 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(20px,2.2vw,25px); line-height:1.14; margin: 0; color:#12314A;">{{ p.title }}</h3>
             <p style="font-size:14.5px; line-height:1.62; color:#3F5A70; margin: 0; text-wrap:pretty;">{{ p.desc }}</p>
             <div style="display:flex; flex-wrap:wrap; gap: 8px; margin-top: 4px;">
               <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="2">
@@ -872,23 +873,23 @@
 
       <div style="padding: 24px clamp(24px,4vw,32px);">
         <span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">TITLE</span>
-        <p style="margin: 0 0 20px; font-family:'Space Grotesk',sans-serif; font-size:clamp(21px,2.5vw,30px); font-weight:700; color:#12314A; line-height:1.1;">Product Designer &amp; Marketer</p>
+        <p style="margin: 0 0 20px; font-family:'Mulish',sans-serif; font-size:clamp(21px,2.5vw,30px); font-weight:700; color:#12314A; line-height:1.1;">Product Designer &amp; Marketer</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap: 16px 24px; margin-bottom: 20px;">
-          <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">FLIGHT</span><span style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#12314A;">NH 5</span></div>
+          <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">FLIGHT</span><span style="font-family:'Mulish',sans-serif; font-size:22px; font-weight:700; color:#12314A;">NH 5</span></div>
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">FROM</span><span style="font-size:14px; color:#12314A; font-weight:600;">SAN FRANCISCO / SFO</span></div>
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">DEP. TIME</span><span style="font-size:14px; color:#12314A; font-weight:600;">11:25</span></div>
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">TO</span><span style="font-size:14px; color:#12314A; font-weight:600;">SAPPORO / CTS</span></div>
-          <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">SEAT</span><span style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#12314A;">36A</span></div>
+          <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">SEAT</span><span style="font-family:'Mulish',sans-serif; font-size:20px; font-weight:700; color:#12314A;">36A</span></div>
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">CABIN</span><span style="font-size:14px; color:#12314A; font-weight:600;">WINDOW</span></div>
         </div>
         <div style="display:flex; gap: 12px; flex-wrap:wrap; align-items:stretch;">
           <div style="border:1px solid #DCE4EA; background:#FAFCFD; border-radius:12px; padding: 10px 18px;">
             <span style="display:block; font-size:9.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">BOARDING GROUP</span>
-            <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:#12314A;">GROUP 3</span>
+            <span style="font-family:'Mulish',sans-serif; font-size:19px; font-weight:700; color:#12314A;">GROUP 3</span>
           </div>
           <div style="border:1px solid #DCE4EA; background:#FAFCFD; border-radius:12px; padding: 10px 18px; display:flex; gap: 24px; align-items:center;">
-            <span><span style="display:block; font-size:9.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">GATE</span><span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:#12314A;">G13</span></span>
-            <span><span style="display:block; font-size:9.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">BOARDING TIME</span><span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:#12314A;">11:00</span></span>
+            <span><span style="display:block; font-size:9.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">GATE</span><span style="font-family:'Mulish',sans-serif; font-size:19px; font-weight:700; color:#12314A;">G13</span></span>
+            <span><span style="display:block; font-size:9.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">BOARDING TIME</span><span style="font-family:'Mulish',sans-serif; font-size:19px; font-weight:700; color:#12314A;">11:00</span></span>
           </div>
           <span style="flex:1 1 160px; min-width:140px; align-self:stretch; min-height:44px; background:repeating-linear-gradient(90deg, #12314A 0 2px, transparent 2px 4px, #12314A 4px 5px, transparent 5px 9px); opacity:0.7;"></span>
         </div>
@@ -910,7 +911,7 @@
           </div>
         </div>
         <div style="position:relative; padding: 20px 20px; display:flex; justify-content:space-between; align-items:baseline; gap: 12px;">
-          <span><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">DEST</span><span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:#12314A;">CTS</span></span>
+          <span><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">DEST</span><span style="font-family:'Mulish',sans-serif; font-size:19px; font-weight:700; color:#12314A;">CTS</span></span>
           <span style="font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700;">36A · GROUP 3</span>
         </div>
       </div>
@@ -935,7 +936,7 @@
           </div>
           <div style="height:3px; margin: 4px 0 0; background:{{ t.accent }};"></div>
           <div style="display:flex; align-items:center; justify-content:space-between; gap: 8px; padding: 8px 12px 12px;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; color:#12314A;">NH 5 · {{ t.n }}</span>
+            <span style="font-family:'Mulish',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; color:#12314A;">NH 5 · {{ t.n }}</span>
             <span style="height:15px; flex:1; background:repeating-linear-gradient(90deg, #12314A 0 2px, transparent 2px 4px, #12314A 4px 5px, transparent 5px 9px); opacity:0.7;"></span>
           </div>
         </div>
@@ -967,7 +968,7 @@
           <path d="M-20 330 C 210 330 292 246 452 230 C 634 212 704 122 900 108" fill="none" stroke="#2F7A94" stroke-width="2" stroke-dasharray="7 15" stroke-linecap="round" stroke-opacity="0.45" style="animation:dashFlow 8s linear infinite;"></path>
         </svg>
       </div>
-      <h1 style="position:relative; z-index:1; font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.02em; line-height:1.06; margin: 0; text-align:left; max-width:100%;">
+      <h1 style="position:relative; z-index:1; font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; line-height:1.06; margin: 0; text-align:left; max-width:100%;">
         <sc-for list="{{ titleWords }}" as="w" hint-placeholder-count="7">
           <sc-if value="{{ w.breakBefore }}" hint-placeholder-val="{{ false }}"><br/></sc-if>
           <span style="display:inline-flex; white-space:nowrap;">
@@ -1057,7 +1058,7 @@
       <div data-r="footgrid" style="display:grid; grid-template-columns:minmax(280px,1fr) auto auto; gap: 40px clamp(64px,9vw,96px); align-items:start; padding-bottom: clamp(32px,5vw,48px);">
         <div>
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#F2A65A; margin: 0 0 20px;">Lisa's Ski bar</p>
-      <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.026em; font-size:clamp(28px,4vw,42px); line-height:1.1; color:#EAF5FB; margin: 0 0 24px; max-width:20ch;">Last chair is at four. Let's ride together.</h2>
+      <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.026em; font-size:clamp(28px,4vw,42px); line-height:1.1; color:#EAF5FB; margin: 0 0 24px; max-width:20ch;">Last chair is at four. Let's ride together.</h2>
       <p style="font-size:16.5px; line-height:1.6; color:#A9D3E8; margin: 0; max-width:38ch;">Open to product design, brand, and marketing opportunities</p>
       </div>
         <div>
@@ -1757,7 +1758,7 @@ class Component extends DCLogic {
         bg: '#F9CDD1',
         offset: 0,
         href: 'Triceratops Case Study.dc.html',
-        image: 'assets/tri-cover.png',
+        image: 'assets/tri-hero-graphic.png',
       },
       {
         num: '02',
