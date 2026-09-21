@@ -78,12 +78,7 @@
   @keyframes poolDriftB { 0% { transform:translate(0,0); } 50% { transform:translate(44px,-30px); } 100% { transform:translate(0,0); } }
   @keyframes arrowNudge { 0%,100% { transform:translateY(0); opacity:0.75; } 50% { transform:translateY(6px); opacity:1; } }
   @keyframes poolShine { 0%,100% { opacity:0.42; transform:scale(1) translate3d(0,0,0); } 50% { opacity:0.78; transform:scale(1.08) translate3d(2%,-1.5%,0); } }
-  @keyframes turtleBob { 0%,100% { transform:translateY(0) rotate(-3deg); } 50% { transform:translateY(-11px) rotate(3deg); } }
-  @keyframes paddleA { 0%,100% { transform:rotate(-9deg); } 50% { transform:rotate(11deg); } }
-  @keyframes paddleB { 0%,100% { transform:rotate(9deg); } 50% { transform:rotate(-11deg); } }
-  @keyframes headPeek { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-5px) scale(1.05); } }
   @keyframes carpetMove { from { background-position:0 0; } to { background-position:0 -24px; } }
-  @keyframes letterFloat { 0%,100% { translate:0 0; } 50% { translate:0 -8px; } }
   @keyframes dashFlow { to { stroke-dashoffset:-208; } }
   @keyframes passFloat { 0%,100% { translate:0 0; } 50% { translate:0 -7px; } }
   @keyframes flakeDrift { 0% { transform:translate(0,0) rotate(0deg); opacity:0; } 12% { opacity:0.45; } 50% { transform:translate(34px,220px) rotate(140deg); } 88% { opacity:0.3; } 100% { transform:translate(-14px,420px) rotate(300deg); opacity:0; } }
@@ -173,8 +168,8 @@
       </button>
       <div data-r="navlinks" data-open="{{ navOpenFlag }}" style="display:flex; gap: clamp(24px,4vw,32px); align-items:center; flex-wrap:wrap;">
         <button class="navlink mono" onClick="{{ goToWork }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Works</button>
-        <button class="navlink mono" onClick="{{ goToContent }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Content</button>
         <button class="navlink mono" onClick="{{ goToAbout }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">About</button>
+        <button class="navlink mono" onClick="{{ goToContent }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Content</button>
         <button class="navlink mono" onClick="{{ goToGraphics }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Pinboard</button>
         <a class="mono" href="assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; text-decoration:none; border:none; transition:color 0.2s ease;" style-hover="color:#12314A;">Resume</a>
       </div>
@@ -988,70 +983,6 @@
   </section>
   </div>
 
-  <section style="padding: clamp(8px,1.4vw,16px) clamp(20px,5vw,64px) clamp(64px,9vw,96px); max-width:1200px; margin: 0 auto;">
-    <div style="position:relative; max-width:1080px; margin: 0 auto; display:grid; grid-template-columns:1fr minmax(170px,290px); gap: clamp(32px,5vw,48px); align-items:center; padding: 0 16px;">
-      <div style="position:absolute; inset:-14% -6%; pointer-events:none; z-index:0;">
-        <svg viewBox="0 0 1000 360" preserveAspectRatio="none" style="width:100%; height:100%; display:block;">
-          <path d="M-20 306 C 190 306 268 216 430 200 C 612 182 672 92 880 78" fill="none" stroke="#A9D3E8" stroke-width="3.4" stroke-dasharray="14 12" stroke-linecap="round" style="animation:dashFlow 5s linear infinite;"></path>
-          <path d="M-20 330 C 210 330 292 246 452 230 C 634 212 704 122 900 108" fill="none" stroke="#2F7A94" stroke-width="2" stroke-dasharray="7 15" stroke-linecap="round" stroke-opacity="0.45" style="animation:dashFlow 8s linear infinite;"></path>
-        </svg>
-      </div>
-      <h1 style="position:relative; z-index:1; font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; line-height:1.06; margin: 0; text-align:left; max-width:100%;">
-        <sc-for list="{{ titleWords }}" as="w" hint-placeholder-count="7">
-          <sc-if value="{{ w.breakBefore }}" hint-placeholder-val="{{ false }}"><br/></sc-if>
-          <span style="display:inline-flex; white-space:nowrap;">
-            <sc-for list="{{ w.letters }}" as="u" hint-placeholder-count="10">
-              <sc-if value="{{ u.isPill }}" hint-placeholder-val="{{ false }}">
-                <span style="display:inline-block; font-size:{{ u.size }}; color:#12314A; background:#F9CDD1; padding: 4px 12px 8px; border-radius:2px 14px 3px 11px/9px 3px 12px 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; transform:{{ u.transform }}; transition:transform 0.18s ease;">{{ u.char }}</span>
-              </sc-if>
-              <sc-if value="{{ u.isLetter }}" hint-placeholder-val="{{ true }}">
-                <span style="display:inline-block; white-space:pre; font-size:{{ u.size }}; font-style:{{ u.fontStyleVal }}; color:{{ u.color }}; transform:{{ u.transform }}; transition:transform 0.18s ease; animation:letterFloat 3.8s ease-in-out infinite; animation-delay:{{ u.floatDelay }}s;">{{ u.char }}</span>
-              </sc-if>
-            </sc-for>
-          </span>
-        </sc-for>
-      </h1>
-      <div style="position:relative; z-index:1; width:100%; max-width:290px; margin-left:auto;">
-      <div aria-hidden="true" style="position:absolute; inset:-18%; pointer-events:none; z-index:0; border-radius:50%; overflow:hidden; background:radial-gradient(circle at 50% 48%, #A9D3E83D 0%, #A9D3E800 70%);">
-        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(64deg, #FFFFFF00 0 16px, #FFFFFFB8 16px 20px, #FFFFFF00 20px 42px), repeating-linear-gradient(-48deg, #A9D3E800 0 22px, #7FB6D699 22px 25px, #A9D3E800 25px 56px); mix-blend-mode:screen; filter:blur(3.4px); animation:caustic 9s linear infinite; -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 34%, #0000 76%); mask-image:radial-gradient(circle at 50% 50%, #000 34%, #0000 76%);"></div>
-        <div style="position:absolute; left:50%; top:50%; width:100%; aspect-ratio:1; margin:-50% 0 0 -50%; border-radius:50%; border:2px solid #2F7A9466; animation:ripple 5.4s ease-out infinite;"></div>
-        <div style="position:absolute; left:50%; top:50%; width:100%; aspect-ratio:1; margin:-50% 0 0 -50%; border-radius:50%; border:2px solid #2F7A9455; animation:ripple 5.4s ease-out infinite 1.8s;"></div>
-        <div style="position:absolute; left:50%; top:50%; width:100%; aspect-ratio:1; margin:-50% 0 0 -50%; border-radius:50%; border:1.5px solid #A9D3E8AA; animation:ripple 5.4s ease-out infinite 3.6s;"></div>
-      </div>
-      <svg viewBox="0 0 200 196" aria-label="turtle" role="img" style="position:relative; z-index:1; width:100%; height:auto; display:block; overflow:visible; animation:turtleBob 4.6s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 50%;">
-        <g transform="rotate(-26 100 98)">
-        <path d="M100 146 L110 176 L90 176 Z" fill="#4CA96B" stroke="#12314A" stroke-width="3" stroke-linejoin="round"></path>
-        <g style="transform-box:fill-box; transform-origin:88% 44%; animation:paddleA 2.4s ease-in-out infinite;">
-          <ellipse cx="52" cy="64" rx="27" ry="15" transform="rotate(-30 52 64)" fill="#4CA96B" stroke="#12314A" stroke-width="3"></ellipse>
-        </g>
-        <g style="transform-box:fill-box; transform-origin:12% 44%; animation:paddleB 2.4s ease-in-out infinite;">
-          <ellipse cx="148" cy="64" rx="27" ry="15" transform="rotate(30 148 64)" fill="#4CA96B" stroke="#12314A" stroke-width="3"></ellipse>
-        </g>
-        <g style="transform-box:fill-box; transform-origin:88% 56%; animation:paddleB 2.8s ease-in-out infinite 0.4s;">
-          <ellipse cx="56" cy="140" rx="24" ry="13" transform="rotate(30 56 140)" fill="#4CA96B" stroke="#12314A" stroke-width="3"></ellipse>
-        </g>
-        <g style="transform-box:fill-box; transform-origin:12% 56%; animation:paddleA 2.8s ease-in-out infinite 0.4s;">
-          <ellipse cx="144" cy="140" rx="24" ry="13" transform="rotate(-30 144 140)" fill="#4CA96B" stroke="#12314A" stroke-width="3"></ellipse>
-        </g>
-        <g style="transform-box:fill-box; transform-origin:50% 100%; animation:headPeek 3.4s ease-in-out infinite;">
-          <ellipse cx="100" cy="38" rx="20" ry="17" fill="#4CA96B" stroke="#12314A" stroke-width="3"></ellipse>
-          <circle cx="92" cy="34" r="2.8" fill="#12314A"></circle>
-          <circle cx="108" cy="34" r="2.8" fill="#12314A"></circle>
-        </g>
-        <ellipse cx="100" cy="100" rx="59" ry="51" fill="#2F7A94" stroke="#12314A" stroke-width="3.4"></ellipse>
-        <g stroke="#12314A" stroke-width="2.2" stroke-linejoin="round">
-          <polygon points="100,79 118,89.5 118,110.5 100,121 82,110.5 82,89.5" fill="#A9D3E8"></polygon>
-          <polygon points="133,87 144.3,93.5 144.3,106.5 133,113 121.7,106.5 121.7,93.5" fill="#7FB6D6"></polygon>
-          <polygon points="116.5,115.6 127.8,122.1 127.8,135.1 116.5,141.6 105.2,135.1 105.2,122.1" fill="#C9E1EF"></polygon>
-          <polygon points="83.5,115.6 94.8,122.1 94.8,135.1 83.5,141.6 72.2,135.1 72.2,122.1" fill="#7FB6D6"></polygon>
-          <polygon points="67,87 78.3,93.5 78.3,106.5 67,113 55.7,106.5 55.7,93.5" fill="#C9E1EF"></polygon>
-          <polygon points="83.5,58.4 94.8,64.9 94.8,77.9 83.5,84.4 72.2,77.9 72.2,64.9" fill="#7FB6D6"></polygon>
-          <polygon points="116.5,58.4 127.8,64.9 127.8,77.9 116.5,84.4 105.2,77.9 105.2,64.9" fill="#C9E1EF"></polygon>
-        </g>
-        </g>
-      </svg>
-    </div>
-  </section>
 
   </div>
   </sc-if>
