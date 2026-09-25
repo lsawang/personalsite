@@ -55,6 +55,10 @@
     [data-r="include"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-r="include-media"] { max-width: 300px !important; margin: 0 auto !important; }
   }
+  @media (max-width: 900px) {
+    [data-r="contentcta"] { position:static !important; display:block !important; text-align:center !important; margin: 0 0 10px !important; }
+    [data-r="prevbadge"] { position:static !important; justify-content:center !important; margin: 0 auto 10px !important; }
+  }
   @media (max-width: 560px) {
     [data-r="pass"] > div:first-child { max-height: 250px !important; }
     [data-r="pass"] > div { padding-left: 14px !important; padding-right: 14px !important; padding-top: 16px !important; padding-bottom: 16px !important; }
@@ -169,7 +173,6 @@
       <div data-r="navlinks" data-open="{{ navOpenFlag }}" style="display:flex; gap: clamp(24px,4vw,32px); align-items:center; flex-wrap:wrap;">
         <button class="navlink mono" onClick="{{ goToWork }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Works</button>
         <button class="navlink mono" onClick="{{ goToAbout }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">About</button>
-        <button class="navlink mono" onClick="{{ goToContent }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Content</button>
         <button class="navlink mono" onClick="{{ goToGraphics }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Pinboard</button>
         <a class="mono" href="assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; text-decoration:none; border:none; transition:color 0.2s ease;" style-hover="color:#12314A;">Resume</a>
       </div>
@@ -819,20 +822,21 @@
           <path d="M12 4 L12 19 M5 13 L12 20 L19 13" fill="none" stroke="#0E3D56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
       </a>
-      <div class="mono" style="position:absolute; top:clamp(18px,2.4vw,28px); left:clamp(20px,3vw,34px); z-index:2; display:flex; align-items:baseline; gap:7px; font-size:11.5px; letter-spacing:0.02em; text-transform:uppercase; color:#0E3D56;">
+      <a class="mono" data-r="contentcta" href="/content" style="position:absolute; top:clamp(18px,2.4vw,28px); right:clamp(20px,3vw,34px); z-index:2; font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:#0E3D56; text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Check out my content marketing!</a>
+      <div class="mono" data-r="prevbadge" style="position:absolute; top:clamp(18px,2.4vw,28px); left:clamp(20px,3vw,34px); z-index:2; display:flex; align-items:baseline; gap:7px; font-size:11.5px; letter-spacing:0.02em; text-transform:uppercase; color:#0E3D56;">
         <span style="letter-spacing:0.18em;">Prev. a competitive</span>
-        <span style="position:relative; display:inline-block; width:12ch; letter-spacing:0.18em;">&#8203;
-          <span class="typeword" style="--w:9.2ch; animation-delay:0s, 0s;">swimmer</span>
-          <span class="typeword" style="--w:5.6ch; animation-delay:8s, 0s;">diver</span>
-          <span class="typeword" style="--w:11.5ch; animation-delay:16s, 0s;">ice skater</span>
-          <span class="typeword" style="--w:9.2ch; animation-delay:24s, 0s;">gymnast</span>
+        <span style="position:relative; display:inline-block; width:16ch; letter-spacing:0.18em;">&#8203;
+          <span class="typeword" style="--w:11.5ch; animation-delay:0s, 0s;">swimmer</span>
+          <span class="typeword" style="--w:8.2ch; animation-delay:8s, 0s;">diver</span>
+          <span class="typeword" style="--w:15.5ch; animation-delay:16s, 0s;">ice skater</span>
+          <span class="typeword" style="--w:11.5ch; animation-delay:24s, 0s;">gymnast</span>
         </span>
       </div>
       <div style="position:relative; z-index:1; max-width:1120px; margin:0 auto; padding: clamp(20px,2.6vw,32px) clamp(20px,5vw,40px) clamp(64px,8vw,84px); text-align:center; width:100%;">
 
     <div style="position:relative; z-index:1; max-width:1120px; margin: 0 auto;">
       <h1 data-r="heroname" style="font-family:'Mulish',sans-serif; font-size:clamp(40px,6.2vw,74px); font-weight:600; letter-spacing:-0.038em; line-height:1.02; margin: 0 0 20px; color:#12314A;">Lisa Wang</h1>
-      <p style="font-size:clamp(18px,2vw,26px); line-height:1.44; letter-spacing:-0.012em; margin: 0 auto; max-width:44ch; color:#12314A;">Product designer &amp; marketer focused on building <strong style="font-weight:700; color:#2C6FB5;">meaningful, usable products</strong> that create <strong style="font-weight:700; color:#2C6FB5;">connection</strong>, build <strong style="font-weight:700; color:#2C6FB5;">trust</strong>, and help users and clients <strong style="font-weight:700; color:#2C6FB5;">reach their goals</strong>.</p>
+      <p style="font-size:clamp(18px,2vw,26px); line-height:1.44; letter-spacing:-0.012em; margin: 0 auto; max-width:44ch; color:#12314A;">Product designer &amp; marketer focused on building <strong style="font-weight:800; color:#1B4A80;">meaningful, usable products</strong> that create <strong style="font-weight:800; color:#1B4A80;">connection</strong>, build <strong style="font-weight:800; color:#1B4A80;">trust</strong>, and help users and clients <strong style="font-weight:800; color:#1B4A80;">reach their goals</strong>.</p>
       <p style="margin: 22px auto 0; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600; max-width:52ch;">Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
     </div>
       </div>
@@ -1032,7 +1036,6 @@
           <div style="display:flex; flex-direction:column; gap: 12px; align-items:flex-start;">
             <button class="navlink" onClick="{{ goHomeRoot }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Home</button>
             <button class="navlink" onClick="{{ goToWork }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Works</button>
-            <button class="navlink" onClick="{{ goToContent }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Content</button>
             <button class="navlink" onClick="{{ goToAbout }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">About</button>
             <button class="navlink" onClick="{{ goToGraphics }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Pinboard</button>
             <a href="assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:14.5px; color:#EAF5FBCC; text-decoration:none;" style-hover="color:#F2A65A;">Resume</a>
@@ -1193,10 +1196,7 @@ class Component extends DCLogic {
   }
 
   goToContent() {
-    if (this.state.navOpen) this.setState({ navOpen: false });
-    this.navigateTo('/content');
-    this.setState({ showContent: true, showAbout: false, showGraphics: false, selectedProject: null });
-    window.scrollTo(0, 0);
+    window.location.href = '/content';
   }
 
   goToGraphics() {
@@ -1225,6 +1225,13 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+    }
     this._refs = {};
     this._observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -1246,8 +1253,16 @@ class Component extends DCLogic {
         lift.style.opacity = window.scrollY > 120 ? '1' : '0';
         lift.style.transform = 'translateY(' + (70 + p * (window.innerHeight - 190)).toFixed(1) + 'px)';
       }
+      this._updateFooterRect();
     };
     window.addEventListener('scroll', this._onScroll, { passive: true });
+
+    this._updateFooterRect = () => {
+      if (!this._footer || !this._footer.isConnected) this._footer = document.querySelector('footer');
+      this._footerRect = this._footer ? this._footer.getBoundingClientRect() : null;
+    };
+    this._updateFooterRect();
+    window.addEventListener('resize', this._updateFooterRect, { passive: true });
 
     this._onPopState = () => this.syncViewFromLocation();
     window.addEventListener('popstate', this._onPopState);
@@ -1297,6 +1312,7 @@ class Component extends DCLogic {
   componentWillUnmount() {
     if (this._observer) this._observer.disconnect();
     if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._updateFooterRect) window.removeEventListener('resize', this._updateFooterRect);
     if (this._onPopState) window.removeEventListener('popstate', this._onPopState);
   }
 
@@ -1383,9 +1399,7 @@ class Component extends DCLogic {
     if (host._moved) { host._moved = false; return; }
     const anchor = host.getAttribute('data-anchor');
     if (!anchor) return;
-    this.navigateTo('/content#' + anchor);
-    this.setState({ showContent: true, showAbout: false, showGraphics: false, selectedProject: null, pendingScroll: anchor });
-    window.scrollTo(0, 0);
+    window.location.href = '/content#' + anchor;
   }
 
   startDrag(e) {
@@ -1428,11 +1442,8 @@ class Component extends DCLogic {
   spawnTrail(e) {
     const host = this._trail;
     if (!host) return;
-    if (!this._footer || !this._footer.isConnected) this._footer = document.querySelector('footer');
-    if (this._footer) {
-      const fr = this._footer.getBoundingClientRect();
-      if (e.clientY >= fr.top && e.clientY <= fr.bottom) return;
-    }
+    const fr = this._footerRect;
+    if (fr && e.clientY >= fr.top && e.clientY <= fr.bottom) return;
     const now = performance.now();
     if (this._lastTrail && now - this._lastTrail < 62) return;
     this._lastTrail = now;
@@ -1457,12 +1468,8 @@ class Component extends DCLogic {
   if (this._cursor) this._cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
   this.spawnTrail(e);
     if (this._flake) {
-      if (!this._footer || !this._footer.isConnected) this._footer = document.querySelector('footer');
-      let dark = false;
-      if (this._footer) {
-        const r = this._footer.getBoundingClientRect();
-        dark = e.clientY >= r.top && e.clientY <= r.bottom;
-      }
+      const r = this._footerRect;
+      const dark = !!(r && e.clientY >= r.top && e.clientY <= r.bottom);
       this._flake.style.color = dark ? '#F4FAFD' : '#12314A';
       this._flake.style.filter = dark ? 'drop-shadow(0 1px 3px #00000066)' : 'drop-shadow(0 1px 2px #12314A55)';
     }

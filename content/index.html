@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet"/>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
-<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-<script src="./image-slot.js"></script>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<script src="/image-slot.js"></script>
 <style>
   body { margin: 0; background: #FCFCFB; }
   * { box-sizing: border-box; }
@@ -174,7 +174,7 @@
         <button class="navlink mono" onClick="{{ goToWork }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Works</button>
         <button class="navlink mono" onClick="{{ goToAbout }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">About</button>
         <button class="navlink mono" onClick="{{ goToGraphics }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; transition:color 0.2s ease;" style-hover="color:#12314A;">Pinboard</button>
-        <a class="mono" href="assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; text-decoration:none; border:none; transition:color 0.2s ease;" style-hover="color:#12314A;">Resume</a>
+        <a class="mono" href="/assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7C8894; text-decoration:none; border:none; transition:color 0.2s ease;" style-hover="color:#12314A;">Resume</a>
       </div>
     </div>
   </nav>
@@ -216,10 +216,10 @@
       </div>
       <div data-r="aboutpics" style="display:flex; flex-direction:column; gap: 16px;">
         <div style="aspect-ratio:3/4; width:100%; border-radius:4px; overflow:hidden; background:#F1F3F4;">
-          <img src="assets/lisa-portrait.jpeg" alt="Lisa Wang" style="width:100%; height:100%; object-fit:cover; display:block;"/>
+          <img src="/assets/lisa-portrait.jpeg" alt="Lisa Wang" style="width:100%; height:100%; object-fit:cover; display:block;"/>
         </div>
         <div style="width:100%; border-radius:4px; overflow:hidden; background:#F1F3F4;">
-          <img src="assets/sf-bridge.png" alt="Golden Gate Bridge at dusk" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover;" />
+          <img src="/assets/sf-bridge.png" alt="Golden Gate Bridge at dusk" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover;" />
         </div>
       </div>
     </section>
@@ -277,49 +277,49 @@
       <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap: clamp(24px,4vw,32px); align-items:center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/figma-icon.webp" alt="Figma" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/figma-icon.webp" alt="Figma" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Figma</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Capcut-icon.png" alt="CapCut" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Capcut-icon.png" alt="CapCut" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">CapCut</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/adobe-photoshop-logo.png" alt="Photoshop" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/adobe-photoshop-logo.png" alt="Photoshop" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Photoshop</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Adobe_Illustrator_CC_icon.svg.webp" alt="Illustrator" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Adobe_Illustrator_CC_icon.svg.webp" alt="Illustrator" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Illustrator</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Canva_logo.svg.webp" alt="Canva" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Canva_logo.svg.webp" alt="Canva" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Canva</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Visual_Studio_Code_1.35_icon.svg.webp" alt="Visual Studio Code" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Visual_Studio_Code_1.35_icon.svg.webp" alt="Visual Studio Code" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Visual Studio Code</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Notion_app_logo.png" alt="Notion" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Notion_app_logo.png" alt="Notion" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Notion</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img src="/uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#12314A99;">Slack</span>
         </div>
@@ -446,7 +446,8 @@
 
   <sc-if value="{{ isContentView }}" hint-placeholder-val="{{ false }}">
     <div style="position:relative; background:#FCFCFB; background-image:radial-gradient(circle at 12% 6%, #E3F2F9 0%, transparent 34%), radial-gradient(circle at 88% 34%, #F4E7EC 0%, transparent 30%), radial-gradient(circle at 30% 78%, #EAF3E9 0%, transparent 32%), radial-gradient(#E4E8EB 1px, transparent 1px); background-size:auto, auto, auto, 30px 30px; background-attachment:fixed, fixed, fixed, scroll;">
-      <section style="padding: clamp(64px,9vw,96px) clamp(20px,5vw,64px) clamp(28px,4vw,40px); max-width:1320px; margin: 0 auto;">
+      <section style="padding: clamp(28px,4vw,40px) clamp(20px,5vw,64px) clamp(28px,4vw,40px); max-width:1320px; margin: 0 auto;">
+        <a class="mono" href="/" style="display:flex; width:max-content; align-items:center; gap:6px; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; color:#7C8894; text-decoration:none; margin-bottom:28px; transition:color 0.2s ease;" style-hover="color:#12314A;">&larr; Back</a>
         <p style="font-family:'Mulish',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin: 0 0 16px; font-weight:700; display:inline-flex; align-items:center; gap: 8px;"><span style="width:13px; height:13px; background:#2C6FB5; transform:rotate(45deg); display:inline-block;"></span>Content</p>
         <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(32px,5vw,52px); margin: 0 0 20px; max-width:34ch;">Social content, campaigns, and what the numbers said.</h1>
         <p style="font-size:17px; line-height:1.7; color:#3F5A70; max-width:58ch; margin: 0;">Content planning, short-form video content, and campaign work for dance, community, and startups.</p>
@@ -484,24 +485,24 @@
             </ul>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,420px),1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 12px;">
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/Screenshot 2026-09-11 at 6.25.15 PM.png" alt="Three-post grid layout, Fashion cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
+                <img src="/uploads/Screenshot 2026-09-11 at 6.25.15 PM.png" alt="Three-post grid layout, Fashion cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/Screenshot 2026-09-11 at 6.25.41 PM.png" alt="Three-post grid layout, Thunder cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
+                <img src="/uploads/Screenshot 2026-09-11 at 6.25.41 PM.png" alt="Three-post grid layout, Thunder cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
               </div>
             </div>
             <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 8px;" data-r="stories">
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/IMG_4692.PNG" alt="Cover story, February 9" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img src="/uploads/IMG_4692.PNG" alt="Cover story, February 9" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/IMG_4693.PNG" alt="Cover story, April 6" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img src="/uploads/IMG_4693.PNG" alt="Cover story, April 6" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/IMG_4694.PNG" alt="Cover story, April 17" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img src="/uploads/IMG_4694.PNG" alt="Cover story, April 17" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="uploads/IMG_4706.jpeg" alt="Workshop story, October 20 2025" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img src="/uploads/IMG_4706.jpeg" alt="Workshop story, October 20 2025" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
             </div>
             <div style="background:#F4FAFD; border:1px solid #DCEEF7; border-radius:12px; padding: clamp(16px,2vw,20px); margin: 0 0 28px;">
@@ -578,7 +579,7 @@
 
         <div style="border-top:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
-            <img src="assets/tiktok-icon.png" alt="TikTok" style="flex:none; width:44px; height:44px; display:block; border-radius:9px;" />
+            <img src="/assets/tiktok-icon.png" alt="TikTok" style="flex:none; width:44px; height:44px; display:block; border-radius:9px;" />
             <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A;">Personal TikTok</h2>
             <p style="font-family:'Mulish',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2F7A94; margin: 0;">Content creation</p>
             <p style="font-family:'Mulish',sans-serif; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#A6AEB6; margin: 0;">Boys II Planet · ~9 videos</p>
@@ -647,8 +648,8 @@
           <div>
             <p style="font-size:14.5px; line-height:1.75; color:#3F5A70; margin: 0 0 20px; max-width:62ch;"><strong style="font-weight:600; color:#12314A;">Marketing and campaign planning</strong>, including the monthly content calendar and short-form reels for social media reach.</p>
             <div style="display:grid; grid-template-columns:minmax(0,1fr); gap: clamp(16px,2.4vw,28px); align-items:start; max-width:760px;">
-              <a href="assets/content-calendar.png" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="display:block; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px; text-decoration:none;">
-                <img src="assets/content-calendar.png" alt="July content calendar" style="display:block; width:100%; height:auto; border-radius:6px;" />
+              <a href="/assets/content-calendar.png" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="display:block; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px; text-decoration:none;">
+                <img src="/assets/content-calendar.png" alt="July content calendar" style="display:block; width:100%; height:auto; border-radius:6px;" />
                 <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'Mulish',sans-serif; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase;"><span style="font-weight:700; color:#12314A;">July content calendar</span><span style="color:#A6AEB6;">Foundverse</span></span>
               </a>
             </div>
@@ -909,7 +910,7 @@
     </div>
     <div class="heropass" data-r="pass" onMouseMove="{{ tiltMove }}" onMouseLeave="{{ tiltReset }}" style="position:relative; z-index:1; transform-style:preserve-3d; transition:transform 0.16s ease-out; will-change:transform; max-width:1120px; margin: 0 auto; background:#FFFFFF; border:1px solid #E6E9EC; border-radius:20px; box-shadow:0 1px 2px #12314A0F, 0 26px 60px -34px #12314A45; overflow:hidden; display:grid; grid-template-columns:minmax(150px,210px) 1fr minmax(180px,290px) 34px;">
       <div style="border-right:1px dashed #C6D2DB; overflow:hidden;">
-        <img src="uploads/Screenshot 2026-09-02 at 12.25.35 PM.png" alt="Chairlift view up the mountain" style="width:100%; height:100%; min-height:100%; object-fit:cover; object-position:center; display:block;"/>
+        <img src="/uploads/Screenshot 2026-09-02 at 12.25.35 PM.png" alt="Chairlift view up the mountain" style="width:100%; height:100%; min-height:100%; object-fit:cover; object-position:center; display:block;"/>
       </div>
 
       <div style="padding: 24px clamp(24px,4vw,32px);">
@@ -1038,7 +1039,7 @@
             <button class="navlink" onClick="{{ goToWork }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Works</button>
             <button class="navlink" onClick="{{ goToAbout }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">About</button>
             <button class="navlink" onClick="{{ goToGraphics }}" style="font-size:14.5px; color:#EAF5FBCC; transition:color 0.2s ease;" style-hover="color:#F2A65A;">Pinboard</button>
-            <a href="assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:14.5px; color:#EAF5FBCC; text-decoration:none;" style-hover="color:#F2A65A;">Resume</a>
+            <a href="/assets/lisa-wang-resume.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="font-size:14.5px; color:#EAF5FBCC; text-decoration:none;" style-hover="color:#F2A65A;">Resume</a>
           </div>
         </div>
         <div>
@@ -1063,8 +1064,10 @@
 class Component extends DCLogic {
   state = (() => {
     const p = (typeof location !== 'undefined' && location.pathname) || '/';
-    return { navOpen: false, playingDance: null, revealed: {}, selectedProject: null, showAbout: p === '/about', showGraphics: p === '/pinboard', showContent: p === '/content', scrolled: false, pendingScroll: null, hoverIdx: -1, cursorCase: false, caseHover: -1 };
+    return { navOpen: false, playingDance: null, revealed: {}, selectedProject: null, showAbout: false, showGraphics: false, showContent: true, scrolled: false, pendingScroll: null, hoverIdx: -1, cursorCase: false, caseHover: -1 };
   })();
+
+  isContentPage = true;
 
   goToEmail() { window.location.href = 'mailto:lsawang@ucdavis.edu'; }
 
@@ -1182,10 +1185,7 @@ class Component extends DCLogic {
   }
 
   goToAbout() {
-    if (this.state.navOpen) this.setState({ navOpen: false });
-    this.navigateTo('/about');
-    this.setState({ showAbout: true, showGraphics: false, showContent: false, selectedProject: null });
-    window.scrollTo(0, 0);
+    window.location.href = '/about';
   }
 
   nudgeCarousel(e, dir) {
@@ -1200,17 +1200,11 @@ class Component extends DCLogic {
   }
 
   goToGraphics() {
-    if (this.state.navOpen) this.setState({ navOpen: false });
-    this.navigateTo('/pinboard');
-    this.setState({ showGraphics: true, showAbout: false, showContent: false, selectedProject: null });
-    window.scrollTo(0, 0);
+    window.location.href = '/pinboard';
   }
 
   goHome(anchor) {
-    if (this.state.navOpen) this.setState({ navOpen: false });
-    this.navigateTo('/' + (anchor ? '#' + anchor : ''));
-    this.setState({ showAbout: false, showGraphics: false, showContent: false, selectedProject: null, pendingScroll: anchor || null });
-    if (!anchor) window.scrollTo(0, 0);
+    window.location.href = '/' + (anchor ? '#' + anchor : '');
   }
 
   componentDidUpdate() {
@@ -1366,7 +1360,7 @@ class Component extends DCLogic {
       { role: 'Social Media & Graphics Lead', current: true, org: '#include', anchor: 'content-include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
       { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo' },
       { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo' },
-      { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo' },
+      { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: '/assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo' },
     ];
   }
 
@@ -1607,15 +1601,15 @@ class Component extends DCLogic {
         { label: 'His Range???', platform: 'TikTok', views: '43K', likes: '2,612', comments: '35', saves: '253', shares: '36' },
       ],
       ekhoClips: [
-        { id: 'ekho-clip-1', src: 'uploads/IMG_4702.jpeg', href: 'https://www.tiktok.com/t/ZP83DYr9G/', label: '"Guess who our RUI is"' },
+        { id: 'ekho-clip-1', src: '/uploads/IMG_4702.jpeg', href: 'https://www.tiktok.com/t/ZP83DYr9G/', label: '"Guess who our RUI is"' },
         { id: 'ekho-clip-2', slot: true, placeholder: 'Still — dear dance', href: 'https://www.tiktok.com/t/ZP83DD8rL/', label: '"dear dance"' },
         { id: 'ekho-clip-3', slot: true, placeholder: 'Still — Gnarly cover', href: 'https://www.instagram.com/reel/DRvlbyKiXV2/', label: '"Gnarly" (KATSEYE cover)' },
         { id: 'ekho-clip-4', slot: true, placeholder: 'Still — Fashion cover', href: 'https://www.instagram.com/reel/DaIe0AeJO6M/', label: '“Fashion” (CORTIS cover)' },
       ],
       bpClips: [
-        { id: 'bp-clip-1', src: 'uploads/IMG_4701.jpeg', href: 'https://www.tiktok.com/t/ZP83DJ4Gw/', label: 'Talent Ignored' },
-        { id: 'bp-clip-2', src: 'uploads/IMG_4699.jpeg', href: 'https://www.tiktok.com/t/ZP83DUBHR/', label: 'Line Up Prediction' },
-        { id: 'bp-clip-3', src: 'uploads/IMG_4700.jpeg', href: 'https://www.tiktok.com/t/ZP83DBoST/', label: 'His Range???' },
+        { id: 'bp-clip-1', src: '/uploads/IMG_4701.jpeg', href: 'https://www.tiktok.com/t/ZP83DJ4Gw/', label: 'Talent Ignored' },
+        { id: 'bp-clip-2', src: '/uploads/IMG_4699.jpeg', href: 'https://www.tiktok.com/t/ZP83DUBHR/', label: 'Line Up Prediction' },
+        { id: 'bp-clip-3', src: '/uploads/IMG_4700.jpeg', href: 'https://www.tiktok.com/t/ZP83DBoST/', label: 'His Range???' },
       ],
       bpAvg: [
         { n: '~54.3K', label: 'Views' },
@@ -1635,24 +1629,24 @@ class Component extends DCLogic {
         { kicker: 'Company posts', title: 'Static and carousel posts', points: ['Foundverse FAQ story/highlight: about, what you do at sessions, what you gain, how to join', '3 things teens built this month, one slide per build', 'What we actually do in a session: infographic on the site\'s neon grid template', '"What AI did vs. what the teen decided": raw output next to the teen\'s edit'] },
       ],
       faqSlides: [
-        { src: 'uploads/Screenshot 2026-09-11 at 7.13.03 PM.png', alt: 'Frequently Asked Questions cover slide' },
-        { src: 'uploads/Screenshot 2026-09-11 at 7.13.15 PM.png', alt: 'What is #include, how does #include work' },
-        { src: 'uploads/Screenshot 2026-09-11 at 7.13.33 PM.png', alt: 'Who can join, expected time commitment' },
-        { src: 'uploads/Screenshot 2026-09-11 at 7.13.45 PM.png', alt: 'How to become a member, application process, benefits' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.03 PM.png', alt: 'Frequently Asked Questions cover slide' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.15 PM.png', alt: 'What is #include, how does #include work' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.33 PM.png', alt: 'Who can join, expected time commitment' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.45 PM.png', alt: 'How to become a member, application process, benefits' },
       ],
       carouselPrev: (e) => this.nudgeCarousel(e, -1),
       carouselNext: (e) => this.nudgeCarousel(e, 1),
       bands: [
         { title: 'Graphics & editing', note: 'Thumbnails · posters', h: 'clamp(400px,40vw,480px)', items: [
-          { src: 'uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).png', href: 'uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).png', label: 'Fashion YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '30px', left: '3%', w: 'clamp(150px,26vw,340px)', rot: '-2.2deg', tape: 1 },
-          { src: 'uploads/GRAPHICS/FEAR YT THUMBNAIL (1).png', href: 'uploads/GRAPHICS/FEAR YT THUMBNAIL (1).png', label: 'Fear YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '150px', left: '31%', w: 'clamp(150px,26vw,340px)', rot: '1.8deg', tape: 0 },
-          { src: 'assets/dirtywork-thumb.png', href: 'assets/dirtywork-thumb.png', label: 'Dirty Work YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '14px', left: '60%', w: 'clamp(150px,26vw,340px)', rot: '-1.6deg', tape: 1 },
-          { src: 'uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', href: 'uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', label: 'Verdana typography poster', meta: 'Illustrator', ratio: 'auto', top: '188px', left: '76%', w: 'clamp(110px,18vw,200px)', rot: '2.4deg', tape: 0 },
+          { src: '/uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).png', href: '/uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).png', label: 'Fashion YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '30px', left: '3%', w: 'clamp(150px,26vw,340px)', rot: '-2.2deg', tape: 1 },
+          { src: '/uploads/GRAPHICS/FEAR YT THUMBNAIL (1).png', href: '/uploads/GRAPHICS/FEAR YT THUMBNAIL (1).png', label: 'Fear YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '150px', left: '31%', w: 'clamp(150px,26vw,340px)', rot: '1.8deg', tape: 0 },
+          { src: '/assets/dirtywork-thumb.png', href: '/assets/dirtywork-thumb.png', label: 'Dirty Work YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '14px', left: '60%', w: 'clamp(150px,26vw,340px)', rot: '-1.6deg', tape: 1 },
+          { src: '/uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', href: '/uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', label: 'Verdana typography poster', meta: 'Illustrator', ratio: 'auto', top: '188px', left: '76%', w: 'clamp(110px,18vw,200px)', rot: '2.4deg', tape: 0 },
         ] },
         { title: 'Information design', note: 'Posters · editorial', h: 'clamp(430px,46vw,480px)', items: [
-          { src: 'uploads/FIBERGLASS POSTER (1).jpg', href: 'uploads/GRAPHICS/FIBERGLASS POSTER (1).pdf', label: 'Fiberglass poster', meta: 'PDF', ratio: 'auto', top: '44px', left: '2%', w: 'clamp(150px,26vw,340px)', rot: '-2.6deg', tape: 0 },
-          { src: 'uploads/EVENT POSTER (1)_compressed.jpg', href: 'uploads/EVENT POSTER (1)_compressed.pdf', label: 'Event poster', meta: 'PDF', ratio: 'auto', top: '20px', left: '40%', w: 'clamp(110px,17vw,215px)', rot: '2.4deg', tape: 1 },
-          { src: 'assets/foundverse-ebook.png', href: 'assets/foundverse-ebook.png', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '0px', left: '72%', w: 'clamp(110px,16vw,190px)', rot: '1.6deg', tape: 0 },
+          { src: '/uploads/FIBERGLASS POSTER (1).jpg', href: '/uploads/GRAPHICS/FIBERGLASS POSTER (1).pdf', label: 'Fiberglass poster', meta: 'PDF', ratio: 'auto', top: '44px', left: '2%', w: 'clamp(150px,26vw,340px)', rot: '-2.6deg', tape: 0 },
+          { src: '/uploads/EVENT POSTER (1)_compressed.jpg', href: '/uploads/EVENT POSTER (1)_compressed.pdf', label: 'Event poster', meta: 'PDF', ratio: 'auto', top: '20px', left: '40%', w: 'clamp(110px,17vw,215px)', rot: '2.4deg', tape: 1 },
+          { src: '/assets/foundverse-ebook.png', href: '/assets/foundverse-ebook.png', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '0px', left: '72%', w: 'clamp(110px,16vw,190px)', rot: '1.6deg', tape: 0 },
         ] },
       ],
       graphics: [
@@ -1692,7 +1686,7 @@ class Component extends DCLogic {
       _experienceUnused: [
         { role: 'Social Media & Graphics Lead', current: true, org: '#include', anchor: 'content-include', logoId: 'logo-include', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: -1, accent: '#A9D3E8', edge: '#2F7A94' },
         { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: 1, accent: '#F9CDD1', edge: '#2F7A94' },
-        { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: -1, accent: '#F4D9A8', edge: '#2F7A94' },
+        { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: '/assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: -1, accent: '#F4D9A8', edge: '#2F7A94' },
         { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: 1, accent: '#2F7A94', edge: '#2F7A94' },
       ],
       carousel: [...this.getCarousel(), ...this.getCarousel()],
@@ -1713,11 +1707,11 @@ class Component extends DCLogic {
 
   getCarousel() {
     return [
-      { id: 'wall-11', rotate: -3, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", feat: 'KICKER 01', src: 'uploads/DSC04427.jpg' },
-      { id: 'wall-12', rotate: 2.4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", feat: 'RAIL 02', src: 'uploads/20260719_163356_9F7000.jpg' },
-      { id: 'wall-13', rotate: -2, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", feat: 'BOX 03', src: 'uploads/IMG_8611.JPG' },
-      { id: 'wall-14', rotate: 2.2, placeholder: 'Photo — cosmic bowling night', frame: '#A9D3E8', date: "'26 9 04  12:54", feat: 'STRIKE 04', src: 'uploads/Screenshot 2026-09-04 at 12.54.14 PM.png' },
-      { id: 'wall-15', rotate: -2.8, placeholder: 'Photo — golden gate park ride', frame: '#4CA96B', date: "'26 9 04  12:54", feat: 'CRUISE 05', src: 'uploads/Screenshot 2026-09-04 at 12.54.05 PM.png' },
+      { id: 'wall-11', rotate: -3, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", feat: 'KICKER 01', src: '/uploads/DSC04427.jpg' },
+      { id: 'wall-12', rotate: 2.4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", feat: 'RAIL 02', src: '/uploads/20260719_163356_9F7000.jpg' },
+      { id: 'wall-13', rotate: -2, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", feat: 'BOX 03', src: '/uploads/IMG_8611.JPG' },
+      { id: 'wall-14', rotate: 2.2, placeholder: 'Photo — cosmic bowling night', frame: '#A9D3E8', date: "'26 9 04  12:54", feat: 'STRIKE 04', src: '/uploads/Screenshot 2026-09-04 at 12.54.14 PM.png' },
+      { id: 'wall-15', rotate: -2.8, placeholder: 'Photo — golden gate park ride', frame: '#4CA96B', date: "'26 9 04  12:54", feat: 'CRUISE 05', src: '/uploads/Screenshot 2026-09-04 at 12.54.05 PM.png' },
       { id: 'wall-1', rotate: 3, placeholder: 'Photo — first chair of the season', frame: '#F9CDD1', date: "'26 7 27  10:24", feat: 'JIB 04' },
       { id: 'wall-2', rotate: -2.6, placeholder: 'Photo — powder day at the resort', frame: '#A9D3E8', date: "'25 11 02  20:15", feat: 'RAIL 05' },
       { id: 'wall-7', rotate: 2, placeholder: 'Photo — après-ski with the crew', frame: '#F4D9A8', date: "'26 2 08  21:10", feat: 'BOX 06' },
@@ -1728,9 +1722,9 @@ class Component extends DCLogic {
     return [
       { id: 'wall-1', left: '1%', top: '10px', w: 230, rotate: -6, placeholder: 'Photo — first chair of the season', frame: '#F9CDD1', date: "'26 7 27  10:24" },
       { id: 'wall-2', left: '21%', top: '70px', w: 220, rotate: 4, placeholder: 'Photo — powder day at the resort', frame: '#A9D3E8', date: "'25 11 02  20:15" },
-      { id: 'wall-11', left: '42%', top: '10px', w: 235, rotate: 5, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", src: 'uploads/DSC04427.jpg' },
-      { id: 'wall-12', left: '63%', top: '65px', w: 220, rotate: -4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", src: 'uploads/20260719_163356_9F7000.jpg' },
-      { id: 'wall-13', left: '82%', top: '20px', w: 230, rotate: 4, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", src: 'uploads/IMG_8611.JPG' },
+      { id: 'wall-11', left: '42%', top: '10px', w: 235, rotate: 5, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", src: '/uploads/DSC04427.jpg' },
+      { id: 'wall-12', left: '63%', top: '65px', w: 220, rotate: -4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", src: '/uploads/20260719_163356_9F7000.jpg' },
+      { id: 'wall-13', left: '82%', top: '20px', w: 230, rotate: 4, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", src: '/uploads/IMG_8611.JPG' },
       { id: 'wall-6', left: '1%', top: '420px', w: 230, rotate: 5, placeholder: 'Photo — lodge window views', frame: '#A9D3E8', date: "'26 6 12  19:33" },
       { id: 'wall-7', left: '21%', top: '480px', w: 220, rotate: -5, placeholder: 'Photo — après-ski with the crew', frame: '#F4D9A8', date: "'26 2 08  21:10" },
       { id: 'wall-8', left: '42%', top: '415px', w: 235, rotate: 3, placeholder: 'Photo — board setup for the day', frame: '#7FB6D6', date: "'25 8 22  15:47" },
@@ -1766,7 +1760,7 @@ class Component extends DCLogic {
         bg: '#F9CDD1',
         offset: 0,
         href: '/triceratops',
-        image: 'assets/tri-hero-graphic.png',
+        image: '/assets/tri-hero-graphic.png',
       },
       {
         num: '02',
@@ -1777,7 +1771,7 @@ class Component extends DCLogic {
         bg: '#7FB6D6',
         offset: 52,
         href: '/cyclefind',
-        image: 'assets/cf-thumb.png',
+        image: '/assets/cf-thumb.png',
       },
       {
         num: '03',
@@ -1790,7 +1784,7 @@ class Component extends DCLogic {
         fit: 'contain',
         offset: 16,
         href: '/harmonize',
-        image: 'assets/harmonize-thumb.png',
+        image: '/assets/harmonize-thumb.png',
       },
     ];
   }
