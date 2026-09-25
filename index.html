@@ -56,8 +56,8 @@
     [data-r="include-media"] { max-width: 300px !important; margin: 0 auto !important; }
   }
   @media (max-width: 900px) {
-    [data-r="contentcta"] { left:50% !important; right:auto !important; transform:translateX(-50%) !important; width:max-content !important; text-align:center !important; }
-    [data-r="prevbadge"] { left:50% !important; top:calc(clamp(18px,2.4vw,28px) + 26px) !important; transform:translateX(-50%) !important; justify-content:center !important; }
+    [data-r="contentcta"] { left:50% !important; right:auto !important; transform:translateX(-50%) !important; width:max-content !important; text-align:center !important; font-size:10px !important; }
+    [data-r="prevbadge"] { left:50% !important; top:calc(clamp(18px,2.4vw,28px) + 32px) !important; transform:translateX(-50%) !important; flex-direction:column !important; align-items:center !important; gap:4px !important; text-align:center !important; }
   }
   @media (max-width: 560px) {
     [data-r="pass"] > div:first-child { max-height: 250px !important; }
@@ -813,7 +813,7 @@
       </svg>
       <div aria-hidden="true" style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(130% 95% at 24% 6%, #FFFFFF8C 0%, #FFFFFF00 58%); animation:poolShine 13s ease-in-out infinite;"></div>
       <a href="#work" style="position:absolute; left:50%; bottom:clamp(20px,3.2vh,40px); transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:10px; text-decoration:none; color:#0E3D56;">
-        <span class="mono" style="font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700;">Scroll to see my work</span>
+        <span class="mono" style="font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; text-align:center; max-width:150px;">Scroll to see my work</span>
         <svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px; height:22px; display:block; animation:arrowNudge 1.9s ease-in-out infinite;">
           <path d="M12 4 L12 19 M5 13 L12 20 L19 13" fill="none" stroke="#0E3D56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
