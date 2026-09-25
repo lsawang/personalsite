@@ -56,8 +56,8 @@
     [data-r="include-media"] { max-width: 300px !important; margin: 0 auto !important; }
   }
   @media (max-width: 900px) {
-    [data-r="contentcta"] { position:static !important; display:block !important; text-align:center !important; margin: 0 0 10px !important; }
-    [data-r="prevbadge"] { position:static !important; justify-content:center !important; margin: 0 auto 10px !important; }
+    [data-r="contentcta"] { left:50% !important; right:auto !important; transform:translateX(-50%) !important; width:max-content !important; text-align:center !important; }
+    [data-r="prevbadge"] { left:50% !important; top:calc(clamp(18px,2.4vw,28px) + 26px) !important; transform:translateX(-50%) !important; justify-content:center !important; }
   }
   @media (max-width: 560px) {
     [data-r="pass"] > div:first-child { max-height: 250px !important; }
