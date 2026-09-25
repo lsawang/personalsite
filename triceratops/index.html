@@ -53,9 +53,9 @@
 
       <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(44px,5.5vw,68px);">
         <p class="mono" style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#9AA4AE; margin:0 0 20px; font-weight:700;">Case Study 01 · In progress</p>
-        <h1 style="font-size:clamp(38px,5.6vw,70px); font-weight:600; letter-spacing:-0.012em; line-height:1.03; margin:0 0 22px;">Triceratops</h1>
-        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(20px,2.3vw,29px); line-height:1.3; letter-spacing:-0.004em; margin:0 0 22px; max-width:44ch;">Building a website for a client we know and love.</p>
-        <p style="font-size:16px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(30px,4vw,42px); max-width:80ch;">Our team of 6 <strong style="font-weight:600; color:#12314A;">designed and developed</strong> the website for a UC Davis club that loves dinos, where we turned a Discord and Instagram-ran operation into something a first-year can <strong style="font-weight:600; color:#12314A;">find &amp; understand</strong> on their first visit.</p>
+        <h1 style="font-size:clamp(34px,4.6vw,56px); font-weight:600; letter-spacing:-0.012em; line-height:1.08; max-width:22ch; margin:0 0 22px;">Simplifying the rules flow so students can start hunting faster</h1>
+        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(20px,2.3vw,29px); line-height:1.3; letter-spacing:-0.004em; margin:0 0 22px; max-width:44ch;">Designing the first front door for a club that lived in a group chat.</p>
+        <p style="font-size:16px; line-height:1.75; color:#3F5A70; margin:0 0 clamp(30px,4vw,42px); max-width:80ch;">Triceratops, a UC Davis club that crochets dinosaurs and hides them across campus, ran entirely on Discord and Instagram, so anyone outside the server had no way in. Our team of 6 <strong style="font-weight:600; color:#12314A;">designed and built its first public website</strong>.</p>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:22px clamp(24px,4vw,44px); padding:22px 0; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; margin-bottom:clamp(30px,4vw,44px);">
           <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
@@ -122,17 +122,7 @@
           </sc-for>
         </div>
 
-        <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
-          <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
-              <span style="font-family:'Playfair Display',serif; font-size:19px; color:#2F6B4A; font-weight:500; padding-top:2px;">{{ i.n }}</span>
-              <div>
-                <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ i.title }}</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:78ch;">{{ i.body }}</p>
-              </div>
-            </div>
-          </sc-for>
-        </div>
+        
 
         <figure style="margin:0;">
           <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
@@ -166,8 +156,8 @@
           </figure>
 
           <figure style="margin:0;">
-            <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">A system we could hand to ourselves</p>
-            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> This helped us establish a solid design system quicker and easier.</p>
+            <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">A design system built from members&rsquo; own words</p>
+            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Participants described the aesthetic before we proposed one: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> That gave us a brief before we&rsquo;d drawn anything.</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
               <div>
                 <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
@@ -192,7 +182,7 @@
 
           <div>
             <p style="font-family:'Playfair Display',serif; font-size:19px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Taking a step back</p>
-            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">My first hi-fi design leaned on animations mostly: hover states on every card, pop-ups, and reveal animations. Put together, they made the page busy and caused too much friction. <strong style="font-weight:600; color:#12314A;">I cut it back to hover states only so it gave the page a more &ldquo;premium-feel.&rdquo;</strong></p>
+            <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 18px; max-width:80ch;">My first hi-fi design leaned on animations mostly: hover states on every card, pop-ups, and reveal animations. Put together, they made the page busy and competed with the content. <strong style="font-weight:600; color:#12314A;">I cut it back to hover states only so it gave the page a more &ldquo;premium-feel.&rdquo;</strong></p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
               <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px; border:1.5px solid #E4E6E2;">
                 <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A4A; margin:0 0 12px;">&#10007; Rejected</p>
@@ -202,7 +192,7 @@
               <div style="background:#F1F7F1; border-radius:12px; padding:22px 24px; border:1.5px solid #2F6B4A;">
                 <p class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 12px;">&#10003; Chosen</p>
                 <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Animations where it made sense</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Kept the whimsy in illustration, color, and copy, and reserved motion for a few deliberate moments. There is such a thing as too much, and restraint is what made the site feel finished.</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Kept the whimsy in illustration, color, and copy, and limited motion to hover states on things you can click. There is such a thing as too much, and restraint is what made the site feel finished.</p>
               </div>
             </div>
           </div>
@@ -212,7 +202,7 @@
       <section id="testing" data-screen-label="05 Testing" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Testing</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Testers found the Rules page. They could not find the part they needed.</h2>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">There were certain issues that caused friction or that were not the most user-friendly.</p>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">Testers reached the Rules page, but the post-claim steps were buried at the bottom. Here&rsquo;s what tripped them up and what we changed.</p>
 
         <div style="display:flex; flex-direction:column; margin-bottom:clamp(32px,4.2vw,48px);">
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px clamp(20px,3vw,34px); padding:0 0 10px; border-bottom:1px solid #E9E9E6;">
@@ -243,26 +233,17 @@
             <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#9AA4AE; margin:12px 0 0; text-align:center;">{{ fidelityCaption }}</p>
           </div>
         </div>
-        <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">My biggest challenge was to showcase all the information in a way users could <strong style="font-weight:600; color:#12314A;">understand and read easier</strong>.</p>
+        <p style="font-size:15.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">The challenge was condensing rules spread across an entire Discord server into one page a newcomer could <strong style="font-weight:600; color:#12314A;">scan in under a minute</strong>.</p>
       </section>
 
-      <section id="solution" data-screen-label="06 Final Solution" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
-        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Final Solution</p>
-        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 clamp(30px,4vw,42px); max-width:44ch;">A public site that answers questions so the Discord doesn&rsquo;t need to anymore.</h2>
-        <p style="font-family:'Playfair Display',serif; font-size:clamp(17px,1.9vw,20px); line-height:1.55; color:#12314A; margin:0 0 clamp(26px,3.4vw,36px); max-width:76ch; font-weight:600;">The Rules page now surfaces post-claim steps first, and every page captures questions a newcomer would have to ask in Discord.</p>
-        <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,26px) clamp(16px,2.4vw,26px);">
+      <section id="solution" data-screen-label="06 Current Desktop" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
+        <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 clamp(22px,3vw,30px);">Current Desktop</p>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(16px,2.4vw,26px) clamp(16px,2.4vw,26px);">
           <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
             <div>
               <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; margin-bottom:14px;">
-                <video src="{{ a.clip }}" ref="{{ a.setRef }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:top center; background:#FFFFFF;"></video>
-                <sc-if value="{{ a.idle }}" hint-placeholder-val="{{ true }}">
-                  <button onClick="{{ a.onToggle }}" aria-label="Play {{ a.name }} walkthrough" style="position:absolute; inset:0; width:100%; height:100%; border:none; padding:0; background:rgba(18,49,74,0.14); cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:rgba(18,49,74,0.24);">
-                    <span style="width:52px; height:52px; border-radius:50%; background:#2F6B4A; color:#F1F7F1; display:flex; align-items:center; justify-content:center; font-size:17px; padding-left:4px; box-shadow:0 6px 18px -6px rgba(18,49,74,0.6);">&#9654;</span>
-                  </button>
-                </sc-if>
-                <sc-if value="{{ a.playing }}" hint-placeholder-val="{{ false }}">
-                  <button onClick="{{ a.onToggle }}" aria-label="Pause {{ a.name }} walkthrough" style="position:absolute; right:10px; bottom:10px; width:34px; height:34px; border-radius:50%; border:none; background:rgba(18,49,74,0.72); color:#F4FAFD; font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#12314A;">&#10074;&#10074;</button>
-                </sc-if>
+                <video src="{{ a.clip }}" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; background:#FFFFFF;"></video>
+                
               </div>
               <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 7px;">{{ a.name }}</p>
               <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;">{{ a.body }}</p>
@@ -273,21 +254,7 @@
 
       <section id="reflection" data-screen-label="07 Outcome" style="scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p class="mono" style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#2F6B4A; margin:0 0 16px;">Reflection</p>
-        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:700; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">The Rules page went from something that didn&rsquo;t exist anywhere in one place, to a structured page that answers the questions people were actually asking in our interviews.</h2>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(32px,4.2vw,48px); max-width:80ch;">Usability testing showed the changes worked. Testers found the post-claim steps faster in the second look and described the page as easier to get through.</p>
-
-        <p style="font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-0.006em; margin:0 0 clamp(22px,2.8vw,30px);">What I took away</p>
-        <div style="display:flex; flex-direction:column; border-top:1px solid #E9E9E6;">
-          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:10px clamp(24px,4vw,54px); padding:clamp(24px,3vw,32px) 0; border-bottom:1px solid #E9E9E6;">
-              <span class="mono" style="font-size:11.5px; letter-spacing:0.14em; color:#2F6B4A; padding-top:6px;">{{ t.n }}</span>
-              <div>
-                <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:600; letter-spacing:-0.004em; margin:0 0 10px;">{{ t.title }}</p>
-                <p style="font-size:15px; line-height:1.8; color:#3F5A70; margin:0; max-width:80ch;">{{ t.body }}</p>
-              </div>
-            </div>
-          </sc-for>
-        </div>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:700; letter-spacing:-0.008em; line-height:1.24; margin:0; max-width:44ch;">This project is still ongoing</h2>
       </section>
 
       </sc-if>
@@ -391,6 +358,8 @@ class Component extends DCLogic {
     el.muted = true; el.defaultMuted = true;
     const go = () => { const p = el.play(); if (p && p.catch) p.catch(() => {}); };
     el.addEventListener('canplay', go, { once: true });
+    const end = parseFloat(el.dataset.end);
+    if (end) el.addEventListener('timeupdate', () => { if (el.currentTime >= end) { el.currentTime = 0; go(); } });
     go();
   };
 
@@ -464,7 +433,7 @@ class Component extends DCLogic {
       nav: [
         ['overview', 'Overview'], ['problem', 'Problem'], ['research', 'Research'],
         ['decisions', 'Design Decisions'], ['testing', 'Testing'],
-        ['solution', 'Final Solution'],
+        ['solution', 'Final Product'],
       ].map(([id, label]) => ({
         href: '#' + id, label,
         onClick: (e) => this.jumpToSection(e, id),
@@ -475,8 +444,8 @@ class Component extends DCLogic {
         },
       })),
       details: [
-        { label: 'My Role', value: 'Designer + Developer' },
-        { label: 'Timeline', value: 'June-Nov' },
+        { label: 'My Role', value: 'Designer + Developer, Rules page' },
+        { label: 'Timeline', value: 'June-Nov 2026' },
         { label: 'Team', value: '6 designers + developers' },
         { label: 'Tools', value: 'Figma, FigJam, GitHub, VS Code' },
       ],
@@ -503,15 +472,10 @@ class Component extends DCLogic {
       ],
       changes: [
         { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved above the FAQ and gave it a section of its own.' },
-        { label: 'A long page caused scrolling fatigue.', change: 'Sectioned the rules into pop-ups, then simplified further into boxes.' },
+        { label: 'A long page caused scrolling fatigue.', change: 'Tried pop-ups to shorten the page, then replaced them with scannable boxes.' },
         { label: 'Rules and Getting Started blurred together.', change: 'Moving the section clarified which page answers what.' },
-        { label: 'Hi-fi V1\u2019s animations and overlays caused friction.', change: 'Cut back to hover states only, on interactive elements.' },
       ],
       areas: [
-        { name: 'Home', clip: '/assets/tri-final-home.mp4', body: 'Main landing page, it includes the community, events, and heatmap.' },
-        { name: 'About Us', clip: '/assets/tri-final-dinodex.mp4', body: 'The people, mission, and values that the club upholds.' },
-        { name: 'Getting Started', clip: '/assets/tri-final-about.mp4', body: 'Drop information, how to set up Discord notifications, giveaway information, and more.' },
-        { name: 'DinoDex', clip: '/assets/tri-final-guide.mp4', body: 'Dino types, horn colors, and past drops, everything about the dinos!' },
         { name: 'Rules', clip: '/assets/tri-final-rules.mp4', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
       ].map((a, i) => ({
         ...a,
