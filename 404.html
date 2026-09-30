@@ -53,7 +53,7 @@
     [data-r="footinner"] { padding-left: 22px !important; padding-right: 22px !important; }
     [data-r="footgrid"] { grid-template-columns: minmax(0,1fr) !important; gap: 34px !important; }
     [data-r="include"] { grid-template-columns: minmax(0,1fr) !important; }
-    [data-r="include-media"] { max-width: 300px !important; margin: 0 auto !important; }
+    [data-r="include-media"] { max-width: 560px !important; margin: 0 auto !important; }
   }
   @media (max-width: 900px) {
     [data-r="contentcta"] { left:50% !important; right:auto !important; transform:translateX(-50%) !important; width:max-content !important; text-align:center !important; font-size:10px !important; }
@@ -124,11 +124,6 @@
   @keyframes typeword { 0%{width:0; border-right-width:0} 0.5%{border-right-width:1.5px} 6%{width:var(--w)} 22%{width:var(--w)} 24.5%{border-right-width:1.5px} 25%{width:0; border-right-width:0} 100%{width:0; border-right-width:0} }
   @keyframes typecaret { 0%,49%{border-right-color:#0E3D56} 50%,100%{border-right-color:transparent} }
   .typeword { position:absolute; left:0; top:0; width:0; letter-spacing:0.18em; box-sizing:content-box; overflow:hidden; white-space:nowrap; border-right:0 solid #0E3D56; animation: typeword 32s steps(14,end) infinite, typecaret 0.9s step-end infinite; }
-  @media (hover: none) {
-  .custom-cursor {
-    display: none !important;
-  }
-}
   .heropass:hover::after { background-position:-30% 0; opacity:1; }
   .heropass::before { content:''; position:absolute; inset:0; border-radius:20px; pointer-events:none; z-index:4; box-shadow: inset 0 1px 0 #FFFFFF, inset 0 0 0 1px #FFFFFF80, inset 0 -20px 38px -28px #12314A55; }
   .card::after { content:''; position:absolute; inset:0; border-radius:18px; pointer-events:none; z-index:3; background:linear-gradient(104deg, transparent 38%, #FFFFFF66 46%, #EAF5FB99 50%, #FFFFFF66 54%, transparent 62%); background-size:260% 100%; background-position:130% 0; opacity:0.55; transition: background-position 0.85s cubic-bezier(0.2,0.7,0.2,1), opacity 0.4s ease; mix-blend-mode:screen; }
@@ -327,6 +322,7 @@
             <img src="uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Slack</span>
+        </div>
         </div>
       </div>
     </section>
@@ -676,38 +672,6 @@
               <button onClick="{{ carouselNext }}" aria-label="Next concept" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:16px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#F4FAFD; border-color:#12314A;">&#8594;</button>
             </div>
             <p style="font-family:'Mulish',sans-serif; font-size:12.5px; letter-spacing:0; color:#A6AEB6; margin: 12px 0 0;">Concepts pitched for the July calendar</p>
-          </div>
-        </div>
-
-        <div style="border-top:1px solid #E6E9EC; border-bottom:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
-          <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
-            <image-slot id="logo-include" placeholder="#include logo" shape="rounded" radius="8" style="flex:none; width:44px; height:44px; display:block; border:1px solid #E6E9EC; background:#FFFFFF;"></image-slot>
-            <h2 id="content-include" style="font-family:'Mulish',sans-serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(23px,3vw,32px); line-height:1.15; margin: 0; color:#12314A; scroll-margin-top:110px;">#include</h2>
-            <p style="font-family:'Mulish',sans-serif; font-size:13px; font-weight:700; letter-spacing:0; color:#2F7A94; margin: 0;">Social Media &amp; Graphics Lead</p>
-            <p style="font-family:'Mulish',sans-serif; font-size:13px; font-weight:700; letter-spacing:0; color:#3F5A70; margin: 0; display:inline-flex; align-items:center; gap: 7px;"><span style="width:8px; height:8px; border-radius:50%; background:#4CA96B; display:inline-block;"></span>Active Role</p>
-          </div>
-          <p style="font-size:15px; line-height:1.7; color:#3F5A70; margin: -10px 0 24px; max-width:72ch; text-wrap:pretty;">A UC Davis community of web developers and designers dedicated to fostering collaboration, growth and the creation of creative digital solutions.</p>
-          <div data-r="include" style="display:grid; grid-template-columns:minmax(0,380px) minmax(0,1fr); gap: clamp(20px,3vw,32px); align-items:start;">
-            <div style="order:2; max-width:62ch;">
-              <ul style="margin: 0; padding-left: 18px; color:#3F5A70; font-size:14.5px; line-height:1.8;">
-                <li>One question per slide, so each answer is skimmable</li>
-                <li>Recruitment colors and type reused across the season's posts</li>
-                <li>Last slide carries the application call to action</li>
-              </ul>
-              <p style="font-family:'Mulish',sans-serif; font-size:13px; font-weight:700; letter-spacing:0; color:#A6AEB6; margin: 20px 0 0;">More to come…</p>
-            </div>
-            <div data-carousel="1" data-r="include-media" style="order:1; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px;">
-              <div style="position:relative;">
-                <div class="noscroll" data-carousel-track="1" style="display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; border-radius:6px;">
-                  <sc-for list="{{ faqSlides }}" as="s" hint-placeholder-count="4">
-                    <img src="{{ s.src }}" alt="{{ s.alt }}" style="flex:0 0 100%; width:100%; height:auto; aspect-ratio:762/956; object-fit:cover; scroll-snap-align:center; display:block;" />
-                  </sc-for>
-                </div>
-                <button onClick="{{ carouselPrev }}" aria-label="Previous slide" style="position:absolute; top:50%; left:8px; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8592;</button>
-                <button onClick="{{ carouselNext }}" aria-label="Next slide" style="position:absolute; top:50%; right:8px; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; border:1px solid #12314A33; background:#FFFFFFE6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8594;</button>
-              </div>
-              <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'Mulish',sans-serif; font-size:12.5px; letter-spacing:0;"><span style="font-weight:700; color:#12314A;">FAQ carousel</span><span style="color:#A6AEB6;">#include</span></span>
-            </div>
           </div>
         </div>
 
@@ -1363,7 +1327,7 @@ class Component extends DCLogic {
 
   expList() {
     return [
-      { role: 'Social Media & Graphics Lead', current: true, org: '#include', anchor: 'content-include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
+      { role: 'Social Media & Graphics Lead', current: true, org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
       { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo' },
       { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo' },
       { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo' },
@@ -1650,9 +1614,11 @@ class Component extends DCLogic {
           { src: 'uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', href: 'uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', label: 'Verdana typography poster', meta: 'Illustrator', ratio: 'auto', top: '188px', left: '76%', w: 'clamp(110px,18vw,200px)', rot: '2.4deg', tape: 0 },
         ] },
         { title: 'Information design', note: 'Posters · editorial', h: 'clamp(430px,46vw,480px)', items: [
-          { src: 'uploads/FIBERGLASS POSTER (1).jpg', href: 'uploads/GRAPHICS/FIBERGLASS POSTER (1).pdf', label: 'Fiberglass poster', meta: 'PDF', ratio: 'auto', top: '44px', left: '2%', w: 'clamp(150px,26vw,340px)', rot: '-2.6deg', tape: 0 },
-          { src: 'uploads/EVENT POSTER (1)_compressed.jpg', href: 'uploads/EVENT POSTER (1)_compressed.pdf', label: 'Event poster', meta: 'PDF', ratio: 'auto', top: '20px', left: '40%', w: 'clamp(110px,17vw,215px)', rot: '2.4deg', tape: 1 },
-          { src: 'assets/foundverse-ebook.png', href: 'assets/foundverse-ebook.png', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '0px', left: '72%', w: 'clamp(110px,16vw,190px)', rot: '1.6deg', tape: 0 },
+          { src: 'uploads/FIBERGLASS POSTER (1).jpg', href: 'uploads/GRAPHICS/FIBERGLASS POSTER (1).pdf', label: 'Fiberglass poster', meta: 'PDF', ratio: 'auto', top: '48px', left: '0%', w: 'clamp(120px,19vw,250px)', rot: '-2.6deg', tape: 0 },
+          { src: 'uploads/EVENT POSTER (1)_compressed.jpg', href: 'uploads/EVENT POSTER (1)_compressed.pdf', label: 'Event poster', meta: 'PDF', ratio: 'auto', top: '14px', left: '21%', w: 'clamp(90px,13vw,165px)', rot: '2.4deg', tape: 1 },
+          { src: 'assets/include-recruitment-timeline.png', href: 'assets/include-recruitment-timeline.png', label: 'Recruitment timeline', meta: '#include', ratio: '4/5', top: '56px', left: '38%', w: 'clamp(100px,15vw,190px)', rot: '-1.8deg', tape: 0 },
+          { src: 'assets/include-infosession.png', href: 'assets/include-infosession.png', label: 'Info session', meta: '#include', ratio: '4/5', top: '6px', left: '57%', w: 'clamp(95px,14vw,180px)', rot: '2deg', tape: 1 },
+          { src: 'assets/foundverse-ebook.png', href: 'assets/foundverse-ebook.png', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '30px', left: '78%', w: 'clamp(85px,13vw,160px)', rot: '1.6deg', tape: 0 },
         ] },
       ],
       graphics: [
@@ -1690,7 +1656,7 @@ class Component extends DCLogic {
       projects,
       experience: this.expList().map((e) => ({ ...e, noLogoSrc: !e.logoSrc, linked: !!e.anchor, static: !e.anchor })),
       _experienceUnused: [
-        { role: 'Social Media & Graphics Lead', current: true, org: '#include', anchor: 'content-include', logoId: 'logo-include', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: -1, accent: '#A9D3E8', edge: '#2F7A94' },
+        { role: 'Social Media & Graphics Lead', current: true, org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: -1, accent: '#A9D3E8', edge: '#2F7A94' },
         { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: 1, accent: '#F9CDD1', edge: '#2F7A94' },
         { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: -1, accent: '#F4D9A8', edge: '#2F7A94' },
         { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: 1, accent: '#2F7A94', edge: '#2F7A94' },
