@@ -771,7 +771,7 @@
     <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(28px,4vw,42px); margin: 0 0 48px; max-width:44ch; position:relative;">What I'm doing when I'm <span style="white-space:nowrap;">not snowboarding.</span></h2>
     <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap: clamp(32px,5vw,44px) clamp(24px,4vw,36px); align-items:stretch;">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
-        <div class="card" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="background:#FFFFFF; border:1px solid #E6E9EC; border-radius:18px; padding: 14px 14px 8px 22px; overflow:hidden; position:relative; color:inherit; display:flex; flex-direction:column; height:100%; box-sizing:border-box; cursor:pointer; box-shadow:0 1px 2px #12314A0F, 0 18px 44px -28px #12314A40; transition:transform 0.5s cubic-bezier(0.22,0.8,0.2,1), box-shadow 0.5s ease, border-color 0.5s ease;" style-hover="transform:scale(0.986); box-shadow:0 1px 2px #12314A14, 0 10px 24px -20px #12314A55; border-color:#CFDCE5; background:#F0EEEA;">
+        <div class="card" ref="{{ p.cardRef }}" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="background:#FFFFFF; border:1px solid #E6E9EC; border-radius:18px; padding: 14px 14px 8px 22px; overflow:hidden; position:relative; color:inherit; display:flex; flex-direction:column; height:100%; box-sizing:border-box; cursor:pointer; box-shadow:0 1px 2px #12314A0F, 0 18px 44px -28px #12314A40; transition:transform 0.5s cubic-bezier(0.22,0.8,0.2,1), box-shadow 0.5s ease, border-color 0.5s ease;" style-hover="transform:scale(0.986); box-shadow:0 1px 2px #12314A14, 0 10px 24px -20px #12314A55; border-color:#CFDCE5; background:#F0EEEA;">
           <span style="position:absolute; left:9px; top:22px; bottom:22px; width:1px; background:repeating-linear-gradient(180deg, #C6D2DB 0 4px, transparent 4px 10px); z-index:2;"></span>
           <span style="position:absolute; left:-7px; top:calc(50% - 7px); width:14px; height:14px; border-radius:50%; background:#FCFCFB; box-shadow:inset -1px 0 0 #E6E9EC; z-index:2;"></span>
           <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 4px 10px 14px;">
@@ -783,7 +783,9 @@
             <span style="{{ p.overlayStyle }}">{{ p.hoverLabel }}</span>
             <svg class="carve" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;"><path pathLength="100" d="M58 -24 C 250 44, 70 128, 226 188 S 344 262, 296 330"></path><path pathLength="100" d="M78 -24 C 270 44, 90 128, 246 188 S 364 262, 316 330"></path></svg>
             <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
-              <div class="cardimg" role="img" aria-label="{{ p.title }}" style="{{ p.imgStyle }}"></div>
+              <div style="position:absolute; inset:0;">
+                <div class="cardimg" role="img" aria-label="{{ p.title }}" style="{{ p.plateStyle }}">{{ p.layerEls }}</div>
+              </div>
             </sc-if>
             <sc-if value="{{ p.noImage }}" hint-placeholder-val="{{ true }}">
               <span class="mono" style="font-size:13px; letter-spacing:0; color:#12314A88; font-weight:600;">Coming soon</span>
@@ -995,10 +997,12 @@ class Component extends DCLogic {
   _refs = {};
   _observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      const key = entry.target.dataset.revealKey;
       if (entry.isIntersecting) {
-        const key = entry.target.dataset.revealKey;
         this.setState((s) => ({ revealed: { ...s.revealed, [key]: true } }));
-        this._observer.unobserve(entry.target);
+        if (!key.startsWith('card')) this._observer.unobserve(entry.target);
+      } else if (key && key.startsWith('card') && this.state.revealed[key]) {
+        this.setState((s) => ({ revealed: { ...s.revealed, [key]: false } }));
       }
     });
   }, { threshold: 0.15 });
@@ -1286,11 +1290,14 @@ class Component extends DCLogic {
 
   setRef(key) {
     return (el) => {
-      if (el && this._observer && !this._refs[key]) {
-        this._refs[key] = el;
-        el.dataset.revealKey = key;
-        this._observer.observe(el);
-      }
+      if (!el) return;
+      this._refs = this._refs || {};
+      if (this._refs[key] === el) return;
+      this._refs[key] = el;
+      el.dataset.revealKey = key;
+      if (key.startsWith('card') && this.state.revealed[key]) setTimeout(() => this.setState((s) => ({ revealed: { ...s.revealed, [key]: false } })), 0);
+      if (this._observer) this._observer.observe(el);
+      else setTimeout(() => this._observer && this._observer.observe(el), 0);
     };
   }
 
@@ -1422,7 +1429,34 @@ class Component extends DCLogic {
       backgroundRepeat: 'no-repeat',
       backgroundImage: src ? `url("${src}")` : 'none',
     });
-    const projects = this.getProjects().map((p, i) => ({ ...p, onClick: () => (p.href ? (window.location.href = p.href) : this.openProject(p)), onEnter: () => this.setState({ cursorCase: true, caseHover: i }), onLeave: () => this.setState({ cursorCase: false, caseHover: -1 }), hasImage: !!p.image, noImage: !p.image, imgStyle: imgStyle(p.image, p.fit), veilStyle: 'position:absolute; inset:0; z-index:3; pointer-events:none; transition:background 0.35s ease; background:' + (this.state.caseHover === i ? '#12314A4D' : '#12314A00') + ';', overlayStyle: 'position:absolute; inset:0; z-index:4; pointer-events:none; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 16px; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:clamp(20px,2.4vw,28px); letter-spacing:-0.01em; color:#FFFFFF; text-shadow:0 2px 14px rgba(18,49,74,0.5); transition:opacity 0.3s ease; opacity:' + (this.state.caseHover === i ? '1' : '0') + ';' }));
+    const ease = 'cubic-bezier(0.16,1,0.3,1)';
+    const projects = this.getProjects().map((p, i) => {
+      const on = !!this.state.revealed['card' + i];
+      const d = (i % 2) * 0.12;
+      return { ...p,
+        onClick: () => (p.href ? (window.location.href = p.href) : this.openProject(p)),
+        onEnter: () => this.setState({ cursorCase: true, caseHover: i }),
+        onLeave: () => this.setState({ cursorCase: false, caseHover: -1 }),
+        hasImage: !!p.image,
+        noImage: !p.image,
+        imgStyle: imgStyle(p.image, p.fit),
+        cardRef: this.setRef('card' + i),
+        plateStyle: { ...imgStyle(p.plate || p.image, p.fit), position: 'relative' },
+        layerEls: (p.layers || []).map((src, j) => {
+          const dl = d + 0.1 + j * 0.13;
+          return React.createElement('div', { key: src, 'aria-hidden': true, style: {
+            ...imgStyle(src, p.fit), position: 'absolute', inset: 0,
+            opacity: on ? 1 : 0,
+            transform: on ? 'translate3d(0,0,0) scale(1)' : 'translate3d(0,38px,0) scale(0.94)',
+            filter: on ? 'drop-shadow(0px 14px 22px rgba(0,0,0,0.22))' : 'drop-shadow(0px 4px 8px rgba(0,0,0,0))',
+            transition: `opacity 0.9s ${ease} ${dl}s, transform 1.4s ${ease} ${dl}s, filter 1s ${ease} ${dl}s`,
+            willChange: 'transform, opacity, filter',
+          } });
+        }),
+        veilStyle: 'position:absolute; inset:0; z-index:3; pointer-events:none; transition:background 0.35s ease; background:' + (this.state.caseHover === i ? '#12314A4D' : '#12314A00') + ';',
+        overlayStyle: 'position:absolute; inset:0; z-index:4; pointer-events:none; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 16px; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:clamp(20px,2.4vw,28px); letter-spacing:-0.01em; color:#FFFFFF; text-shadow:0 2px 14px rgba(18,49,74,0.5); transition:opacity 0.3s ease; opacity:' + (this.state.caseHover === i ? '1' : '0') + ';',
+      };
+    });
     const applyWave = (u) => {
       const i = u.idx;
       return { ...u, floatDelay: (i * 0.07).toFixed(2), transform: `rotate(${u.rotateBase}deg)`, onEnter: () => {} };
@@ -1707,6 +1741,8 @@ class Component extends DCLogic {
         offset: 0,
         href: '/triceratops',
         image: '/assets/tri-hero-graphic.png',
+        plate: '/assets/tri-plate.png',
+        layers: ['/assets/tri-layer0.png','/assets/tri-layer1.png','/assets/tri-layer2.png','/assets/tri-layer3.png','/assets/tri-layer4.png'],
       },
       {
         num: '02',
@@ -1718,6 +1754,8 @@ class Component extends DCLogic {
         offset: 52,
         href: '/cyclefind',
         image: '/assets/cf-thumb.png',
+        plate: '/assets/cf-plate.png',
+        layers: ['/assets/cf-layer0.png','/assets/cf-layer1.png','/assets/cf-layer2.png'],
       },
       {
         num: '03',
@@ -1731,6 +1769,8 @@ class Component extends DCLogic {
         offset: 16,
         href: '/harmonize',
         image: '/assets/harmonize-thumb.png',
+        plate: '/assets/hz-plate.png',
+        layers: ['/assets/hz-layer0.png','/assets/hz-layer1.png','/assets/hz-layer2.png'],
       },
     ];
   }
