@@ -202,19 +202,21 @@
         </div>
         <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(32px,4.2vw,48px); max-width:80ch;">Pop-ups solved the length problem but hid information, so I switched to scannable boxes.</p>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:clamp(16px,2.4vw,24px); align-items:start;">
-          <figure style="margin:0;">
-            <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-              <video src="/assets/tri-hifi-v1.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto;"></video>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:16px;">
+          <span style="font-size:14.5px; font-weight:600; color:{{ beforeColor }};">Before (Hi-fi V1)</span>
+          <button onClick="{{ toggleFidelity }}" aria-label="Toggle before and after" style="width:52px; height:28px; border-radius:100px; border:1.5px solid #C9CFC7; background:{{ knobTrack }}; padding:2px; cursor:pointer; display:inline-flex; align-items:center; justify-content:flex-start; transition:background 0.25s ease;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#FFFFFF; box-shadow:0 1px 3px #12314A44; display:block; transform:translateX({{ knobX }}); transition:transform 0.25s ease;"></span>
+          </button>
+          <span style="font-size:14.5px; font-weight:600; color:{{ afterColor }};">After (Hi-fi V2)</span>
+        </div>
+        <div style="max-width:1000px;">
+          <div>
+            <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF; width:100%;">
+              <video src="/assets/tri-hifi-v1.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; opacity:{{ beforeOpacity }}; transition:opacity 0.3s ease;"></video>
+              <video src="/assets/tri-hifi-v2.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; top:0; left:0; display:block; width:100%; height:auto; opacity:{{ afterOpacity }}; transition:opacity 0.3s ease;"></video>
             </div>
-            <figcaption class="mono" style="font-size:14px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:600;">Before: Hi-fi V1</figcaption>
-          </figure>
-          <figure style="margin:0;">
-            <div style="border:1.5px solid #2F6B4A; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-              <video src="/assets/tri-hifi-v2.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto;"></video>
-            </div>
-            <figcaption class="mono" style="font-size:14px; letter-spacing:0; color:#2F6B4A; margin:12px 0 0; font-weight:600;">After: Hi-fi V2</figcaption>
-          </figure>
+            <p class="mono" style="font-size:14px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; text-align:center; font-weight:600;">{{ fidelityCaption }}</p>
+          </div>
         </div>
       </section>
 
