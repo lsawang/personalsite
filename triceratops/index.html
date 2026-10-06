@@ -92,7 +92,13 @@
         <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; font-weight:500; letter-spacing:0; color:#2F6B4A; margin:0 0 16px;">Research</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Understanding the club from three perspectives</h2>
         <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Sorting participants by how close they already were to the club separated <strong style="font-weight:600; color:#12314A;">onboarding issues from member-related issues.</strong></p>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">Across the three cohorts I ran 1 survey (63 responses) and conducted 3 interviews. Affinity mapping let me see the pain points of active users, so I knew what to avoid for newcomers, and personas helped me identify key issues such as information overload.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin:22px 0 14px;">
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; padding:14px 16px; background:#FFFFFF;"><p style="font-size:clamp(26px,3vw,32px); font-weight:800; letter-spacing:-0.02em; line-height:1; color:#2F6B4A; margin:0 0 6px;">3</p><p class="mono" style="font-size:12.5px; letter-spacing:0; color:#7C8894; margin:0; font-weight:600;">Cohorts</p></div>
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; padding:14px 16px; background:#FFFFFF;"><p style="font-size:clamp(26px,3vw,32px); font-weight:800; letter-spacing:-0.02em; line-height:1; color:#2F6B4A; margin:0 0 6px;">1</p><p class="mono" style="font-size:12.5px; letter-spacing:0; color:#7C8894; margin:0; font-weight:600;">Survey</p></div>
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; padding:14px 16px; background:#FFFFFF;"><p style="font-size:clamp(26px,3vw,32px); font-weight:800; letter-spacing:-0.02em; line-height:1; color:#2F6B4A; margin:0 0 6px;">63</p><p class="mono" style="font-size:12.5px; letter-spacing:0; color:#7C8894; margin:0; font-weight:600;">Responses</p></div>
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; padding:14px 16px; background:#FFFFFF;"><p style="font-size:clamp(26px,3vw,32px); font-weight:800; letter-spacing:-0.02em; line-height:1; color:#2F6B4A; margin:0 0 6px;">3</p><p class="mono" style="font-size:12.5px; letter-spacing:0; color:#7C8894; margin:0; font-weight:600;">Interviews</p></div>
+        </div>
+        <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">Affinity mapping showed me the pain points of active users, and personas surfaced the information overload to avoid for newcomers.</p>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0 clamp(24px,4vw,44px); border-top:1px solid #E9E9E6; padding-top:20px; margin-bottom:clamp(32px,4.2vw,48px);">
           <sc-for list="{{ cohorts }}" as="c" hint-placeholder-count="3">
@@ -103,27 +109,23 @@
           </sc-for>
         </div>
 
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">Overall Site</p>
-        <div style="display:flex; flex-direction:column;">
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:600;">Overall Site</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
           <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
-              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ i.n }}</span>
-              <div>
-                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ i.title }}</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">{{ i.body }}</p>
-              </div>
+            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A;">{{ i.n }}</span>
+              <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; line-height:1.25; margin:8px 0 8px;">{{ i.title }}</p>
+              <p style="font-size:14px; line-height:1.6; color:#3F5A70; margin:0;">{{ i.body }}</p>
             </div>
           </sc-for>
         </div>
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:36px 0 6px; font-weight:600;">Rules Findings</p>
-        <div style="display:flex; flex-direction:column;">
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:36px 0 12px; font-weight:600;">Rules Findings</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
           <sc-for list="{{ rulesInsights }}" as="i" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
-              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ i.n }}</span>
-              <div>
-                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ i.title }}</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">{{ i.body }}</p>
-              </div>
+            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A;">{{ i.n }}</span>
+              <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; line-height:1.25; margin:8px 0 8px;">{{ i.title }}</p>
+              <p style="font-size:14px; line-height:1.6; color:#3F5A70; margin:0;">{{ i.body }}</p>
             </div>
           </sc-for>
         </div>
@@ -200,15 +202,29 @@
       <section id="testing" data-screen-label="04 Testing" ref="{{ rRefTesting }}" style="{{ rTesting }} scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; font-weight:500; letter-spacing:0; color:#2F6B4A; margin:0 0 16px;">Testing</p>
         <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Testers found the Rules page. They could not find the part they needed.</h2>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">I conducted my first round of usability testing after the mid-fidelity layout, and the feedback I received set the tone for my hi-fi. Testers reached the Rules page, but the post-claim steps were buried at the bottom. Here&rsquo;s what tripped them up and what I changed.</p>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:80ch;">For the hi-fi, I wanted to accomplish four things: rules with icons so they&rsquo;re easier to read, graphic dividers to split up the information, a playful FAQ where the blur effect reveals the answer on hover, and post-claim steps so participants know what to do after they find a dino.</p>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 22px; max-width:80ch;">I ran my first round of usability testing after the mid-fidelity layout. Testers reached the Rules page, but the post-claim steps were buried at the bottom, and that feedback set the tone for my hi-fi.</p>
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:600;">What I wanted to accomplish</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-bottom:clamp(28px,3.6vw,40px);">
+          <div style="display:flex; gap:12px; align-items:flex-start; border:1.5px solid #E4E6E2; border-radius:12px; background:#FFFFFF; padding:14px 18px; font-size:14.5px; line-height:1.55; color:#12314A;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:#2F6B4A; margin-top:8px;"></span><span>Icons so the rules are easier to read</span></div>
+          <div style="display:flex; gap:12px; align-items:flex-start; border:1.5px solid #E4E6E2; border-radius:12px; background:#FFFFFF; padding:14px 18px; font-size:14.5px; line-height:1.55; color:#12314A;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:#2F6B4A; margin-top:8px;"></span><span>Graphic dividers to split up the information</span></div>
+          <div style="display:flex; gap:12px; align-items:flex-start; border:1.5px solid #E4E6E2; border-radius:12px; background:#FFFFFF; padding:14px 18px; font-size:14.5px; line-height:1.55; color:#12314A;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:#2F6B4A; margin-top:8px;"></span><span>A playful FAQ: hover to reveal the answer with a blur effect</span></div>
+          <div style="display:flex; gap:12px; align-items:flex-start; border:1.5px solid #E4E6E2; border-radius:12px; background:#FFFFFF; padding:14px 18px; font-size:14.5px; line-height:1.55; color:#12314A;"><span style="flex:none; width:7px; height:7px; border-radius:50%; background:#2F6B4A; margin-top:8px;"></span><span>Post-claim steps so people know what to do after they find a dino</span></div>
+        </div>
 
         <div style="display:flex; flex-direction:column; margin-bottom:22px;">
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px clamp(20px,3vw,34px); padding:0 0 10px; border-bottom:1px solid #E9E9E6;">
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">What testers hit</p>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">What changed</p>
           </div>
-          <sc-for list="{{ changes }}" as="c" hint-placeholder-count="4">
+          <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:22px 0 0; color:#12314A;">After mid-fi user testing</p>
+          <sc-for list="{{ changes }}" as="c" hint-placeholder-count="3">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px clamp(20px,3vw,34px); padding:18px 0; border-bottom:1px solid #E9E9E6;">
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>{{ c.label }}</span></p>
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>{{ c.change }}</span></p>
+            </div>
+          </sc-for>
+          <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:30px 0 0; color:#12314A;">After hi-fi V1 user testing</p>
+          <sc-for list="{{ changesHi }}" as="c" hint-placeholder-count="3">
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px clamp(20px,3vw,34px); padding:18px 0; border-bottom:1px solid #E9E9E6;">
               <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>{{ c.label }}</span></p>
               <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>{{ c.change }}</span></p>
@@ -538,19 +554,21 @@ class Component extends DCLogic {
         { title: 'Unaware Candidate', body: 'Has no idea what the club is and is about.' },
       ],
       insights: [
-        { n: '01', title: 'Rules were the #1 pain point.', body: 'Confusion about Discord and the rules came up in every interview and both surveys. Rules were split across channels, and nobody knew what to do after finding a dino.' },
-        { n: '02', title: 'Newcomers didn\u2019t know how to get notified.', body: 'Setting up Discord notifications was the most-requested missing piece of content.' },
-        { n: '03', title: 'People wanted flexibility and predictability.', body: 'Participants valued that there are no mandatory meetings but were frustrated by not knowing when drops would happen.' },
+        { n: '01', title: 'Rules were the #1 pain point.', body: 'Came up in every interview and both surveys. Rules were split across channels, and nobody knew what to do after finding a dino.' },
+        { n: '02', title: 'Newcomers didn\u2019t know how to get notified.', body: 'Setting up Discord notifications was the most-requested missing content.' },
+        { n: '03', title: 'People wanted flexibility and predictability.', body: 'They liked that meetings aren\u2019t mandatory, but wanted to know when drops happen.' },
       ],
       rulesInsights: [
-        { n: '01', title: 'Actives procrastinated reading the rules.', body: 'Active members said that when they first saw the rules on Discord they didn\u2019t read them, and they are still confused to this day.' },
-        { n: '02', title: 'How many dinos you can claim was unclear.', body: 'Participants were confused about how many dinos they could hunt and claim, and the information was nowhere to be found.' },
-        { n: '03', title: 'Only ~2% of the server actively participates.', body: 'Of roughly 5,000 main server members, only ~100 actively participate, and the long list of rules in Discord was confusing and still is.' },
+        { n: '01', title: 'Actives procrastinated reading the rules.', body: 'They skipped the rules when they first saw them on Discord, and are still confused today.' },
+        { n: '02', title: 'How many dinos you can claim was unclear.', body: 'Nobody knew how many dinos they could hunt and claim, and the answer was nowhere to be found.' },
+        { n: '03', title: 'Only ~2% of the server actively participates.', body: 'Only ~100 of ~5,000 members participate, and the long list of rules in Discord was confusing and still is.' },
       ],
       changes: [
         { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved above the FAQ and gave it a section of its own.' },
         { label: 'A long page caused scrolling fatigue.', change: 'Tried pop-ups to shorten the page, then replaced them with scannable boxes.' },
         { label: 'Rules and Getting Started blurred together.', change: 'Moving the section clarified which page answers what.' },
+      ],
+      changesHi: [
         { label: 'The gradient didn\u2019t align with the visual identity, and the glass effect didn\u2019t match the theme.', change: 'Removed the hover blur and adapted everything to the design system theme.' },
         { label: 'Pop-up overlays and too much animation caused user friction.', change: 'Cut back to hover states only for animation.' },
         { label: 'The rules still carried too much cognitive load.', change: 'Used icons and visual weight (bolding), in boxes built for scannability.' },
