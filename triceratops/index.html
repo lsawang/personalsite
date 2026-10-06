@@ -103,9 +103,21 @@
           </sc-for>
         </div>
 
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">What I learned</p>
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">Overall Site</p>
         <div style="display:flex; flex-direction:column;">
           <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
+            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ i.n }}</span>
+              <div>
+                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ i.title }}</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">{{ i.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:36px 0 6px; font-weight:600;">Rules Findings</p>
+        <div style="display:flex; flex-direction:column;">
+          <sc-for list="{{ rulesInsights }}" as="i" hint-placeholder-count="3">
             <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
               <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ i.n }}</span>
               <div>
@@ -248,11 +260,18 @@
 
       <section id="reflection" data-screen-label="06 Reflection" ref="{{ rRefReflection }}" style="{{ rReflection }} scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; font-weight:500; letter-spacing:0; color:#2F6B4A; margin:0 0 16px;">Reflection</p>
-        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:700; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">This project is still ongoing</h2>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">The biggest thing I learned was restraint. Cutting animation back made the site feel finished, and testing showed that where information sits on the page matters just as much as what it says to the user.</p>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Working with an actual client taught me to never hesitate to ask questions about what I need for my page, what their vision is, and whether anything isn&rsquo;t clear. Making my layout, assets, and components scalable made constant iterations easier, and having my UI set up as styles that are easy to reference helped too.</p>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 18px; max-width:80ch;">Pushing from Figma to VS Code made me even more interested in working with developers and in learning more about their process, thinking, and constraints.</p>
-        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0; max-width:80ch;">Next, I&rsquo;m building the Rules page in the team&rsquo;s GitHub repo alongside the developers, taking it from Figma to a live page.</p>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 24px; max-width:44ch;">Insights</h2>
+        <div style="display:flex; flex-direction:column; border-top:1px solid #E9E9E6;">
+          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="4">
+            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ t.n }}</span>
+              <div>
+                <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ t.title }}</p>
+                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:80ch;">{{ t.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
       </section>
 
       <div style="max-width:1000px; padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
@@ -496,9 +515,10 @@ class Component extends DCLogic {
         { n: '04', label: 'Development:', body: 'In progress: Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.' },
       ],
       takeaways: [
-        { n: '01', title: 'Rules pages are a design problem', body: 'It wasn\u2019t only about what the text said, it was about what someone could find in the first ten seconds without scrolling, and what they\u2019d feel comfortable skimming past because the hierarchy told them it was safe to skip.' },
-        { n: '02', title: 'Designing inside a team of 6', body: 'Working within a group project also meant syncing my section with the site\u2019s overall structure and visual system, which pushed me to make design decisions that fit the bigger picture instead of just my one page.' },
-        { n: '03', title: 'Insights', body: 'The task that put my mind to work the most was making sure all the information was not only seen initially, but digestible and skimmable without overwhelming the user with cognitive load.' },
+        { n: '01', title: 'Restraint made the site feel finished.', body: 'Cutting animation back made the site feel finished, and testing showed that where information sits on the page matters just as much as what it says to the user.' },
+        { n: '02', title: 'Ask questions early.', body: 'Working with an actual client taught me to never hesitate to ask questions about what I need for my page, what their vision is, and whether anything isn\u2019t clear.' },
+        { n: '03', title: 'Scalable systems make iteration easier.', body: 'Making my layout, assets, and components scalable made constant iterations and changes easier, and having my UI set up as styles that are easy to reference helped too.' },
+        { n: '04', title: 'Curious about how developers work.', body: 'Pushing from Figma to VS Code made me even more interested in working with developers and in learning more about their process, thinking, and constraints.' },
       ],
       palette: [
         { name: 'Off-White', hex: '#FFFDFD' },
@@ -521,9 +541,11 @@ class Component extends DCLogic {
         { n: '01', title: 'Rules were the #1 pain point.', body: 'Confusion about Discord and the rules came up in every interview and both surveys. Rules were split across channels, and nobody knew what to do after finding a dino.' },
         { n: '02', title: 'Newcomers didn\u2019t know how to get notified.', body: 'Setting up Discord notifications was the most-requested missing piece of content.' },
         { n: '03', title: 'People wanted flexibility and predictability.', body: 'Participants valued that there are no mandatory meetings but were frustrated by not knowing when drops would happen.' },
-        { n: '04', title: 'Actives procrastinated reading the rules.', body: 'Active members said that when they first saw the rules on Discord they didn\u2019t read them, and they are still confused to this day.' },
-        { n: '05', title: 'How many dinos you can claim was unclear.', body: 'Participants were confused about how many dinos they could hunt and claim, and the information was nowhere to be found.' },
-        { n: '06', title: 'Only ~2% of the server actively participates.', body: 'Of roughly 5,000 main server members, only ~100 actively participate, and the long list of rules in Discord was confusing and still is.' },
+      ],
+      rulesInsights: [
+        { n: '01', title: 'Actives procrastinated reading the rules.', body: 'Active members said that when they first saw the rules on Discord they didn\u2019t read them, and they are still confused to this day.' },
+        { n: '02', title: 'How many dinos you can claim was unclear.', body: 'Participants were confused about how many dinos they could hunt and claim, and the information was nowhere to be found.' },
+        { n: '03', title: 'Only ~2% of the server actively participates.', body: 'Of roughly 5,000 main server members, only ~100 actively participate, and the long list of rules in Discord was confusing and still is.' },
       ],
       changes: [
         { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved above the FAQ and gave it a section of its own.' },
