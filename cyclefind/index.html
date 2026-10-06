@@ -81,14 +81,14 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(24px,4vw,56px); border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; padding:clamp(24px,3.2vw,34px) 0; margin:0 0 clamp(30px,4vw,44px);">
           <div>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">Globally</p>
-            <p style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">62.5%</p>
+            <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">62.5%</p>
             <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:62.5%; background:#7A1E3A;"></span></div>
             <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 12px;">of the world&rsquo;s menstruating population <strong style="font-weight:600; color:#12314A;">(500 million out of 800 million people)</strong> experiences period poverty globally.</p>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">National Library of Medicine &middot; Nov 2023</p>
           </div>
           <div>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">United States</p>
-            <p style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">40%</p>
+            <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">40%</p>
             <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:40%; background:#7A1E3A;"></span></div>
             <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0 0 12px;"><strong style="font-weight:600; color:#12314A;">(2 in 5)</strong> of people who menstruate in the United States struggle to purchase or access period products due to a lack of income.</p>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">Alliance for Period Supplies</p>
@@ -264,7 +264,7 @@
 
         <div style="max-width:440px; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; padding:clamp(24px,3.2vw,34px) 0; margin:0 0 clamp(26px,3.4vw,36px);">
           <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">Round 2 testers</p>
-          <p style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">100%</p>
+          <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">100%</p>
           <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:100%; background:#7A1E3A;"></span></div>
           <p style="font-size:15px; line-height:1.75; color:#3F5A70; margin:0;">of female testers stated they would <strong style="font-weight:600; color:#12314A;">use this product/app.</strong></p>
         </div>
@@ -314,7 +314,6 @@
 
       <div style="max-width:1000px; padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
         <a href="/" style="background:#12314A; color:#F4FAFD; padding:14px 22px; border:2px solid #12314A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">&larr; Back to portfolio</a>
-        <a href="/harmonize" style="background:#7A1E3A; color:#FDF2F5; padding:14px 22px; border:2px solid #7A1E3A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Next case study &rarr;</a>
         <a href="mailto:lsawang@ucdavis.edu" style="border:2px solid #12314A; color:#12314A; padding:14px 22px; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Get in touch</a>
       </div>
 
@@ -422,6 +421,39 @@ class Component extends DCLogic {
     ];
   }
 
+  _countUp = (el) => {
+    if (!el || el._counted) return;
+    el._counted = true;
+    const raw = (el.textContent || '').trim();
+    const m = raw.match(/^([0-9][0-9,.]*)(.*)$/);
+    if (!m) return;
+    const suffix = m[2];
+    const target = parseFloat(m[1].replace(/,/g, ''));
+    if (!isFinite(target)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const decimals = (m[1].split('.')[1] || '').length;
+    const fmt = (v) => v.toFixed(decimals) + suffix;
+    const bar = el.nextElementSibling && el.nextElementSibling.firstElementChild;
+    const barTarget = bar ? bar.style.width : null;
+    el.textContent = fmt(0);
+    if (bar) { bar.style.width = '0%'; bar.style.transition = 'width 1.1s cubic-bezier(0.215,0.61,0.355,1)'; }
+    const run = () => {
+      const dur = 1100;
+      const t0 = performance.now();
+      const tick = (t) => {
+        const k = Math.min(1, (t - t0) / dur);
+        el.textContent = k < 1 ? fmt(target * (1 - Math.pow(1 - k, 3))) : raw;
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      if (bar) bar.style.width = barTarget;
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { io.disconnect(); run(); } });
+    }, { threshold: 0.4 });
+    io.observe(el);
+  };
+
   _videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(({ target: el, isIntersecting }) => {
       if (isIntersecting) { const p = el.play(); if (p && p.catch) p.catch(() => {}); }
@@ -474,6 +506,7 @@ class Component extends DCLogic {
       ba2Before: () => this.setState({ showAfter2: false }),
       ba2After: () => this.setState({ showAfter2: true }),
       autoPlayVideo: this._autoPlayVideo,
+      countUp: this._countUp,
       details: [
         { label: 'Role', value: 'Product / UI/UX Designer' },
         { label: 'Timeline', value: '10 weeks' },
