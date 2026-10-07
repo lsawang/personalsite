@@ -750,10 +750,10 @@
         <span style="display:block; margin:0 auto; font-family:'Mulish',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; color:#12314A; text-wrap:balance;">Product Designer <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:500; letter-spacing:-0.02em; color:#2C6FB5;">&amp;</span> Marketer</span>
       </h1>
       <p style="font-size:clamp(17px,1.75vw,22px); line-height:1.5; letter-spacing:-0.01em; margin: clamp(20px,2.4vw,30px) auto 0; max-width:62ch; color:#12314A; text-wrap:balance;">Focused on building <strong style="font-weight:800; color:#1B4A80;">meaningful, usable products</strong> that create <strong style="font-weight:800; color:#1B4A80;">connection</strong>, build <strong style="font-weight:800; color:#1B4A80;">trust</strong>, and help users and clients <strong style="font-weight:800; color:#1B4A80;">reach their goals</strong>.</p>
-      <p data-r="credtext" style="margin: clamp(24px,2.8vw,36px) auto 0; max-width:80ch; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600;">Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
+      <p data-r="credtext" style="margin: clamp(24px,2.8vw,36px) auto 0; max-width:80ch; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600;">Design &amp; Communication @ UC Davis | Prev. @ Foundverse</p>
       <div data-r="credpills" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin: clamp(22px,2.8vw,34px) auto 0;">
         <span style="font-size:clamp(13px,1.2vw,15px); line-height:1.3; font-weight:700; color:#0E3D56; background:#FFFFFF8C; border:1px solid #0E3D5624; border-radius:999px; padding:8px 16px;">Design &amp; Communication @ UC Davis</span>
-        <span style="font-size:clamp(13px,1.2vw,15px); line-height:1.3; font-weight:700; color:#0E3D56; background:#FFFFFF8C; border:1px solid #0E3D5624; border-radius:999px; padding:8px 16px;">#include Social Media &amp; Graphics Lead</span>
+        <span style="font-size:clamp(13px,1.2vw,15px); line-height:1.3; font-weight:700; color:#0E3D56; background:#FFFFFF8C; border:1px solid #0E3D5624; border-radius:999px; padding:8px 16px;">Prev. @ Foundverse</span>
       </div>
     </div>
       </div>
@@ -1304,7 +1304,7 @@ class Component extends DCLogic {
 
   expList() {
     return [
-      { role: 'Social Media & Graphics Lead', current: true, org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
+      { role: 'Social Media & Graphics Lead', org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
       { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo' },
       { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo' },
       { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo' },
@@ -1719,7 +1719,7 @@ class Component extends DCLogic {
       projects,
       experience: this.expList().map((e) => ({ ...e, noLogoSrc: !e.logoSrc, linked: !!e.anchor, static: !e.anchor })),
       _experienceUnused: [
-        { role: 'Social Media & Graphics Lead', current: true, org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: -1, accent: '#A9D3E8', edge: '#2F7A94' },
+        { role: 'Social Media & Graphics Lead', org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: -1, accent: '#A9D3E8', edge: '#2F7A94' },
         { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: 1, accent: '#F9CDD1', edge: '#2F7A94' },
         { role: 'Student Affairs Committee Member', org: 'ASCEND', logoSrc: 'assets/logo-ascend.png', logoId: 'logo-ascend', logoPlaceholder: 'Logo', justify: 'flex-end', dotSide: 'right', tilt: -1, accent: '#F4D9A8', edge: '#2F7A94' },
         { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo', justify: 'flex-start', dotSide: 'left', tilt: 1, accent: '#2F7A94', edge: '#2F7A94' },
