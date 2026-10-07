@@ -1,0 +1,46 @@
+/* Shared polish for the case-study pages (loaded from each case study's <head>). */
+::selection { background:#12314A; color:#F4FAFD; }
+body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
+a, button { -webkit-tap-highlight-color:transparent; }
+:focus-visible { outline:2px solid #2C6FB5; outline-offset:3px; border-radius:4px; }
+
+/* Media cards lift slightly on hover */
+main div:is([style*="border:1.5px solid"],[style*="border: 1.5px solid"]):has(> img, > video, > div > img) {
+  transition:transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+@media (hover:hover) {
+  main div:is([style*="border:1.5px solid"],[style*="border: 1.5px solid"]):has(> img, > video, > div > img):hover {
+    transform:translateY(-3px); box-shadow:0 20px 38px -24px #12314A66; border-color:#CBD3CE !important;
+  }
+}
+
+/* Buttons and links in the page footer / CTAs */
+main a:is([style*="border-radius:6px"],[style*="border-radius: 6px"]) { transition:transform 0.3s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.3s ease, background-color 0.25s ease, color 0.25s ease; }
+@media (hover:hover) {
+  main a:is([style*="border-radius:6px"],[style*="border-radius: 6px"]):hover { transform:translateY(-2px); box-shadow:0 12px 22px -14px #12314A80; }
+}
+main a:is([style*="border-radius:6px"],[style*="border-radius: 6px"]):active { transform:translateY(0) scale(0.98); box-shadow:none; }
+
+/* Click-to-zoom images */
+img.zl-img { cursor:zoom-in; }
+#zl { position:fixed; inset:0; z-index:200; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:clamp(16px,4vw,48px); background:rgba(10,24,38,0.88); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; visibility:hidden; transition:opacity 0.28s ease, visibility 0s linear 0.28s; cursor:zoom-out; }
+#zl.on { opacity:1; visibility:visible; transition:opacity 0.28s ease; }
+#zl img { max-width:min(94vw,1400px); max-height:82vh; width:auto; height:auto; object-fit:contain; border-radius:10px; background:#fff; box-shadow:0 30px 80px -20px rgba(0,0,0,0.6); transform:scale(0.96) translateY(8px); transition:transform 0.38s cubic-bezier(0.2,0.7,0.2,1); cursor:default; }
+#zl.on img { transform:scale(1) translateY(0); }
+#zl p { margin:0; max-width:70ch; text-align:center; font:600 13.5px/1.5 'Mulish',sans-serif; color:#E6EEF4; }
+#zl button { position:absolute; top:clamp(12px,2.4vw,26px); right:clamp(12px,2.4vw,26px); width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.28); background:rgba(255,255,255,0.1); color:#fff; font-size:22px; line-height:1; cursor:pointer; transition:background-color 0.2s ease, transform 0.2s ease; }
+#zl button:hover { background:rgba(255,255,255,0.22); transform:scale(1.06); }
+
+/* Back to top, with a scroll-progress ring */
+#totop { position:fixed; right:clamp(14px,2.4vw,28px); bottom:clamp(14px,2.4vw,28px); z-index:60; width:48px; height:48px; padding:0; border:0; border-radius:50%; background:#FFFFFFF2; box-shadow:0 10px 26px -12px #12314A80, 0 0 0 1px #12314A14; color:#12314A; cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity 0.3s ease, transform 0.3s cubic-bezier(0.2,0.7,0.2,1), visibility 0s linear 0.3s, background-color 0.2s ease; }
+#totop.on { opacity:1; visibility:visible; transform:translateY(0); transition:opacity 0.3s ease, transform 0.3s cubic-bezier(0.2,0.7,0.2,1), background-color 0.2s ease; }
+#totop:hover { background:#fff; }
+#totop svg { position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); }
+#totop circle { fill:none; stroke-width:2.4; }
+#totop .bg { stroke:#12314A1A; }
+#totop .fg { stroke:currentColor; stroke-linecap:round; stroke-dasharray:131.95; stroke-dashoffset:131.95; }
+#totop .ar { position:relative; width:16px; height:16px; transform:none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+}

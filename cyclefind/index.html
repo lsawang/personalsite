@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<link rel="stylesheet" href="/assets/enhance.css">
+<script src="/assets/enhance.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -147,13 +149,13 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start;">
           <figure style="margin:0;">
             <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#3D3D3D;">
-              <img src="/assets/cf-lofi-resource.png" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
+              <img loading="lazy" decoding="async" src="/assets/cf-lofi-resource.png" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
             </div>
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Lo-fi: finding a resource</figcaption>
           </figure>
           <figure style="margin:0;">
             <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#3D3D3D;">
-              <img src="/assets/cf-lofi-tracker.png" alt="Low-fidelity wireframes: tracker home, log entry, badge and learn" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
+              <img loading="lazy" decoding="async" src="/assets/cf-lofi-tracker.png" alt="Low-fidelity wireframes: tracker home, log entry, badge and learn" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
             </div>
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Lo-fi: cycle tracking</figcaption>
           </figure>
@@ -214,14 +216,14 @@
         <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.6vw,30px); max-width:760px; margin:0 0 clamp(32px,4.2vw,48px); align-items:start;">
           <div>
             <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; aspect-ratio:9/19.5;">
-              <img src="/assets/friction-photo.png" alt="Onboarding step: upload a just-for-you picture" style="display:block; width:100%; height:100%; object-fit:cover; object-position:top;" />
+              <img loading="lazy" decoding="async" src="/assets/friction-photo.png" alt="Onboarding step: upload a just-for-you picture" style="display:block; width:100%; height:100%; object-fit:cover; object-position:top;" />
             </div>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:10px 0 0; font-weight:700;">Profile picture</p>
           </div>
           <div>
             <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; position:relative; aspect-ratio:9/19.5;">
-              <img src="/assets/friction-placement-after.png" alt="After: select your area" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1AfterOpacity }}; transition:opacity 0.25s ease;" />
-              <img src="/assets/friction-placement.png" alt="Before: select a placement" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1BeforeOpacity }}; transition:opacity 0.25s ease;" />
+              <img loading="lazy" decoding="async" src="/assets/friction-placement-after.png" alt="After: select your area" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1AfterOpacity }}; transition:opacity 0.25s ease;" />
+              <img loading="lazy" decoding="async" src="/assets/friction-placement.png" alt="Before: select a placement" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1BeforeOpacity }}; transition:opacity 0.25s ease;" />
             </div>
             <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin:10px 0 0;">
               <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:700;">Select your area</p>
@@ -233,8 +235,8 @@
           </div>
           <div>
             <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; position:relative; aspect-ratio:9/19.5;">
-              <img src="/assets/test-after-cycle.png" alt="After: revised My cycle screen" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2AfterOpacity }}; transition:opacity 0.25s ease;" />
-              <img src="/assets/v1-05-cycle.png" alt="Before: My cycle screen, version 1" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2BeforeOpacity }}; transition:opacity 0.25s ease;" />
+              <img loading="lazy" decoding="async" src="/assets/test-after-cycle.png" alt="After: revised My cycle screen" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2AfterOpacity }}; transition:opacity 0.25s ease;" />
+              <img loading="lazy" decoding="async" src="/assets/v1-05-cycle.png" alt="Before: My cycle screen, version 1" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2BeforeOpacity }}; transition:opacity 0.25s ease;" />
             </div>
             <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin:10px 0 0;">
               <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:700;">Log today</p>
@@ -280,7 +282,7 @@
             <div>
               <div style="max-width:238px; width:100%; border:9px solid #1A1A1E; border-radius:32px; overflow:hidden; background:#F6F1F2; box-shadow:0 22px 44px -24px #12314A99; margin-bottom:18px;">
                 <sc-if value="{{ s.vid }}" hint-placeholder-val="{{ false }}"><div style="position:relative; background:#1A1A1E;">
-                  <sc-if value="{{ s.img }}" hint-placeholder-val="{{ false }}"><img src="{{ s.img }}" alt="{{ s.eyebrow }} screen" style="width:100%; aspect-ratio:9/19.5; object-fit:cover; display:block;" /></sc-if>
+                  <sc-if value="{{ s.img }}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{ s.img }}" alt="{{ s.eyebrow }} screen" style="width:100%; aspect-ratio:9/19.5; object-fit:cover; display:block;" /></sc-if>
                   <video src="{{ s.vid }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:2; opacity:0; transition:opacity 0.4s ease;"></video>
                   <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#7A1E3A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
                 </div></sc-if>

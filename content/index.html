@@ -15,6 +15,10 @@
 <script src="/image-slot.js"></script>
 <style>
   body { margin: 0; background: #FCFCFB; }
+  ::selection { background:#12314A; color:#F4FAFD; }
+  body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
+  :focus-visible { outline:2px solid #2C6FB5; outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; } }
   * { box-sizing: border-box; }
   a { color: #2F7A94; }
   a:hover { color: #12314A; }
@@ -738,10 +742,10 @@
     <div style="position:relative; z-index:1; max-width:1120px; margin: 0 auto;">
       <h1 data-r="heroname" style="margin:0; font-weight:inherit;">
         <span style="display:flex; align-items:center; justify-content:center; gap:14px; margin:0 0 clamp(10px,1.2vw,16px); font-family:'Playfair Display',serif; font-style:italic; font-weight:500; font-size:clamp(20px,1.9vw,26px); line-height:1.1; letter-spacing:0; color:#2C6FB5;">Lisa Wang</span>
-        <span style="display:block; margin:0 auto; font-family:'Mulish',sans-serif; font-size:clamp(28px,4.2vw,46px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; color:#12314A; text-wrap:balance;">Product designer <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:500; letter-spacing:-0.02em; color:#2C6FB5;">&amp;</span> marketer</span>
+        <span style="display:block; margin:0 auto; font-family:'Mulish',sans-serif; font-size:clamp(28px,4.2vw,46px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; color:#12314A; text-wrap:balance;">Product Designer <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:500; letter-spacing:-0.02em; color:#2C6FB5;">&amp;</span> Marketer</span>
       </h1>
       <p style="font-size:clamp(17px,1.75vw,22px); line-height:1.5; letter-spacing:-0.01em; margin: clamp(20px,2.4vw,30px) auto 0; max-width:62ch; color:#12314A; text-wrap:balance;">Focused on building <strong style="font-weight:800; color:#1B4A80;">meaningful, usable products</strong> that create <strong style="font-weight:800; color:#1B4A80;">connection</strong>, build <strong style="font-weight:800; color:#1B4A80;">trust</strong>, and help users and clients <strong style="font-weight:800; color:#1B4A80;">reach their goals</strong>.</p>
-      <p data-r="credtext" style="margin: clamp(26px,3vw,38px) auto 0; padding-top:clamp(18px,2vw,24px); border-top:1px solid #0E3D5626; width:fit-content; max-width:80ch; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600;">Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
+      <p data-r="credtext" style="margin: clamp(24px,2.8vw,36px) auto 0; max-width:80ch; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600;">Design &amp; Communication @ UC Davis | #include Social Media &amp; Graphics Lead</p>
       <div data-r="credpills" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin: clamp(22px,2.8vw,34px) auto 0;">
         <span style="font-size:clamp(13px,1.2vw,15px); line-height:1.3; font-weight:700; color:#0E3D56; background:#FFFFFF8C; border:1px solid #0E3D5624; border-radius:999px; padding:8px 16px;">Design &amp; Communication @ UC Davis</span>
         <span style="font-size:clamp(13px,1.2vw,15px); line-height:1.3; font-weight:700; color:#0E3D56; background:#FFFFFF8C; border:1px solid #0E3D5624; border-radius:999px; padding:8px 16px;">#include Social Media &amp; Graphics Lead</span>
