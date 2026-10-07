@@ -6,6 +6,8 @@
 <script src="/support.js"></script>
 <link rel="stylesheet" href="/assets/enhance.css">
 <script src="/assets/enhance.js" defer></script>
+<link rel="stylesheet" href="/assets/proto.css">
+<script src="/assets/proto.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -254,27 +256,9 @@
 
       <section id="solution" data-screen-label="05 Final Design" ref="{{ rRefSolution }}" style="{{ rSolution }} scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
         <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; font-weight:500; letter-spacing:0; color:#2F6B4A; margin:0 0 clamp(22px,3vw,30px);">Final design</p>
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 14px; font-weight:600;">Desktop</p>
-        <div style="display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(16px,2.4vw,26px) clamp(16px,2.4vw,26px);">
-          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
-            <div>
-              <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; margin-bottom:14px;">
-                <video src="{{ a.clip }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; background:#FFFFFF;"></video>
-                <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:72px; height:72px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#2F6B4A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="30" height="30" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="30" height="30" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
-                
-              </div>
-              <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 7px;">{{ a.name }}</p>
-              <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;">{{ a.body }}</p>
-            </div>
-          </sc-for>
-        </div>
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:clamp(36px,4.6vw,52px) 0 14px; font-weight:600;">Mobile</p>
-        <div style="display:flex; justify-content:center;">
-          <div style="position:relative; width:min(300px,72vw); aspect-ratio:866/1783; border-radius:17.3% / 8.4%; overflow:hidden;">
-            <video src="/assets/tri-current-mobile.mp4" data-end="15.7" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; left:-1.85%; top:-0.39%; width:103.7%; max-width:none; height:100.73%; display:block;"></video>
-            <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#2F6B4A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
-          </div>
-        </div>
+        <h2 style="font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.008em; line-height:1.24; margin:0 0 14px; max-width:44ch;">Try the Rules page yourself.</h2>
+        <p style="font-size:15.5px; line-height:1.8; color:#3F5A70; margin:0 0 clamp(22px,3vw,30px); max-width:80ch;">Discord safety, hunt rules, flash sales, and post-claim steps in one place. Scroll through the final design, jump between sections, and switch between the desktop and mobile layouts.</p>
+        <div data-proto-mount="rules" style="min-height:420px;"></div>
       </section>
 
       <section id="reflection" data-screen-label="06 Reflection" ref="{{ rRefReflection }}" style="{{ rReflection }} scroll-margin-top:32px; max-width:1000px; margin-bottom:clamp(52px,6.5vw,88px);">
