@@ -45,7 +45,7 @@
 .pt-menu button[aria-current="page"] { color:#2F6B4A; }
 .pt-menu .pt-join { margin-top:12px; border:0; border-radius:10px; background:#7289DA; color:#fff; text-align:center; padding:13px 16px; font-size:15px; }
 
-.pt-hint { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:6; display:flex; align-items:center; gap:8px; padding:9px 15px; border-radius:99px; background:#12314Ae6; color:#F4FAFD; font:700 12.5px/1 'Mulish',sans-serif; pointer-events:none; transition:opacity .4s ease, transform .4s ease; box-shadow:0 12px 26px -12px #000A; }
+.pt-hint { position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:6; display:flex; align-items:center; gap:7px; padding:8px 14px; border-radius:99px; background:#12314Ad9; color:#F4FAFD; font:700 12px/1 'Mulish',sans-serif; white-space:nowrap; pointer-events:none; transition:opacity .4s ease, transform .4s ease; box-shadow:0 12px 26px -12px #000A; }
 .pt-hint.off { opacity:0; transform:translate(-50%,8px); }
 .pt-hint svg { animation:ptBob 1.6s ease-in-out infinite; }
 @keyframes ptBob { 0%,100% { transform:translateY(-2px); } 50% { transform:translateY(3px); } }

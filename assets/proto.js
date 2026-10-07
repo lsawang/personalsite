@@ -20,7 +20,7 @@
   function build(mode) {
     var c = CFG[mode];
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var hinted = false, toastT;
+    var toastT;
 
     var stage = el('div', 'pt-stage');
     var device = el('div', 'pt-device', { 'data-mode': mode });
@@ -34,7 +34,7 @@
     var view = el('div', 'pt-view');
     var scroller = el('div', 'pt-scroll', { tabindex: '0', role: 'region', 'aria-label': 'Scrollable ' + mode + ' prototype of the Rules page' });
     var menu = el('div', 'pt-menu');
-    var hint = el('div', 'pt-hint'); hint.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Interactive: scroll or tap the nav';
+    var hint = el('div', 'pt-hint'); hint.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Interactive: scroll to explore';
     var toast = el('div', 'pt-toast'); toast.setAttribute('role', 'status');
 
     var navWrap = el('div', 'pt-nav');
@@ -76,7 +76,6 @@
     function layout() { var nh = c.navH * scroller.clientWidth / c.w; view.style.setProperty('--navh', nh + 'px'); menu.style.top = nh + 'px'; }
 
     scroller.addEventListener('scroll', function () {
-      if (!hinted && scroller.scrollTop > 40) { hinted = true; hint.classList.add('off'); }
       if (menu.classList.contains('on') && scroller.scrollTop > 4) closeMenu();
     }, { passive: true });
     navWrap.addEventListener('click', function (e) {
