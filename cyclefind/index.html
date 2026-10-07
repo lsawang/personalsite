@@ -281,7 +281,8 @@
               <div style="max-width:238px; width:100%; border:9px solid #1A1A1E; border-radius:32px; overflow:hidden; background:#F6F1F2; box-shadow:0 22px 44px -24px #12314A99; margin-bottom:18px;">
                 <sc-if value="{{ s.vid }}" hint-placeholder-val="{{ false }}"><div style="position:relative; background:#1A1A1E;">
                   <sc-if value="{{ s.img }}" hint-placeholder-val="{{ false }}"><img src="{{ s.img }}" alt="{{ s.eyebrow }} screen" style="width:100%; aspect-ratio:9/19.5; object-fit:cover; display:block;" /></sc-if>
-                  <video src="{{ s.vid }}" ref="{{ autoPlayVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:2; opacity:0; transition:opacity 0.4s ease;"></video>
+                  <video src="{{ s.vid }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:2; opacity:0; transition:opacity 0.4s ease;"></video>
+                  <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#7A1E3A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
                 </div></sc-if>
                 <sc-if value="{{ s.shot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ s.slotId }}" src="{{ s.shot }}" placeholder="{{ s.placeholder }}" shape="rect" style="width:100%; aspect-ratio:9/19.5; display:block;"></image-slot></sc-if>
               </div>
@@ -395,6 +396,7 @@ class Component extends DCLogic {
     if (this._revealObserver) this._revealObserver.disconnect();
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._videoObserver) this._videoObserver.disconnect();
+    if (this._pauseObserver) this._pauseObserver.disconnect();
     (this._settles || []).forEach(clearTimeout);
     if (this._ro) this._ro.disconnect();
     (this._mediaCleanup || []).forEach(fn => fn());
@@ -469,6 +471,42 @@ class Component extends DCLogic {
     this._videoObserver.observe(el);
   };
 
+  _pauseObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: el, isIntersecting }) => { if (!isIntersecting) el.pause(); });
+  }, { threshold: 0.01 });
+
+  _playBtn = (btn) => {
+    if (!btn || btn._wired) return;
+    const v = btn.parentNode && btn.parentNode.querySelector('video');
+    if (!v) return;
+    btn._wired = true;
+    const dot = btn.firstElementChild;
+    const iPlay = dot.querySelector('[data-i="play"]'), iPause = dot.querySelector('[data-i="pause"]');
+    v.muted = true; v.defaultMuted = true;
+    const show = (playing, hover) => {
+      iPlay.style.display = playing ? 'none' : 'block';
+      iPause.style.display = playing ? 'block' : 'none';
+      dot.style.opacity = !playing || hover ? '1' : '0';
+      dot.style.transform = hover ? 'scale(1.08)' : 'scale(1)';
+      btn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+    };
+    let hover = false;
+    const sync = () => show(!v.paused, hover);
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    btn.addEventListener('mouseenter', () => { hover = true; sync(); });
+    btn.addEventListener('mouseleave', () => { hover = false; sync(); });
+    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime === 0 && v.paused) v.currentTime = 0.001; });
+    const end = parseFloat(v.dataset.end);
+    if (end) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } });
+    btn.addEventListener('click', () => {
+      if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
+    });
+    this._pauseObserver.observe(v);
+    sync();
+  };
+
   renderVals() {
     const active = this.state.active;
     return {
@@ -506,6 +544,7 @@ class Component extends DCLogic {
       ba2Before: () => this.setState({ showAfter2: false }),
       ba2After: () => this.setState({ showAfter2: true }),
       autoPlayVideo: this._autoPlayVideo,
+      playBtn: this._playBtn,
       countUp: this._countUp,
       details: [
         { label: 'Role', value: 'Product / UI/UX Designer' },

@@ -258,7 +258,8 @@
           <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
             <div>
               <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; margin-bottom:14px;">
-                <video src="{{ a.clip }}" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; background:#FFFFFF;"></video>
+                <video src="{{ a.clip }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; background:#FFFFFF;"></video>
+                <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:72px; height:72px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#2F6B4A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="30" height="30" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="30" height="30" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
                 
               </div>
               <p style="font-family:'Playfair Display',serif; font-size:18px; font-weight:600; letter-spacing:-0.004em; margin:0 0 7px;">{{ a.name }}</p>
@@ -269,7 +270,8 @@
         <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:clamp(36px,4.6vw,52px) 0 14px; font-weight:600;">Mobile</p>
         <div style="display:flex; justify-content:center;">
           <div style="position:relative; width:min(300px,72vw); aspect-ratio:866/1783; border-radius:17.3% / 8.4%; overflow:hidden;">
-            <video src="/assets/tri-current-mobile.mp4" data-end="15.7" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; left:-1.85%; top:-0.39%; width:103.7%; max-width:none; height:100.73%; display:block;"></video>
+            <video src="/assets/tri-current-mobile.mp4" data-end="15.7" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; left:-1.85%; top:-0.39%; width:103.7%; max-width:none; height:100.73%; display:block;"></video>
+            <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#2F6B4A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
           </div>
         </div>
       </section>
@@ -408,6 +410,7 @@ class Component extends DCLogic {
     if (this._revealObserver) this._revealObserver.disconnect();
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._videoObserver) this._videoObserver.disconnect();
+    if (this._pauseObserver) this._pauseObserver.disconnect();
     (this.settleTimers || []).forEach(clearTimeout);
     if (this.ro) this.ro.disconnect();
     if (this.mediaCleanup) this.mediaCleanup.forEach(fn => fn());
@@ -430,6 +433,42 @@ class Component extends DCLogic {
     const end = parseFloat(el.dataset.end);
     if (end) el.addEventListener('timeupdate', () => { if (el.currentTime >= end) { el.currentTime = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); } });
     this._videoObserver.observe(el);
+  };
+
+  _pauseObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: el, isIntersecting }) => { if (!isIntersecting) el.pause(); });
+  }, { threshold: 0.01 });
+
+  _playBtn = (btn) => {
+    if (!btn || btn._wired) return;
+    const v = btn.parentNode && btn.parentNode.querySelector('video');
+    if (!v) return;
+    btn._wired = true;
+    const dot = btn.firstElementChild;
+    const iPlay = dot.querySelector('[data-i="play"]'), iPause = dot.querySelector('[data-i="pause"]');
+    v.muted = true; v.defaultMuted = true;
+    const show = (playing, hover) => {
+      iPlay.style.display = playing ? 'none' : 'block';
+      iPause.style.display = playing ? 'block' : 'none';
+      dot.style.opacity = !playing || hover ? '1' : '0';
+      dot.style.transform = hover ? 'scale(1.08)' : 'scale(1)';
+      btn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+    };
+    let hover = false;
+    const sync = () => show(!v.paused, hover);
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    btn.addEventListener('mouseenter', () => { hover = true; sync(); });
+    btn.addEventListener('mouseleave', () => { hover = false; sync(); });
+    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime === 0 && v.paused) v.currentTime = 0.001; });
+    const end = parseFloat(v.dataset.end);
+    if (end) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } });
+    btn.addEventListener('click', () => {
+      if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
+    });
+    this._pauseObserver.observe(v);
+    sync();
   };
 
   _autoScroll = (el) => {
@@ -499,6 +538,7 @@ class Component extends DCLogic {
       progressWidth: this.state.pct + '%',
       autoScroll: this._autoScroll,
       loopVideo: this._loopVideo,
+      playBtn: this._playBtn,
       rProblem: this.revealStyle('problem'), rRefProblem: this.setRevealRef('problem'),
       rResearch: this.revealStyle('research'), rRefResearch: this.setRevealRef('research'),
       rDecisions: this.revealStyle('decisions'), rRefDecisions: this.setRevealRef('decisions'),
