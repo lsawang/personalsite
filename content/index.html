@@ -227,10 +227,10 @@
       </div>
       <div data-r="aboutpics" style="display:flex; flex-direction:column; gap: 16px;">
         <div style="aspect-ratio:3/4; width:100%; border-radius:4px; overflow:hidden; background:#F1F3F4;">
-          <img src="/assets/lisa-portrait.jpeg" alt="Lisa Wang" style="width:100%; height:100%; object-fit:cover; display:block;"/>
+          <img loading="lazy" decoding="async" src="/assets/lisa-portrait.webp" alt="Lisa Wang" style="width:100%; height:100%; object-fit:cover; display:block;"/>
         </div>
         <div style="width:100%; border-radius:4px; overflow:hidden; background:#F1F3F4;">
-          <img src="/assets/sf-bridge.png" alt="Golden Gate Bridge at dusk" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover;" />
+          <img loading="lazy" decoding="async" src="/assets/sf-bridge.webp" alt="Golden Gate Bridge at dusk" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover;" />
         </div>
       </div>
     </section>
@@ -245,7 +245,7 @@
         <sc-if value="{{ e.linked }}" hint-placeholder-val="{{ true }}">
         <a href="#work" onClick="{{ openExperience }}" data-anchor="{{ e.anchor }}" style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; text-decoration:none; color:inherit; transition:background 0.2s ease, padding-left 0.2s ease;" style-hover="background:#F7F9FA; padding-left:12px;">
           <sc-if value="{{ e.logoSrc }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
+            <img loading="lazy" decoding="async" src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
           </sc-if>
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
             <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
@@ -261,7 +261,7 @@
         <sc-if value="{{ e.static }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; color:inherit;">
           <sc-if value="{{ e.logoSrc }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
+            <img loading="lazy" decoding="async" src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
           </sc-if>
           <sc-if value="{{ e.noLogoSrc }}" hint-placeholder-val="{{ true }}">
             <image-slot id="{{ e.logoId }}" placeholder="{{ e.logoPlaceholder }}" shape="rounded" radius="6" style="width:26px; height:26px; flex:none; display:block;"></image-slot>
@@ -288,49 +288,49 @@
       <div style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap: clamp(24px,4vw,32px); align-items:center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/figma-icon.webp" alt="Figma" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/figma-icon.webp" alt="Figma" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Figma</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Capcut-icon.png" alt="CapCut" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Capcut-icon.png" alt="CapCut" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">CapCut</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/adobe-photoshop-logo.png" alt="Photoshop" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/adobe-photoshop-logo.webp" alt="Photoshop" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Photoshop</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Adobe_Illustrator_CC_icon.svg.webp" alt="Illustrator" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Adobe_Illustrator_CC_icon.svg.webp" alt="Illustrator" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Illustrator</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Canva_logo.svg.webp" alt="Canva" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Canva_logo.svg-opt.webp" alt="Canva" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Canva</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Visual_Studio_Code_1.35_icon.svg.webp" alt="Visual Studio Code" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Visual_Studio_Code_1.35_icon.svg.webp" alt="Visual Studio Code" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Visual Studio Code</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Notion_app_logo.png" alt="Notion" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Notion_app_logo.png" alt="Notion" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Notion</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center; gap: 12px;">
           <div style="width:100%; height:64px; display:flex; align-items:center; justify-content:center;">
-            <img src="/uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+            <img loading="lazy" decoding="async" src="/uploads/Slack_icon_2019.svg.webp" alt="Slack" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
           </div>
           <span style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#12314A99;">Slack</span>
         </div>
@@ -453,24 +453,24 @@
             </ul>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,420px),1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 12px;">
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/Screenshot 2026-09-11 at 6.25.15 PM.png" alt="Three-post grid layout, Fashion cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/Screenshot 2026-09-11 at 6.25.15 PM.webp" alt="Three-post grid layout, Fashion cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/Screenshot 2026-09-11 at 6.25.41 PM.png" alt="Three-post grid layout, Thunder cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/Screenshot 2026-09-11 at 6.25.41 PM.webp" alt="Three-post grid layout, Thunder cover" style="display:block; width:100%; height:auto; border-radius:6px;" />
               </div>
             </div>
             <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap: clamp(12px,1.6vw,18px); margin: 0 0 8px;" data-r="stories">
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/IMG_4692.PNG" alt="Cover story, February 9" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/IMG_4692.webp" alt="Cover story, February 9" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/IMG_4693.PNG" alt="Cover story, April 6" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/IMG_4693.webp" alt="Cover story, April 6" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/IMG_4694.PNG" alt="Cover story, April 17" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/IMG_4694.webp" alt="Cover story, April 17" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
               <div style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px;">
-                <img src="/uploads/IMG_4706.jpeg" alt="Workshop story, October 20 2025" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
+                <img loading="lazy" decoding="async" src="/uploads/IMG_4706.webp" alt="Workshop story, October 20 2025" style="display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:6px;" />
               </div>
             </div>
             <div style="background:#F4FAFD; border:1px solid #DCEEF7; border-radius:12px; padding: clamp(16px,2vw,20px); margin: 0 0 28px;">
@@ -535,7 +535,7 @@
             <div data-r="clips" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap: clamp(12px,1.6vw,18px); margin: 20px 0 0; align-items:stretch;">
               <sc-for list="{{ ekhoClips }}" as="v" hint-placeholder-count="4">
                 <a href="{{ v.href }}" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px; display:flex; flex-direction:column; height:100%; text-decoration:none; transition:border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;" style-hover="border-color:#2C6FB5; box-shadow:0 12px 26px -18px #12314A66; transform:translateY(-2px);">
-                  <sc-if value="{{ v.src }}" hint-placeholder-val="{{ false }}"><img src="{{ v.src }}" alt="{{ v.label }}" style="display:block; width:100%; aspect-ratio:9/16; height:auto; object-fit:cover; object-position:center; border-radius:6px; background:#12314A0D;" /></sc-if>
+                  <sc-if value="{{ v.src }}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{ v.src }}" alt="{{ v.label }}" style="display:block; width:100%; aspect-ratio:9/16; height:auto; object-fit:cover; object-position:center; border-radius:6px; background:#12314A0D;" /></sc-if>
                   <sc-if value="{{ v.slot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ v.id }}" placeholder="{{ v.placeholder }}" shape="rect" style="display:block; width:100%; aspect-ratio:9/16; height:auto; flex:0 0 auto; min-height:0; border-radius:6px;"></image-slot></sc-if>
                   <p style="font-size:12px; line-height:1.4; color:#12314A; margin: 10px 2px 0; text-wrap:pretty;">{{ v.label }}</p>
                 </a>
@@ -547,7 +547,7 @@
 
         <div ref="{{ rRefContentBp }}" style="{{ rContentBp }} border-top:1px solid #E6E9EC; padding: clamp(36px,5vw,60px) 0; display:block;">
           <div style="display:flex; flex-wrap:wrap; align-items:center; gap: 6px 18px; margin: 0 0 26px;">
-            <img src="/assets/tiktok-icon.png" alt="TikTok" style="flex:none; width:44px; height:44px; display:block; border-radius:9px;" />
+            <img loading="lazy" decoding="async" src="/assets/tiktok-icon.png" alt="TikTok" style="flex:none; width:44px; height:44px; display:block; border-radius:9px;" />
             <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(21px,2.4vw,26px); line-height:1.15; margin: 0; color:#12314A;">Personal TikTok</h2>
             <p style="font-family:'Mulish',sans-serif; font-size:13px; font-weight:700; letter-spacing:0; color:#2F7A94; margin: 0;">Content creation</p>
             <p style="font-family:'Mulish',sans-serif; font-size:13px; letter-spacing:0; color:#A6AEB6; margin: 0;">Boys II Planet · ~9 videos</p>
@@ -586,7 +586,7 @@
             <div data-r="clips" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap: clamp(12px,1.6vw,18px); margin: 20px 0 0; align-items:stretch;">
               <sc-for list="{{ bpClips }}" as="v" hint-placeholder-count="4">
                 <a href="{{ v.href }}" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 8px; display:flex; flex-direction:column; height:100%; text-decoration:none; transition:border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;" style-hover="border-color:#2C6FB5; box-shadow:0 12px 26px -18px #12314A66; transform:translateY(-2px);">
-                  <sc-if value="{{ v.src }}" hint-placeholder-val="{{ false }}"><img src="{{ v.src }}" alt="{{ v.label }}" style="display:block; width:100%; aspect-ratio:9/16; height:auto; object-fit:cover; object-position:center; border-radius:6px; background:#12314A0D;" /></sc-if>
+                  <sc-if value="{{ v.src }}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{ v.src }}" alt="{{ v.label }}" style="display:block; width:100%; aspect-ratio:9/16; height:auto; object-fit:cover; object-position:center; border-radius:6px; background:#12314A0D;" /></sc-if>
                   <sc-if value="{{ v.slot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ v.id }}" placeholder="{{ v.placeholder }}" shape="rect" style="display:block; width:100%; aspect-ratio:9/16; height:auto; flex:0 0 auto; min-height:0; border-radius:6px;"></image-slot></sc-if>
                   <p style="font-size:12px; line-height:1.4; color:#12314A; margin: 10px 2px 0; text-wrap:pretty;">{{ v.label }}</p>
                 </a>
@@ -616,8 +616,8 @@
           <div>
             <p style="font-size:14.5px; line-height:1.75; color:#3F5A70; margin: 0 0 20px; max-width:62ch;"><strong style="font-weight:600; color:#12314A;">Marketing and campaign planning</strong>, including the monthly content calendar and short-form reels for social media reach.</p>
             <div style="display:grid; grid-template-columns:minmax(0,1fr); gap: clamp(16px,2.4vw,28px); align-items:start; max-width:760px;">
-              <a href="/assets/content-calendar.png" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="display:block; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px; text-decoration:none;">
-                <img src="/assets/content-calendar.png" alt="July content calendar" style="display:block; width:100%; height:auto; border-radius:6px;" />
+              <a href="/assets/content-calendar.webp" target="_blank" rel="noopener noreferrer" onClick="{{ openExternal }}" style="display:block; border:1px solid #E6E9EC; border-radius:12px; background:#FFFFFF; padding: 10px; text-decoration:none;">
+                <img loading="lazy" decoding="async" src="/assets/content-calendar.webp" alt="July content calendar" style="display:block; width:100%; height:auto; border-radius:6px;" />
                 <span style="display:flex; justify-content:space-between; align-items:baseline; gap: 10px; padding: 10px 2px 2px; font-family:'Mulish',sans-serif; font-size:12.5px; letter-spacing:0;"><span style="font-weight:700; color:#12314A;">July content calendar</span><span style="color:#A6AEB6;">Foundverse</span></span>
               </a>
             </div>
@@ -667,7 +667,7 @@
                 <div style="position:absolute; top:{{ g.top }}; left:{{ g.left }}; width:{{ g.w }}; transform:rotate({{ g.rot }}); transition:transform 0.25s ease;" style-hover="transform:rotate(0deg) scale(1.02); z-index:5;">
                   <a href="{{ g.href }}" target="_blank" rel="noopener" style="display:block; position:relative; text-decoration:none; background:#FFFDF9; border:1px solid #E7E2D9; box-shadow:0 14px 30px -20px #12314A66, 0 2px 4px -2px #12314A22; padding: 10px 10px 12px;">
                     <span style="position:absolute; top:-11px; left:50%; width:64px; height:20px; margin-left:-32px; background:#DCEEF7; border-left:1px solid #C6E0EE; border-right:1px solid #C6E0EE; opacity:{{ g.tape }};"></span>
-                    <sc-if value="{{ g.src }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" style="display:block; width:100%; height:auto; aspect-ratio:{{ g.ratio }}; object-fit:cover;" /></sc-if>
+                    <sc-if value="{{ g.src }}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{ g.src }}" alt="{{ g.label }}" style="display:block; width:100%; height:auto; aspect-ratio:{{ g.ratio }}; object-fit:cover;" /></sc-if>
                     <sc-if value="{{ g.slotId }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ g.slotId }}" placeholder="{{ g.slotPlaceholder }}" shape="rect" style="display:block; width:100%; aspect-ratio:9/16;"></image-slot></sc-if>
                     <span style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap: 4px 10px; padding: 10px 2px 0; font-family:'Mulish',sans-serif; font-size:12.5px; letter-spacing:0;">
                       <span style="font-weight:700; color:#12314A; min-width:0; overflow-wrap:break-word;">{{ g.label }}</span>
@@ -683,7 +683,7 @@
                     <div style="position:relative;">
                       <div class="noscroll" data-carousel-track="1" style="display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; -webkit-overflow-scrolling:touch;">
                         <sc-for list="{{ b.carousel.slides }}" as="s" hint-placeholder-count="4">
-                          <img src="{{ s.src }}" alt="{{ s.alt }}" style="flex:0 0 100%; width:100%; height:auto; aspect-ratio:762/956; object-fit:cover; scroll-snap-align:center; display:block;" />
+                          <img loading="lazy" decoding="async" src="{{ s.src }}" alt="{{ s.alt }}" style="flex:0 0 100%; width:100%; height:auto; aspect-ratio:762/956; object-fit:cover; scroll-snap-align:center; display:block;" />
                         </sc-for>
                       </div>
                       <button onClick="{{ carouselPrev }}" aria-label="Previous slide" style="position:absolute; top:50%; left:6px; transform:translateY(-50%); width:28px; height:28px; border-radius:50%; border:1px solid #12314A33; background:#FFFDF9E6; color:#12314A; font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;" style-hover="background:#FFFFFF; border-color:#12314A;">&#8592;</button>
@@ -824,7 +824,7 @@
     </div>
     <div class="heropass" data-r="pass" onMouseMove="{{ tiltMove }}" onMouseLeave="{{ tiltReset }}" style="position:relative; z-index:1; transform-style:preserve-3d; transition:transform 0.16s ease-out; will-change:transform; max-width:1120px; margin: 0 auto; background:#FFFFFF; border:1px solid #E6E9EC; border-radius:20px; box-shadow:0 1px 2px #12314A0F, 0 26px 60px -34px #12314A45; overflow:hidden; display:grid; grid-template-columns:minmax(150px,210px) 1fr minmax(180px,290px) 34px;">
       <div style="border-right:1px dashed #C6D2DB; overflow:hidden;">
-        <img src="/uploads/Screenshot 2026-09-02 at 12.25.35 PM.png" alt="Chairlift view up the mountain" style="width:100%; height:100%; min-height:100%; object-fit:cover; object-position:center; display:block;"/>
+        <img loading="lazy" decoding="async" src="/uploads/Screenshot 2026-09-02 at 12.25.35 PM.webp" alt="Chairlift view up the mountain" style="width:100%; height:100%; min-height:100%; object-fit:cover; object-position:center; display:block;"/>
       </div>
 
       <div style="padding: 24px clamp(24px,4vw,32px);">
@@ -1600,26 +1600,26 @@ class Component extends DCLogic {
         { kicker: 'Company posts', title: 'Static and carousel posts', points: ['Foundverse FAQ story/highlight: about, what you do at sessions, what you gain, how to join', '3 things teens built this month, one slide per build', 'What we actually do in a session: infographic on the site\'s neon grid template', '"What AI did vs. what the teen decided": raw output next to the teen\'s edit'] },
       ],
       faqSlides: [
-        { src: '/uploads/Screenshot 2026-09-11 at 7.13.03 PM.png', alt: 'Frequently Asked Questions cover slide' },
-        { src: '/uploads/Screenshot 2026-09-11 at 7.13.15 PM.png', alt: 'What is #include, how does #include work' },
-        { src: '/uploads/Screenshot 2026-09-11 at 7.13.33 PM.png', alt: 'Who can join, expected time commitment' },
-        { src: '/uploads/Screenshot 2026-09-11 at 7.13.45 PM.png', alt: 'How to become a member, application process, benefits' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.03 PM.webp', alt: 'Frequently Asked Questions cover slide' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.15 PM.webp', alt: 'What is #include, how does #include work' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.33 PM.webp', alt: 'Who can join, expected time commitment' },
+        { src: '/uploads/Screenshot 2026-09-11 at 7.13.45 PM.webp', alt: 'How to become a member, application process, benefits' },
       ],
       carouselPrev: (e) => this.nudgeCarousel(e, -1),
       carouselNext: (e) => this.nudgeCarousel(e, 1),
       bands: [
         { title: 'Graphics & editing', note: 'Thumbnails · posters', h: 'clamp(400px,40vw,480px)', items: [
-          { src: '/assets/pinboard-thumbs/fashion-yt-thumb.webp', href: '/uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).png', label: 'Fashion YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '30px', left: '3%', w: 'clamp(150px,26vw,340px)', rot: '-2.2deg', tape: 1 },
-          { src: '/assets/pinboard-thumbs/fear-yt-thumb.webp', href: '/uploads/GRAPHICS/FEAR YT THUMBNAIL (1).png', label: 'Fear YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '150px', left: '31%', w: 'clamp(150px,26vw,340px)', rot: '1.8deg', tape: 0 },
-          { src: '/assets/pinboard-thumbs/dirtywork-thumb-sm.webp', href: '/assets/dirtywork-thumb.png', label: 'Dirty Work YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '14px', left: '60%', w: 'clamp(150px,26vw,340px)', rot: '-1.6deg', tape: 1 },
-          { src: '/assets/pinboard-thumbs/verdana-poster.webp', href: '/uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).jpg', label: 'Verdana typography poster', meta: 'Illustrator', ratio: 'auto', top: '188px', left: '76%', w: 'clamp(110px,18vw,200px)', rot: '2.4deg', tape: 0 },
+          { src: '/assets/pinboard-thumbs/fashion-yt-thumb.webp', href: '/uploads/GRAPHICS/FASHION YT THUMBNAIL  (1).webp', label: 'Fashion YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '30px', left: '3%', w: 'clamp(150px,26vw,340px)', rot: '-2.2deg', tape: 1 },
+          { src: '/assets/pinboard-thumbs/fear-yt-thumb.webp', href: '/uploads/GRAPHICS/FEAR YT THUMBNAIL (1).webp', label: 'Fear YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '150px', left: '31%', w: 'clamp(150px,26vw,340px)', rot: '1.8deg', tape: 0 },
+          { src: '/assets/pinboard-thumbs/dirtywork-thumb-sm.webp', href: '/assets/dirtywork-thumb.webp', label: 'Dirty Work YT thumbnail', meta: 'Photoshop', ratio: 'auto', top: '14px', left: '60%', w: 'clamp(150px,26vw,340px)', rot: '-1.6deg', tape: 1 },
+          { src: '/assets/pinboard-thumbs/verdana-poster.webp', href: '/uploads/GRAPHICS/VERDANA TYPOGRAPHY POSTER (2).webp', label: 'Verdana typography poster', meta: 'Illustrator', ratio: 'auto', top: '188px', left: '76%', w: 'clamp(110px,18vw,200px)', rot: '2.4deg', tape: 0 },
         ] },
         { title: 'Information design', note: 'Posters · editorial', h: 'clamp(430px,46vw,480px)', items: [
           { src: '/assets/pinboard-thumbs/fiberglass-poster.webp', href: '/uploads/GRAPHICS/FIBERGLASS POSTER (1).pdf', label: 'Fiberglass poster', meta: 'PDF', ratio: 'auto', top: '48px', left: '0%', w: 'clamp(120px,19vw,250px)', rot: '-2.6deg', tape: 0 },
           { src: '/assets/pinboard-thumbs/event-poster.webp', href: '/uploads/EVENT POSTER (1)_compressed.pdf', label: 'Event poster', meta: 'PDF', ratio: 'auto', top: '14px', left: '21%', w: 'clamp(90px,13vw,165px)', rot: '2.4deg', tape: 1 },
-          { src: '/assets/pinboard-thumbs/include-recruitment-timeline-sm.webp', href: '/assets/include-recruitment-timeline.png', label: 'Recruitment timeline', meta: '#include', ratio: '4/5', top: '56px', left: '38%', w: 'clamp(100px,15vw,190px)', rot: '-1.8deg', tape: 0 },
-          { src: '/assets/pinboard-thumbs/include-infosession-sm.webp', href: '/assets/include-infosession.png', label: 'Info session', meta: '#include', ratio: '4/5', top: '6px', left: '57%', w: 'clamp(95px,14vw,180px)', rot: '2deg', tape: 1 },
-          { src: '/assets/pinboard-thumbs/foundverse-ebook-sm.webp', href: '/assets/foundverse-ebook.png', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '30px', left: '78%', w: 'clamp(85px,13vw,160px)', rot: '1.6deg', tape: 0 },
+          { src: '/assets/pinboard-thumbs/include-recruitment-timeline-sm.webp', href: '/assets/include-recruitment-timeline.webp', label: 'Recruitment timeline', meta: '#include', ratio: '4/5', top: '56px', left: '38%', w: 'clamp(100px,15vw,190px)', rot: '-1.8deg', tape: 0 },
+          { src: '/assets/pinboard-thumbs/include-infosession-sm.webp', href: '/assets/include-infosession.webp', label: 'Info session', meta: '#include', ratio: '4/5', top: '6px', left: '57%', w: 'clamp(95px,14vw,180px)', rot: '2deg', tape: 1 },
+          { src: '/assets/pinboard-thumbs/foundverse-ebook-sm.webp', href: '/assets/foundverse-ebook.webp', label: 'Foundverse parent guide', meta: 'E-book', ratio: '1/2', top: '30px', left: '78%', w: 'clamp(85px,13vw,160px)', rot: '1.6deg', tape: 0 },
         ] },
       ],
       graphics: [
@@ -1682,11 +1682,11 @@ class Component extends DCLogic {
 
   getCarousel() {
     return [
-      { id: 'wall-11', rotate: -3, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", feat: 'KICKER 01', src: '/uploads/DSC04427.jpg' },
-      { id: 'wall-12', rotate: 2.4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", feat: 'RAIL 02', src: '/uploads/20260719_163356_9F7000.jpg' },
-      { id: 'wall-13', rotate: -2, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", feat: 'BOX 03', src: '/uploads/IMG_8611.JPG' },
-      { id: 'wall-14', rotate: 2.2, placeholder: 'Photo — cosmic bowling night', frame: '#A9D3E8', date: "'26 9 04  12:54", feat: 'STRIKE 04', src: '/uploads/Screenshot 2026-09-04 at 12.54.14 PM.png' },
-      { id: 'wall-15', rotate: -2.8, placeholder: 'Photo — golden gate park ride', frame: '#4CA96B', date: "'26 9 04  12:54", feat: 'CRUISE 05', src: '/uploads/Screenshot 2026-09-04 at 12.54.05 PM.png' },
+      { id: 'wall-11', rotate: -3, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", feat: 'KICKER 01', src: '/uploads/DSC04427.webp' },
+      { id: 'wall-12', rotate: 2.4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", feat: 'RAIL 02', src: '/uploads/20260719_163356_9F7000.webp' },
+      { id: 'wall-13', rotate: -2, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", feat: 'BOX 03', src: '/uploads/IMG_8611.webp' },
+      { id: 'wall-14', rotate: 2.2, placeholder: 'Photo — cosmic bowling night', frame: '#A9D3E8', date: "'26 9 04  12:54", feat: 'STRIKE 04', src: '/uploads/Screenshot 2026-09-04 at 12.54.14 PM.webp' },
+      { id: 'wall-15', rotate: -2.8, placeholder: 'Photo — golden gate park ride', frame: '#4CA96B', date: "'26 9 04  12:54", feat: 'CRUISE 05', src: '/uploads/Screenshot 2026-09-04 at 12.54.05 PM.webp' },
       { id: 'wall-1', rotate: 3, placeholder: 'Photo — first chair of the season', frame: '#F9CDD1', date: "'26 7 27  10:24", feat: 'JIB 04' },
       { id: 'wall-2', rotate: -2.6, placeholder: 'Photo — powder day at the resort', frame: '#A9D3E8', date: "'25 11 02  20:15", feat: 'RAIL 05' },
       { id: 'wall-7', rotate: 2, placeholder: 'Photo — après-ski with the crew', frame: '#F4D9A8', date: "'26 2 08  21:10", feat: 'BOX 06' },
@@ -1697,9 +1697,9 @@ class Component extends DCLogic {
     return [
       { id: 'wall-1', left: '1%', top: '10px', w: 230, rotate: -6, placeholder: 'Photo — first chair of the season', frame: '#F9CDD1', date: "'26 7 27  10:24" },
       { id: 'wall-2', left: '21%', top: '70px', w: 220, rotate: 4, placeholder: 'Photo — powder day at the resort', frame: '#A9D3E8', date: "'25 11 02  20:15" },
-      { id: 'wall-11', left: '42%', top: '10px', w: 235, rotate: 5, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", src: '/uploads/DSC04427.jpg' },
-      { id: 'wall-12', left: '63%', top: '65px', w: 220, rotate: -4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", src: '/uploads/20260719_163356_9F7000.jpg' },
-      { id: 'wall-13', left: '82%', top: '20px', w: 230, rotate: 4, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", src: '/uploads/IMG_8611.JPG' },
+      { id: 'wall-11', left: '42%', top: '10px', w: 235, rotate: 5, placeholder: 'Photo — summit before the drop', frame: '#F4D9A8', date: "'26 7 19  16:33", src: '/uploads/DSC04427.webp' },
+      { id: 'wall-12', left: '63%', top: '65px', w: 220, rotate: -4, placeholder: 'Photo — gondola ride up', frame: '#7FB6D6', date: "'26 7 20  22:10", src: '/uploads/20260719_163356_9F7000.webp' },
+      { id: 'wall-13', left: '82%', top: '20px', w: 230, rotate: 4, placeholder: 'Photo — night riding under the lights', frame: '#F9CDD1', date: "'25 11 02  20:15", src: '/uploads/IMG_8611.webp' },
       { id: 'wall-6', left: '1%', top: '420px', w: 230, rotate: 5, placeholder: 'Photo — lodge window views', frame: '#A9D3E8', date: "'26 6 12  19:33" },
       { id: 'wall-7', left: '21%', top: '480px', w: 220, rotate: -5, placeholder: 'Photo — après-ski with the crew', frame: '#F4D9A8', date: "'26 2 08  21:10" },
       { id: 'wall-8', left: '42%', top: '415px', w: 235, rotate: 3, placeholder: 'Photo — board setup for the day', frame: '#7FB6D6', date: "'25 8 22  15:47" },
@@ -1734,8 +1734,8 @@ class Component extends DCLogic {
         bg: '#F9CDD1',
         offset: 0,
         href: '/triceratops',
-        image: '/assets/tri-hero-graphic.png',
-        plate: '/assets/tri-plate.png', layers: ['/assets/tri-layer0.png','/assets/tri-layer1.png','/assets/tri-layer2.png','/assets/tri-layer3.png','/assets/tri-layer4.png'],
+        image: '/assets/tri-hero-graphic.webp',
+        plate: '/assets/tri-plate.webp', layers: ['/assets/tri-layer0.webp','/assets/tri-layer1.webp','/assets/tri-layer2.webp','/assets/tri-layer3.png','/assets/tri-layer4.png'],
       },
       {
         num: '02',
@@ -1746,8 +1746,8 @@ class Component extends DCLogic {
         bg: '#7FB6D6',
         offset: 52,
         href: '/cyclefind',
-        image: '/assets/cf-thumb.png',
-        plate: '/assets/cf-plate.png', layers: ['/assets/cf-layer0.png','/assets/cf-layer1.png','/assets/cf-layer2.png'],
+        image: '/assets/cf-thumb.webp',
+        plate: '/assets/cf-plate.webp', layers: ['/assets/cf-layer0.png','/assets/cf-layer1.png','/assets/cf-layer2.png'],
       },
     ];
   }
