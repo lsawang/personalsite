@@ -144,33 +144,6 @@
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Information architecture &amp; user flows</figcaption>
           </figure>
 
-          <figure style="margin:0;">
-            <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 4px;">A design system built from members&rsquo; own words</p>
-            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:400;">Design system by Nathan Salas</p>
-            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">Participants described the aesthetic during the interviews: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> That gave a brief before deciding anything. The site should be warm and inviting, a space that reflects the inclusive, interest-based nature of the club. The shape language is rounded and soft with no sharp edges to match the club&rsquo;s identity.</p>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(24px,3.4vw,44px); border-top:1px solid #E9E9E6; padding-top:22px;">
-              <div>
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Color palette</p>
-                <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(78px,1fr)); gap:18px 14px;">
-                  <sc-for list="{{ palette }}" as="c" hint-placeholder-count="10">
-                    <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
-                      <span style="width:44px; height:44px; border-radius:50%; background:{{ c.hex }}; box-shadow:inset 0 0 0 1px #12314A26; display:block;"></span>
-                      <span style="font-size:12.5px; font-weight:600; color:#12314A; line-height:1.25;">{{ c.name }}</span>
-                      <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#9AA4AE;">{{ c.hex }}</span>
-                    </div>
-                  </sc-for>
-                </div>
-              </div>
-              <div>
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Typography</p>
-                <img loading="lazy" decoding="async" src="/assets/tri-pulang.png" alt="Pulang" style="display:block; height:40px; width:auto; margin:0 0 6px;" />
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 20px; font-weight:600;">Titles / headers</p>
-                <p style="font-family:'Mulish',sans-serif; font-size:28px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Nunito</p>
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">Subtitles / body / buttons</p>
-              </div>
-            </div>
-          </figure>
-
           <div>
             <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Taking a step back</p>
             <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">My first hi-fi design leaned heavily on animation: hover states on every card, pop-ups, and reveal animations. Put together, they made the page busy and competed with the content. Testers said the pop-up overlays and overuse of animation caused too much user friction. <strong style="font-weight:600; color:#12314A;">I cut it back to hover states only so it gave the page a more &ldquo;premium-feel.&rdquo;</strong></p>
@@ -186,6 +159,34 @@
                 <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Hover effects, pop-ups, and animated reveals across the page. Fun in isolation, but stacked together they lowered the premium feel and pulled attention away from the content people came for. The glass-effect gradient didn&rsquo;t match the surrounding theme, and the rules still carried too much cognitive load.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="designsystem" data-screen-label="04 Design System" ref="{{ rRefDesignsystem }}" style="{{ rDesignsystem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
+        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Design system:</p>
+        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 6px; max-width:44ch;">A design system built from members&rsquo; own words</h2>
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:400;">Design system by Nathan Salas</p>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">Participants described the aesthetic during the interviews: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> That gave a brief before deciding anything. The site should be warm and inviting, a space that reflects the inclusive, interest-based nature of the club. The shape language is rounded and soft with no sharp edges to match the club&rsquo;s identity.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(24px,3.4vw,44px); border-top:1px solid #E9E9E6; padding-top:22px;">
+          <div>
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Color palette</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(78px,1fr)); gap:18px 14px;">
+              <sc-for list="{{ palette }}" as="c" hint-placeholder-count="10">
+                <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
+                  <span style="width:44px; height:44px; border-radius:50%; background:{{ c.hex }}; box-shadow:inset 0 0 0 1px #12314A26; display:block;"></span>
+                  <span style="font-size:12.5px; font-weight:600; color:#12314A; line-height:1.25;">{{ c.name }}</span>
+                  <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#9AA4AE;">{{ c.hex }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Typography</p>
+            <img loading="lazy" decoding="async" src="/assets/tri-pulang.png" alt="Pulang" style="display:block; height:40px; width:auto; margin:0 0 6px;" />
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 20px; font-weight:600;">Titles / headers</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:28px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Nunito</p>
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">Subtitles / body / buttons</p>
           </div>
         </div>
       </section>
@@ -328,7 +329,7 @@ class Component extends DCLogic {
   };
 
   componentDidMount() {
-    this.ids = ['problem','research','decisions','testing','solution','reflection'];
+    this.ids = ['problem','research','decisions','designsystem','testing','solution','reflection'];
     this._tick = () => {
       this._raf = 0;
       let cur = null;
@@ -505,12 +506,13 @@ class Component extends DCLogic {
       rProblem: this.revealStyle('problem'), rRefProblem: this.setRevealRef('problem'),
       rResearch: this.revealStyle('research'), rRefResearch: this.setRevealRef('research'),
       rDecisions: this.revealStyle('decisions'), rRefDecisions: this.setRevealRef('decisions'),
+      rDesignsystem: this.revealStyle('designsystem'), rRefDesignsystem: this.setRevealRef('designsystem'),
       rTesting: this.revealStyle('testing'), rRefTesting: this.setRevealRef('testing'),
       rSolution: this.revealStyle('solution'), rRefSolution: this.setRevealRef('solution'),
       rReflection: this.revealStyle('reflection'), rRefReflection: this.setRevealRef('reflection'),
       nav: [
         ['problem', 'Problem'], ['research', 'Research'],
-        ['decisions', 'Design Decisions'], ['testing', 'Testing'],
+        ['decisions', 'Design Decisions'], ['designsystem', 'Design System'], ['testing', 'Testing'],
         ['solution', 'Final Design'], ['reflection', 'Reflection'],
       ].map(([id, label]) => ({
         href: '#' + id, label,
