@@ -1,0 +1,37 @@
+/* Pinboard "Pick your run" trail map */
+.tm { font-family:'Mulish',sans-serif; color:#12314A; }
+.tm * { box-sizing:border-box; }
+.tm-card { position:relative; border:1px solid #E1E8EE; border-radius:20px; background:linear-gradient(180deg,#FBFDFE 0%,#F1F6FA 100%); box-shadow:0 1px 2px #12314A0A, 0 24px 48px -34px #12314A55; overflow:hidden; }
+.tm-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:16px 22px 0; }
+.tm-eyebrow { font:700 10.5px/1 'Mulish',sans-serif; letter-spacing:0.2em; text-transform:uppercase; color:#8C9BA8; margin:0; }
+.tm-count { font:600 12.5px/1 'Mulish',sans-serif; color:#5C7285; margin:0; font-variant-numeric:tabular-nums; transition:opacity .3s ease; }
+.tm-svg { display:block; width:100%; height:auto; }
+.tm-trail { transition:opacity .5s ease; }
+.tm-glow { fill:none; stroke:#FFFFFF; stroke-linecap:round; stroke-width:11; opacity:.95; transition:opacity .5s ease; }
+.tm-line { fill:none; stroke-linecap:round; stroke-width:2.2; }
+.tm-hit { cursor:pointer; outline:none; }
+.tm-pin { transform-box:fill-box; transform-origin:center; transition:transform .45s cubic-bezier(.2,.7,.2,1); }
+.tm-hit:hover .tm-pin, .tm-hit:focus-visible .tm-pin { transform:scale(1.14); }
+.tm-hit:focus-visible .tm-ring { opacity:1; }
+.tm-ring { fill:none; stroke:#2C6FB5; stroke-width:1.6; opacity:0; transition:opacity .2s ease; }
+.tm-lbl { font:700 12.5px 'Mulish',sans-serif; fill:#12314A; transition:opacity .4s ease; }
+.tm-sub { font:600 10.5px 'Mulish',sans-serif; fill:#8C9BA8; letter-spacing:.04em; }
+.tm-rider { transition:opacity .35s ease; }
+.tm-legend { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:4px 18px 18px; }
+.tm-chip { display:inline-flex; align-items:center; gap:8px; padding:9px 14px; border:1.5px solid #E1E8EE; border-radius:999px; background:#fff; color:#3F5A70; font:700 13px/1 'Mulish',sans-serif; cursor:pointer; transition:background-color .3s ease, border-color .3s ease, color .3s ease, transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.tm-chip:hover { border-color:#BCCBD7; color:#12314A; transform:translateY(-1px); }
+.tm-chip[aria-pressed="true"] { background:#12314A; border-color:#12314A; color:#F4FAFD; box-shadow:0 10px 22px -14px #12314A99; }
+.tm-chip svg { flex:none; }
+.tm-chip small { font:600 11.5px/1 'Mulish',sans-serif; opacity:.6; }
+.tm-chip:focus-visible { outline:2px solid #2C6FB5; outline-offset:2px; }
+.tm-reset { margin-left:auto; border:0; background:transparent; color:#5C7285; font:700 12.5px/1 'Mulish',sans-serif; cursor:pointer; padding:8px 6px; transition:color .25s ease, opacity .3s ease; }
+.tm-reset:hover { color:#12314A; }
+.tm-reset[hidden] { display:none; }
+@media (max-width:700px) {
+  .tm-lbl, .tm-sub { display:none; }
+  .tm-head { padding:14px 16px 0; }
+  .tm-legend { padding:2px 12px 14px; gap:6px; }
+  .tm-chip { padding:8px 12px; font-size:12.5px; }
+  .tm-reset { margin-left:0; }
+}
+@media (prefers-reduced-motion: reduce) { .tm-trail, .tm-glow, .tm-pin, .tm-chip, .tm-rider, .tm-lbl { transition:none; } }
