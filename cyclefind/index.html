@@ -31,6 +31,11 @@
     [data-r="casenav"] > a { margin-bottom: 0 !important; }
     main { padding-left: clamp(20px,4.5vw,64px) !important; }
   }
+  @media (max-width: 560px) {
+    [data-r="split"] { grid-template-columns: 1fr !important; }
+    [data-r="split"] > * + * { border-left: 0 !important; border-top: 1px solid #E4E6E2 !important; padding-left: 0 !important; padding-top: 16px !important; }
+    [data-r="shots"] { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  }
   .raillink { background:none; border:none; padding:0; font:inherit; cursor:pointer; text-align:left; }
 </style>
 </helmet>
@@ -52,13 +57,18 @@
 
     <main style="flex:1 1 min(100%, 520px); min-width:0; max-width:900px; padding:clamp(28px,4vw,52px) clamp(20px,2.4vw,24px) clamp(80px,10vw,130px) 0;">
 
-      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5.5vw,68px);">
-        <p style="font-size:14px; font-weight:500; color:#6B7A88; margin:0 0 18px;">Case Study 02</p>
-        <h1 style="font-size:clamp(28px,3.8vw,42px); font-weight:600; letter-spacing:-0.012em; line-height:1.08; margin:0 0 22px; max-width:22ch;">Making period resources easier to find when it matters most</h1>
-        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(18px,1.9vw,23px); line-height:1.35; letter-spacing:-0.004em; margin:0 0 22px; max-width:44ch;">CycleFind: Finding menstrual products shouldn&rsquo;t be another source of stress.</p>
-        <p style="font-size:16px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(30px,4vw,42px); max-width:68ch;">Designing a menstrual equity app that connects people with nearby free and low-cost products, while giving them a reason to come back.</p>
+      <!-- HERO -->
+      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:14px; font-weight:500; color:#6B7A88; margin:0 0 20px;">Case Study 02</p>
+        <h1 style="font-size:clamp(26px,3vw,36px); font-weight:600; letter-spacing:-0.012em; line-height:1.08; margin:0 0 22px; max-width:30ch;">Designing a private, stigma-free app to find free period products nearby</h1>
+        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(16.5px,1.5vw,18.5px); line-height:1.4; letter-spacing:-0.004em; margin:0 0 22px; max-width:48ch;">CycleFind: a menstrual equity app that pairs a resource map with cycle tracking.</p>
+        <div style="width:100%; max-width:1000px; border:1.5px solid #3A1220; border-radius:12px; overflow:hidden; background:#3A1220; box-shadow:0 22px 44px -26px #12314A44; margin-bottom:clamp(30px,4vw,44px);">
+          <img src="/assets/cf-cover.webp" alt="CycleFind cover: sign up, welcome, and map screens" style="display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#3A1220;" />
+        </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:22px clamp(40px,7vw,80px); padding:22px 0; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; margin-bottom:clamp(30px,4vw,44px);">
+        <p style="font-size:16px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(28px,3.6vw,38px); max-width:68ch;">A menstrual equity app that connects people with nearby free and low-cost products, and gives them a reason to come back. This was an individual project, so <strong style="font-weight:600; color:#12314A;">I owned it end to end, from research through two rounds of usability testing</strong>.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:22px clamp(24px,4vw,44px); padding:22px 0; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; margin-bottom:clamp(30px,4vw,44px);">
           <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
             <div>
               <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 8px; font-weight:600;">{{ d.label }}</p>
@@ -67,86 +77,87 @@
           </sc-for>
         </div>
 
-        <div style="width:100%; max-width:1000px; border:1.5px solid #3A1220; border-radius:10px; overflow:hidden; background:#3A1220; box-shadow:0 22px 44px -26px #12314A44;">
-          <img src="/assets/cf-cover.webp" alt="CycleFind cover: sign up, welcome, and map screens" style="display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#3A1220;" />
+        <!-- At a glance -->
+        <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:clamp(20px,3vw,28px);">
+          <p class="mono" style="font-size:13px; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 16px;">At a glance:</p>
+          <div data-r="split" style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px clamp(18px,2.6vw,28px);">
+            <sc-for list="{{ glance }}" as="g" hint-placeholder-count="3">
+              <div style="{{ g.style }}">
+                <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ g.title }}</p>
+                <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;">{{ g.body }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:16px clamp(18px,2.6vw,28px); border-top:1px solid #E9E9E6; margin-top:clamp(18px,2.6vw,24px); padding-top:clamp(18px,2.6vw,24px);">
+            <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+              <div>
+                <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#7A1E3A; margin:0 0 8px;">{{ s.value }}</p>
+                <p style="font-size:14px; line-height:1.5; color:#3F5A70; margin:0;">{{ s.label }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-size:13px; line-height:1.55; color:#6B7A88; margin:16px 0 0; max-width:74ch;">Individual project over 10 weeks. <button class="raillink" onClick="{{ jumpTesting }}" style="color:#7A1E3A; font-weight:600; text-decoration:underline; font-size:13px;">See the testing results</button></p>
         </div>
       </section>
 
-      <section id="problem" data-screen-label="02 Problem" ref="{{ rRefProblem }}" style="{{ rProblem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">The problem:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Period products are basic necessities. <span style="color:#7A1E3A;">Access to them isn&rsquo;t.</span></h2>
-        <p style="font-size:15px; line-height:1.6; color:#5C7285; margin:0 0 20px; max-width:68ch;"><strong style="font-weight:600; color:#12314A;">Period poverty</strong> affects people who can't consistently afford menstrual products, but the problem isn't limited to cost. Even when free products are available through campuses, shelters, health centers, and community organizations, people still have to figure out where they are, whether they&rsquo;re actually in stock, and how to access them.</p>
-        <p style="font-size:15px; line-height:1.6; color:#5C7285; margin:0 0 clamp(26px,3.4vw,34px); max-width:68ch;">My research pointed to another issue that was harder to design around: <strong style="font-weight:600; color:#12314A;">stigma</strong>. Someone looking for a pad shouldn't have to announce that they need financial help, create an account, or arrive somewhere only to discover that the products are gone or not there.</p>
+      <!-- PROBLEM -->
+      <section id="problem" data-screen-label="01 Problem" ref="{{ rRefProblem }}" style="{{ rProblem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Problem:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Period products are basic necessities. <span style="color:#7A1E3A;">Access to them isn&rsquo;t.</span></h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 14px; max-width:68ch;"><strong style="font-weight:600; color:#12314A;">Period poverty</strong> affects people who can&rsquo;t consistently afford menstrual products, and cost isn&rsquo;t the only barrier. Even when campuses, shelters, and health centers offer free products, people still have to find them, check they&rsquo;re in stock, and figure out how to get them.</p>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,34px); max-width:68ch;">Research also pointed to <strong style="font-weight:600; color:#12314A;">stigma</strong>. Someone looking for a pad shouldn&rsquo;t have to announce they need financial help, create an account, or arrive to find the shelf empty.</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(24px,4vw,56px); border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; padding:clamp(24px,3.2vw,34px) 0; margin:0 0 clamp(30px,4vw,44px);">
           <div>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">Globally</p>
-            <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">62.5%</p>
+            <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">62.5%</p>
             <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:62.5%; background:#7A1E3A;"></span></div>
-            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px;">of the world&rsquo;s menstruating population <strong style="font-weight:600; color:#12314A;">(500 million out of 800 million people)</strong> experiences period poverty globally.</p>
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px;">of the world&rsquo;s menstruating population <strong style="font-weight:600; color:#12314A;">(500 million of 800 million people)</strong> experiences period poverty.</p>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">National Library of Medicine &middot; Nov 2023</p>
           </div>
           <div>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">United States</p>
-            <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">40%</p>
+            <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">40%</p>
             <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:40%; background:#7A1E3A;"></span></div>
-            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px;"><strong style="font-weight:600; color:#12314A;">(2 in 5)</strong> of people who menstruate in the United States struggle to purchase or access period products due to a lack of income.</p>
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px;"><strong style="font-weight:600; color:#12314A;">(2 in 5)</strong> people who menstruate in the US struggle to buy or access period products because of lack of income.</p>
             <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">Alliance for Period Supplies</p>
           </div>
         </div>
         <blockquote style="margin:0; padding:0;">
-          <p style="font-family:'Playfair Display',serif; font-size:clamp(19px,2.2vw,24px); font-weight:600; letter-spacing:-0.004em; line-height:1.28; margin:0; max-width:40ch;">How might I make finding menstrual resources feel as <span style="color:#7A1E3A;">private, reliable, and ordinary as looking up any other place on a map?</span></p>
+          <p style="font-family:'Playfair Display',serif; font-size:clamp(17.5px,1.7vw,20px); font-weight:600; letter-spacing:-0.004em; line-height:1.28; margin:0; max-width:40ch;">How might I make finding menstrual resources feel as <span style="color:#7A1E3A;">private, reliable, and ordinary as looking up any other place on a map?</span></p>
         </blockquote>
       </section>
 
-      <section id="research" data-screen-label="03 Research" ref="{{ rRefResearch }}" style="{{ rResearch }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Research:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">The resource isn't useful if people don't trust it.</h2>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,38px); max-width:68ch;">My <strong style="font-weight:600; color:#12314A;">primary audience</strong> became younger users roughly <strong style="font-weight:600; color:#12314A;">14-26</strong>, mostly high school and college students with <strong style="font-weight:600; color:#12314A;">limited income</strong>, this includes people with limited mobile data and/or housing insecurity.</p>
+      <!-- RESEARCH -->
+      <section id="research" data-screen-label="02 Research" ref="{{ rRefResearch }}" style="{{ rResearch }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Research:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">The resource isn&rsquo;t useful if people don&rsquo;t trust it.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">My <strong style="font-weight:600; color:#12314A;">primary audience</strong> became people roughly <strong style="font-weight:600; color:#12314A;">14&ndash;26</strong>, mostly high school and college students with <strong style="font-weight:600; color:#12314A;">limited income</strong>, including people with limited mobile data or unstable housing.</p>
 
-        <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:clamp(28px,3.6vw,38px);">
           <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="2">
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
-              <span style="font-family:'Playfair Display',serif; font-size:17px; color:#7A1E3A; font-weight:500; padding-top:2px;">{{ t.n }}</span>
-              <div>
-                <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ t.title }}</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:78ch;">{{ t.pre }}<strong style="font-weight:600; color:#12314A;">{{ t.bold }}</strong>{{ t.post }}</p>
-              </div>
+            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#7A1E3A;">{{ t.n }}</span>
+              <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; line-height:1.25; margin:8px 0 8px;">{{ t.title }}</p>
+              <p style="font-size:14px; line-height:1.6; color:#3F5A70; margin:0;">{{ t.pre }}<strong style="font-weight:600; color:#12314A;">{{ t.bold }}</strong>{{ t.post }}</p>
             </div>
           </sc-for>
         </div>
 
-        <div style="padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6;">
-          <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 14px; font-weight:600;">The principle that came out of it</p>
-          <p style="font-family:'Playfair Display',serif; font-size:clamp(19px,2.2vw,24px); font-weight:600; letter-spacing:-0.008em; line-height:1.2; margin:0; max-width:40ch;">Make asking for help feel like <span style="color:#7A1E3A;">finding information</span>.</p>
+        <div style="border-left:3px solid #7A1E3A; padding:4px 0 4px 18px;">
+          <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">The principle that came out of it</p>
+          <p style="font-family:'Playfair Display',serif; font-size:17.5px; font-weight:600; letter-spacing:-0.004em; line-height:1.3; color:#12314A; margin:0; max-width:40ch;">Make asking for help feel like <span style="color:#7A1E3A;">finding information</span>.</p>
         </div>
       </section>
 
-      <section id="decisions" data-screen-label="04 Design Decisions" ref="{{ rRefDecisions }}" style="{{ rDecisions }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Design decisions:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Finding products should feel like finding a coffee shop.</h2>
+      <!-- DESIGN DECISIONS -->
+      <section id="decisions" data-screen-label="03 Design Decisions" ref="{{ rRefDecisions }}" style="{{ rDecisions }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Design decisions:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 22px; max-width:44ch;">Finding products should feel like finding a coffee shop.</h2>
 
-        <figure style="margin:0 0 clamp(34px,4.4vw,50px);">
-          <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Flow 01: Finding a resource</p>
-          <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 14px; max-width:68ch;">The <strong style="font-weight:600; color:#12314A;">primary flow</strong> needed to get someone from opening the app to finding a usable resource.</p>
-          <span style="display:inline-flex; align-items:center; gap:9px; padding:8px 15px 8px 11px; border:1.5px solid #E9CFD6; background:#FBF2F4; border-radius:100px; color:#7A1E3A; font-size:13.5px; font-weight:700;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A1E3A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="17" y2="12"></line><polyline points="13,8 17,12 13,16"></polyline></svg>
-            Little friction
-          </span>
-        </figure>
-
-        <figure style="margin:0 0 clamp(34px,4.4vw,50px);">
-          <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Flow 02: Cycle tracking</p>
-          <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 14px; max-width:68ch;">The concept of cycle tracking helped build a bridge <strong style="font-weight:600; color:#12314A;">between planning and accessing</strong> the needed resources.</p>
-          <span style="display:inline-flex; align-items:center; gap:9px; padding:8px 15px 8px 11px; border:1.5px solid #E9CFD6; background:#FBF2F4; border-radius:100px; color:#7A1E3A; font-size:13.5px; font-weight:700;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A1E3A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="2.6"></circle></svg>
-            All in one place
-          </span>
-        </figure>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; align-items:start; margin:0 0 clamp(22px,3vw,30px);">
           <figure style="margin:0;">
             <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#3D3D3D;">
-              <img loading="lazy" decoding="async" src="/assets/cf-lofi-resource.png" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
+              <img loading="lazy" decoding="async" src="/assets/cf-lofi-resource.webp" alt="Low-fidelity wireframes: find nearby resources, map view, location details, end screen" style="display:block; width:100%; height:clamp(150px,18vw,220px); object-fit:contain; background:#3D3D3D;" />
             </div>
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Lo-fi: finding a resource</figcaption>
           </figure>
@@ -157,13 +168,34 @@
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Lo-fi: cycle tracking</figcaption>
           </figure>
         </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin:0;">
+          <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+            <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Flow 01: Finding a resource</p>
+            <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0 0 14px;">The <strong style="font-weight:600; color:#12314A;">primary flow</strong> gets someone from opening the app to a usable resource with as few steps as possible.</p>
+            <span style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px 7px 10px; border:1.5px solid #E9CFD6; background:#FBF2F4; border-radius:100px; color:#7A1E3A; font-size:13px; font-weight:700;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A1E3A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="17" y2="12"></line><polyline points="13,8 17,12 13,16"></polyline></svg>
+              Little friction
+            </span>
+          </div>
+          <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+            <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Flow 02: Cycle tracking</p>
+            <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0 0 14px;">Cycle tracking builds a bridge <strong style="font-weight:600; color:#12314A;">between planning and accessing</strong> products, so the app is useful before an emergency.</p>
+            <span style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px 7px 10px; border:1.5px solid #E9CFD6; background:#FBF2F4; border-radius:100px; color:#7A1E3A; font-size:13px; font-weight:700;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A1E3A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="2.6"></circle></svg>
+              All in one place
+            </span>
+          </div>
+        </div>
+
       </section>
 
-      <section id="visual" data-screen-label="05 Design System" ref="{{ rRefVisual }}" style="{{ rVisual }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Design system:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Health-related didn't have to mean clinical.</h2>
+      <!-- DESIGN SYSTEM -->
+      <section id="visual" data-screen-label="04 Design System" ref="{{ rRefVisual }}" style="{{ rVisual }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Design system:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Health-related didn&rsquo;t have to mean clinical.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">Instead of a sparse clinical palette, I leaned into red burgundy, maroon, and dusty rose for a <strong style="font-weight:600; color:#12314A;">warm, recognizable identity</strong>. Creme and toast backgrounds keep resource information readable and easy on the eyes.</p>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(24px,3.4vw,44px); border-top:1px solid #E9E9E6; padding-top:22px; margin-bottom:clamp(26px,3.4vw,38px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(24px,3.4vw,44px); border-top:1px solid #E9E9E6; padding-top:22px;">
           <div>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Color palette</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(78px,1fr)); gap:18px 14px;">
@@ -171,117 +203,82 @@
                 <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
                   <span style="width:44px; height:44px; border-radius:50%; background:{{ c.hex }}; box-shadow:inset 0 0 0 1px #12314A26; display:block;"></span>
                   <span style="font-size:12.5px; font-weight:600; color:#12314A; line-height:1.25;">{{ c.name }}</span>
-                  <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#9AA4AE;">{{ c.hex }}</span>
+                  <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#6B7A88;">{{ c.hex }}</span>
                 </div>
               </sc-for>
             </div>
           </div>
           <div>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Typography</p>
-            <p style="font-family:'Playfair Display',serif; font-size:34px; margin:0 0 6px; color:#7A1E3A; line-height:1;">Fraunces</p>
+            <p style="font-family:'Playfair Display',serif; font-size:26px; margin:0 0 6px; color:#7A1E3A; line-height:1;">Fraunces</p>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 20px; font-weight:600;">Expressive / display</p>
-            <p style="font-size:28px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Plus Jakarta Sans</p>
+            <p style="font-size:21px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Plus Jakarta Sans</p>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">UI / body</p>
           </div>
         </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:0 0 clamp(24px,3vw,32px);">
-          <div style="background:#F1F7F1; border:1.5px solid #CFE3D4; border-radius:12px; padding:18px 20px;">
-            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#2F6B4A; margin:0 0 12px; font-weight:600;">&#10003; What I wanted</p>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#12314A; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>Warm</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#12314A; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>Welcoming</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#12314A; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>Recognizable</span></p>
-            </div>
-          </div>
-          <div style="background:#F4F5F3; border:1.5px solid #E4E6E2; border-radius:12px; padding:18px 20px;">
-            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#8A93A0; margin:0 0 12px; font-weight:600;">&#10007; What I avoided</p>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#5C7285; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>Traditional</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#5C7285; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>Clinical</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:9px; font-size:14.5px; color:#5C7285; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>Standard</span></p>
-            </div>
-          </div>
-        </div>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">Instead of making the color palette more simplistic like traditional clinical apps, I leaned more towards red burgundy, maroon and dusty rose to give the interface a <strong style="font-weight:600; color:#12314A;">warm, recognizable identity</strong>, while creme and toast backgrounds kept resource information readable and better on the eyes.</p>
       </section>
 
-      <section id="testing" data-screen-label="06 Testing" ref="{{ rRefTesting }}" style="{{ rTesting }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Testing:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Round 1 showed me where people hesitated. Round 2 showed me whether I actually fixed it.</h2>
+      <!-- TESTING -->
+      <section id="testing" data-screen-label="05 Testing" ref="{{ rRefTesting }}" style="{{ rTesting }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Testing:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Round 1 showed me where people hesitated. Round 2 showed me whether I actually fixed it.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">Participants called the app <strong style="font-weight:600; color:#12314A;">straightforward</strong>. The issues were small <strong style="font-weight:600; color:#12314A;">moments of friction</strong>, not navigation failures.</p>
 
-        <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.6vw,30px); max-width:760px; margin:0 0 clamp(32px,4.2vw,48px); align-items:start;">
-          <div>
-            <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; aspect-ratio:9/19.5;">
-              <img loading="lazy" decoding="async" src="/assets/friction-photo.png" alt="Onboarding step: upload a just-for-you picture" style="display:block; width:100%; height:100%; object-fit:cover; object-position:top;" />
-            </div>
-            <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:10px 0 0; font-weight:700;">Profile picture</p>
-          </div>
-          <div>
-            <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; position:relative; aspect-ratio:9/19.5;">
-              <img loading="lazy" decoding="async" src="/assets/friction-placement-after.png" alt="After: select your area" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1AfterOpacity }}; transition:opacity 0.25s ease;" />
-              <img loading="lazy" decoding="async" src="/assets/friction-placement.png" alt="Before: select a placement" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba1BeforeOpacity }}; transition:opacity 0.25s ease;" />
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin:10px 0 0;">
-              <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:700;">Select your area</p>
-              <span style="display:inline-flex; padding:2px; border:1.5px solid #12314A; border-radius:100px; background:#FFFFFF;">
-                <button class="raillink mono" onClick="{{ ba1Before }}" style="font-size:12px; letter-spacing:0; font-weight:700; padding:5px 9px; border-radius:100px; cursor:pointer; background:{{ ba1BeforeBg }}; color:{{ ba1BeforeFg }}; transition:background 0.2s ease, color 0.2s ease;">Before</button>
-                <button class="raillink mono" onClick="{{ ba1After }}" style="font-size:12px; letter-spacing:0; font-weight:700; padding:5px 9px; border-radius:100px; cursor:pointer; background:{{ ba1AfterBg }}; color:{{ ba1AfterFg }}; transition:background 0.2s ease, color 0.2s ease;">After</button>
-              </span>
-            </div>
-          </div>
-          <div>
-            <div style="border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#FFFFFF; position:relative; aspect-ratio:9/19.5;">
-              <img loading="lazy" decoding="async" src="/assets/test-after-cycle.png" alt="After: revised My cycle screen" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2AfterOpacity }}; transition:opacity 0.25s ease;" />
-              <img loading="lazy" decoding="async" src="/assets/v1-05-cycle.png" alt="Before: My cycle screen, version 1" style="display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:{{ ba2BeforeOpacity }}; transition:opacity 0.25s ease;" />
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin:10px 0 0;">
-              <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:700;">Log today</p>
-              <span style="display:inline-flex; padding:2px; border:1.5px solid #12314A; border-radius:100px; background:#FFFFFF;">
-                <button class="raillink mono" onClick="{{ ba2Before }}" style="font-size:12px; letter-spacing:0; font-weight:700; padding:5px 9px; border-radius:100px; cursor:pointer; background:{{ ba2BeforeBg }}; color:{{ ba2BeforeFg }}; transition:background 0.2s ease, color 0.2s ease;">Before</button>
-                <button class="raillink mono" onClick="{{ ba2After }}" style="font-size:12px; letter-spacing:0; font-weight:700; padding:5px 9px; border-radius:100px; cursor:pointer; background:{{ ba2AfterBg }}; color:{{ ba2AfterFg }}; transition:background 0.2s ease, color 0.2s ease;">After</button>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div style="display:flex; flex-direction:column; margin-bottom:clamp(30px,4vw,44px);">
-          <sc-for list="{{ findings }}" as="f" hint-placeholder-count="2">
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:6px clamp(20px,3vw,34px); padding:20px 0; border-top:1px solid #E9E9E6;">
-              <span style="font-family:'Playfair Display',serif; font-size:17px; color:#7A1E3A; font-weight:500; padding-top:2px;">{{ f.n }}</span>
+        <div style="background:#F7F8F6; border:1.5px solid #E4E6E2; border-radius:14px; padding:clamp(16px,2.6vw,26px); margin:0 0 clamp(32px,4.2vw,46px);">
+          <p style="font-family:'Playfair Display',serif; font-size:17.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 clamp(18px,2.6vw,24px);">What changed after round 1</p>
+          <div style="display:flex; flex-direction:column; gap:clamp(26px,3.4vw,36px);">
+            <sc-for list="{{ compare }}" as="cmp" hint-placeholder-count="2">
               <div>
-                <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ f.title }}</p>
-                <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 14px; max-width:76ch;">{{ f.detail }}</p>
-                <div style="background:#FBF2F4; border:1.5px solid #E9CFD6; border-radius:10px; padding:14px 18px; max-width:76ch;">
-                  <p class="mono" style="font-size:13px; letter-spacing:0; color:#7A1E3A; margin:0 0 6px; font-weight:600;">What I changed</p>
-                  <p style="font-size:15px; line-height:1.6; color:#12314A; margin:0; font-weight:600;">{{ f.change }}</p>
+                <p style="font-size:15px; font-weight:700; color:#12314A; margin:0 0 12px;"><span class="mono" style="color:#7A1E3A; margin-right:8px;">{{ cmp.n }}</span>{{ cmp.title }}</p>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,220px)); gap:16px clamp(16px,2.4vw,28px); align-items:start;">
+                  <sc-for list="{{ cmp.sides }}" as="side" hint-placeholder-count="2">
+                    <figure style="margin:0;">
+                      <span style="display:inline-block; padding:5px 11px; border-radius:999px; background:{{ side.tagBg }}; color:{{ side.tagFg }}; font-size:12px; font-weight:700; line-height:1; margin:0 0 10px;">{{ side.tag }}</span>
+                      <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF; aspect-ratio:9/19.5;">
+                        <img loading="lazy" decoding="async" src="{{ side.src }}" alt="{{ side.alt }}" style="display:block; width:100%; height:100%; object-fit:cover; object-position:top;" />
+                      </div>
+                      <p style="font-size:14px; line-height:1.5; color:#3F5A70; margin:10px 0 0;">{{ side.note }}</p>
+                    </figure>
+                  </sc-for>
                 </div>
               </div>
-            </div>
-          </sc-for>
+            </sc-for>
+          </div>
         </div>
 
-        <div style="max-width:440px; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; padding:clamp(24px,3.2vw,34px) 0; margin:0 0 clamp(26px,3.4vw,36px);">
-          <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">Round 2 testers</p>
-          <p ref="{{ countUp }}" style="font-size:30px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">100%</p>
-          <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:100%; background:#7A1E3A;"></span></div>
-          <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0;">of female testers stated they would <strong style="font-weight:600; color:#12314A;">use this product/app.</strong></p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(20px,3vw,40px); align-items:start; border-top:1px solid #E9E9E6; padding-top:clamp(22px,3vw,30px);">
+          <div>
+            <p class="mono" style="font-size:13px; letter-spacing:0; color:#9AA4AE; margin:0 0 10px; font-weight:600;">Round 2 testers</p>
+            <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#12314A; margin:0 0 10px;">100%</p>
+            <div style="height:6px; border-radius:100px; background:#EDE4E7; overflow:hidden; margin:0 0 14px;"><span style="display:block; height:100%; width:100%; background:#7A1E3A;"></span></div>
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0;">of female testers said they would <strong style="font-weight:600; color:#12314A;">use this app.</strong></p>
+          </div>
+          <div style="border-left:3px solid #7A1E3A; padding:4px 0 4px 18px;">
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">What improved in round 2</p>
+            <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px;">
+              <sc-for list="{{ round2 }}" as="x" hint-placeholder-count="4"><li style="font-size:14.5px; line-height:1.55; color:#3F5A70;">{{ x }}</li></sc-for>
+            </ul>
+          </div>
         </div>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">Participants consistently described the app as <strong style="font-weight:600; color:#12314A;">straightforward,</strong> and the issues were small <strong style="font-weight:600; color:#12314A;">moments of friction</strong> rather than navigation failures. In the second round the Log Today action was easier to find, onboarding felt more natural, spacing felt less cramped, and the language was clearer. All the features were praised and most said they would <strong style="font-weight:600; color:#12314A;">actually use the app.</strong></p>
       </section>
 
-      <section id="showcase" data-screen-label="07 Final Design" ref="{{ rRefShowcase }}" style="{{ rShowcase }} scroll-margin-top:32px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Final design:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">CycleFind became more than the idea I started with.</h2>
+      <!-- FINAL DESIGN -->
+      <section id="showcase" data-screen-label="06 Final Design" ref="{{ rRefShowcase }}" style="{{ rShowcase }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Final design:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">CycleFind became more than the idea I started with.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(24px,3.2vw,34px); max-width:68ch;">Four features, each built around one need. Scroll inside each phone to step through the flow.</p>
 
         <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(26px,3.4vw,44px); align-items:start; max-width:620px;">
           <sc-for list="{{ showcase }}" as="s" hint-placeholder-count="4">
             <div>
               <div style="max-width:238px; width:100%; border:9px solid #1A1A1E; border-radius:32px; overflow:hidden; background:#F6F1F2; box-shadow:0 22px 44px -24px #12314A99; margin-bottom:18px;">
-                <sc-if value="{{ s.vid }}" hint-placeholder-val="{{ false }}"><div style="position:relative; background:#1A1A1E;">
-                  <sc-if value="{{ s.img }}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{ s.img }}" alt="{{ s.eyebrow }} screen" style="width:100%; aspect-ratio:9/19.5; object-fit:cover; display:block;" /></sc-if>
-                  <video src="{{ s.vid }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:2; opacity:0; transition:opacity 0.4s ease;"></video>
-                  <button type="button" ref="{{ playBtn }}" aria-label="Play video" style="position:absolute; inset:0; z-index:3; width:100%; height:100%; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;"><span style="display:flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:50%; background:#FFFFFFEB; box-shadow:0 8px 24px -8px #12314A66, 0 0 0 1px #12314A14; color:#7A1E3A; opacity:1; transform:scale(1); transition:opacity 0.2s ease, transform 0.2s ease;"><svg data-i="play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:block; margin-left:8%;"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><svg data-i="pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:none;"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg></span></button>
+                <sc-if value="{{ s.screens }}" hint-placeholder-val="{{ false }}"><div style="position:relative; aspect-ratio:9/19.5; background:#1A1A1E;">
+                  <div ref="{{ scroller }}" tabindex="0" role="region" aria-label="{{ s.scrollLabel }}" style="position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#7A1E3A66 transparent; display:flex; flex-direction:column; gap:6px; background:#1A1A1E;">
+                    <sc-for list="{{ s.screens }}" as="sc" hint-placeholder-count="2">
+                      <img loading="lazy" decoding="async" src="{{ sc.src }}" alt="{{ sc.alt }}" draggable="false" style="display:block; width:100%; height:auto; aspect-ratio:460/996; flex:0 0 auto; user-select:none;" />
+                    </sc-for>
+                  </div>
+                  <span data-hint="1" aria-hidden="true" style="position:absolute; left:50%; bottom:12px; transform:translateX(-50%); z-index:2; display:flex; align-items:center; gap:6px; padding:7px 12px; border-radius:99px; background:#12314Ad9; color:#F4FAFD; font-size:11.5px; font-weight:700; line-height:1; white-space:nowrap; pointer-events:none; box-shadow:0 10px 22px -10px #000A; transition:opacity 0.4s ease;"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1.5v9M2.5 7 6 10.5 9.5 7"/></svg>Interactive: scroll to explore</span>
                 </div></sc-if>
                 <sc-if value="{{ s.shot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ s.slotId }}" src="{{ s.shot }}" placeholder="{{ s.placeholder }}" shape="rect" style="width:100%; aspect-ratio:9/19.5; display:block;"></image-slot></sc-if>
               </div>
@@ -294,18 +291,17 @@
         </div>
       </section>
 
-      <section id="outcome" data-screen-label="08 Reflection" ref="{{ rRefOutcome }}" style="{{ rOutcome }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Reflection:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Designing for dignity changed a lot of small decisions.</h2>
-
-        <p class="mono" style="font-size:14px; letter-spacing:0; color:#9AA4AE; margin:clamp(32px,4.2vw,48px) 0 14px; font-weight:600;">What I took away</p>
+      <!-- REFLECTION -->
+      <section id="outcome" data-screen-label="07 Reflection" ref="{{ rRefOutcome }}" style="{{ rOutcome }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#7A1E3A; margin:0 0 12px;">Reflection:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Designing for dignity changed a lot of small decisions.</h2>
         <div style="display:flex; flex-direction:column; border-top:1px solid #E9E9E6;">
           <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:10px clamp(24px,4vw,54px); padding:clamp(24px,3vw,32px) 0; border-bottom:1px solid #E9E9E6;">
-              <span class="mono" style="font-size:11.5px; letter-spacing:0.14em; color:#7A1E3A; padding-top:6px;">{{ l.n }}</span>
+            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
+              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#7A1E3A; padding-top:5px;">{{ l.n }}</span>
               <div>
-                <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:600; letter-spacing:-0.004em; margin:0 0 10px;">{{ l.title }}</p>
-                <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">{{ l.body }} <strong style="font-weight:600; color:#12314A;">{{ l.emphasis }}</strong></p>
+                <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ l.title }}</p>
+                <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">{{ l.body }} <strong style="font-weight:600; color:#12314A;">{{ l.emphasis }}</strong></p>
               </div>
             </div>
           </sc-for>
@@ -314,6 +310,7 @@
 
       <div style="max-width:860px; padding-top:clamp(22px,3vw,32px); border-top:1px solid #E9E9E6; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
         <a href="/" style="background:#12314A; color:#F4FAFD; padding:14px 22px; border:2px solid #12314A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">&larr; Back to portfolio</a>
+        <a href="/triceratops" style="background:#7A1E3A; color:#FDF2F5; padding:14px 22px; border:2px solid #7A1E3A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">&larr; Previous case study</a>
         <a href="mailto:lsawang@ucdavis.edu" style="border:2px solid #12314A; color:#12314A; padding:14px 22px; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; white-space:nowrap; display:inline-flex; align-items:center;">Get in touch</a>
       </div>
 
@@ -323,7 +320,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
-  state = { active: 'problem', progress: 0, showAfter1: false, showAfter2: false, revealed: {} };
+  state = { active: 'problem', showAfter1: false, showAfter2: false, revealed: {} };
 
   _revealRefs = {};
   _revealObserver = new IntersectionObserver((entries) => {
@@ -334,11 +331,11 @@ class Component extends DCLogic {
         this._revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.08 });
 
   revealStyle(key) {
     const on = this.state.revealed[key];
-    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(28px)') + '; transition:opacity 0.8s ease, transform 0.8s ease;';
+    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(14px)') + '; transition:opacity 0.45s cubic-bezier(0.2,0.7,0.2,1), transform 0.5s cubic-bezier(0.2,0.7,0.2,1);';
   }
 
   setRevealRef(key) {
@@ -394,7 +391,6 @@ class Component extends DCLogic {
   componentWillUnmount() {
     if (this._revealObserver) this._revealObserver.disconnect();
     if (this._raf) cancelAnimationFrame(this._raf);
-    if (this._videoObserver) this._videoObserver.disconnect();
     if (this._pauseObserver) this._pauseObserver.disconnect();
     (this._settles || []).forEach(clearTimeout);
     if (this._ro) this._ro.disconnect();
@@ -422,28 +418,32 @@ class Component extends DCLogic {
     ];
   }
 
+  // Animates a number up when scrolled into view. Only edits the existing text node's value
+  // (never replaces nodes), so the page renderer stays in control of the DOM.
   _countUp = (el) => {
     if (!el || el._counted) return;
+    const node = el.firstChild;
+    if (!node || node.nodeType !== 3) return;
     el._counted = true;
-    const raw = (el.textContent || '').trim();
+    const raw = (node.nodeValue || '').trim();
     const m = raw.match(/^([0-9][0-9,.]*)(.*)$/);
     if (!m) return;
     const suffix = m[2];
     const target = parseFloat(m[1].replace(/,/g, ''));
-    if (!isFinite(target)) return;
+    if (!isFinite(target) || target === 0) return;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const decimals = (m[1].split('.')[1] || '').length;
     const fmt = (v) => v.toFixed(decimals) + suffix;
-    const bar = el.nextElementSibling && el.nextElementSibling.firstElementChild;
+    const sib = el.nextElementSibling;
+    const bar = sib && sib.firstElementChild && sib.firstElementChild.tagName === 'SPAN' ? sib.firstElementChild : null;
     const barTarget = bar ? bar.style.width : null;
-    el.textContent = fmt(0);
+    node.nodeValue = fmt(0);
     if (bar) { bar.style.width = '0%'; bar.style.transition = 'width 1.1s cubic-bezier(0.215,0.61,0.355,1)'; }
     const run = () => {
-      const dur = 1100;
-      const t0 = performance.now();
+      const dur = 1100, t0 = performance.now();
       const tick = (t) => {
         const k = Math.min(1, (t - t0) / dur);
-        el.textContent = k < 1 ? fmt(target * (1 - Math.pow(1 - k, 3))) : raw;
+        node.nodeValue = k < 1 ? fmt(target * (1 - Math.pow(1 - k, 3))) : raw;
         if (k < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -455,19 +455,13 @@ class Component extends DCLogic {
     io.observe(el);
   };
 
-  _videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach(({ target: el, isIntersecting }) => {
-      if (isIntersecting) { const p = el.play(); if (p && p.catch) p.catch(() => {}); }
-      else el.pause();
-    });
-  }, { rootMargin: '150px 0px', threshold: 0.01 });
-
-  _autoPlayVideo = (el) => {
+  // Fades the "scroll to explore" pill once someone scrolls a phone. Only changes the pill's opacity.
+  _scroller = (el) => {
     if (!el || el._wired) return;
     el._wired = true;
-    el.muted = true; el.defaultMuted = true;
-    el.addEventListener('playing', () => { el.style.opacity = '1'; }, { once: true });
-    this._videoObserver.observe(el);
+    const hint = el.parentNode && el.parentNode.querySelector('[data-hint]');
+    if (!hint) return;
+    el.addEventListener('scroll', () => { if (el.scrollTop > 16) hint.style.opacity = '0'; }, { passive: true });
   };
 
   _pauseObserver = new IntersectionObserver((entries) => {
@@ -497,8 +491,6 @@ class Component extends DCLogic {
     btn.addEventListener('mouseleave', () => { hover = false; sync(); });
     v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
     v.addEventListener('loadedmetadata', () => { if (v.currentTime === 0 && v.paused) v.currentTime = 0.001; });
-    const end = parseFloat(v.dataset.end);
-    if (end) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } });
     btn.addEventListener('click', () => {
       if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
     });
@@ -508,8 +500,9 @@ class Component extends DCLogic {
 
   renderVals() {
     const active = this.state.active;
+    const a1 = this.state.showAfter1, a2 = this.state.showAfter2;
+    const divider = 'border-left:1px solid #E4E6E2; padding-left:clamp(18px,2.6vw,28px);';
     return {
-      progressPct: (this.state.progress * 100).toFixed(2) + '%',
       railItems: this.getRail().map(([id, label]) => ({
         label,
         style: {
@@ -519,6 +512,7 @@ class Component extends DCLogic {
         },
         onClick: () => this.jump(id),
       })),
+      jumpTesting: () => this.jump('testing'),
       rProblem: this.revealStyle('problem'), rRefProblem: this.setRevealRef('problem'),
       rResearch: this.revealStyle('research'), rRefResearch: this.setRevealRef('research'),
       rDecisions: this.revealStyle('decisions'), rRefDecisions: this.setRevealRef('decisions'),
@@ -526,42 +520,47 @@ class Component extends DCLogic {
       rTesting: this.revealStyle('testing'), rRefTesting: this.setRevealRef('testing'),
       rShowcase: this.revealStyle('showcase'), rRefShowcase: this.setRevealRef('showcase'),
       rOutcome: this.revealStyle('outcome'), rRefOutcome: this.setRevealRef('outcome'),
-      ba1AfterOpacity: this.state.showAfter1 ? 1 : 0,
-      ba1BeforeOpacity: this.state.showAfter1 ? 0 : 1,
-      ba1BeforeBg: this.state.showAfter1 ? 'transparent' : '#12314A',
-      ba1BeforeFg: this.state.showAfter1 ? '#7C8894' : '#F4FAFD',
-      ba1AfterBg: this.state.showAfter1 ? '#7A1E3A' : 'transparent',
-      ba1AfterFg: this.state.showAfter1 ? '#FDF2F5' : '#7C8894',
+      ba1AfterOpacity: a1 ? 1 : 0,
+      ba1BeforeOpacity: a1 ? 0 : 1,
+      ba1BeforePressed: a1 ? 'false' : 'true',
+      ba1AfterPressed: a1 ? 'true' : 'false',
+      ba1BeforeBg: a1 ? 'transparent' : '#12314A',
+      ba1BeforeFg: a1 ? '#7C8894' : '#F4FAFD',
+      ba1AfterBg: a1 ? '#7A1E3A' : 'transparent',
+      ba1AfterFg: a1 ? '#FDF2F5' : '#7C8894',
       ba1Before: () => this.setState({ showAfter1: false }),
       ba1After: () => this.setState({ showAfter1: true }),
-      ba2AfterOpacity: this.state.showAfter2 ? 1 : 0,
-      ba2BeforeOpacity: this.state.showAfter2 ? 0 : 1,
-      ba2BeforeBg: this.state.showAfter2 ? 'transparent' : '#12314A',
-      ba2BeforeFg: this.state.showAfter2 ? '#7C8894' : '#F4FAFD',
-      ba2AfterBg: this.state.showAfter2 ? '#7A1E3A' : 'transparent',
-      ba2AfterFg: this.state.showAfter2 ? '#FDF2F5' : '#7C8894',
+      ba2AfterOpacity: a2 ? 1 : 0,
+      ba2BeforeOpacity: a2 ? 0 : 1,
+      ba2BeforePressed: a2 ? 'false' : 'true',
+      ba2AfterPressed: a2 ? 'true' : 'false',
+      ba2BeforeBg: a2 ? 'transparent' : '#12314A',
+      ba2BeforeFg: a2 ? '#7C8894' : '#F4FAFD',
+      ba2AfterBg: a2 ? '#7A1E3A' : 'transparent',
+      ba2AfterFg: a2 ? '#FDF2F5' : '#7C8894',
       ba2Before: () => this.setState({ showAfter2: false }),
       ba2After: () => this.setState({ showAfter2: true }),
-      autoPlayVideo: this._autoPlayVideo,
       playBtn: this._playBtn,
       countUp: this._countUp,
       details: [
-        { label: 'Role', value: 'Product / UI/UX Designer' },
+        { label: 'My Role', value: 'Product / UI/UX Designer' },
         { label: 'Timeline', value: '10 weeks' },
         { label: 'Team', value: 'Individual project' },
         { label: 'Tools', value: 'Figma, FigJam' },
       ],
-      takeaways: [
-        { n: '01', title: 'Privacy matters', pre: '', bold: 'Stigma', post: ' can stop someone from looking for help even when resources exist, so anonymous browsing became a very important core feature rather than a setting.' },
-        { n: '02', title: "A resource finder alone isn't enough", pre: 'If CycleFind only solved one emergency, there was little reason to open it again. Cycle tracking and Learn create ', bold: 'ongoing value.', post: '' },
+      glance: [
+        { title: 'The problem', body: 'Free period products exist, but people struggle to find them, know if they’re in stock, and ask without stigma.' },
+        { title: 'What I did', body: 'Defined the audience, designed two core flows and a warm visual system, and ran two rounds of usability testing.' },
+        { title: 'The result', body: 'A mobile app that pairs a private resource map with cycle tracking, so people have a reason to come back.' },
+      ].map((g, i) => ({ ...g, style: i ? divider : '' })),
+      stats: [
+        { value: '100%', label: 'of female round 2 testers said they would use the app' },
+        { value: '2', label: 'rounds of usability testing' },
+        { value: '4', label: 'core features: map, resource details, tracker, and learn' },
       ],
-      flow1: ['Open app', 'Sign up', 'Browse anonymously', 'Location or ZIP', 'Nearby resources', 'Filter', 'Check availability', 'Directions'].map((label, i, a) => ({ label, sep: i === a.length - 1 ? '' : '\u2192' })),
-      flow2: ['Home', 'Tracker', 'Log cycle', 'Products needed?', 'View resources', 'Learn content'].map((label, i, a) => ({ label, sep: i === a.length - 1 ? '' : '\u2192' })),
-      areas: [
-        { name: 'Map', body: 'Find nearby menstrual resources.' },
-        { name: 'Tracker', body: 'Log and understand cycle information.' },
-        { name: 'Learn', body: 'Browse menstrual health information.' },
-        { name: 'Resource details', body: 'Check availability before traveling.' },
+      takeaways: [
+        { n: '01', title: 'Privacy matters', pre: '', bold: 'Stigma', post: ' can stop someone from looking for help even when resources exist, so anonymous browsing became a core feature, not a setting.' },
+        { n: '02', title: 'A resource finder alone isn’t enough', pre: 'If CycleFind only solved one emergency, there was little reason to open it again. Cycle tracking and Learn create ', bold: 'ongoing value.', post: '' },
       ],
       palette: [
         { name: 'Red Burgundy', hex: '#5E0C13' },
@@ -574,21 +573,48 @@ class Component extends DCLogic {
         { name: 'Creme', hex: '#EFE7DC' },
         { name: 'Off White', hex: '#FDF8F6' },
       ],
-      components: ['Buttons', 'Map pins', 'Supply-status chips', 'Cards', 'Navigation', 'Cycle indicators', 'Article cards'].map((label) => ({ label })),
+      compare: [
+        { n: '01', title: 'The main action was easy to miss', sides: [
+          { tag: 'Before', tagBg: '#F6E9E9', tagFg: '#8A3B3B', src: '/assets/v1-05-cycle.webp', alt: 'Before: My cycle screen, version 1', note: 'Some testers didn\u2019t notice \u201cLog today,\u201d while secondary actions drew more attention.' },
+          { tag: 'After', tagBg: '#E8F3EC', tagFg: '#1F5238', src: '/assets/test-after-cycle.png', alt: 'After: revised My cycle screen', note: 'Log Today became the most prominent action, and everything else became visually secondary.' },
+        ] },
+        { n: '02', title: 'Onboarding asked for more than it needed', sides: [
+          { tag: 'Before \u00b7 removed', tagBg: '#F6E9E9', tagFg: '#8A3B3B', src: '/assets/friction-photo.webp', alt: 'Removed onboarding step: upload a just-for-you picture', note: 'A profile-picture step added work and undercut anonymity, so I removed it.' },
+          { tag: 'Before', tagBg: '#F6E9E9', tagFg: '#8A3B3B', src: '/assets/friction-placement.webp', alt: 'Before: select a placement', note: '\u201cSelect a placement\u201d was unclear.' },
+          { tag: 'After', tagBg: '#E8F3EC', tagFg: '#1F5238', src: '/assets/friction-placement-after.webp', alt: 'After: select your area', note: 'Renamed \u201cSelect your area,\u201d so the question is clear at a glance.' },
+        ] },
+      ],
       findings: [
-        { n: '01', title: "The important CTA wasn't the most noticeable one.", detail: 'Some participants didn\u2019t immediately notice \u201cLog today.\u201d Meanwhile, secondary actions drew too much attention.', change: 'I increased the visual prominence of the Log Today CTA and made everything else visually secondary.' },
-        { n: '02', title: "I was asking for information I didn't actually need.", detail: 'The profile-picture step created additional onboarding work without helping someone accomplish the main tasks and also got rid of the anonymity point.', change: 'I removed this step in the onboarding process.' },
+        { label: 'Some testers didn’t notice “Log today,” while secondary actions drew too much attention.', change: 'Made Log Today the most prominent action and everything else visually secondary.' },
+        { label: 'The profile-picture step added onboarding work without helping anyone finish a task, and it undercut anonymity.', change: 'Removed the step from onboarding.' },
       ],
+      round2: [
+        'Log Today was easier to find',
+        'Onboarding felt more natural',
+        'Spacing felt less cramped',
+        'The language was clearer',
+      ],
+      scroller: this._scroller,
       showcase: [
-        { vid: '/assets/cf-map.mp4', slotId: 'cf-rec-map', img: '/assets/final-01-map.png', eyebrow: 'Map', body: 'Nearby locations show where products are available, and the availability helps prevent unnecessary trips.', placeholder: 'Screen recording: Map' },
-        { vid: '/assets/cf-detail.mp4', slotId: 'cf-rec-detail', img: '/assets/final-02-detail.png', eyebrow: 'Resource details', body: 'Resource information helps users see the things someone needs before leaving: availability, hours, location, and directions.', placeholder: 'Screen recording: Resource details' },
-        { vid: '/assets/cf-tracker.mp4', slotId: 'cf-rec-tracker', img: '/assets/final-03-log.png', eyebrow: 'Tracker', body: 'Cycle tracking gives CycleFind value outside urgent situations, so users can track and anticipate when they may need products.', placeholder: 'Screen recording: Tracker' },
-        { shot: '/uploads/IMG_4667.webp', slotId: 'cf-rec-learn', img: '/assets/final-04-learn.png', eyebrow: 'Learn', body: 'Helps give informational resources in a safe place rather than having to search online externally.', placeholder: 'Screen recording: Learn' },
-      ],
+        { eyebrow: 'Map', body: 'Nearby locations show where products are available, and live availability helps prevent wasted trips.', screens: [
+          { src: '/assets/cf-screens/map-1.webp', alt: 'Home: find resources near you, with a zip code field' },
+          { src: '/assets/cf-screens/map-2.webp', alt: 'Map with three nearby locations and their stock status' },
+        ] },
+        { eyebrow: 'Resource details', body: 'Everything someone needs before leaving: availability, hours, location, and directions.', screens: [
+          { src: '/assets/cf-screens/detail-1.webp', alt: 'Location details for Davis Food Co-op: products, hours, and Get Directions' },
+          { src: '/assets/cf-screens/detail-2.webp', alt: 'Confirmation that directions were sent, with a restock alert toggle' },
+        ] },
+        { eyebrow: 'Tracker', body: 'Cycle tracking gives CycleFind value outside urgent moments, so users can anticipate when they’ll need products.', screens: [
+          { src: '/assets/cf-screens/tracker-1.webp', alt: 'My cycle: calendar, current phase, streak, and badges' },
+          { src: '/assets/cf-screens/tracker-2.webp', alt: 'Log today: flow, symptoms, and notes' },
+          { src: '/assets/cf-screens/tracker-3.webp', alt: 'Badge earned for a 7-day streak, with suggested articles' },
+        ] },
+        { shot: '/uploads/IMG_4667.webp', slotId: 'cf-rec-learn', eyebrow: 'Learn', body: 'Trustworthy menstrual health information in a safe place, instead of searching online.', placeholder: 'Screen recording: Learn' },
+      ].map((s) => ({ ...s, scrollLabel: s.eyebrow + ' screens, scrollable' })),
       lessons: [
-        { n: '01', title: 'Trust starts before the map.', body: 'I thought trust would come from accurate resource information. Onboarding, anonymous access, language, and hierarchy', emphasis: 'all shape whether someone feels comfortable using the app.' },
-        { n: '02', title: 'Language is part of the interface.', body: '\u201cFind support\u201d and \u201cget free pads\u201d may technically lead to the same resource, but they don\u2019t make someone feel the same way.', emphasis: 'Wording choices matter and keep the user coming back.' },
-        { n: '03', title: 'Potential further idea.', body: 'Another possibility if I wanted to develop this app furthermore, would be to', emphasis: 'collaborate with maps apps to better enhance user experience.' },
+        { n: '01', title: 'Trust starts before the map.', body: 'I assumed trust would come from accurate resource information. In practice, onboarding, anonymous access, language, and hierarchy', emphasis: 'all shape whether someone feels comfortable using the app.' },
+        { n: '02', title: 'Language is part of the interface.', body: '“Find support” and “get free pads” can lead to the same resource, but they don’t feel the same.', emphasis: 'Wording choices matter and keep people coming back.' },
+        { n: '03', title: 'Where I’d take it next.', body: 'If I kept developing CycleFind, I would', emphasis: 'explore working with map apps to bring these resources to where people already search.' },
       ],
     };
   }

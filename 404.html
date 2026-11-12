@@ -221,7 +221,7 @@
       <div style="max-width:62ch;">
         <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; font-weight:500; letter-spacing:0; color:#2C6FB5; margin: 0 0 14px;">About me</p>
         <h1 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.01em; font-size:clamp(28px,3.8vw,42px); line-height:1.1; margin: 0 0 32px; max-width:32ch;">I&rsquo;m always at a constant phase of learning and growing.</h1>
-        <p style="font-size:15.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 20px;">My name is <strong style="font-weight:600; color:#12314A;">Lisa Wang</strong> and I am a <strong style="font-weight:600; color:#12314A;">product designer and marketer</strong> attending the University of California, Davis. I&rsquo;m an undergraduate with a bachelor&rsquo;s in <strong style="font-weight:600; color:#12314A;">Communication &amp; Design</strong>. I focus on building <strong style="font-weight:600; color:#12314A;">meaningful, usable products</strong> with intention behind every step I make, bridging user experience and brand marketing that actually land.</p>
+        <p style="font-size:15.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 20px;">My name is <strong style="font-weight:600; color:#12314A;">Lisa Wang</strong> and I am a <strong style="font-weight:600; color:#12314A;">product designer and UX researcher</strong> attending the University of California, Davis. I&rsquo;m an undergraduate with a bachelor&rsquo;s in <strong style="font-weight:600; color:#12314A;">Communication &amp; Design</strong>. I focus on building <strong style="font-weight:600; color:#12314A;">meaningful, usable products</strong> with intention behind every step I make, bridging user experience and brand marketing that actually land.</p>
         <p style="font-size:15.5px; line-height:1.75; color:#3F5A70; text-wrap:pretty; margin: 0 0 40px;">I primarily work with clients and projects that challenge me to create <strong style="font-weight:600; color:#12314A;">real-world solutions</strong> as that&rsquo;s something I&rsquo;ve been doing since an early age.</p>
 
         <h2 style="font-family:'Playfair Display',serif; font-weight:600; letter-spacing:-0.008em; font-size:clamp(20px,2.2vw,25px); line-height:1.25; margin: 0 0 20px; max-width:40ch;">Started in entrepreneurship, later discovered my passion.</h2>
@@ -267,7 +267,7 @@
         </a>
         </sc-if>
         <sc-if value="{{ e.static }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; color:inherit;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:6px 12px; padding:18px 4px; border-bottom:1px solid #E9ECEF; color:inherit; transition:background 0.2s ease, padding-left 0.2s ease;" style-hover="background:#F7F9FA; padding-left:12px;">
           <sc-if value="{{ e.logoSrc }}" hint-placeholder-val="{{ false }}">
             <img loading="lazy" decoding="async" src="{{ e.logoSrc }}" alt="{{ e.org }} logo" style="width:26px; height:26px; flex:none; display:block; border-radius:6px; object-fit:contain;" />
           </sc-if>
@@ -751,7 +751,7 @@
     <div style="position:relative; z-index:1; max-width:1120px; margin: 0 auto;">
       <h1 data-r="heroname" style="margin:0; font-weight:inherit;">
         <span style="display:flex; align-items:center; justify-content:center; gap:14px; margin:0 0 clamp(10px,1.2vw,16px); font-family:'Playfair Display',serif; font-style:italic; font-weight:500; font-size:clamp(20px,1.9vw,26px); line-height:1.1; letter-spacing:0; color:#2C6FB5;">Lisa Wang</span>
-        <span style="display:block; margin:0 auto; font-family:'Mulish',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; color:#12314A; text-wrap:balance;">Product Designer <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:500; letter-spacing:-0.02em; color:#2C6FB5;">&amp;</span> Marketer</span>
+        <span style="display:block; margin:0 auto; font-family:'Mulish',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; color:#12314A; text-wrap:balance;">Product Designer <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:500; letter-spacing:-0.02em; color:#2C6FB5;">&amp;</span> UX Researcher</span>
       </h1>
       <p style="font-size:clamp(17px,1.75vw,22px); line-height:1.5; letter-spacing:-0.01em; margin: clamp(20px,2.4vw,30px) auto 0; max-width:62ch; color:#12314A; text-wrap:balance;">Focused on building <strong style="font-weight:800; color:#1B4A80;">meaningful, usable products</strong> that create <strong style="font-weight:800; color:#1B4A80;">connection</strong>, build <strong style="font-weight:800; color:#1B4A80;">trust</strong>, and help users and clients <strong style="font-weight:800; color:#1B4A80;">reach their goals</strong>.</p>
       <p data-r="credtext" style="margin: clamp(24px,2.8vw,36px) auto 0; max-width:80ch; font-size:clamp(15px,1.5vw,18px); line-height:1.5; color:#0E3D56; font-weight:600;">Design &amp; Communication @ UC Davis | Prev. @ Foundverse</p>
@@ -838,7 +838,7 @@
 
       <div style="padding: 24px clamp(24px,4vw,32px);">
         <span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">TITLE</span>
-        <p style="margin: 0 0 20px; font-family:'Mulish',sans-serif; font-size:clamp(21px,2.5vw,30px); font-weight:700; color:#12314A; line-height:1.1;">Product Designer &amp; Marketer</p>
+        <p style="margin: 0 0 20px; font-family:'Mulish',sans-serif; font-size:clamp(21px,2.5vw,30px); font-weight:700; color:#12314A; line-height:1.1;">Product Designer &amp; UX Researcher</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap: 16px 24px; margin-bottom: 20px;">
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">FLIGHT</span><span style="font-family:'Mulish',sans-serif; font-size:22px; font-weight:700; color:#12314A;">NH 5</span></div>
           <div><span style="display:block; font-size:10.5px; letter-spacing:0.14em; color:#2F7A94; font-weight:700; margin-bottom: 4px;">FROM</span><span style="font-size:14px; color:#12314A; font-weight:600;">SAN FRANCISCO / SFO</span></div>
@@ -1001,7 +1001,7 @@ class Component extends DCLogic {
         this.setState((s) => ({ revealed: { ...s.revealed, [key]: false } }));
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.08 });
 
   goToEmail() { window.location.href = 'mailto:lsawang@ucdavis.edu'; }
 
@@ -1322,7 +1322,7 @@ class Component extends DCLogic {
   expList() {
     return [
       { role: 'Product Designer', current: true, org: 'AggieWorks', logoSrc: 'assets/logo-aggieworks.webp', logoId: 'logo-aggieworks', logoPlaceholder: 'Logo' },
-      { role: 'Cohort Product Designer', current: true, org: 'Design Interactive', logoSrc: 'assets/logo-design-interactive.webp', logoId: 'logo-design-interactive', logoPlaceholder: 'Logo' },
+      { role: 'UX/UI Designer', current: true, org: 'Design Interactive', logoSrc: 'assets/logo-design-interactive.webp', logoId: 'logo-design-interactive', logoPlaceholder: 'Logo' },
       { role: 'Social Media & Graphics Lead', org: '#include', logoId: 'logo-include', logoPlaceholder: 'Logo' },
       { role: 'Marketing & UX/UI Intern', org: 'Foundverse', anchor: 'content-foundverse', logoId: 'logo-foundverse', logoPlaceholder: 'Logo' },
       { role: 'Dance & Social Media Director', org: 'EKHO Dance', anchor: 'content-ekho', logoId: 'logo-ekho', logoPlaceholder: 'Logo' },
@@ -1344,7 +1344,6 @@ class Component extends DCLogic {
     const specs = [
       { x: 200, amp: 80, turns: 5, delay: 0, dur: 24 },
       { x: 1200, amp: 100, turns: 4, delay: -8, dur: 27 },
-      { x: 700, amp: 60, turns: 6, delay: -15, dur: 25 },
       { x: 1380, amp: 70, turns: 5, delay: -20, dur: 29 },
     ];
     const carve = (x0, amp, turns, off) => {
@@ -1490,7 +1489,7 @@ class Component extends DCLogic {
 
   revealStyle(key) {
     const on = this.state.revealed[key];
-    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(28px)') + '; transition:opacity 0.8s ease, transform 0.8s ease;';
+    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(14px)') + '; transition:opacity 0.45s cubic-bezier(0.2,0.7,0.2,1), transform 0.5s cubic-bezier(0.2,0.7,0.2,1);';
   }
 
   renderVals() {
@@ -1503,9 +1502,9 @@ class Component extends DCLogic {
       backgroundImage: src ? `url("${src}")` : 'none',
     });
     const ease = 'cubic-bezier(0.16,1,0.3,1)';
-    const projects = this.getProjects().map((p, i) => {
+    const projects = this.getProjects().filter((p) => !p.hidden).map((p, i) => {
       const on = !!this.state.revealed['card' + i];
-      const d = (i % 2) * 0.12;
+      const d = (i % 2) * 0.06;
       return { ...p,
         onClick: () => (p.href ? (window.location.href = p.href) : this.openProject(p)),
         onEnter: () => this.setState({ cursorCase: true, caseHover: i }),
@@ -1516,13 +1515,13 @@ class Component extends DCLogic {
         cardRef: this.setRef('card' + i),
         plateStyle: { ...imgStyle(p.plate || p.image, p.fit), position: 'relative' },
         layerEls: (p.layers || []).map((src, j) => {
-          const dl = d + 0.1 + j * 0.13;
+          const dl = d + 0.04 + j * 0.07;
           return React.createElement('div', { key: src, 'aria-hidden': true, style: {
             ...imgStyle(src, p.fit), position: 'absolute', inset: 0,
             opacity: on ? 1 : 0,
             transform: on ? 'translate3d(0,0,0) scale(1)' : 'translate3d(0,38px,0) scale(0.94)',
             filter: on ? 'drop-shadow(0px 14px 22px rgba(0,0,0,0.22))' : 'drop-shadow(0px 4px 8px rgba(0,0,0,0))',
-            transition: `opacity 0.9s ${ease} ${dl}s, transform 1.4s ${ease} ${dl}s, filter 1s ${ease} ${dl}s`,
+            transition: `opacity 0.5s ${ease} ${dl}s, transform 0.8s ${ease} ${dl}s, filter 0.6s ${ease} ${dl}s`,
             willChange: 'transform, opacity, filter',
           } });
         }),
@@ -1808,27 +1807,42 @@ class Component extends DCLogic {
     return [
       {
         num: '01',
-        title: 'Simplifying the rules flow so students can start hunting faster',
-        desc: 'Triceratops, a home base for a UC Davis club that loves dinos',
+        title: 'Turning a club\u2019s scattered Discord rules into one scannable web page',
+        desc: 'Triceratops: UX research and Rules page design for a UC Davis club\u2019s first website, launched to 790 visits in week one.',
         hoverLabel: 'View Case Study',
-        tags: ['Client Work', 'Web Design', 'Development'],
+        tags: ['Client Work', 'Web Design', '0-1 Product Launch'],
         bg: '#F9CDD1',
         offset: 0,
         href: '/triceratops',
         image: 'assets/tri-hero-graphic.webp',
-        plate: 'assets/tri-plate.webp', layers: ['assets/tri-layer0.webp','assets/tri-layer1.webp','assets/tri-layer2.webp','assets/tri-layer3.png','assets/tri-layer4.png'],
+        plate: 'assets/tri-plate.webp', layers: ['assets/tri-layer0.webp','assets/tri-layer1.webp','assets/tri-layer2.webp','assets/tri-layer3.webp','assets/tri-layer4.webp'],
       },
       {
         num: '02',
-        title: 'Making period resources easier to find when it matters most',
-        desc: "Finding menstrual products shouldn't be another source of stress.",
+        title: 'Designing a private, stigma-free app to find free period products nearby',
+        desc: 'CycleFind: solo mobile app design, pairing a resource map with cycle tracking and refined over two rounds of testing.',
         hoverLabel: 'View Case Study',
         tags: ['Social Impact', 'UX / UI', 'Mobile App'],
         bg: '#7FB6D6',
         offset: 52,
         href: '/cyclefind',
         image: 'assets/cf-thumb.webp',
-        plate: 'assets/cf-plate.webp', layers: ['assets/cf-layer0.png','assets/cf-layer1.png','assets/cf-layer2.png'],
+        plate: 'assets/cf-plate.webp', layers: ['assets/cf-layer0.webp','assets/cf-layer1.webp','assets/cf-layer2.webp'],
+      },
+      {
+        num: '03',
+        title: 'Building a place for musicians to connect and be heard',
+        desc: 'Harmonize: helping student musicians find honest feedback and real collaborators, not just likes.',
+        status: 'In progress',
+        hidden: true,
+        hoverLabel: 'View Case Study',
+        tags: ['UX Research', 'UX / UI', 'Mobile App'],
+        bg: '#FFFFFF',
+        fit: 'contain',
+        offset: 16,
+        href: '/harmonize',
+        image: 'assets/harmonize-thumb.webp',
+        plate: 'assets/hz-plate.png', layers: ['assets/hz-layer0.webp','assets/hz-layer1.webp','assets/hz-layer2.webp'],
       },
     ];
   }

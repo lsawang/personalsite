@@ -32,6 +32,10 @@
     [data-r="casenav"] > a { margin-bottom: 0 !important; }
     main { padding-left: clamp(20px,4.5vw,64px) !important; }
   }
+  @media (max-width: 560px) {
+    [data-r="split"] { grid-template-columns: 1fr !important; }
+    [data-r="split"] > * + * { border-left: 0 !important; border-top: 1px solid #E4E6E2 !important; padding-left: 0 !important; padding-top: 16px !important; }
+  }
 </style>
 </helmet>
 <div style="font-family:'Mulish',sans-serif; background:#FCFCFB; color:#12314A; min-height:100vh;">
@@ -43,7 +47,7 @@
         <span style="position:absolute; left:0; top:4px; bottom:4px; width:2px; background:#E9E9E6;"></span>
         <span data-progress="y" style="position:absolute; left:0; top:4px; bottom:4px; width:2px; background:#2F6B4A; transform-origin:50% 0; transform:scaleY(0); will-change:transform;"></span>
         <nav style="display:flex; flex-direction:column; gap:11px;">
-        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="9">
           <a href="{{ n.href }}" onClick="{{ n.onClick }}" style="{{ n.style }}" style-hover="color:#12314A;">{{ n.label }}</a>
         </sc-for>
       </nav>
@@ -52,11 +56,17 @@
 
     <main style="flex:1 1 min(100%, 520px); min-width:0; max-width:900px; padding:clamp(28px,4vw,52px) clamp(20px,2.4vw,24px) clamp(80px,10vw,130px) 0;">
 
-      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5.5vw,68px);">
+      <!-- HERO -->
+      <section id="hero" data-screen-label="00 Hero" style="scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
         <p style="font-size:14px; font-weight:500; color:#6B7A88; margin:0 0 20px;">Case Study 01</p>
-        <h1 style="font-size:clamp(28px,3.8vw,42px); font-weight:600; letter-spacing:-0.012em; line-height:1.08; max-width:22ch; margin:0 0 22px;">Simplifying the rules flow so students can start hunting faster</h1>
-        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(18px,1.9vw,23px); line-height:1.35; letter-spacing:-0.004em; margin:0 0 22px; max-width:44ch;">Designing the first front door for a club that lived in a group chat.</p>
-        <p style="font-size:16px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(30px,4vw,42px); max-width:68ch;">Triceratops is a UC Davis club that crochets dinosaurs and hides them across campus for students to find and claim, while club members help make the hunts happen. It ran entirely on Discord and Instagram, so anyone outside the server had no way in, and the club wanted a site where anyone can access information so no one is left confused. My team of 6 Jared Martinez (Team Lead), Nathan Salas, Lyanna Nguyen, Leif Caratiquit, Anqi Su, and I <strong style="font-weight:600; color:#12314A;">designed and built its first public website</strong>.</p>
+        <h1 style="font-size:clamp(26px,3vw,36px); font-weight:600; letter-spacing:-0.012em; line-height:1.08; max-width:30ch; margin:0 0 18px;">Turning a club&rsquo;s scattered Discord rules into one scannable web page</h1>
+        <p style="font-family:'Playfair Display',serif; font-weight:600; font-size:clamp(16.5px,1.5vw,18.5px); line-height:1.4; letter-spacing:-0.004em; margin:0 0 22px; max-width:48ch;">Triceratops: UX research and Rules page design for a UC Davis club&rsquo;s first website.</p>
+        <div style="width:100%; max-width:1000px; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#EFEFEC; box-shadow:0 22px 44px -26px #12314A44; margin-bottom:clamp(30px,4vw,44px);">
+          <img src="/assets/tri-hero-graphic.webp" alt="Triceratops website shown across desktop and mobile screens" style="display:block; width:100%; height:auto; aspect-ratio:1426/896; object-fit:cover; background:#EFEFEC;" />
+        </div>
+
+        <p style="font-size:16px; line-height:1.6; color:#3F5A70; margin:0 0 24px; max-width:68ch;">Triceratops is a UC Davis club that crochets dinosaurs and hides them across campus for students to find. It ran entirely on Discord and Instagram, so newcomers had no clear way in. My team of 6 designed and built the club&rsquo;s first public website, and <strong style="font-weight:600; color:#12314A;">I owned the Rules page from research through code</strong>.</p>
+        <a href="https://davistriceratops.com/rules" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#2F6B4A; color:#F1F7F1; padding:12px 18px; border:2px solid #2F6B4A; border-radius:6px; text-decoration:none; font-weight:600; font-size:14.5px; line-height:1; margin:0 0 clamp(28px,3.6vw,38px);">View the live Rules page <span aria-hidden="true">↗</span></a>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:22px clamp(24px,4vw,44px); padding:22px 0; border-top:1px solid #E9E9E6; border-bottom:1px solid #E9E9E6; margin-bottom:clamp(30px,4vw,44px);">
           <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
@@ -67,53 +77,87 @@
           </sc-for>
         </div>
 
-        <div style="width:100%; max-width:1000px; border:1.5px solid #E4E6E2; border-radius:10px; overflow:hidden; background:#EFEFEC; box-shadow:0 22px 44px -26px #12314A44;">
-          <img src="/assets/tri-hero-graphic.webp" alt="Triceratops website shown across desktop and mobile screens" style="display:block; width:100%; height:auto; aspect-ratio:1426/896; object-fit:cover; background:#EFEFEC;" />
+        <!-- At a glance -->
+        <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:clamp(20px,3vw,28px);">
+          <p class="mono" style="font-size:13px; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 16px;">At a glance:</p>
+          <div data-r="split" style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px clamp(18px,2.6vw,28px);">
+            <sc-for list="{{ glance }}" as="g" hint-placeholder-count="3">
+              <div style="{{ g.style }}">
+                <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ g.title }}</p>
+                <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;">{{ g.body }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:16px clamp(18px,2.6vw,28px); border-top:1px solid #E9E9E6; margin-top:clamp(18px,2.6vw,24px); padding-top:clamp(18px,2.6vw,24px);">
+            <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+              <div>
+                <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#2F6B4A; margin:0 0 8px;">{{ s.value }}</p>
+                <p style="font-size:14px; line-height:1.5; color:#3F5A70; margin:0;">{{ s.label }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-size:13px; line-height:1.55; color:#6B7A88; margin:16px 0 0; max-width:74ch;">Whole-site results from launch at the UC Davis Involvement Fair, Oct 13, 2026. <a href="#impact" onClick="{{ jumpImpact }}" style="color:#2F6B4A; font-weight:600;">How these were measured</a></p>
         </div>
       </section>
 
-      <section id="problem" data-screen-label="01 Problem" ref="{{ rRefProblem }}" style="{{ rProblem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Problem:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:40ch;">Finding information about Triceratops was complex.</h2>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">Rules live in multiple, scattered Discord channels. The post-claim process is nowhere, and the Instagram-to-Discord handoff is invisible.</p>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">Newcomers also arrived with <strong style="font-weight:600; color:#12314A;">three common misconceptions</strong>: you need to know how to crochet, meetings are mandatory, and it costs money to join.</p>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(28px,3.6vw,40px); max-width:68ch;">My goal and challenge was to condense the rules spread across an entire Discord server into one page a newcomer could <strong style="font-weight:600; color:#12314A;">scan in under a minute</strong>.</p>
-
-        <figure style="margin:0; max-width:820px;">
+      <!-- PROBLEM -->
+      <section id="problem" data-screen-label="01 Problem" ref="{{ rRefProblem }}" style="{{ rProblem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Problem:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:40ch;">Finding information about Triceratops was complex.</h2>
+        <figure style="margin:0 0 clamp(22px,3vw,30px); max-width:820px;">
           <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#1E1F22;">
             <img loading="lazy" decoding="async" src="/assets/tri-discord-rules.webp" alt="The club's rules channel in Discord" style="display:block; width:100%; height:auto;" />
           </div>
-          <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">The rules &amp; general information were only in the Discord</figcaption>
+          <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Before: the rules and general information only lived in Discord</figcaption>
         </figure>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 14px; max-width:68ch;">The rules were scattered across Discord channels. The steps after claiming a dino weren&rsquo;t written down anywhere, and nothing explained how to get from Instagram into the Discord. Newcomers also arrived with <strong style="font-weight:600; color:#12314A;">three common misconceptions</strong>:</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin:0 0 clamp(28px,3.6vw,40px);">
+          <sc-for list="{{ myths }}" as="m" hint-placeholder-count="3">
+            <span style="font-size:13.5px; font-weight:600; color:#1F5238; background:#E8F3EC; border:1px solid #BFD3C6; border-radius:999px; padding:7px 14px;">{{ m }}</span>
+          </sc-for>
+        </div>
+        <blockquote style="margin:0; padding:0;">
+          <p style="font-family:'Playfair Display',serif; font-size:clamp(17.5px,1.7vw,20px); font-weight:600; letter-spacing:-0.004em; line-height:1.28; margin:0; max-width:40ch;">How might I condense the rules from an entire Discord server into <span style="color:#2F6B4A;">one page a newcomer can scan in under a minute?</span></p>
+        </blockquote>
       </section>
 
-      <section id="research" data-screen-label="02 Research" ref="{{ rRefResearch }}" style="{{ rResearch }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Research:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Understanding the club from three perspectives</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0 clamp(24px,4vw,44px); border-top:1px solid #E9E9E6; padding-top:20px; margin-bottom:clamp(32px,4.2vw,48px);">
-          <sc-for list="{{ cohorts }}" as="c" hint-placeholder-count="3">
-            <div style="padding-bottom:16px;">
-              <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">{{ c.title }}</p>
-              <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">{{ c.body }}</p>
-              <sc-if value="{{ c.primary }}" hint-placeholder-val="{{ false }}">
-                <span style="display:inline-block; margin-top:10px; padding:5px 11px; border:1.5px solid #BFD3C6; border-radius:999px; background:#E8F3EC; color:#1F5238; font-size:12px; font-weight:700; letter-spacing:0.01em; line-height:1;">Primary audience</span>
-              </sc-if>
+      <!-- RESEARCH -->
+      <section id="research" data-screen-label="02 Research" ref="{{ rRefResearch }}" style="{{ rResearch }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Research:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 18px; max-width:44ch;">Understanding the club from three perspectives</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:0 0 16px;">
+          <sc-for list="{{ researchStats }}" as="r" hint-placeholder-count="3">
+            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:18px 20px;">
+              <p ref="{{ countUp }}" style="font-size:24px; font-weight:800; letter-spacing:-0.01em; line-height:1; color:#2F6B4A; margin:0 0 6px;">{{ r.value }}</p>
+              <p style="font-size:14px; line-height:1.45; color:#3F5A70; margin:0;">{{ r.label }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(26px,3.4vw,36px); max-width:68ch;">My team surveyed 62 students and interviewed 15. I defined the three audience cohorts, interviewed potential members, and ran a SWOT analysis of competitors. I turned that research into two personas.</p>
+
+        <figure style="margin:0 0 16px;">
+          <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#EDEDED;">
+            <img loading="lazy" decoding="async" src="/assets/tri-personas.webp" alt="Persona board: Kenzie Splits, primary audience, and Caleb Summers, secondary audience" style="display:block; width:100%; height:auto; aspect-ratio:1872/948;" />
+          </div>
+          <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Personas (click to enlarge)</figcaption>
+        </figure>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin:0 0 clamp(32px,4.2vw,46px);">
+          <sc-for list="{{ personas }}" as="pe" hint-placeholder-count="2">
+            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px; border-top:4px solid {{ pe.accent }};">
+              <span style="display:inline-block; padding:5px 11px; border-radius:999px; background:{{ pe.pillBg }}; color:{{ pe.pillFg }}; font-size:12px; font-weight:700; line-height:1; margin:0 0 12px;">{{ pe.tag }}</span>
+              <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 4px;">{{ pe.name }}</p>
+              <p style="font-size:13.5px; line-height:1.5; color:#6B7A88; margin:0 0 12px; font-weight:600;">{{ pe.meta }}</p>
+              <blockquote style="margin:0 0 14px; padding:0 0 0 12px; border-left:3px solid #E4E6E2;"><p style="font-size:14.5px; line-height:1.55; color:#12314A; font-style:italic; margin:0;">&ldquo;{{ pe.quote }}&rdquo;</p></blockquote>
+              <p class="mono" style="font-size:12.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">Needs from the site</p>
+              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:4px;">
+                <sc-for list="{{ pe.needs }}" as="nd" hint-placeholder-count="2"><li style="font-size:14px; line-height:1.5; color:#3F5A70;">{{ nd }}</li></sc-for>
+              </ul>
             </div>
           </sc-for>
         </div>
 
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:600;">Overall Site</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-          <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
-            <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
-              <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A;">{{ i.n }}</span>
-              <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; line-height:1.25; margin:8px 0 8px;">{{ i.title }}</p>
-              <p style="font-size:14px; line-height:1.6; color:#3F5A70; margin:0;">{{ i.body }}</p>
-            </div>
-          </sc-for>
-        </div>
-        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:36px 0 12px; font-weight:600;">Rules Findings</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:600;">Key findings</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:clamp(28px,3.6vw,38px);">
           <sc-for list="{{ rulesInsights }}" as="i" hint-placeholder-count="3">
             <div style="background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
               <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A;">{{ i.n }}</span>
@@ -122,26 +166,32 @@
             </div>
           </sc-for>
         </div>
+        <div style="border-left:3px solid #2F6B4A; padding:4px 0 4px 18px;">
+          <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 6px; font-weight:600;">What this meant for the Rules page</p>
+          <p style="font-size:15px; line-height:1.6; color:#12314A; margin:0; max-width:64ch; font-weight:600;">It had to answer three questions fast: what&rsquo;s allowed, how many dinos I can claim, and what to do once I find one.</p>
+        </div>
       </section>
 
-      <section id="decisions" data-screen-label="03 Design Decisions" ref="{{ rRefDecisions }}" style="{{ rDecisions }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Design decisions:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Skim first, depth underneath</h2>
+      <!-- DESIGN DECISIONS -->
+      <section id="decisions" data-screen-label="03 Design Decisions" ref="{{ rRefDecisions }}" style="{{ rDecisions }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Design decisions:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 22px; max-width:44ch;">Skim first, depth underneath</h2>
 
-        <div style="display:grid; gap:clamp(30px,4vw,44px);">
+        <div style="display:grid; gap:clamp(34px,4.4vw,48px);">
           <figure style="margin:0;">
             <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">One map, two journeys</p>
-            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 10px; max-width:68ch;">Someone should be able to skim what the club is and how a drop works <strong style="font-weight:600; color:#12314A;">at a glance</strong>, then go deeper if they want. The post-claim steps needed to be fully included, so no one leaves the page confused and all of the information stays easy to reference. I mapped the user flow around two journeys:</p>
-            <ul style="margin:0 0 18px; padding-left:20px; display:flex; flex-direction:column; gap:5px;">
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 10px; max-width:68ch;">A newcomer should get the gist <strong style="font-weight:600; color:#12314A;">at a glance</strong>, then go deeper only if they want to. I mapped the page around two journeys:</p>
+            <ul style="margin:0 0 12px; padding-left:20px; display:flex; flex-direction:column; gap:5px;">
               <li style="font-size:15px; line-height:1.6; color:#3F5A70;">Joining for the first time</li>
               <li style="font-size:15px; line-height:1.6; color:#3F5A70;">Claiming a dino you just found</li>
             </ul>
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 18px; max-width:68ch;">The post-claim steps got a section of their own, so nobody leaves the page unsure what to do next.</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;">
               <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
                 <img loading="lazy" decoding="async" src="/assets/tri-ia.webp" alt="Information architecture" style="display:block; width:100%; height:240px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
               </div>
               <div style="border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
-                <img loading="lazy" decoding="async" src="/assets/tri-flows.png" alt="User flow diagram" style="display:block; width:100%; height:240px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
+                <img loading="lazy" decoding="async" src="/assets/tri-flows.webp" alt="User flow diagram" style="display:block; width:100%; height:240px; object-fit:contain; object-position:center; padding:12px; box-sizing:border-box;" />
               </div>
             </div>
             <figcaption class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; font-weight:400;">Information architecture &amp; user flows</figcaption>
@@ -149,28 +199,17 @@
 
           <div>
             <p style="font-family:'Playfair Display',serif; font-size:17px; font-weight:600; letter-spacing:-0.004em; margin:0 0 9px;">Taking a step back</p>
-            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">My first hi-fi design leaned heavily on animation: hover states on every card, pop-ups, and reveal animations. Put together, they made the page busy and competed with the content. Testers said the pop-up overlays and overuse of animation caused too much user friction. <strong style="font-weight:600; color:#12314A;">I cut it back to hover states only so it gave the page a more &ldquo;premium-feel.&rdquo;</strong></p>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
-              <div style="background:#F1F7F1; border-radius:12px; padding:22px 24px; border:1.5px solid #2F6B4A;">
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#2F6B4A; margin:0 0 12px; font-weight:600;">&#10003; Chosen</p>
-                <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Animations where it made sense</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">After the design system was set, I matched my page design to that identity, removed the hover blur, replaced pop-ups with scannable boxes, and used icons and visual weight (bolding) so the rules read easily. I kept the whimsy in illustration, color, and copy, and limited motion to hover states on things you can click. There is such a thing as too much, and restraint is what made the site feel finished.</p>
-              </div>
-              <div style="background:#F4F5F3; border-radius:12px; padding:22px 24px; border:1.5px solid #E4E6E2;">
-                <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9A4A4A; margin:0 0 12px; font-weight:600;">&#10007; Rejected</p>
-                <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 8px;">Animation on everything</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0;">Hover effects, pop-ups, and animated reveals across the page. Fun in isolation, but stacked together they lowered the premium feel and pulled attention away from the content people came for. The glass-effect gradient didn&rsquo;t match the surrounding theme, and the rules still carried too much cognitive load.</p>
-              </div>
-            </div>
+            <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">My first hi-fi leaned heavily on animation. Testers said the pop-ups and motion got in the way, so <strong style="font-weight:600; color:#12314A;">I cut motion back to hover states on clickable items only</strong>, which gave the page a calmer, more premium feel. <a href="#testing" style="color:#2F6B4A; font-weight:600;">See the before and after</a></p>
           </div>
         </div>
       </section>
 
-      <section id="designsystem" data-screen-label="04 Design System" ref="{{ rRefDesignsystem }}" style="{{ rDesignsystem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Design system:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 6px; max-width:44ch;">A design system built from members&rsquo; own words</h2>
+      <!-- DESIGN SYSTEM -->
+      <section id="designsystem" data-screen-label="04 Design System" ref="{{ rRefDesignsystem }}" style="{{ rDesignsystem }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Design system:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 6px; max-width:44ch;">A design system built from members&rsquo; own words</h2>
         <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:400;">Design system by Nathan Salas</p>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 12px; max-width:68ch;">Participants described the aesthetic during the interviews: <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> That gave a brief before deciding anything. The site should be warm and inviting, a space that reflects the inclusive, interest-based nature of the club. The shape language is rounded and soft with no sharp edges to match the club&rsquo;s identity.</p>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">In interviews, members described the club as <strong style="font-weight:600; color:#12314A;">colorful, whimsical, &ldquo;like a crayon box.&rdquo;</strong> That became the brief: warm and inviting, with rounded, soft shapes and no sharp edges. I matched the Rules page to this system once it was set.</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(24px,3.4vw,44px); border-top:1px solid #E9E9E6; padding-top:22px;">
           <div>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Color palette</p>
@@ -179,7 +218,7 @@
                 <div style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
                   <span style="width:44px; height:44px; border-radius:50%; background:{{ c.hex }}; box-shadow:inset 0 0 0 1px #12314A26; display:block;"></span>
                   <span style="font-size:12.5px; font-weight:600; color:#12314A; line-height:1.25;">{{ c.name }}</span>
-                  <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#9AA4AE;">{{ c.hex }}</span>
+                  <span class="mono" style="font-size:10px; letter-spacing:0.04em; color:#6B7A88;">{{ c.hex }}</span>
                 </div>
               </sc-for>
             </div>
@@ -188,71 +227,120 @@
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 18px; font-weight:600;">Typography</p>
             <img loading="lazy" decoding="async" src="/assets/tri-pulang.png" alt="Pulang" style="display:block; height:40px; width:auto; margin:0 0 6px;" />
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 20px; font-weight:600;">Titles / headers</p>
-            <p style="font-family:'Mulish',sans-serif; font-size:28px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Nunito</p>
+            <p style="font-family:'Mulish',sans-serif; font-size:21px; margin:0 0 6px; color:#12314A; font-weight:600; line-height:1;">Nunito</p>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">Subtitles / body / buttons</p>
           </div>
         </div>
       </section>
 
-      <section id="testing" data-screen-label="04 Testing" ref="{{ rRefTesting }}" style="{{ rTesting }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Testing:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Testers found the Rules page. They could not find the part they needed.</h2>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">The first round of usability testing was after the mid-fidelity layout. For my page, testers reached it, but the post-claim steps were buried at the bottom, and that feedback set the tone for my hi-fi.</p>
-        <div style="display:flex; flex-direction:column; margin-bottom:22px;">
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px clamp(20px,3vw,34px); padding:0 0 10px; border-bottom:1px solid #E9E9E6;">
+      <!-- TESTING -->
+      <section id="testing" data-screen-label="05 Testing" ref="{{ rRefTesting }}" style="{{ rTesting }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Testing:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">Testers found the Rules page. They could not find the part they needed.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(24px,3.2vw,32px); max-width:68ch;">I ran two rounds of usability testing. The second round, on my first hi-fi, changed the most: the rules moved out of pop-ups and onto the page.</p>
+
+        <div style="background:#F7F8F6; border:1.5px solid #E4E6E2; border-radius:14px; padding:clamp(16px,2.6vw,26px); margin:0 0 clamp(32px,4.2vw,46px);">
+          <p style="font-family:'Playfair Display',serif; font-size:17.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 4px;">Hi-fi V1 &rarr; V2: what changed after round 2</p>
+          <p style="font-size:14px; line-height:1.55; color:#5C7285; margin:0 0 clamp(18px,2.6vw,24px);">Numbers on each screen match the notes below it.</p>
+          <div style="display:flex; flex-direction:column; gap:clamp(26px,3.4vw,36px);">
+            <sc-for list="{{ compare }}" as="cmp" hint-placeholder-count="2">
+              <div>
+                <p style="font-size:15px; font-weight:700; color:#12314A; margin:0 0 12px;"><span class="mono" style="color:#2F6B4A; margin-right:8px;">{{ cmp.n }}</span>{{ cmp.title }}</p>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px clamp(16px,2.4vw,24px); align-items:start;">
+                  <sc-for list="{{ cmp.sides }}" as="side" hint-placeholder-count="2">
+                    <figure style="margin:0;">
+                      <span style="display:inline-block; padding:5px 11px; border-radius:999px; background:{{ side.tagBg }}; color:{{ side.tagFg }}; font-size:12px; font-weight:700; line-height:1; margin:0 0 10px;">{{ side.tag }}</span>
+                <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF;">
+                  <img loading="lazy" decoding="async" src="{{ side.src }}" alt="{{ side.alt }}" style="display:block; width:100%; height:auto; aspect-ratio:1200/817;" />
+                  <sc-for list="{{ side.pins }}" as="pin" hint-placeholder-count="2">
+                    <span aria-hidden="true" style="position:absolute; left:{{ pin.x }}; top:{{ pin.y }}; transform:translate(-50%,-50%); width:26px; height:26px; border-radius:50%; background:{{ side.pinBg }}; color:#FFFFFF; font-size:13px; font-weight:800; line-height:26px; text-align:center; box-shadow:0 0 0 3px #FFFFFF, 0 6px 14px -4px #12314A88;">{{ pin.n }}</span>
+                  </sc-for>
+                </div>
+                      <ol style="list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:8px;">
+                        <sc-for list="{{ side.notes }}" as="nt" hint-placeholder-count="2">
+                          <li style="display:grid; grid-template-columns:22px 1fr; gap:10px; align-items:start; font-size:14px; line-height:1.5; color:#3F5A70;"><span style="width:22px; height:22px; border-radius:50%; background:{{ side.pinBg }}; color:#FFFFFF; font-size:12px; font-weight:800; line-height:22px; text-align:center;">{{ nt.n }}</span><span>{{ nt.text }}</span></li>
+                        </sc-for>
+                      </ol>
+                    </figure>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 4px; color:#12314A;">Earlier: what mid-fi testing changed</p>
+        <div style="display:flex; flex-direction:column;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px clamp(20px,3vw,34px); padding:12px 0 10px; border-bottom:1px solid #E9E9E6;">
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">What testers hit</p>
             <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0; font-weight:600;">What changed</p>
           </div>
-          <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:22px 0 0; color:#12314A;">After mid-fi user testing</p>
           <sc-for list="{{ changes }}" as="c" hint-placeholder-count="3">
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px clamp(20px,3vw,34px); padding:18px 0; border-bottom:1px solid #E9E9E6;">
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>{{ c.label }}</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>{{ c.change }}</span></p>
-            </div>
-          </sc-for>
-          <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:30px 0 0; color:#12314A;">After hi-fi V1 user testing</p>
-          <sc-for list="{{ changesHi }}" as="c" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px clamp(20px,3vw,34px); padding:18px 0; border-bottom:1px solid #E9E9E6;">
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;">&#10007;</span><span>{{ c.label }}</span></p>
-              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;">&#10003;</span><span>{{ c.change }}</span></p>
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#12314A; margin:0;"><span style="color:#9A4A4A;" aria-hidden="true">&#10007;</span><span>{{ c.label }}</span></p>
+              <p style="display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0;"><span style="color:#2F6B4A;" aria-hidden="true">&#10003;</span><span>{{ c.change }}</span></p>
             </div>
           </sc-for>
         </div>
-        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 clamp(32px,4.2vw,48px); max-width:68ch;">Pop-ups solved the length problem but hid information, so I switched to scannable boxes.</p>
+      </section>
 
-        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:16px;">
-          <span style="font-size:14.5px; font-weight:600; color:{{ beforeColor }};">Before (Hi-fi V1)</span>
-          <button onClick="{{ toggleFidelity }}" aria-label="Toggle before and after" style="width:52px; height:28px; border-radius:100px; border:1.5px solid #C9CFC7; background:{{ knobTrack }}; padding:2px; cursor:pointer; display:inline-flex; align-items:center; justify-content:flex-start; transition:background 0.25s ease;">
-            <span style="width:20px; height:20px; border-radius:50%; background:#FFFFFF; box-shadow:0 1px 3px #12314A44; display:block; transform:translateX({{ knobX }}); transition:transform 0.25s ease;"></span>
-          </button>
-          <span style="font-size:14.5px; font-weight:600; color:{{ afterColor }};">After (Hi-fi V2)</span>
-        </div>
-        <div style="max-width:1000px;">
-          <div>
-            <div style="position:relative; border:1.5px solid #E4E6E2; border-radius:12px; overflow:hidden; background:#FFFFFF; width:100%;">
-              <video src="/assets/tri-hifi-v1.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block; width:100%; height:auto; opacity:{{ beforeOpacity }}; transition:opacity 0.3s ease;"></video>
-              <video src="/assets/tri-hifi-v2.mp4" ref="{{ loopVideo }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute; top:0; left:0; display:block; width:100%; height:auto; opacity:{{ afterOpacity }}; transition:opacity 0.3s ease;"></video>
-            </div>
-            <p class="mono" style="font-size:14px; letter-spacing:0; color:#9AA4AE; margin:12px 0 0; text-align:center; font-weight:600;">{{ fidelityCaption }}</p>
+      <!-- FINAL DESIGN -->
+      <section id="solution" data-screen-label="06 Final Design" ref="{{ rRefSolution }}" style="{{ rSolution }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Final design:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">One page, built to be scanned on any screen</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 20px; max-width:68ch;">Conduct rules, hunt rules, flash sales, post-claim steps, then an FAQ that hands off to #rules-help, in the order a new hunter needs them.</p>
+        <div data-proto-mount="rules" style="min-height:360px;"></div>
+      </section>
+
+      <!-- IMPACT -->
+      <section id="impact" data-screen-label="07 Impact" ref="{{ rRefImpact }}" style="{{ rImpact }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Impact:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">The site launched at the UC Davis Involvement Fair.</h2>
+        <p style="font-size:15px; line-height:1.6; color:#3F5A70; margin:0 0 22px; max-width:68ch;">The site went live on Oct 13, 2026. The fair drove most of that week&rsquo;s attention, so I split the numbers into what the site did and what the launch did around it.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin:0 0 clamp(28px,3.6vw,40px);">
+          <div style="background:#F1F7F1; border:1.5px solid #CFE3D4; border-radius:12px; padding:20px 22px;">
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#2F6B4A; margin:0 0 12px; font-weight:600;">What the website did</p>
+            <sc-for list="{{ siteResults }}" as="r" hint-placeholder-count="3">
+              <div style="padding:12px 0; border-top:1px solid #CFE3D4;">
+                <p style="font-size:16.5px; font-weight:800; color:#12314A; line-height:1.1; margin:0 0 4px;">{{ r.value }}</p>
+                <p style="font-size:14px; line-height:1.55; color:#3F5A70; margin:0;">{{ r.label }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#F4F5F3; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+            <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#6B7A88; margin:0 0 12px; font-weight:600;">What the fair and launch did</p>
+            <sc-for list="{{ launchResults }}" as="r" hint-placeholder-count="3">
+              <div style="padding:12px 0; border-top:1px solid #E4E6E2;">
+                <p style="font-size:16.5px; font-weight:800; color:#12314A; line-height:1.1; margin:0 0 4px;">{{ r.value }}</p>
+                <p style="font-size:14px; line-height:1.55; color:#3F5A70; margin:0;">{{ r.label }}</p>
+              </div>
+            </sc-for>
           </div>
         </div>
+
+        <p class="mono" style="font-size:13.5px; letter-spacing:0; color:#9AA4AE; margin:0 0 12px; font-weight:600;">What members said</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;">
+          <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="2">
+            <figure style="margin:0; background:#FFFFFF; border:1.5px solid #E4E6E2; border-radius:12px; padding:20px 22px;">
+              <blockquote style="margin:0 0 12px; padding:0;"><p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:500; line-height:1.5; color:#12314A; margin:0;">&ldquo;{{ q.text }}&rdquo;</p></blockquote>
+              <figcaption style="font-size:13px; color:#6B7A88; margin:0;">{{ q.who }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
       </section>
 
-      <section id="solution" data-screen-label="05 Final Design" ref="{{ rRefSolution }}" style="{{ rSolution }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Final design:</p>
-        <div data-proto-mount="rules" style="min-height:420px;"></div>
-      </section>
-
-      <section id="reflection" data-screen-label="06 Reflection" ref="{{ rRefReflection }}" style="{{ rReflection }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(48px,5.5vw,68px);">
-        <p style="font-family:'Mulish',sans-serif; font-style:normal; font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Reflection:</p>
-        <h2 style="font-size:clamp(21px,2.4vw,26px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">What I learned</h2>
+      <!-- REFLECTION -->
+      <section id="reflection" data-screen-label="08 Reflection" ref="{{ rRefReflection }}" style="{{ rReflection }} scroll-margin-top:32px; max-width:860px; margin-bottom:clamp(44px,5vw,60px);">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.01em; color:#2F6B4A; margin:0 0 12px;">Reflection:</p>
+        <h2 style="font-size:clamp(20px,2vw,23px); font-weight:600; letter-spacing:-0.008em; line-height:1.28; margin:0 0 14px; max-width:44ch;">What I learned</h2>
         <div style="display:flex; flex-direction:column; border-top:1px solid #E9E9E6;">
           <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="4">
             <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; padding:18px 0; border-bottom:1px solid #E9E9E6;">
               <span class="mono" style="font-size:12px; letter-spacing:0.1em; color:#2F6B4A; padding-top:5px;">{{ t.n }}</span>
               <div>
                 <p style="font-family:'Playfair Display',serif; font-size:16.5px; font-weight:600; letter-spacing:-0.004em; margin:0 0 6px;">{{ t.title }}</p>
-                <p style="font-size:14.5px; line-height:1.7; color:#3F5A70; margin:0; max-width:68ch;">{{ t.body }}</p>
+                <p style="font-size:14.5px; line-height:1.6; color:#3F5A70; margin:0; max-width:68ch;">{{ t.body }}</p>
               </div>
             </div>
           </sc-for>
@@ -277,11 +365,8 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { after: false, track: 'design', active: 'problem', pct: 0, playing: {}, revealed: {} };
+  state = { after: false, active: 'problem', revealed: {} };
 
-  _areaEls = {};
-  _refCbs = {};
-  _toggleCbs = {};
   _revealRefs = {};
   _revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -291,11 +376,11 @@ class Component extends DCLogic {
         this._revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.08 });
 
   revealStyle(key) {
     const on = this.state.revealed[key];
-    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(28px)') + '; transition:opacity 0.8s ease, transform 0.8s ease;';
+    return 'opacity:' + (on ? 1 : 0) + '; transform:' + (on ? 'translateY(0)' : 'translateY(14px)') + '; transition:opacity 0.45s cubic-bezier(0.2,0.7,0.2,1), transform 0.5s cubic-bezier(0.2,0.7,0.2,1);';
   }
 
   setRevealRef(key) {
@@ -308,37 +393,16 @@ class Component extends DCLogic {
     };
   }
 
-  _setAreaRef = (i) => {
-    if (!this._refCbs[i]) {
-      this._refCbs[i] = (el) => {
-        if (!el) return;
-        this._areaEls[i] = el;
-        if (el._wired) return;
-        el._wired = true;
-        el.muted = true; el.defaultMuted = true;
-        el.pause();
-      };
-    }
-    return this._refCbs[i];
-  };
-
-  _toggleArea = (i) => {
-    if (!this._toggleCbs[i]) this._toggleCbs[i] = this._makeToggle(i);
-    return this._toggleCbs[i];
-  };
-
-  _makeToggle = (i) => () => {
-    const el = this._areaEls[i];
-    const on = !this.state.playing[i];
-    if (el) {
-      if (on) { const p = el.play(); if (p && p.catch) p.catch(() => {}); }
-      else el.pause();
-    }
-    this.setState(s => ({ playing: { ...s.playing, [i]: on } }));
-  };
+  getRail() {
+    return [
+      ['problem', 'Problem'], ['research', 'Research'],
+      ['decisions', 'Design Decisions'], ['designsystem', 'Design System'], ['testing', 'Testing'],
+      ['solution', 'Final Design'], ['impact', 'Impact'], ['reflection', 'Reflection'],
+    ];
+  }
 
   componentDidMount() {
-    this.ids = ['problem','research','decisions','designsystem','testing','solution','reflection'];
+    this.ids = this.getRail().map(([id]) => id);
     this._tick = () => {
       this._raf = 0;
       let cur = null;
@@ -365,7 +429,6 @@ class Component extends DCLogic {
     window.addEventListener('load', this.onScroll);
     requestAnimationFrame(this.onScroll);
     this.settleTimers = [300, 800, 1500, 3000].map(ms => setTimeout(this.onScroll, ms));
-    // Media loading in changes every section's offset — recompute when it settles.
     if (window.ResizeObserver) {
       this.ro = new ResizeObserver(() => this.onScroll());
       this.ro.observe(document.body);
@@ -383,7 +446,6 @@ class Component extends DCLogic {
     if (this._revealObserver) this._revealObserver.disconnect();
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._videoObserver) this._videoObserver.disconnect();
-    if (this._pauseObserver) this._pauseObserver.disconnect();
     (this.settleTimers || []).forEach(clearTimeout);
     if (this.ro) this.ro.disconnect();
     if (this.mediaCleanup) this.mediaCleanup.forEach(fn => fn());
@@ -403,85 +465,38 @@ class Component extends DCLogic {
     if (!el || el._wired) return;
     el._wired = true;
     el.muted = true; el.defaultMuted = true;
-    const end = parseFloat(el.dataset.end);
-    if (end) el.addEventListener('timeupdate', () => { if (el.currentTime >= end) { el.currentTime = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); } });
     this._videoObserver.observe(el);
   };
 
-  _pauseObserver = new IntersectionObserver((entries) => {
-    entries.forEach(({ target: el, isIntersecting }) => { if (!isIntersecting) el.pause(); });
-  }, { threshold: 0.01 });
-
-  _playBtn = (btn) => {
-    if (!btn || btn._wired) return;
-    const v = btn.parentNode && btn.parentNode.querySelector('video');
-    if (!v) return;
-    btn._wired = true;
-    const dot = btn.firstElementChild;
-    const iPlay = dot.querySelector('[data-i="play"]'), iPause = dot.querySelector('[data-i="pause"]');
-    v.muted = true; v.defaultMuted = true;
-    const show = (playing, hover) => {
-      iPlay.style.display = playing ? 'none' : 'block';
-      iPause.style.display = playing ? 'block' : 'none';
-      dot.style.opacity = !playing || hover ? '1' : '0';
-      dot.style.transform = hover ? 'scale(1.08)' : 'scale(1)';
-      btn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+  _countUp = (el) => {
+    if (!el || el._counted) return;
+    const node = el.firstChild;
+    if (!node || node.nodeType !== 3) return;
+    el._counted = true;
+    const raw = (node.nodeValue || '').trim();
+    const m = raw.match(/^([0-9][0-9,.]*)(.*)$/);
+    if (!m) return;
+    const suffix = m[2];
+    const target = parseFloat(m[1].replace(/,/g, ''));
+    if (!isFinite(target) || target === 0) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const decimals = (m[1].split('.')[1] || '').length;
+    const fmt = (v) => v.toFixed(decimals) + suffix;
+    node.nodeValue = fmt(0);
+    const run = () => {
+      const dur = 1100, t0 = performance.now();
+      const tick = (t) => {
+        const k = Math.min(1, (t - t0) / dur);
+        node.nodeValue = k < 1 ? fmt(target * (1 - Math.pow(1 - k, 3))) : raw;
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
     };
-    let hover = false;
-    const sync = () => show(!v.paused, hover);
-    v.addEventListener('play', sync);
-    v.addEventListener('pause', sync);
-    btn.addEventListener('mouseenter', () => { hover = true; sync(); });
-    btn.addEventListener('mouseleave', () => { hover = false; sync(); });
-    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
-    v.addEventListener('loadedmetadata', () => { if (v.currentTime === 0 && v.paused) v.currentTime = 0.001; });
-    const end = parseFloat(v.dataset.end);
-    if (end) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } });
-    btn.addEventListener('click', () => {
-      if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
-    });
-    this._pauseObserver.observe(v);
-    sync();
-  };
-
-  _autoScroll = (el) => {
-    if (!el || el._wired) return;
-    el._wired = true;
-    let dir = 1, last = 0, visible = false, paused = false;
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { io.disconnect(); run(); } });
+    }, { threshold: 0.4 });
     io.observe(el);
-    el.addEventListener('pointerenter', () => { paused = true; });
-    el.addEventListener('pointerleave', () => { paused = false; });
-    const step = (t) => {
-      if (last && visible && !paused) {
-        const dt = Math.min(48, t - last);
-        const max = el.scrollHeight - el.clientHeight;
-        if (max > 4) {
-          el.scrollTop += dir * dt * 0.026;
-          if (el.scrollTop >= max - 0.5) { el.scrollTop = max; dir = -1; }
-          else if (el.scrollTop <= 0.5) { el.scrollTop = 0; dir = 1; }
-        }
-      }
-      last = t;
-      requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
   };
-
-  tabStyle(active) {
-    return {
-      background: active ? '#2F6B4A' : 'transparent',
-      color: active ? '#F1F7F1' : '#5C6B60',
-      border: 'none',
-      borderRadius: '100px',
-      padding: '11px 26px',
-      fontFamily: "'Mulish', sans-serif",
-      fontSize: '14.5px',
-      fontWeight: 600,
-      cursor: 'pointer',
-      transition: 'background 0.22s ease, color 0.22s ease',
-    };
-  }
 
   jumpToSection(e, id) {
     if (e && e.preventDefault) e.preventDefault();
@@ -491,16 +506,10 @@ class Component extends DCLogic {
 
   renderVals() {
     const after = this.state.after;
+    const divider = 'border-left:1px solid #E4E6E2; padding-left:clamp(18px,2.6vw,28px);';
     return {
-      isDesign: this.state.track === 'design',
-      isDev: this.state.track === 'dev',
-      designSelected: this.state.track === 'design',
-      devSelected: this.state.track === 'dev',
-      designTabStyle: this.tabStyle(this.state.track === 'design'),
-      devTabStyle: this.tabStyle(this.state.track === 'dev'),
-      showDesign: () => this.setState({ track: 'design' }),
-      showDev: () => this.setState({ track: 'dev' }),
       toggleFidelity: () => this.setState(s => ({ after: !s.after })),
+      afterPressed: after ? 'true' : 'false',
       beforeOpacity: after ? 0 : 1,
       afterOpacity: after ? 1 : 0,
       beforeColor: after ? '#9AA4AE' : '#12314A',
@@ -508,22 +517,18 @@ class Component extends DCLogic {
       knobX: after ? '22px' : '0px',
       knobTrack: after ? '#2F6B4A' : '#E4E6E2',
       fidelityCaption: after ? 'Hi-fi V2 (current)' : 'Hi-fi V1',
-      progressWidth: this.state.pct + '%',
-      autoScroll: this._autoScroll,
       loopVideo: this._loopVideo,
-      playBtn: this._playBtn,
+      countUp: this._countUp,
+      jumpImpact: (e) => this.jumpToSection(e, 'impact'),
       rProblem: this.revealStyle('problem'), rRefProblem: this.setRevealRef('problem'),
       rResearch: this.revealStyle('research'), rRefResearch: this.setRevealRef('research'),
       rDecisions: this.revealStyle('decisions'), rRefDecisions: this.setRevealRef('decisions'),
       rDesignsystem: this.revealStyle('designsystem'), rRefDesignsystem: this.setRevealRef('designsystem'),
       rTesting: this.revealStyle('testing'), rRefTesting: this.setRevealRef('testing'),
       rSolution: this.revealStyle('solution'), rRefSolution: this.setRevealRef('solution'),
+      rImpact: this.revealStyle('impact'), rRefImpact: this.setRevealRef('impact'),
       rReflection: this.revealStyle('reflection'), rRefReflection: this.setRevealRef('reflection'),
-      nav: [
-        ['problem', 'Problem'], ['research', 'Research'],
-        ['decisions', 'Design Decisions'], ['designsystem', 'Design System'], ['testing', 'Testing'],
-        ['solution', 'Final Design'], ['reflection', 'Reflection'],
-      ].map(([id, label]) => ({
+      nav: this.getRail().map(([id, label]) => ({
         href: '#' + id, label,
         onClick: (e) => this.jumpToSection(e, id),
         style: {
@@ -535,20 +540,76 @@ class Component extends DCLogic {
       details: [
         { label: 'My Role', value: 'UX Researcher & Rules Page UX/UI + Development' },
         { label: 'Timeline', value: 'June-Nov 2026' },
-        { label: 'Team', value: '1 lead, 5 developers' },
+        { label: 'Team', value: '1 lead, 5 designers' },
         { label: 'Tools', value: 'Figma, FigJam, GitHub, VS Code' },
       ],
-      contributions: [
-        { n: '01', label: 'Research:', body: 'I ideated the cohorts I was targeting, interviewed potential candidates, created a SWOT analysis while researching competitors, and conducted usability tests.' },
-        { n: '02', label: 'Design:', body: 'I was in charge of designing and creating the Rules page.' },
-        { n: '03', label: 'Components & Assets:', body: 'I created several components and assets for this project which were utilized in the making of the site.' },
-        { n: '04', label: 'Development:', body: 'In progress: Currently pushing the Rules page branch from Figma to GitHub in the development of building the actual site.' },
+      glance: [
+        { title: 'The problem', body: 'Rules were split across Discord channels, and newcomers didn’t know what to do after finding a dino.' },
+        { title: 'What I did', body: 'Defined the audiences, interviewed members, designed the Rules page, tested it twice, and took it from Figma into code.' },
+        { title: 'The result', body: 'One page a newcomer can scan, live on the club’s first website since launch day.' },
+      ].map((g, i) => ({ ...g, style: i ? divider : '' })),
+      stats: [
+        { value: '790', label: 'site visits in launch week' },
+        { value: '47', label: 'Discord joins through the site’s Join button, more than any other invite link' },
+        { value: '0', label: 'server errors across about 159K requests' },
       ],
-      takeaways: [
-        { n: '01', title: 'Restraint made the site feel finished.', body: 'Cutting animation back made the site feel finished, and testing showed that where information sits on the page matters just as much as what it says to the user.' },
-        { n: '02', title: 'Ask questions early.', body: 'Working with an actual client taught me to never hesitate to ask questions about what I need for my page, what their vision is, and whether anything isn\u2019t clear.' },
-        { n: '03', title: 'Scalable systems make iteration easier.', body: 'Making my layout, assets, and components scalable made constant iterations and changes easier, and having my UI set up as styles that are easy to reference helped too.' },
-        { n: '04', title: 'Curious about how developers work.', body: 'Pushing from Figma to VS Code made me even more interested in working with developers and in learning more about their process, thinking, and constraints.' },
+      researchStats: [
+        { value: '62', label: 'students surveyed (team)' },
+        { value: '15', label: 'interviews (team)' },
+        { value: '3', label: 'audience cohorts I defined' },
+      ],
+      personas: [
+        { tag: 'Primary audience', accent: '#2F6B4A', pillBg: '#E8F3EC', pillFg: '#1F5238', name: 'Kenzie Splits', meta: '18 \u00b7 1st year \u00b7 Interested Observer + Unaware Candidate',
+          quote: 'I want to learn more about the club and how it works, but I don\u2019t know where to start.',
+          needs: ['A clear picture of how the club and hunts work', 'Information outside Discord (she checks Instagram first)'] },
+        { tag: 'Secondary audience', accent: '#8899FA', pillBg: '#EEF0FE', pillFg: '#3A4A9E', name: 'Caleb Summers', meta: '20 \u00b7 4th year \u00b7 Active Participant',
+          quote: 'I want to easily find information on dino drop scheduling and rules, but the Discord is confusing to navigate.',
+          needs: ['Clear rules and guidelines for club events', 'One place to check instead of scrolling channels'] },
+      ],
+      compare: [
+        { n: '01', title: 'Getting into the rules', sides: [
+          { tag: 'Before \u00b7 Hi-fi V1', tagBg: '#F6E9E9', tagFg: '#8A3B3B', pinBg: '#B5483E', src: '/assets/compare/v1_top.webp', alt: 'Hi-fi V1: the Rules page opens on three large cards that each hide rules behind a click',
+            pins: [{ n: '1', x: '13%', y: '51%' }, { n: '2', x: '95%', y: '78%' }],
+            notes: [{ n: '1', text: 'Rules hid behind three click-to-open cards, so nothing was readable at first glance.' }, { n: '2', text: 'A yellow gradient background that didn\u2019t match the design system.' }] },
+          { tag: 'After \u00b7 Hi-fi V2', tagBg: '#E8F3EC', tagFg: '#1F5238', pinBg: '#2F6B4A', src: '/assets/compare/v2_top.webp', alt: 'Hi-fi V2: an illustrated hero, then General Rules starting directly on the page',
+            pins: [{ n: '1', x: '34%', y: '79%' }, { n: '2', x: '50%', y: '30%' }],
+            notes: [{ n: '1', text: 'Rules start right on the page. No clicks needed to read them.' }, { n: '2', text: 'Hero art, colors, and type now come from the club\u2019s design system.' }] },
+        ] },
+        { n: '02', title: 'Reading the rules', sides: [
+          { tag: 'Before \u00b7 Hi-fi V1', tagBg: '#F6E9E9', tagFg: '#8A3B3B', pinBg: '#B5483E', src: '/assets/compare/v1_popup.webp', alt: 'Hi-fi V1: a glass-effect pop-up listing seven conduct rules in one long list',
+            pins: [{ n: '1', x: '93%', y: '11%' }, { n: '2', x: '7.5%', y: '60%' }],
+            notes: [{ n: '1', text: 'A glass-effect pop-up covered and blurred the page behind it.' }, { n: '2', text: 'Seven rules in one long list, all at the same weight.' }] },
+          { tag: 'After \u00b7 Hi-fi V2', tagBg: '#E8F3EC', tagFg: '#1F5238', pinBg: '#2F6B4A', src: '/assets/compare/v2_rules.webp', alt: 'Hi-fi V2: General Rules split into Always and Never boxes with icons and bold key phrases',
+            pins: [{ n: '1', x: '24.5%', y: '42.5%' }, { n: '2', x: '36%', y: '58.5%' }],
+            notes: [{ n: '1', text: 'Split into Always / Never boxes with icons, so the rule type reads first.' }, { n: '2', text: 'The key phrase of each rule is bold, so it scans in a second.' }] },
+        ] },
+      ],
+      myths: ['You need to know how to crochet', 'Meetings are mandatory', 'It costs money to join'],
+      cohorts: [
+        { title: 'Active Participant', body: 'Already hunts and is in the club.' },
+        { title: 'Interested Observer', body: 'Follows the Instagram but has barely joined a drop, if at all.', primary: true },
+        { title: 'Unaware Candidate', body: 'Has no idea what the club is or what it does.', primary: true },
+      ],
+      insights: [
+        { n: '01', title: 'Rules were the #1 pain point in almost every interview.', body: 'Also raised in both surveys. Rules were split across channels, and nobody knew what to do after finding a dino.' },
+        { n: '02', title: 'Newcomers didn’t know how to get notified.', body: 'Setting up Discord notifications was the most-requested missing content.' },
+        { n: '03', title: 'People wanted flexibility and predictability.', body: 'They liked that meetings aren’t mandatory, but wanted to know when drops happen.' },
+      ],
+      rulesInsights: [
+        { n: '01', title: 'Rules were the #1 pain point in almost every interview.', body: 'Rules were split across channels, and active members admitted they skipped them when they joined.' },
+        { n: '02', title: 'How many dinos you can claim was unclear.', body: 'Nobody knew the claim limits, and the answer wasn’t written anywhere.' },
+        { n: '03', title: 'Only about 2% of the server actively takes part.', body: 'Roughly 100 of about 4,500 members participate, and the long rules list in Discord was part of the confusion.' },
+      ],
+      chosen: [
+        'Motion only on hover, and only on things you can click',
+        'Scannable boxes instead of pop-ups',
+        'Icons and bold text so each rule reads at a glance',
+        'Whimsy kept in the illustrations, color, and copy',
+      ],
+      rejected: [
+        'Hover effects, pop-ups, and reveals across the whole page',
+        'A glass-effect gradient that clashed with the theme',
+        'Motion that pulled attention from the rules',
       ],
       palette: [
         { name: 'Off-White', hex: '#FFFDFD' },
@@ -562,40 +623,42 @@ class Component extends DCLogic {
         { name: 'Form Gray', hex: '#919191' },
         { name: 'Black', hex: '#3D3D3D' },
       ],
-      cohorts: [
-        { title: 'Active Participant', body: 'Already hunts and is in the club.' },
-        { title: 'Interested Observer', body: 'Follows the Instagram and has either not joined a drop or barely stepped foot into the club.', primary: true },
-        { title: 'Unaware Candidate', body: 'Has no idea what the club is and is about.', primary: true },
-      ],
-      insights: [
-        { n: '01', title: 'Rules were the #1 pain point in almost every interview.', body: 'Also raised in both surveys. Rules were split across channels, and nobody knew what to do after finding a dino.' },
-        { n: '02', title: 'Newcomers didn\u2019t know how to get notified.', body: 'Setting up Discord notifications was the most-requested missing content.' },
-        { n: '03', title: 'People wanted flexibility and predictability.', body: 'They liked that meetings aren\u2019t mandatory, but wanted to know when drops happen.' },
-      ],
-      rulesInsights: [
-        { n: '01', title: 'Actives procrastinated reading the rules.', body: 'They skipped the rules when they first saw them on Discord, and are still confused today.' },
-        { n: '02', title: 'How many dinos you can claim was unclear.', body: 'Nobody knew how many dinos they could hunt and claim, and the answer was nowhere to be found.' },
-        { n: '03', title: 'Only ~2% of the server actively participates.', body: 'Only ~100 of ~5,000 members participate, and the long list of rules in Discord was confusing and still is.' },
-      ],
       changes: [
-        { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved above the FAQ and gave it a section of its own.' },
-        { label: 'A long page caused scrolling fatigue.', change: 'Tried pop-ups to shorten the page, then replaced them with scannable boxes.' },
-        { label: 'Rules and Getting Started blurred together.', change: 'Moving the section clarified which page answers what.' },
+        { label: 'Post-claim steps were buried at the bottom of a long page.', change: 'Moved them above the FAQ, in a section of their own.' },
+        { label: 'A long page caused scrolling fatigue.', change: 'Tried pop-ups to shorten it, then replaced them with scannable boxes.' },
+        { label: 'Rules and Getting Started blurred together.', change: 'Moving that section clarified which page answers what.' },
       ],
       changesHi: [
-        { label: 'The gradient didn\u2019t align with the visual identity, and the glass effect didn\u2019t match the theme.', change: 'Removed the hover blur and adapted everything to the design system theme.' },
-        { label: 'Pop-up overlays and too much animation caused user friction.', change: 'Cut back to hover states only for animation.' },
-        { label: 'The rules still carried too much cognitive load.', change: 'Used icons and visual weight (bolding), in boxes built for scannability.' },
+        { label: 'The gradient and glass effect didn’t match the visual identity.', change: 'Removed the hover blur and matched everything to the design system.' },
+        { label: 'Pop-up overlays and heavy animation caused friction.', change: 'Cut animation back to hover states only.' },
+        { label: 'The rules still carried too much cognitive load.', change: 'Added icons and bold text, in boxes built for scanning.' },
       ],
-      areas: [
-        { name: 'Rules', clip: '/assets/tri-final-rules.mp4', body: 'Discord safety, hunt rules, flash sales, and post-claim steps in one place.' },
-      ].map((a, i) => ({
-        ...a,
-        setRef: this._setAreaRef(i),
-        onToggle: this._toggleArea(i),
-        playing: !!this.state.playing[i],
-        idle: !this.state.playing[i],
-      })),
+      anatomy: [
+        { n: '01', title: 'General rules', body: 'Always / Never cards for conduct.' },
+        { n: '02', title: 'Hunt rules', body: 'One icon and one line per rule, including dino limits.' },
+        { n: '03', title: 'Flash sales', body: 'Listing hours plus three numbered rules.' },
+        { n: '04', title: 'Claimed a dino?', body: 'Three numbered next steps.' },
+        { n: '05', title: 'FAQ + help', body: 'Common questions, then a hand-off to #rules-help.' },
+      ],
+      siteResults: [
+        { value: '790 visits', label: 'in the first week after launch.' },
+        { value: '47 of 129 Discord joins (36%)', label: 'came through the site’s Join button over 28 days, the most of the club’s 10 invite links (the next had 45).' },
+        { value: '0 server errors', label: 'across about 159K requests in a 30-day window around launch, with a 94.65% cache hit rate.' },
+      ],
+      launchResults: [
+        { value: '99 new Discord members', label: 'on fair day, when the server usually gains 0–2 a day.' },
+        { value: '1,229 accounts reached', label: 'by the club’s launch story on Instagram, 68% of them not yet following.' },
+      ],
+      quotes: [
+        { text: 'I think it would have been so nice to have the rules out like that so people were more in the know.', who: 'KC, staff alumni' },
+        { text: 'I was a little overwhelmed at first with all the channels in the club’s discord server, but the website really helped lay out the chronological steps on how to participate.', who: 'General member, 2nd year' },
+      ],
+      takeaways: [
+        { n: '01', title: 'Restraint made the site feel finished.', body: 'Cutting animation back made the page calmer, and testing showed that where information sits matters as much as what it says.' },
+        { n: '02', title: 'Ask questions early.', body: 'Working with a real client taught me to ask early about what my page needs, what their vision is, and anything that isn’t clear.' },
+        { n: '03', title: 'Scalable systems make iteration easier.', body: 'Building my layout, assets, and components to scale, with UI saved as reusable styles, made constant changes much easier.' },
+        { n: '04', title: 'Curious about how developers work.', body: 'Taking my page from Figma into VS Code made me want to learn more about developers’ process, thinking, and constraints.' },
+      ],
     };
   }
 }
